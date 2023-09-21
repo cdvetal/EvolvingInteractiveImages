@@ -1,9 +1,8 @@
-int maxDepth = 30;
-
+int maxDepth = 40;
 int seed = 0;
 
 void setup(){
- size(270, 270);
+ size(420, 420);
  colorMode(RGB, 1);
  
  if(seed == 0) seed = floor(random(1000000));
@@ -21,6 +20,8 @@ void setup(){
      set(i,j,c);
    }
  }
+ 
+ println(seed);
 }
 
 void draw(){
@@ -28,6 +29,6 @@ void draw(){
 }
 
 void mousePressed(){
- save("imgs/img_"+month()+"M_"+day()+"D_"+hour()+"h_"+minute()+"m_"+second()+"s"+".png");
+ save("imgs/imgSeed_"+seed+"_Depth_"+maxDepth+"—"+month()+"M_"+day()+"D_"+hour()+"h_"+minute()+"m_"+second()+"s"+".png");
  exit();
 }

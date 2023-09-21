@@ -30,15 +30,15 @@ class Node {
   }
 
   void randomizeNode(Individual _indiv) {
-    type = floor(random(nTypes));
+    type = floor(noise(depth, breadth)*nTypes);
 
     aCoordinateOrder = random(1) > .5;
     bCoordinateOrder = random(1) > .5;
 
-    if (random(1) > .46 && depth < maxDepth - 1) {
+    if (noise(depth, breadth) > .46 && depth < maxDepth - 1) {
       aNode = new Node(depth + 1, _indiv);
     }
-    if (random(1) > .46 && depth < maxDepth - 1) {
+    if (noise(depth, breadth) > .46 && depth < maxDepth - 1) {
       bNode = new Node(depth + 1, _indiv);
     }
   }
