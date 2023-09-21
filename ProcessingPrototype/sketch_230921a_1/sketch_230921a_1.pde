@@ -1,4 +1,4 @@
-int maxDepth = 40;
+int maxDepth = 30;
 
 void setup(){
  size(1080, 1080);
@@ -7,6 +7,7 @@ void setup(){
  Individual ind = new Individual();
  
  for(int i = 0; i < width; i++){
+   println((float)i/width * 100);
    for(int j = 0; j < height; j++){
      PVector rgb = ind.getColor((float)i/width, (float)j/height);
      
