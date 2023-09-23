@@ -2,10 +2,10 @@ int populationSize = 20;
 int eliteSize = 2;
 int tournamentSize = 3;
 float crossoverRate = .6;
-float mutationRate = .2;
+float mutationRate = .1;
 
 int maxDepth = 40;
-int maxNodeChildren = 4;
+int maxNodeSlots = 4;
 int resolution = 150;
 
 Population population;
@@ -15,6 +15,9 @@ Individual hoveredIndividual = null;
 void setup() {
   size(1440, 920);
   colorMode(RGB, 1);
+  
+  float[] values = new float[3];
+  println(values[0]);
 
   population = new Population();
   grid = calculateGrid(populationSize, 0, 0, width, height, 20, 20, 20, false);

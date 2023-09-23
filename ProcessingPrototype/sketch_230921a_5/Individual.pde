@@ -10,8 +10,8 @@ class Individual {
     fitness = 0;
     breadthTracker = new int[maxDepth];
     for (int i = 0; i < 3; i++) {
-      nodes[i] = new Node(this);
-      nodes[i].randomizeNode(this);
+      nodes[i] = new Node();
+      nodes[i].randomizeNode();
     }
     identifyNodes();
   }
@@ -62,7 +62,7 @@ class Individual {
   void mutate() {
     for (int i = 0; i < nodes.length; i++)
     {
-      nodes[i].mutate(this);
+      nodes[i].mutate();
     }
   }
 

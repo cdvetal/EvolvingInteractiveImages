@@ -1,116 +1,152 @@
 class Node {
 
-  int nTypes = 12;
-  int type;
-  
+  int nMathTypes = 12;
+  int mathType;
+
   int depth;
   int breadth;
-  
-  ArrayList<Node> childrenNodes = new ArrayList<Node>(); //to do...
 
-  Node aNode = null;
-  Node bNode = null;
+  int nSlotTypes = 5; //0-null 1-x 2-y 3-float 4-node
+  int[] slotTypes = new int[maxNodeSlots];
+  int[] slotMathTypes = new int[maxNodeSlots];
+  ArrayList<Float> floatValues = new ArrayList<Float>();
+  ArrayList<Node> nodeChildren = new ArrayList<Node>(); //to do...
 
-  boolean aCoordinate; //if aNode is null it will be replaced by either X or Y - true is X, false is Y
-  boolean bCoordinate;
-
-  boolean aCoordinateOrder; //order of calculations. if true a / b; else b / a
-  boolean bCoordinateOrder;
-
-  float finalValue;
-
-  float valueA;
-  float valueB;
-
-  Node(Individual _indiv) {
-    breadth = _indiv.getNextBreadth(depth);
-    //randomizeNode(_indiv);
-  }
-  
-  Node(int _type, Node _aNode, Node _bNode, boolean _aCoordinates, boolean _bCoordinates, boolean _aCoordinateOrder, boolean _bCoordinateOrder){
-    type = _type;
-    aNode = _aNode;
-    bNode = _bNode;
-    aCoordinate = _aCoordinates;
-    bCoordinate = _bCoordinates;
-    aCoordinateOrder = _aCoordinateOrder;
-    bCoordinateOrder = _bCoordinateOrder;
+  Node() {
   }
 
-  void randomizeNode(Individual _indiv) {
-    type = floor(random(nTypes));
-    
-    int nNodes = floor(random(maxNodeChildren));
+  Node(int[] _slotTypes, int[] _slotMathTypes, ArrayList<Float> _floatValues, ArrayList<Node> _nodeChildren) {
+    slotTypes = _slotTypes;
+    slotMathTypes = _slotMathTypes;
+    floatValues = _floatValues;
+    nodeChildren =_nodeChildren;
+  }
 
-    aCoordinateOrder = random(1) > .5;
-    bCoordinateOrder = random(1) > .5;
-
-    if (noise(depth, breadth) > .5 && depth < maxDepth - 1) {
-      aNode = new Node(_indiv);
+  void randomizeNode() {
+    for (int i = 0; i < slotMathTypes.length; i ++) {
+      slotMathTypes[i] = floor(random(nMathTypes));
     }
-    if (noise(depth, breadth) > .5 && depth < maxDepth - 1) {
-      bNode = new Node(_indiv);
+
+    for (int i = 0; i < slotTypes.length; i ++) {
+      slotTypes[i] = floor(random(nSlotTypes));
+
+      if (slotTypes[i] == 3) floatValues.add(random(1));
+
+      if (slotTypes[i] == 4) {
+        Node newNode = new Node();
+        newNode.randomizeNode();
+        nodeChildren.add(newNode);
+      }
     }
   }
-  
-  void identify(int _depth, Individual _indiv){
+
+  void identify(int _depth, Individual _indiv) {
     breadth = _indiv.getNextBreadth(depth);
     depth = _depth;
-    if(aNode != null) aNode.identify(_depth + 1, _indiv);
-    if(bNode != null) bNode.identify(_depth + 1, _indiv);
+
+    for (int i = 0; i < nodeChildren.size(); i++) {
+      nodeChildren.get(i).identify(_depth + 1, _indiv);
+    }
   }
-  
-  void mutate(Individual _indiv){
-    if(aNode != null){
-      if(random(1) < mutationRate) aNode = null;
-      else aNode.mutate(_indiv);
-    }
-    else if(random(1) < mutationRate && depth < maxDepth - 1){
-      aNode = new Node(_indiv);
-    }
-    if(bNode != null){
-      if(random(1) < mutationRate) aNode = null;
-      else bNode.mutate(_indiv);
-    }
-    else if(random(1) < mutationRate && depth < maxDepth - 1){
-      bNode = new Node(_indiv);
+
+
+  void mutate() {
+    for (int i = 0; i < slotTypes.length; i ++) {
+      if (random(1) > mutationRate) continue;
+
+      int newSlotType = floor(random(nSlotTypes));
+      if (newSlotType == slotTypes[i]) continue;
+
+      int oldSlotType = slotTypes[i];
+
+      if (oldSlotType == 3) floatValues.remove(floor(random(floatValues.size() - 1)));
+      //else if (oldSlotType == 4) nodeChildren.remove(floor(random(nodeChildren.size() - 1)));
+
+      if (newSlotType == 3) floatValues.add(random(1));
+      else if (oldSlotType == 4) {
+        Node newNode = new Node();
+        newNode.randomizeNode();
+        nodeChildren.add(newNode);
+      }
+      
+      slotTypes[i] = newSlotType;
     }
     
     if(random(1) < mutationRate){
-      type = floor(noise(depth, breadth)*nTypes);
+      int indexA = floor(random(slotTypes.length));
+      int indexB = floor(random(slotTypes.length));
+      
+      int val = slotTypes[indexA];
+      
+      slotTypes[indexA] = slotTypes[indexB];
+      slotTypes[indexB] = val;
     }
-    if(random(1) < mutationRate){
-      aCoordinateOrder = !aCoordinateOrder;
+    if(random(1) < mutationRate && floatValues.size() > 1){
+      Collections.shuffle(floatValues);
     }
-    if(random(1) < mutationRate){
-      bCoordinateOrder = !bCoordinateOrder;
+    if(random(1) < mutationRate && nodeChildren.size() > 1){
+      Collections.shuffle(nodeChildren);
     }
   }
 
   float getValue(float _x, float _y) {
-    if (aNode != null)valueA = aCoordinateOrder ? aNode.getValue(_x, _y) : aNode.getValue(_y, _x);
-    else {
-      valueA = aCoordinate? _x : _y;
+    float[] values = new float[maxNodeSlots];
+
+    int floatValueIndex = 0;
+    int nodeValueIndex = 0;
+
+    float toReturn = -10000;
+
+    for (int i = 0; i < slotTypes.length; i++) {
+      switch(slotTypes[i]) {
+      case 1:
+        values[i] = _x;
+        break;
+      case 2:
+        values[i] = _y;
+        break;
+      case 3:
+        {
+          values[i] = floatValues.get(floatValueIndex);
+          floatValueIndex ++;
+          break;
+        }
+      case 4:
+        {
+          if(nodeValueIndex >= nodeChildren.size())continue; //temporary fix
+          values[i] = nodeChildren.get(nodeValueIndex).getValue(_x, _y);
+          nodeValueIndex ++;
+          break;
+        }
+      }
+      if (slotTypes[i]>0) {
+        if (toReturn == -10000) toReturn = values[i];
+        else if (slotTypes[i-1] != 0) toReturn = doMath(values[i-1], values[i], slotMathTypes[i]);
+      }
     }
 
-    if (bNode != null)valueB = bCoordinateOrder ? bNode.getValue(_x, _y) : bNode.getValue(_y, _x);
-    else {
-      valueB = bCoordinate? _x : _y;
+    if (toReturn == -10000) return 0;
+
+    return toReturn;
+  }
+
+  Node getCopy() {
+    ArrayList<Float> copiedFloats = new ArrayList<Float>();
+    for (int i = 0; i < floatValues.size(); i++) {
+      copiedFloats.add(floatValues.get(i));
+    }
+    ArrayList<Node> copiedNodes = new ArrayList<Node>();
+    for (int i = 0; i < nodeChildren.size(); i++) {
+      copiedNodes.add(nodeChildren.get(i).getCopy());
     }
 
-    return doMath(valueA, valueB);
-  }
-  
-  Node getCopy(){
-    Node aNodeCopy = aNode == null ? null : aNode.getCopy();
-    Node bNodeCopy = bNode == null ? null : bNode.getCopy();
-    return new Node(type, aNodeCopy, bNodeCopy, aCoordinate, bCoordinate, aCoordinateOrder, bCoordinateOrder);
+    return new Node(slotTypes.clone(), slotMathTypes.clone(), copiedFloats, copiedNodes);
   }
 
-  float doMath(float a, float b) {
+  float doMath(float a, float b, int _type) {
     float toReturn = 0;
 
-    switch(type) {
+    switch(_type) {
     case 0: //sum
       toReturn = a + b;
       break;
