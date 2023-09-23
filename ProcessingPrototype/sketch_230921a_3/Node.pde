@@ -25,11 +25,11 @@ class Node {
 
   Node(Individual _indiv) {
     breadth = _indiv.getNextBreadth(depth);
-    randomizeNode(_indiv);
+    //randomizeNode(_indiv);
   }
 
   void randomizeNode(Individual _indiv) {
-    type = floor(noise(depth, breadth)*nTypes);
+    type = floor(random(nTypes));
 
     aCoordinateOrder = random(1) > .5;
     bCoordinateOrder = random(1) > .5;
@@ -47,6 +47,33 @@ class Node {
     depth = _depth;
     if(aNode != null) aNode.identify(_depth + 1, _indiv);
     if(bNode != null) bNode.identify(_depth + 1, _indiv);
+  }
+  
+  void mutate(Individual _indiv){
+    if(aNode != null){
+      if(random(1) < mutationRate) aNode = null;
+      else aNode.mutate(_indiv);
+    }
+    else if(random(1) < mutationRate && depth < maxDepth - 1){
+      aNode = new Node(_indiv);
+    }
+    if(bNode != null){
+      if(random(1) < mutationRate) aNode = null;
+      else bNode.mutate(_indiv);
+    }
+    else if(random(1) < mutationRate && depth < maxDepth - 1){
+      bNode = new Node(_indiv);
+    }
+    
+    if(random(1) < mutationRate){
+      type = floor(noise(depth, breadth)*nTypes);
+    }
+    if(random(1) < mutationRate){
+      aCoordinateOrder = !aCoordinateOrder;
+    }
+    if(random(1) < mutationRate){
+      bCoordinateOrder = !bCoordinateOrder;
+    }
   }
 
   float getValue(float _x, float _y) {

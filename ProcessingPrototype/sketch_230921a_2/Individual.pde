@@ -5,7 +5,7 @@ class Individual{
  Individual(){
      breadthTracker = new int[maxDepth];
   for(int i = 0; i < 3; i++){
-   nodes[i] = new Node(0, this); 
+   nodes[i] = new Node(this); 
   }
  }
  
@@ -21,6 +21,13 @@ class Individual{
    int toReturn = breadthTracker[_depth];
    breadthTracker[_depth] ++;
    return toReturn;
+ }
+ 
+ void identifyNodes(){
+   breadthTracker = new int[maxDepth];
+   for(int i = 0; i < 3; i++){
+   nodes[i].identify(0, this); 
+  }
  }
 
 }
