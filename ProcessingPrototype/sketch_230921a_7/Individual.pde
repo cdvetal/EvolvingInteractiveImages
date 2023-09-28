@@ -18,14 +18,14 @@ class Individual {
       nodes[i].randomizeNode();
       nChildNodes[i] = 0;
     }
-    individualID = floor(random(1000000));
+    generateID();
   }
 
   Individual(Node[] _nodes, int[] _nChildNodes, float _fitness) {
     nodes = _nodes;
     nChildNodes = _nChildNodes;
     fitness = _fitness;
-    individualID = floor(random(1000000));
+    generateID();
   }
 
   PVector getColor(float _x, float _y, float _external) { //change back to 0 1 2
@@ -91,6 +91,8 @@ class Individual {
       }
       node.mutate();
     }
+    
+    generateID();
   }
 
   Node getRandomNode(int _index, boolean _isCopy) {
@@ -155,10 +157,7 @@ class Individual {
     String outputPath = sketchPath("outputs/" + outputFilename);
     println("Exporting individual to: " + outputPath);
 
-    getPhenotype(2000, _external).save(outputPath + ".png");
-  }
-
-  void exportAnimation() { //to do
+    getPhenotype(exportResolution, _external).save(outputPath + ".png");
   }
 
   int[] getNChildNodes() {
@@ -173,5 +172,13 @@ class Individual {
      }
      
      return toReturn;
+  }
+  
+  void generateID(){
+     individualID = floor(random(10000000)); 
+  }
+  
+  int getID(){
+    return individualID;
   }
 }

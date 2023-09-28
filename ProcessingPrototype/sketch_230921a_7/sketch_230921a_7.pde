@@ -7,10 +7,13 @@ int tournamentSize = 3;
 float crossoverRate = .6;
 float mutationRate = .2;
 
-int maxDepth = 3;
+int maxDepth = 30;
 int resolution = 150;
+int exportResolution = 1920;
 
 boolean externalMode;
+int minExternal = 0;
+int maxExternal = 1;
 
 Population population;
 PVector[][] grid;
@@ -31,15 +34,29 @@ void draw() {
   background(.05);
   float externalValue = getExternalValue();
   drawPopulation(externalValue);
+  drawExternalFeedback(externalValue);
 }
 
 float getExternalValue() {
   float toReturn;
 
-  if (externalMode) toReturn = map(mouseX, 0, width, 0, 1);
-  else toReturn = sin((float)millis()/1000 * 1.2) * .5 + .5; //1.2 makes it faster
+  if (externalMode) toReturn = map(mouseX, 0, width, minExternal, maxExternal);
+  else toReturn = map(sin((float)millis()/1000 * 1.2), -1, 1, minExternal, maxExternal); //1.2 makes it faster
 
   return toReturn;
+}
+
+void drawExternalFeedback(float _external) {
+  noStroke();
+
+  if (_external > 0) fill(0, 1, 0);
+  else fill(1, 0, 0);
+
+  circle(width - 20, height - 20, _external * 20);
+
+  fill(1);
+  textAlign(LEFT, CENTER);
+  text(_external, width - 80, height - 20);
 }
 
 void drawPopulation(float _external) {
@@ -57,7 +74,7 @@ void drawPopulation(float _external) {
       noStroke();
       fill(1, .5);
       rect(x, y, d, d);
-      
+
       fill(1);
       text(hoveredIndividual.getTotalChildNodes(), 20, 20);
     }
@@ -105,15 +122,37 @@ PVector[][] calculateGrid(int cells, float x, float y, float w, float h, float m
   return positions;
 }
 
+void exportAnimation(Individual _individualToExport) {
+  isExportingAnimation = true;
+  println("Started exporting animation. Sit tight.");
+
+  String outputPath = sketchPath("outputs/" + _individualToExport.getID() + "/");
+
+  float sinInc = 360 / nAnimationFrames;
+
+  for (int i = 0; i < nAnimationFrames; i++) {
+    float currentAnimationExternal = map(sin(sinInc * i), -1, 1, minExternal, maxExternal);
+    String fileName = nf(i, 5);
+    String currentOutputPath = outputPath + fileName;
+    _individualToExport.getPhenotype(exportResolution, currentAnimationExternal).save(currentOutputPath + ".png");
+  }
+  
+  println("Finished exporting animation to: " + outputPath);
+
+  isExportingAnimation = false;
+}
+
 void mousePressed() {
+  if (isExportingAnimation) return;
+
   if (hoveredIndividual == null) return;
   if (mouseButton == LEFT) hoveredIndividual.giveFitness();
   if (mouseButton == RIGHT) hoveredIndividual.setFitness(0);
 }
 
 void keyPressed() {
-  if(isExportingAnimation) return;
-  
+  if (isExportingAnimation) return;
+
   if (key == ' ') {
     population.evolve();
   }
@@ -123,13 +162,13 @@ void keyPressed() {
   }
 
   if (hoveredIndividual == null) return;
-  
+
   if (keyCode == ENTER) {
     println("saved image");
     hoveredIndividual.exportImage(getExternalValue());
   }
-  
-  if (key == 'A'){
-     hoveredIndividual.exportAnimation();
+
+  if (key == 'A') {
+    exportAnimation(hoveredIndividual);
   }
 }

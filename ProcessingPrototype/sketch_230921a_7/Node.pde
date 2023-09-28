@@ -52,7 +52,7 @@ class Node {
     }
   }
 
-  void identify(int _parentIndex, Individual _indiv) { //parentIndex refers to individual nodes[ID]
+  void identify(int _parentIndex, Individual _indiv) { //parentIndex refers to individual's nodes[ID]
     
     nodeIndex = _indiv.getIndex(_parentIndex);
     
