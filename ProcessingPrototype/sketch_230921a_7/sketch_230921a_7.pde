@@ -1,7 +1,7 @@
 import java.util.*;
 import processing.pdf.*;
 
-int populationSize = 20;
+int populationSize = 5;
 int eliteSize = 2;
 int tournamentSize = 3;
 float crossoverRate = .6;
@@ -9,7 +9,8 @@ float mutationRate = .2;
 
 int maxDepth = 30;
 int resolution = 150;
-int exportResolution = 1920;
+int imageExportResolution = 1920;
+int animationExportResolution = 420;
 
 boolean externalMode;
 int minExternal = 0;
@@ -128,13 +129,14 @@ void exportAnimation(Individual _individualToExport) {
 
   String outputPath = sketchPath("outputs/" + _individualToExport.getID() + "/");
 
-  float sinInc = 360 / nAnimationFrames;
+  float sinInc = (float)(Math.PI*2) / nAnimationFrames;
 
   for (int i = 0; i < nAnimationFrames; i++) {
     float currentAnimationExternal = map(sin(sinInc * i), -1, 1, minExternal, maxExternal);
     String fileName = nf(i, 5);
     String currentOutputPath = outputPath + fileName;
-    _individualToExport.getPhenotype(exportResolution, currentAnimationExternal).save(currentOutputPath + ".png");
+    _individualToExport.getPhenotype(animationExportResolution, currentAnimationExternal).save(currentOutputPath + ".png");
+    println(currentAnimationExternal + "  " + (i+1) + " / " + nAnimationFrames);
   }
   
   println("Finished exporting animation to: " + outputPath);
@@ -168,7 +170,7 @@ void keyPressed() {
     hoveredIndividual.exportImage(getExternalValue());
   }
 
-  if (key == 'A') {
+  if (key == 'A' || key == 'a') {
     exportAnimation(hoveredIndividual);
   }
 }

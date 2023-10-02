@@ -60,7 +60,7 @@ class Node {
     if (bNode != null) bNode.identify(_parentIndex, _indiv);
   }
 
-  void mutate() {
+  void mutate() { //to improve
     if (random(1) < mutationRate) aNode = new Node(true);
     if (random(1) < mutationRate) bNode = new Node(true);
     

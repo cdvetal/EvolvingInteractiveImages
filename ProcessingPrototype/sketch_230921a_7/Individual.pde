@@ -81,7 +81,7 @@ class Individual {
     return child;
   }
 
-  void mutate() { //muito agressivo.
+  void mutate() {
     for (int i = 0; i < nodes.length; i++)
     {
       Node node = getRandomNode(i, false);
@@ -157,7 +157,7 @@ class Individual {
     String outputPath = sketchPath("outputs/" + outputFilename);
     println("Exporting individual to: " + outputPath);
 
-    getPhenotype(exportResolution, _external).save(outputPath + ".png");
+    getPhenotype(imageExportResolution, _external).save(outputPath + ".png");
   }
 
   int[] getNChildNodes() {
