@@ -1,7 +1,7 @@
 import java.util.*;
 import processing.pdf.*;
 
-int populationSize = 20;
+int populationSize = 10;
 int eliteSize = 2;
 int tournamentSize = 3;
 float crossoverRate = .6;
@@ -13,8 +13,8 @@ int imageExportResolution = 1920;
 int animationExportResolution = 1440;
 
 boolean externalMode;
-int minExternal = 0;
-int maxExternal = 1;
+float minExternal = 0.001;
+float maxExternal = 0.999;
 
 Population population;
 PVector[][] grid;
@@ -49,7 +49,7 @@ float getExternalValue() {
   float toReturn;
 
   if (externalMode) toReturn = map(mouseX, 0, width, minExternal, maxExternal);
-  else toReturn = map(sin((float)millis()/1000), -1, 1, minExternal, maxExternal) + 0.01;
+  else toReturn = map(sin((float)millis()/1000), -1, 1, minExternal, maxExternal);
 
   return toReturn;
 }
@@ -141,7 +141,7 @@ void exportAnimation(Individual _individualToExport) {
   float sinInc = (float)(Math.PI*2) / nAnimationFrames;
 
   for (int i = 0; i < nAnimationFrames; i++) {
-    float currentAnimationExternal = map(sin(sinInc * i), -1, 1, minExternal, maxExternal) + 0.001;
+    float currentAnimationExternal = map(sin(sinInc * i), -1, 1, minExternal, maxExternal);
     String fileName = nf(i, 5);
     String currentOutputPath = outputPath + fileName;
     _individualToExport.getPhenotype(animationExportResolution, currentAnimationExternal).save(currentOutputPath + ".png");
@@ -151,7 +151,7 @@ void exportAnimation(Individual _individualToExport) {
     previousMillis = millis();
   }
   
-  saveStrings(outputPath + "shader.glsl", _individualToExport.getShaderTextLines());
+  saveStrings(outputPath + _individualToExport.getID() + ".glsl", _individualToExport.getShaderTextLines());
   
   int nNodes = _individualToExport.getTotalChildNodes();
   int totalTime = millis() - millisStarted;
