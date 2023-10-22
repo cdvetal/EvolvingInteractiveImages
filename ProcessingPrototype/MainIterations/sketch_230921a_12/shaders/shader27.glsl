@@ -45,7 +45,7 @@ void main() {
     float x = uv.x;
     float y = uv.y;
 
-    float r = noise(x,((cos((externalVal+sin(tan(sin(x)))))-cos(pow(y,externalVal)))/(externalVal+(pow(y,min(externalVal,mod(externalVal,(x+y))))-(pow((y+(pow(max(sin(tan(cos(pow(tan(mod(x,y)),y)))),sin(x)),externalVal)*x)),y)*externalVal)))));
+    float r = noise(x,((tan((externalVal+sin(min(sin(x),externalVal))))-cos(pow(y,externalVal)))*(y+(pow(y,noise(externalVal,pow(externalVal,(x+y))))-(pow((y-(pow(max(sin(tan(cos(pow(tan(mod(x,y)),y)))),cos(x)),externalVal)*x)),y)*externalVal)))));
     float g = noise(externalVal,x);
     float b = tan(noise(y,cos(max((y+x),sin(x)))));
 

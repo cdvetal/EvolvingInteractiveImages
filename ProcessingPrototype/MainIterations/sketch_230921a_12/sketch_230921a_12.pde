@@ -36,6 +36,7 @@ void setup() {
   
   population = new Population();
   grid = calculateGrid(populationSize, 0, 0, width, height, 10, 10, 10, false);
+  resolution = min(resolution, (int)grid[0][0].z); 
 }
 
 void draw() {
@@ -69,6 +70,7 @@ void drawExternalFeedback(float _external) {
 
 void drawPopulation(float _external) {
   int row = 0, col = 0;
+  
   for (int i = 0; i < population.getSize(); i++) {
     float x = grid[row][col].x;
     float y = grid[row][col].y;

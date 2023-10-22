@@ -13,14 +13,12 @@ float previousSpeed;
 
 int individualIndex = 0;
 
-boolean feedbackAlwaysEnabled = true;
+boolean feedbackAlwaysEnabled = false;
 float feedbackDuration = 3;
 float feedbackTimer = 0;
 
-
-
 void setup() {
-  frameRate(120);
+  frameRate(100);
   fullScreen(P2D);
   individuals = loadIndividuals();
   shaderImage = new PImage(width, height, RGB);
@@ -66,8 +64,16 @@ void applyShader(){
   shader(individuals[individualIndex].shader);
 }
 
+void resetParameters(){
+  minExternal = 0;
+  maxExternal = 1;
+  
+  startFeedback();
+}
+
 void keyPressed() {
   if (key == 'f' || key == 'F') feedbackAlwaysEnabled = !feedbackAlwaysEnabled;
+  if (key == 'r' || key == 'R') resetParameters();
   
   if (key != CODED) return;
 
