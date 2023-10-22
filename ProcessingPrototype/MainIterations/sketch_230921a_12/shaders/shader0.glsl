@@ -45,9 +45,9 @@ void main() {
     float x = uv.x;
     float y = uv.y;
 
-    float r = (y-(externalVal*noise(sin(x),(externalVal/mod(externalVal,tan(externalVal))))));
-    float g = tan(externalVal);
-    float b = (x*max((cos(y)-((tan(externalVal)/noise(min(externalVal,externalVal),noise(noise((externalVal-externalVal),(min((y+(externalVal+externalVal)),y)-y)),y)))-noise(tan(noise(y,x)),y))),((x+noise(y,y))*sin(x))));
+    float r = max(cos(externalVal),y);
+    float g = (y/x);
+    float b = pow(mod((y/externalVal),pow(y,(y/externalVal))),cos(max(externalVal,y)));
 
     gl_FragColor = vec4(r, g, b, 1.0);
 }

@@ -45,9 +45,9 @@ void main() {
     float x = uv.x;
     float y = uv.y;
 
-    float r = (externalVal*x);
-    float g = tan(noise(y,min(((mod(y,y)/x)-mod(max(min(noise(min((tan(max(y,max(pow((x-cos(externalVal)),sin(sin(min(tan(min((externalVal-y),tan(externalVal))),externalVal)))),cos(mod(y,pow(externalVal,y))))))-x),((noise(y,y)/x)/sin(max(externalVal,(cos(mod((x*sin(pow(sin((externalVal-y)),x))),x))+noise(sin(max(y,externalVal)),y)))))),x),max(x,(pow(x,min(noise((pow(externalVal,x)/x),externalVal),x))+externalVal))),min((externalVal*x),y)),cos(x))),externalVal)));
-    float b = sin(((((cos(x)+pow(externalVal,y))-y)-x)*tan(noise(x,x))));
+    float r = (pow(mod(tan(pow(sin(y),x)),x),sin(mod(tan(x),noise(externalVal,x))))*min(y,tan(sin(x))));
+    float g = min(y,(externalVal-min(tan(externalVal),cos(min(max(y,externalVal),y)))));
+    float b = (min((((tan(pow(noise(pow(x,((y+(externalVal-y))-y)),mod(tan(x),x)),y))+min(x,mod(min((y-x),y),sin(externalVal))))*(noise(externalVal,externalVal)*x))-externalVal),cos(pow(y,sin((y/x)))))/x);
 
     gl_FragColor = vec4(r, g, b, 1.0);
 }
