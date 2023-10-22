@@ -53,13 +53,7 @@ class Node {
     if (bNode != null) bNode.identify(_parentIndex, _indiv);
   }
 
-  void mutate() { //to improve
-    if (random(1) < mutationRate) aNode = new Node(true);
-    else if (random(1) < mutationRate) aNode = null;
-
-    if (random(1) < mutationRate) bNode = new Node(true);
-    else if (random(1) < mutationRate) bNode = null;
-
+  void mutate() {
     float toAdd = random(-.1, .1);
     mathType = constrain(mathType + toAdd, 0, 1);
 
@@ -67,7 +61,7 @@ class Node {
     aType = constrain(aType + toAdd, 0, 1);
     
     toAdd = random(-.1, .1);
-    aType = constrain(bType + toAdd, 0, 1);
+    bType = constrain(bType + toAdd, 0, 1);
   }
 
   float getValue(float _x, float _y, float _external) {
@@ -263,10 +257,14 @@ class Node {
   }
   
   int getValType(float _type){
-    return floor(map(_type, 0, 1, 0, nValTypes));
+    int value = floor(map(_type, 0, 1, 0, nValTypes));
+    value = constrain(value, 0, nValTypes - 1); //if _type is 1 value = nValTypes which is out of bounds
+    return value;
   }
   
   int getMathType(float _type){
-    return floor(map(_type, 0, 1, 0, nMathTypes));
+    int value = floor(map(_type, 0, 1, 0, nMathTypes));
+    value = constrain(value, 0, nMathTypes - 1);
+    return value;
   }
 }
