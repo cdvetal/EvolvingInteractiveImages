@@ -1,0 +1,188 @@
+{
+  "id": "a9dok6jt-zyt6-qc1e-tfoj-82k6c3xdv7xz",
+  "parameters": {
+    "crossoverRate": 0.5,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.20000000298023224,
+    "populationSize": 10
+  },
+  "populations": [
+    {
+      "generation": 0,
+      "id": "6mtqookq-vj29-x7bh-od6q-t50dkvjgy0d5",
+      "individuals": [
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "in vec4 gl_FragCoord;",
+            "b": "",
+            "g": "uniform vec2 resolution;"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "in vec4 gl_FragCoord;",
+            "b": "",
+            "g": "uniform vec2 resolution;"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "in vec4 gl_FragCoord;",
+            "b": "",
+            "g": "uniform vec2 resolution;"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "in vec4 gl_FragCoord;",
+            "b": "",
+            "g": "uniform vec2 resolution;"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "in vec4 gl_FragCoord;",
+            "b": "",
+            "g": "uniform vec2 resolution;"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "in vec4 gl_FragCoord;",
+            "b": "",
+            "g": "uniform vec2 resolution;"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "in vec4 gl_FragCoord;",
+            "b": "",
+            "g": "uniform vec2 resolution;"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "in vec4 gl_FragCoord;",
+            "b": "",
+            "g": "uniform vec2 resolution;"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "in vec4 gl_FragCoord;",
+            "b": "",
+            "g": "uniform vec2 resolution;"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "in vec4 gl_FragCoord;",
+            "b": "",
+            "g": "uniform vec2 resolution;"
+          }
+        }
+      ],
+      "timestamp": "22h:4m:40s"
+    },
+    {
+      "generation": 1,
+      "ascendantID": "i3dknv6f-ucrl-ou1q-p88t-6le32ysnevlu",
+      "id": "cesv6f6u-zv9k-w1ni-nz3o-fz5iusmv44cm",
+      "individuals": [
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "in vec4 gl_FragCoord;",
+            "b": "",
+            "g": "uniform vec2 resolution;"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "in vec4 gl_FragCoord;",
+            "b": "",
+            "g": "uniform vec2 resolution;"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "in vec4 gl_FragCoord;",
+            "b": "",
+            "g": "uniform vec2 resolution;"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "in vec4 gl_FragCoord;",
+            "b": "",
+            "g": "uniform vec2 resolution;"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "in vec4 gl_FragCoord;",
+            "b": "",
+            "g": "uniform vec2 resolution;"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "in vec4 gl_FragCoord;",
+            "b": "",
+            "g": "uniform vec2 resolution;"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "in vec4 gl_FragCoord;",
+            "b": "",
+            "g": "uniform vec2 resolution;"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "in vec4 gl_FragCoord;",
+            "b": "",
+            "g": "uniform vec2 resolution;"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "in vec4 gl_FragCoord;",
+            "b": "",
+            "g": "uniform vec2 resolution;"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "in vec4 gl_FragCoord;",
+            "b": "",
+            "g": "uniform vec2 resolution;"
+          }
+        }
+      ],
+      "timestamp": "22h:4m:42s"
+    }
+  ],
+  "timestamp": "2023-11-2-22-4-40"
+}

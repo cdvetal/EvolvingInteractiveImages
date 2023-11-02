@@ -45,9 +45,9 @@ void main() {
     float x = uv.x;
     float y = uv.y;
 
-    float r = tan(mod(externalVal,externalVal));
-    float g = max(x,cos(tan(externalVal)));
-    float b = mod((x/x),externalVal);
+    float r = max(x,x);
+    float g = tan(externalVal);
+    float b = mod(x,y);
 
     gl_FragColor = vec4(r, g, b, 1.0);
 }

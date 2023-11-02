@@ -1,0 +1,98 @@
+{
+  "id": "bf4xenwm-q8ag-piyn-v7bn-j1jyg6k7rfmh",
+  "parameters": {
+    "crossoverRate": 0.5,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.20000000298023224,
+    "populationSize": 10
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "jldfpb1p-xj15-t50e-t60s-2v9zdwoj4r1z",
+    "individuals": [
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "in vec4 gl_FragCoord;",
+          "b": "",
+          "g": "uniform vec2 resolution;"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "in vec4 gl_FragCoord;",
+          "b": "",
+          "g": "uniform vec2 resolution;"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "in vec4 gl_FragCoord;",
+          "b": "",
+          "g": "uniform vec2 resolution;"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "in vec4 gl_FragCoord;",
+          "b": "",
+          "g": "uniform vec2 resolution;"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "in vec4 gl_FragCoord;",
+          "b": "",
+          "g": "uniform vec2 resolution;"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "in vec4 gl_FragCoord;",
+          "b": "",
+          "g": "uniform vec2 resolution;"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "in vec4 gl_FragCoord;",
+          "b": "",
+          "g": "uniform vec2 resolution;"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "in vec4 gl_FragCoord;",
+          "b": "",
+          "g": "uniform vec2 resolution;"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "in vec4 gl_FragCoord;",
+          "b": "",
+          "g": "uniform vec2 resolution;"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "in vec4 gl_FragCoord;",
+          "b": "",
+          "g": "uniform vec2 resolution;"
+        }
+      }
+    ],
+    "timestamp": "22h:12m:58s"
+  }],
+  "timestamp": "2023-11-2-22-12-58"
+}
