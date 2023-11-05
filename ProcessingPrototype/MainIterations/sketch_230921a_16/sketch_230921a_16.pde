@@ -189,9 +189,9 @@ void mousePressed() {
 }
 
 void keyPressed() {
-  if (key==27) {
+  /*if (key==27) {
     key=0;
-  }
+  }*/
 
   if (isExportingAnimation) return;
 
