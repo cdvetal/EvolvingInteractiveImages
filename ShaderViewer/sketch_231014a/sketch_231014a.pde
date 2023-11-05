@@ -1,4 +1,5 @@
 import java.util.*;
+import processing.sound.*;
 
 Individual[] individuals;
 PImage shaderImage;
@@ -7,6 +8,11 @@ float minExternal = 0;
 float maxExternal = 1;
 float minSpeed = 0;
 float maxSpeed = 1;
+
+FFT fft;
+SoundFile[] soundFiles;
+int nBands = 512;
+int soundIndex = 0;
 
 float currentSpeed;
 float previousSpeed;
@@ -20,24 +26,39 @@ float feedbackTimer = 0;
 void setup() {
   frameRate(100);
   fullScreen(P2D);
+
   individuals = loadIndividuals();
   shaderImage = new PImage(width, height, RGB);
   applyShader();
+
+  try {
+    Thread.sleep(3000);    // delay(3000)
+  }
+  catch (Throwable t) {
+  }
 }
 
 void draw() {
+  if (frameCount ==1) {
+    //crashes if done in setup due to taking too long
+    fft = new FFT(this, nBands);
+    soundFiles = loadSongs();
+    changeSong();
+  }
   float external = getExternalValue();
+  float[] audioSpectrum = getAudioSpectrum();
   individuals[individualIndex].shader.set("externalVal", external);
+  individuals[individualIndex].shader.set("audioSpectrum", audioSpectrum);
   image(shaderImage, 0, 0);
   showFeedback(external);
 }
 
 void showFeedback(float _external) {
-  if(feedbackTimer > feedbackDuration && !feedbackAlwaysEnabled) return;
-  
+  if (feedbackTimer > feedbackDuration && !feedbackAlwaysEnabled) return;
+
   feedbackTimer += 1/frameRate;
   resetShader();
-  
+
   PGraphics canvas = createGraphics(130, 130); //P2D disbales shader while showing feedback
 
   canvas.beginDraw();
@@ -46,35 +67,36 @@ void showFeedback(float _external) {
   canvas.fill(0, 150);
   canvas.rect(0, 0, canvas.width, canvas.height);
   canvas.fill(255);
-  canvas.text(individualIndex + "/" + individuals.length + ": " + individuals[individualIndex].file + "\n\n" + 
-              "minE: " + minExternal + "\n" + 
-              "maxE: " + maxExternal + "\n" +
-              "currE: " + nf(_external, 0, 3) + "\n" +
-              "speed: " + nf(currentSpeed, 0, 3) + "\n\n" + 
-              _external, 10, 20);
+  canvas.text(individualIndex + "/" + individuals.length + ": " + individuals[individualIndex].file + "\n\n" +
+    "minE: " + minExternal + "\n" +
+    "maxE: " + maxExternal + "\n" +
+    "currE: " + nf(_external, 0, 3) + "\n" +
+    "speed: " + nf(currentSpeed, 0, 3) + "\n\n" +
+    _external, 10, 20);
 
   canvas.endDraw();
 
   image(canvas, width - (canvas.width + 30), height - (canvas.height + 30));
-  
+
   applyShader();
 }
 
-void applyShader(){
+void applyShader() {
   shader(individuals[individualIndex].shader);
 }
 
-void resetParameters(){
+void resetParameters() {
   minExternal = 0;
   maxExternal = 1;
-  
+
   startFeedback();
 }
 
 void keyPressed() {
   if (key == 'f' || key == 'F') feedbackAlwaysEnabled = !feedbackAlwaysEnabled;
   if (key == 'r' || key == 'R') resetParameters();
-  
+  if (key == 'm' || key == 'M') changeSong();
+
   if (key != CODED) return;
 
   if (keyCode == UP) {
@@ -120,11 +142,6 @@ void mouseWheel(MouseEvent event) {
 
 void startFeedback() {
   feedbackTimer = 0;
-
-  println();
-  println(individuals[individualIndex].file);
-  println("min: " + minExternal);
-  println("max: " + minExternal);
 }
 
 float getExternalValue() {
@@ -132,12 +149,18 @@ float getExternalValue() {
   float toReturn;
 
   toReturn = map(sin((float)millis()/1000 * currentSpeed), -1, 1, minExternal, maxExternal);
-  
-  if(currentSpeed != previousSpeed) startFeedback();
-  
+
+  if (currentSpeed != previousSpeed) startFeedback();
+
   previousSpeed = currentSpeed;
 
   return toReturn;
+}
+
+float[] getAudioSpectrum() {
+  float[] spectrum = new float[nBands];
+  fft.analyze(spectrum);
+  return spectrum;
 }
 
 Individual[] loadIndividuals() {
@@ -155,4 +178,30 @@ Individual[] loadIndividuals() {
   }
 
   return individualsToReturn;
+}
+
+void changeSong() {
+  soundFiles[soundIndex].stop();
+  soundIndex ++;
+
+  if (soundIndex >= soundFiles.length) soundIndex = 0;
+
+  soundFiles[soundIndex].loop();
+  fft.input(soundFiles[soundIndex]);
+}
+
+SoundFile[] loadSongs() {
+  String directory = sketchPath("music/");
+
+  File f = dataFile(directory);
+  String[] names = f.list();
+
+  SoundFile[] toReturn = new SoundFile[names.length];
+
+  for (int i = 0; i < toReturn.length; i++)
+  {
+    toReturn[i] = new SoundFile(this, directory + names[i]);
+  }
+
+  return toReturn;
 }
