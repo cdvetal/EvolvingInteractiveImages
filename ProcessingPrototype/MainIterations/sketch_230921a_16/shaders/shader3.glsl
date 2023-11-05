@@ -79,9 +79,9 @@ float audio(float x, float y){
 }
 
 vec3 generateRGB(float x, float y){
-    float r = pow(y,(x+(min(max(externalVal,pow(pow(y,min(externalVal,pow(pow(audio(min(y,pow(y,externalVal)),mod(tan(externalVal),min(externalVal,x))),externalVal),y))),mod(min(x,sin(tan(noise(((min(noise(noise(externalVal,((noise(mod((x*(x-externalVal)),max(externalVal,(y/x))),min(y,tan(max((y/cos(noise(externalVal,tan(mod((x*pow((y+y),(x/y))),externalVal))))),noise(y,x)))))-(externalVal-x))/y)),((cos(x)*(pow(sin(audio(y,min(externalVal,cos(max(externalVal,audio(x,y)))))),y)/(max(y,(x/x))-audio(x,y))))-sin(y))),mod(pow(mod(tan(y),mod(y,(cos(x)+x))),externalVal),noise((x*pow((y-y),sin(x))),externalVal)))-x)*(x+externalVal)),y)))),x))),externalVal)*externalVal)));
-    float g = noise(y,((x-x)*sin(pow(noise((externalVal/externalVal),min((x-y),externalVal)),externalVal))));
-    float b = ((((externalVal*audio((externalVal*(noise(x,(externalVal+cos(externalVal)))-(min((min((sin(sin(x))*externalVal),min((audio(tan((y+noise(x,y))),pow(x,externalVal))/(x+mod(y,x))),noise(audio(externalVal,x),externalVal)))/externalVal),x)-cos((noise(externalVal,(y+mod(externalVal,y)))-externalVal))))),externalVal))*x)+x)-y);
+    float r = pow(max(y,externalVal),sin(x));
+    float g = (x-min(x,pow(audio(y,audio(y,y)),y)));
+    float b = (min(y,x)*pow(min(y,min(sin(externalVal),((((mod((audio(tan((x+((x/mod(x,x))-x))),y)/(externalVal/y)),x)/audio(audio(mod(pow(y,x),audio(y,pow(x,noise((pow(externalVal,cos(y))/min(y,x)),y)))),y),max((y/cos(y)),y)))/pow(cos(min(y,(x-x))),pow(y,mod((x+cos(x)),x))))+(externalVal-cos(audio(y,audio(externalVal,pow(cos(max(tan(x),y)),cos(x)))))))+max(y,(externalVal+sin((x+mod(min(externalVal,max(externalVal,externalVal)),mod(mod(externalVal,(x-max(sin(externalVal),externalVal))),max(x,externalVal)))))))))),(externalVal/pow(min(audio((noise(externalVal,audio(noise(mod((cos(sin(externalVal))-mod(y,externalVal)),tan(x)),(noise(y,x)/noise(y,(y+(y+(y-cos(audio(y,sin(noise(externalVal,y)))))))))),externalVal))-y),externalVal),((cos(mod((max(mod(((y-y)-(externalVal*x)),mod(y,externalVal)),noise(y,x))+(tan(cos(x))-externalVal)),y))*y)-pow(x,sin(cos((externalVal*externalVal)))))),y))));
     return vec3(r,g,b);
 }
 

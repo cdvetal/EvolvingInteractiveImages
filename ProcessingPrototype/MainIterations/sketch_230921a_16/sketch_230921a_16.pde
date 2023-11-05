@@ -2,7 +2,7 @@ import java.util.*;
 import processing.pdf.*;
 import processing.sound.*;
 
-int populationSize = 12;
+int populationSize = 20;
 int eliteSize = 2;
 int tournamentSize = 3;
 float crossoverRate = .5;
@@ -44,7 +44,8 @@ MainMenu mainMenu;
 LoadMenu loadMenu;
 
 void setup() {
-  size(1000, 1000, P2D);
+  //size(1000, 1000, P2D);
+  fullScreen(P2D);
   colorMode(RGB, 1);
 
   fft = new FFT(this, nBands);

@@ -141,4 +141,20 @@ class Run {
     
     return individualsToReturn;
   }
+  
+  int getHighestGenerationInRun(JSONObject _run){
+    JSONArray populations = _run.getJSONArray("populations");
+
+    int highestGeneration = 0;
+
+    for (int i = 1; i < populations.size(); i++) {
+      JSONObject population = populations.getJSONObject(i);
+      int generation = population.getInt("generation");
+      if (generation > highestGeneration) {
+        highestGeneration = generation;
+      }
+    }
+    
+    return highestGeneration;
+  }
 }

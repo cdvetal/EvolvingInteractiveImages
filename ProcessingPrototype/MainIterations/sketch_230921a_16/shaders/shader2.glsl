@@ -79,9 +79,9 @@ float audio(float x, float y){
 }
 
 vec3 generateRGB(float x, float y){
-    float r = pow(y,(x-(max(mod(externalVal,audio(audio(x,min(externalVal,max(x,audio(cos(noise(externalVal,x)),externalVal)))),noise(noise(x,((mod(((noise(noise(mod(y,sin(sin(tan(min((x/(x+externalVal)),tan(externalVal)))))),((cos(x)/sin(audio((audio(y,min(y,cos(max(y,pow(x,y)))))/tan(y)),externalVal)))-(externalVal/audio(x,pow(((externalVal+(audio(y,sin(mod(pow(audio(audio(max(y,pow(externalVal,externalVal)),mod(tan(externalVal),noise(externalVal,x))),externalVal),audio(mod(x,y),pow(mod(audio(y,y),y),tan((x/externalVal))))),y)))-x))*audio(externalVal,(externalVal/y))),externalVal))))),noise(mod(mod(sin(y),noise(y,(min(x,externalVal)+x))),y),(tan(x)/(x+x))))+x)-(x+externalVal)),x)/min((x*max(x,(noise(((externalVal*externalVal)+(pow((x+x),y)*externalVal)),pow(noise(pow(x,noise(y,(audio(externalVal,audio(min(y,x),externalVal))*x))),(externalVal*min(audio(x,x),sin(externalVal)))),noise(y,externalVal)))*audio(x,noise(x,cos(audio(y,y))))))),x))/externalVal)),y))),externalVal)/externalVal)));
-    float g = mod(y,sin((audio(mod(audio(pow(externalVal,(externalVal/(externalVal/sin((x/(x/externalVal)))))),audio(noise(pow((noise((y/y),y)+min(externalVal,pow(((sin(max(x,x))-cos(audio(externalVal,audio((x+(min((cos(pow(noise((cos(y)*externalVal),sin(x)),cos(sin(externalVal))))-x),mod(sin(externalVal),max(y,audio((y+externalVal),max(mod(x,min(tan(noise(x,externalVal)),(audio((min(externalVal,y)+x),sin(externalVal))+y))),y)))))*y)),pow((audio(tan((x/audio(x,mod(sin(tan(min(x,max(x,y)))),((sin(x)+mod((externalVal+max(y,externalVal)),externalVal))/x))))),((y*x)-sin(pow(cos(min(x,pow(y,y))),externalVal))))/min(externalVal,(y+(min(x,y)/externalVal)))),min(externalVal,min(y,sin(externalVal))))))))+y),sin(x)))),x),externalVal),y)),audio(x,y)),x)/max(x,mod(externalVal,y)))));
-    float b = (((cos(externalVal)-x)+x)*x);
+    float r = min(externalVal,y);
+    float g = cos((x*(audio(audio((((x/externalVal)/sin(x))+y),mod(mod(x,externalVal),cos(externalVal))),mod(mod(audio(cos(min((externalVal-y),mod(tan(((min(y,y)/externalVal)+externalVal)),tan((x+y))))),(max(y,mod(mod((externalVal+x),y),externalVal))+x)),y),(x-x)))-x)));
+    float b = noise(pow(min(x,externalVal),(externalVal*mod(y,x))),mod(externalVal,y));
     return vec3(r,g,b);
 }
 

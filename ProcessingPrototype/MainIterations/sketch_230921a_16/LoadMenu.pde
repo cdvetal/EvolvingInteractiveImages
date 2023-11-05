@@ -65,6 +65,8 @@ class LoadMenu {
     String textToShow = "";
     textToShow += "id: " + hoveredRun.getString("id");
     textToShow += "\ndate: " + hoveredRun.getString("timestamp");
+    textToShow += "\npopulations: " + hoveredRun.getJSONArray("populations").size();
+    textToShow += "\nhighest generation: " + (run.getHighestGenerationInRun(hoveredRun) + 1);
 
     textSize(12);
     textAlign(LEFT, CENTER);

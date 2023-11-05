@@ -79,9 +79,9 @@ float audio(float x, float y){
 }
 
 vec3 generateRGB(float x, float y){
-    float r = pow(y,(x-(min(mod(externalVal,audio(audio(x,min(externalVal,max(x,audio(cos(min(externalVal,x)),externalVal)))),mod(noise(x,((mod(((min(noise(pow(y,sin((tan(min((x*(x*externalVal)),tan(externalVal)))/(externalVal-y)))),((max(x,mod(cos(x),x))/sin(audio((audio(y,max(y,cos(max(y,pow(x,y)))))/tan(y)),externalVal)))+(externalVal/audio(x,audio(((externalVal+(audio(y,sin(mod(mod(audio(audio(max(y,mod(externalVal,externalVal)),pow(tan(externalVal),noise(externalVal,x))),externalVal),audio(mod(x,y),noise(mod(mod(y,y),y),tan((x*externalVal))))),y)))-x))*pow(externalVal,(externalVal/y))),externalVal))))),noise(noise(mod(cos(y),pow(y,(min(x,externalVal)+x))),y),sin(cos(x))))+x)-(x+externalVal)),x)*min((x-max(x,(max(((externalVal*externalVal)+(pow((x-x),y)*externalVal)),pow(pow(pow(x,min(y,(audio(externalVal,pow(min(y,x),externalVal))*x))),(externalVal-max(audio(x,x),sin(externalVal)))),noise(y,externalVal)))*audio(x,noise(x,tan(mod(y,y))))))),x))/externalVal)),y))),y)/externalVal)));
-    float g = mod(y,cos(sin(audio(mod(audio(pow(y,(externalVal/sin(externalVal))),audio(noise(pow((noise((y/y),y)+min(externalVal,audio(((cos(max(x,x))-cos(audio(externalVal,audio((x+(min((tan(pow(min((sin(y)*externalVal),(x/externalVal)),tan((externalVal/cos(((max(y,y)*y)*noise(x,x)))))))-x),mod(sin(externalVal),max(y,audio((y+externalVal),max(noise(x,min(max(noise(x,externalVal),pow(cos((x-x)),externalVal)),(audio((max(externalVal,y)-x),(externalVal/externalVal))+y))),y)))))/x)),pow((audio(tan(sin(x)),((y*x)-cos(pow(sin(min(x,pow(y,y))),externalVal))))/noise(externalVal,(y+sin(min(x,y))))),min(externalVal,min(y,sin(externalVal))))))))+y),sin(x)))),x),externalVal),y)),audio(x,y)),x))));
-    float b = (((sin(externalVal)-x)+x)*x);
+    float r = max((externalVal+y),x);
+    float g = mod(pow(externalVal,x),((externalVal*externalVal)/noise(y,pow(audio(y,noise(y,x)),x))));
+    float b = sin(noise(y,(x*externalVal)));
     return vec3(r,g,b);
 }
 

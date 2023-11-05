@@ -79,9 +79,9 @@ float audio(float x, float y){
 }
 
 vec3 generateRGB(float x, float y){
-    float r = pow(y,(x+(min(mod(externalVal,audio(audio(x,min(externalVal,max(y,audio(sin(min(externalVal,x)),externalVal)))),noise(noise(x,sin(sin(mod(((min(min(pow(y,sin((tan(noise((x/(x*externalVal)),tan(externalVal)))/(externalVal+x)))),((max(x,mod(cos(x),x))/(audio(sin(audio(y,tan(y))),externalVal)/(tan(y)+mod(x,x))))-sin(externalVal))),min(noise(pow(sin(y),mod(y,(max(x,externalVal)+x))),y),sin(cos(x))))+x)-(x-externalVal)),x)))),y))),externalVal)/externalVal)));
-    float g = mod(y,tan(sin(audio(pow(audio(mod(externalVal,(externalVal/sin(externalVal))),audio(noise(pow((noise(sin(y),y)+max(externalVal,mod(((sin(min(x,x))+cos(audio(externalVal,audio((x-(min((tan(mod(noise((sin(y)*externalVal),sin(x)),cos((externalVal*max(((min(y,y)+y)-mod(x,x)),max(x,x))))))*x),mod(cos(externalVal),max(y,audio((y-externalVal),max(mod(x,min(max(noise(x,externalVal),pow(cos((x-x)),externalVal)),(audio((min(externalVal,y)-y),sin(externalVal))+y))),y)))))/x)),pow(sin(audio(tan((x/pow(x,mod((min(min(x,max(x,y)),externalVal)/min(pow(pow(cos(externalVal),y),x),externalVal)),((sin(x)+noise((externalVal+max(y,externalVal)),externalVal))*y))))),((x*x)-sin(mod(cos(min(x,audio(y,y))),externalVal))))),noise(externalVal,min(y,sin(externalVal))))))))+x),sin(x)))),x),y),y)),audio(x,y)),x))));
-    float b = (((sin(externalVal)-x)+x)*x);
+    float r = min((externalVal+y),x);
+    float g = pow(((x-audio(y,y))/x),((externalVal*externalVal)/min(x,pow(pow(y,noise(y,x)),x))));
+    float b = sin(mod(y,(x*externalVal)));
     return vec3(r,g,b);
 }
 
