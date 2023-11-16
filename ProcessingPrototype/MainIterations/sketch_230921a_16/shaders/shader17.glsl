@@ -79,9 +79,9 @@ float audio(float x, float y){
 }
 
 vec3 generateRGB(float x, float y){
-    float r = min(externalVal,y);
-    float g = cos((x*(audio(audio((cos(sin(x))+y),noise(noise(x,externalVal),mod(audio(cos(cos((externalVal+y))),(max(y,mod(pow((pow(pow(externalVal,(externalVal-x)),x)/mod(audio(noise(x,x),pow(y,y)),externalVal)),x),externalVal))+x)),y))),mod(mod(audio(tan(max((externalVal*y),mod(cos(((max(externalVal,y)/externalVal)-externalVal)),tan((x+x))))),(max(y,pow(pow((mod(pow(externalVal,(externalVal-x)),x)*pow(pow(noise(x,x),pow(y,y)),externalVal)),x),y))+x)),y),(x-x)))/y)));
-    float b = noise(mod(tan(x),(externalVal*audio(y,x))),noise(externalVal,y));
+    float r = (x*sin(x));
+    float g = pow(x,externalVal);
+    float b = (mod(y,mod((x-((x*y)-y)),y))-y);
     return vec3(r,g,b);
 }
 

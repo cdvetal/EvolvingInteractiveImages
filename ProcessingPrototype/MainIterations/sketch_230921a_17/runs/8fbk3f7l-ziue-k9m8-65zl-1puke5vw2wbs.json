@@ -1,0 +1,58 @@
+{
+  "id": "8fbk3f7l-ziue-k9m8-65zl-1puke5vw2wbs",
+  "parameters": {
+    "crossoverRate": 0.5,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.4000000059604645,
+    "populationSize": 5
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "8f4w5fxn-ukdb-9wog-neiz-v7mpat8puqjd",
+    "individuals": [
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "tan((x-y))",
+          "b": "mod(y,x)",
+          "g": "noise(pow(noise(noise(externalVal,max(y,x)),y),(x+tan(tan((cos(x)+max(y,x)))))),(y-x))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "max((externalVal*externalVal),tan(sin(((pow((x*x),(pow(tan(y),noise(tan(((y/y)*mod(sin(cos((y+sin(x)))),x))),x))+(cos(cos((y/x)))/y)))/externalVal)-sin(noise(externalVal,(pow(x,cos(mod(((tan((y*x))*(externalVal/externalVal))/tan((noise(externalVal,externalVal)/sin(max(sin(min(sin(noise(externalVal,y)),y)),externalVal))))),y)))-cos(min(externalVal,y)))))))))",
+          "b": "cos(pow(externalVal,externalVal))",
+          "g": "sin(y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "max(pow(y,externalVal),noise(y,mod(externalVal,x)))",
+          "b": "cos(y)",
+          "g": "noise(cos(x),externalVal)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "mod(sin((((externalVal/(sin(y)-min(min(x,externalVal),x)))-x)*y)),mod(externalVal,cos(noise(x,x))))",
+          "b": "max(externalVal,externalVal)",
+          "g": "(cos(pow((pow(externalVal,x)*min(externalVal,x)),cos(sin(min(externalVal,min(x,y))))))-x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(x*pow(max(cos((sin(x)+pow(pow((externalVal/x),mod(sin(externalVal),cos(externalVal))),min(pow((y-y),max((cos(y)/(y/x)),sin(x))),x)))),max(x,x)),cos(tan(x))))",
+          "b": "(((externalVal-x)+y)-(pow(((x/cos(mod(x,noise(x,(min(y,tan(externalVal))/y)))))+max(externalVal,y)),y)+y))",
+          "g": "(y*externalVal)"
+        }
+      }
+    ],
+    "timestamp": "22h:6m:6s"
+  }],
+  "timestamp": "2023-11-16-22-06-05"
+}
