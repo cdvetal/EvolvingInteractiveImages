@@ -2,6 +2,8 @@ import java.util.*;
 import processing.pdf.*;
 import processing.sound.*;
 
+PImage exampleImage;
+
 int populationSize = 20;
 int eliteSize = 2;
 int tournamentSize = 3;
@@ -28,7 +30,7 @@ Run run;
 Population population;
 
 PVector[][] grid;
-float aspectRatio = .8; //width = height * aspectRatio
+float aspectRatio = 1.8; //width = height * aspectRatio
 Individual hoveredIndividual = null;
 
 boolean isExportingAnimation;
@@ -49,6 +51,8 @@ void setup() {
   size(1000, 1000, P2D);
   //fullScreen(P2D);
   colorMode(RGB, 1);
+
+  exampleImage = loadImage("shells.jpg");
 
   fft = new FFT(this, nBands);
   soundFiles = loadSongs();
@@ -122,23 +126,41 @@ void drawExternalFeedback(float _external) {
 }
 
 void drawIndividualFullScreen(Individual _indiv, float _external, float[] _audioSpectrum) {
-  image(_indiv.getPhenotype(width, height, _external, _audioSpectrum), 0, 0, width, height);
+  float windowAspectRatio = width / height;
+  if (windowAspectRatio < aspectRatio) {
+    float h = width/aspectRatio;
+    float y = (height - h) / 2;
+    image(_indiv.getPhenotype(width, h, _external, _audioSpectrum), 0, y, width, h);
+  } else {
+    float w = height * aspectRatio;
+    float x = (width - w) / 2;
+    image(_indiv.getPhenotype(w, height, _external, _audioSpectrum), x, 0, w, height);
+  }
 }
 
 void drawPopulation(float _external, float[] _audioSpectrum) {
   int row = 0, col = 0;
 
+  float d = grid[0][0].z, h = grid[0][0].z, w = grid[0][0].z;
+  float shift;
+
+  if (aspectRatio > 1) {
+    h = d/aspectRatio;
+    shift = (d-h) / 2;
+  } else {
+    w = d*aspectRatio;
+    shift = (d-w) / 2;
+  }
+
   for (int i = 0; i < population.getSize(); i++) {
     float x = grid[row][col].x;
     float y = grid[row][col].y;
-    float d = grid[row][col].z;
     noFill();
 
-    if(aspectRatio > 1){
-      image(population.getIndividual(i).getPhenotype(d, d/aspectRatio, _external, _audioSpectrum), x, y, d, d/aspectRatio);
-    }
-    else{
-      image(population.getIndividual(i).getPhenotype(d*aspectRatio, d, _external, _audioSpectrum), x, y, d*aspectRatio, d);
+    if (aspectRatio > 1) {
+      image(population.getIndividual(i).getPhenotype(d, h, _external, _audioSpectrum), x, y + shift, d, h);
+    } else {
+      image(population.getIndividual(i).getPhenotype(w, d, _external, _audioSpectrum), x + shift, y, w, d);
     }
 
     /*if (mouseX > x && mouseX < x + d && mouseY > y && mouseY < y + d) {
@@ -153,7 +175,11 @@ void drawPopulation(float _external, float[] _audioSpectrum) {
     if (population.getIndividual(i).getFitness() > 0) {
       stroke(1);
       strokeWeight(map(population.getIndividual(i).getFitness(), 0, 1, 3, 6));
-      rect(x, y, d, d);
+      if (aspectRatio > 1) {
+        rect(x, y + shift, d, h);
+      } else {
+        rect(x + shift, y, w, d);
+      }
     }
 
     col += 1;
@@ -168,16 +194,24 @@ Individual getHoveredIndividual() {
   int row = 0, col = 0;
   hoveredIndividual = null;
 
+  float d = grid[0][0].z, h = grid[0][0].z, w = grid[0][0].z;
+  float shift;
+  if (aspectRatio > 1) {
+    h = d/aspectRatio;
+    shift = (d-h) / 2;
+  } else {
+    w = d*aspectRatio;
+    shift = (d-w) / 2;
+  }
+
   for (int i = 0; i < population.getSize(); i++) {
     float x = grid[row][col].x;
     float y = grid[row][col].y;
-    float d = grid[row][col].z;
-    
-    
-    if (aspectRatio > 1 && mouseX > x && mouseX < x + d && mouseY > y && mouseY < y + d / aspectRatio) {
+
+
+    if (aspectRatio > 1 && mouseX > x && mouseX < x + d && mouseY > y + shift && mouseY < y + shift + h) {
       return population.getIndividual(i);
-    }
-    else if (aspectRatio <= 1 && mouseX > x && mouseX < x + d * aspectRatio && mouseY > y && mouseY < y + d) {
+    } else if (aspectRatio <= 1 && mouseX > x + shift && mouseX < x + shift + w && mouseY > y && mouseY < y + d) {
       return population.getIndividual(i);
     }
 
@@ -308,7 +342,7 @@ void changeSong() {
   fft.input(soundFiles[soundIndex]);
 }
 
-void muteSong(){
+void muteSong() {
   soundFiles[soundIndex].amp(muted ? 0 : 1);
 }
 

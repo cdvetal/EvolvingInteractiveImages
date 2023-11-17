@@ -29,7 +29,7 @@ Operation[] setupOperations(){
   operationsToReturn.add(new Operation(0, "*"));
   operationsToReturn.add(new Operation(0, "/"));
   
-  operationsToReturn.add(new Operation(1, "sin"));
+  /*operationsToReturn.add(new Operation(1, "sin"));
   operationsToReturn.add(new Operation(1, "cos"));
   operationsToReturn.add(new Operation(1, "tan"));
   
@@ -38,7 +38,7 @@ Operation[] setupOperations(){
   operationsToReturn.add(new Operation(2, "noise"));
   operationsToReturn.add(new Operation(2, "mod"));
   operationsToReturn.add(new Operation(2, "pow"));
-  //operationsToReturn.add(new Operation(2, "audio"));
+  operationsToReturn.add(new Operation(2, "audio"));*/
   //operationsToReturn.add(new Operation(2, "bri"));
   
   Operation[] operationsToReturnList = new Operation[operationsToReturn.size()];

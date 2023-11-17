@@ -88,9 +88,9 @@ float bri(float x, float y){ //brightness https://stackoverflow.com/questions/59
 }
 
 vec3 generateRGB(float x, float y){
-    float r = sin(externalVal);
-    float g = noise(externalVal,y);
-    float b = cos(mod(noise(externalVal,(x/min(x,externalVal))),externalVal));
+    float r = (((((((((x/(externalVal*(((((((y-externalVal)-x)-externalVal)+(x*((y*((externalVal-((y-((((x+x)-(externalVal+externalVal))/x)/((y+x)+x)))/(x+y)))*((((y*x)+x)+x)-y)))/externalVal)))*(((externalVal-y)-y)/((y-externalVal)+y)))*externalVal)+((externalVal*externalVal)/(x*(y+((y-x)+((y*(x-x))*externalVal))))))))/((y*y)/((((y*x)/x)-(externalVal+((y*((x/((x*x)*((y-(y-(((y-externalVal)+y)+(x+(((((y+(externalVal-(x*(y+x))))*x)/(y+((((y+externalVal)+y)+(externalVal+y))+externalVal)))*(y/x))+externalVal)))))/x)))*((x/y)/y)))-((x/y)+y))))/((externalVal/(y/externalVal))/y))))/externalVal)+externalVal)+(((x-(externalVal+x))/x)+((x*x)+(externalVal+((((externalVal-(((x/externalVal)+((x+y)+y))-((((((((x*(y*x))-((y/x)-(x-(x*(externalVal-externalVal)))))/x)*(x+x))+x)/(y*(x+(y-(externalVal+((externalVal/(((externalVal+((y/x)/(x-((externalVal+(y+x))+(y-(x+x))))))-(y-x))/externalVal))-y))))))*externalVal)*(x-externalVal))))/(y+x))+(x*((((((y*x)-x)+((((y*((y/((((y*x)+((y-(((y*(y*y))+externalVal)+externalVal))*y))-x)+(x+y)))/externalVal))/(((y/externalVal)/((externalVal+((x+externalVal)*(((y*externalVal)*x)*(x*(externalVal+(((externalVal+(externalVal-externalVal))+y)*(x+x)))))))-externalVal))+(y+x)))+y)*(((x-(((x*externalVal)/externalVal)/externalVal))+x)+externalVal)))-y)-(externalVal*(y/(y+externalVal))))/(externalVal+externalVal))))-y)))))+externalVal)/(y-(x*((((y/(y*(x*externalVal)))*y)/externalVal)/externalVal))))/(((x+y)+externalVal)*externalVal))*externalVal);
+    float g = ((((externalVal+(externalVal+externalVal))/y)*(y*externalVal))/x);
+    float b = (((y/externalVal)*(y/((x-(x+(externalVal-(externalVal*y))))*externalVal)))+(externalVal/x));
     return vec3(r,g,b);
 }
 

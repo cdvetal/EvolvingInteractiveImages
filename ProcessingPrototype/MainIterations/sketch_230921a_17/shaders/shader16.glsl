@@ -88,9 +88,9 @@ float bri(float x, float y){ //brightness https://stackoverflow.com/questions/59
 }
 
 vec3 generateRGB(float x, float y){
-    float r = min(y,externalVal);
-    float g = min(x,y);
-    float b = max(externalVal,x);
+    float r = ((y*((externalVal+(((x/y)+(externalVal/y))/y))+(((((x/((x/y)*y))/y)/(y-externalVal))/externalVal)+(((externalVal-externalVal)*((x+y)/x))-(x+((externalVal+(externalVal*(((y+x)*x)+y)))*(((((y+(y/(x+y)))*(y/externalVal))-externalVal)+y)-externalVal)))))))+y);
+    float g = (((externalVal/externalVal)*y)/((externalVal-x)+(((x-(((x+externalVal)+(((x/externalVal)-x)+(x/((externalVal/x)/y))))/y))*x)*((((((externalVal+(((x+externalVal)*(y/(externalVal-(((externalVal*(x/y))*((externalVal+x)/externalVal))*((externalVal+((externalVal/(y*x))-y))*(y/(((externalVal*((externalVal/externalVal)+(((y/((x+(((x-x)*((externalVal/externalVal)+(x*x)))*x))-(((y*((y-y)+((externalVal-x)+x)))-(externalVal-(x+y)))-externalVal)))-y)-externalVal)))*(y+(externalVal*x)))+x)))))))*(y+(((y-externalVal)-((y*y)*(((((((externalVal-(y*(((x/y)-(externalVal+externalVal))/x)))-((y*(y-((externalVal+externalVal)-externalVal)))/externalVal))*y)*((((externalVal*((y*x)/y))*x)-((((y+y)*(externalVal*(x-(((externalVal+x)/x)-((x/((y-y)*externalVal))-(externalVal*x))))))-((externalVal-y)+((x+(x-y))-y)))+(((x+(((((x-(externalVal*x))/externalVal)+externalVal)+(y-externalVal))*(y*x)))+((y-((x-x)+x))+externalVal))/(x*y))))+(x/externalVal)))*y)-(x/x))+x)))*(y+(x*externalVal))))))+((y/y)/x))+externalVal)+(((y*((((((x+((((externalVal/(x+y))/(x-((externalVal+y)-externalVal)))*x)/(((externalVal/x)-(y*y))-(y-(externalVal+externalVal)))))/(y-y))*(y*((externalVal-((y+externalVal)+((y*externalVal)/((y+(externalVal*((((externalVal+x)/(externalVal/x))/x)+(x-(x-y)))))*externalVal))))+(((((externalVal-((externalVal*((x-((((externalVal+((y/x)+y))+y)*(((x-y)+(x-y))*(y/y)))-externalVal))+y))*(externalVal-(x+externalVal))))/(externalVal/(((x-externalVal)*y)/externalVal)))-((y*x)+(externalVal/x)))/x)/(((x/x)*((((y-x)/((y+x)*((x+y)-externalVal)))/y)+((((y/y)+y)/externalVal)+externalVal)))+externalVal)))))/externalVal)-y)-(externalVal+x)))/externalVal)/x))+y)+((x*externalVal)-externalVal)))));
+    float b = (x*externalVal);
     return vec3(r,g,b);
 }
 

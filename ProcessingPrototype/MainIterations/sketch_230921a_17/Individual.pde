@@ -76,6 +76,8 @@ class Individual {
     saveStrings(shaderPath, shaderLines);
 
     shader = loadShader(shaderPath);
+    
+    shader.set("image", exampleImage);
   }
 
   int getBreadth(int _parentIndex, int _depth) {
@@ -160,7 +162,6 @@ class Individual {
   PImage getPhenotype(float _w, float _h, float _external, float[] _audioSpectrum) {
     int w = floor(_w);
     int h = floor(_h);
-    println(w);
     PGraphics canvas = createGraphics(w, h, P2D);
 
     canvas.beginDraw();
@@ -178,7 +179,6 @@ class Individual {
     //shader.set("resolution", _w, _h); //doesnt matter
     shader.set("externalVal", _external);
     shader.set("audioSpectrum", _audioSpectrum);
-    //shader.set("image", exampleImage);
     
     _canvas.shader(shader);
     _canvas.image(image, 0, 0);

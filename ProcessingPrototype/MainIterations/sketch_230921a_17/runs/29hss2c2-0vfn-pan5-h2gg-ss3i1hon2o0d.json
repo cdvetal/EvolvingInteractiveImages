@@ -1,0 +1,178 @@
+{
+  "id": "29hss2c2-0vfn-pan5-h2gg-ss3i1hon2o0d",
+  "parameters": {
+    "crossoverRate": 0.5,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.4000000059604645,
+    "populationSize": 20
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "pvp7qkuu-s65j-6bf7-k3ol-rh4x8zgchfwl",
+    "individuals": [
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(externalVal*((x+(((y*((x*x)/x))*bri(y,((y-x)-y)))-((y+x)/(externalVal-externalVal))))+(x+bri(externalVal,(x*(y/x))))))",
+          "b": "(((y/externalVal)+bri(x,(externalVal+(((bri(externalVal,(externalVal+((externalVal*(((y-externalVal)/bri((y+(externalVal+bri((externalVal-externalVal),(((x*bri((x/(((y*bri(externalVal,y))-y)/((x*((externalVal+externalVal)+bri((externalVal-(x+bri(x,y))),(((x+y)-(externalVal/externalVal))-y))))*(x/(externalVal-(y*externalVal)))))),externalVal))+(y+externalVal))-(y+(x*x)))))),externalVal))/(y-x)))*((bri((((y-x)/y)*y),((((externalVal/(y+x))-y)+(externalVal*y))*y))+((y/x)-y))/y))))+(x/x))+bri((x/y),(((((y/(((externalVal*y)/((x-((externalVal-(((((y*(x*x))-((bri((y*(externalVal-(((x+y)-bri(externalVal,externalVal))+externalVal))),(bri((((x/x)+y)/(x+externalVal)),(((x*y)+x)+((y+externalVal)-x)))-externalVal))*y)*(((y*(x+(y-externalVal)))/externalVal)-(((bri(y,bri(externalVal,(y*x)))/y)-x)*(externalVal+externalVal)))))/bri((y*bri(externalVal,((bri((bri(bri(x,x),(externalVal-y))*((y-x)+externalVal)),(y*externalVal))+((x*(bri(x,externalVal)+(y/y)))*((externalVal*(x+x))/x)))-(x/bri(x,x))))),x))/bri((y/(x/(bri(x,(x-(externalVal*x)))*x))),(x+((externalVal/y)*((((x*(bri(y,(x+y))/x))-y)*(x*y))-y)))))-(x/x)))*x))-y))-y))-bri((x*((((y-x)/x)-x)*externalVal)),bri(x,x)))+(x-(x*externalVal)))-(y+bri(x,((externalVal+((y+(externalVal*(y-externalVal)))+(bri(((x+(x*(x+(bri(x,(externalVal-(bri(x,y)-y)))*(((x+(externalVal+(x*externalVal)))*externalVal)+((y+(x+bri(bri(externalVal,((x/(y+y))*x)),externalVal)))*y))))))-y),y)*x)))+(externalVal/(bri((x+bri(x,x)),(y/y))-externalVal))))))-((x*x)-(((x/externalVal)-(externalVal-x))/externalVal)))))+((x/(externalVal-(externalVal*x)))+((y/x)-y))))))-(x*(y-(((y*y)*((y-x)/y))+(externalVal*(((x+bri(y,y))-y)+(externalVal-y)))))))",
+          "g": "(externalVal/(externalVal+externalVal))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(bri(externalVal,y)/y)",
+          "b": "((externalVal+x)/bri(x,y))",
+          "g": "(((x/externalVal)+externalVal)-x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(y*externalVal)",
+          "b": "(externalVal/((externalVal*(((externalVal/(((y+externalVal)/externalVal)-externalVal))*externalVal)*y))/externalVal))",
+          "g": "(((y+externalVal)/externalVal)-externalVal)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(x+externalVal)",
+          "b": "(externalVal-y)",
+          "g": "(externalVal*(externalVal*y))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(y-x)",
+          "b": "(externalVal-x)",
+          "g": "((((bri(externalVal,externalVal)/(x-externalVal))-(y/externalVal))/externalVal)+(x+((externalVal/(y*externalVal))+externalVal)))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "bri(y,x)",
+          "b": "(bri(bri(x,y),((y-(y*y))*((x/((y/bri(externalVal,((((bri((y+y),bri(y,x))-y)-(externalVal-externalVal))+y)-x)))-y))+bri(bri((x-bri(x,(x-x))),externalVal),(x+(x-bri(x,(externalVal-(y*(y+(y*x)))))))))))/y)",
+          "g": "bri(((((((x*(bri(((externalVal-externalVal)*y),externalVal)-x))+((externalVal*y)/externalVal))-(externalVal-(x-bri(((y-externalVal)*(((((((((bri((x*(externalVal*((externalVal-(x/x))+(externalVal/bri((bri(x,(x/(y+x)))/(externalVal+x)),bri(bri((((externalVal-(x*x))/y)+((x/(y-externalVal))*(x*bri(externalVal,externalVal)))),((((x-y)/y)+y)*bri(((y*x)+(externalVal*y)),x))),y)))))),(externalVal+externalVal))/(x-x))-x)-(bri(externalVal,(x-x))*externalVal))-(x/x))/y)-y)+bri(((externalVal-x)+externalVal),bri(externalVal,x)))+((bri(bri(bri(externalVal,externalVal),bri(externalVal,(x-x))),(x*y))*x)+bri(((bri((x+y),(y/externalVal))-bri(bri(externalVal,y),externalVal))+y),x)))+bri(externalVal,y))),y))))-externalVal)-bri(externalVal,(externalVal/x)))/((y-(y-((externalVal+((x+externalVal)-(externalVal*(bri(y,bri(externalVal,(bri(externalVal,y)-bri(((externalVal*x)*x),y))))*externalVal))))+(y-y))))-((((bri(x,x)*x)+y)-x)*x))),(x-bri(((externalVal-(((((externalVal-y)/x)*((externalVal/x)/(bri((x/bri(externalVal,(x-x))),((bri((x+bri(externalVal,(x/x))),y)/((bri(bri((x*x),(x-externalVal)),bri((x+x),y))/bri((y*(x-y)),((bri(((((externalVal-externalVal)-y)-(x*((y/y)*(externalVal+((bri((externalVal-x),externalVal)/y)*bri(x,x))))))-y),x)-x)/externalVal)))/((x*(externalVal*externalVal))+externalVal)))-externalVal))+y)))-bri((y-y),(((bri(externalVal,x)/x)+y)*externalVal)))+((externalVal+externalVal)*y)))-y),y)))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(bri((y/((y*((bri(((externalVal+x)-((x*y)*(bri(x,(y-(bri((bri(y,externalVal)*y),y)-bri((externalVal*(y*x)),y))))/(bri(bri(((externalVal/y)+externalVal),((x*x)-externalVal)),externalVal)/externalVal)))),externalVal)+externalVal)*(externalVal+(x-y))))/externalVal)),externalVal)-(x/((bri(y,(y+y))-x)*((y*(((((externalVal*x)+externalVal)-y)*bri(((y/((x/(externalVal/y))/externalVal))-(bri(x,(externalVal+((y+externalVal)/(y-y))))+(bri(y,y)*bri(y,externalVal)))),bri(bri(x,(((bri((((((x+(((y+(((x+x)+(x/(x-(y/(externalVal+externalVal)))))/(y-y)))*y)+((bri(externalVal,(externalVal-y))/((externalVal+externalVal)+(externalVal-x)))-y)))/((x/x)*y))/externalVal)-y)+bri(y,x)),(x/x))+(x+externalVal))/x)/(bri(x,externalVal)*(bri((y/x),externalVal)+externalVal)))),externalVal)))*(x*(bri(externalVal,externalVal)*((y+(bri(x,((((((bri(externalVal,(externalVal-(externalVal*y)))-x)-(externalVal+bri(x,bri((externalVal/y),externalVal))))-externalVal)-((externalVal/externalVal)+y))*x)*y))-externalVal))/externalVal)))))+((((x+(((y*(((externalVal-externalVal)-bri(x,x))/externalVal))+(y-(((y+y)+externalVal)*externalVal)))/y))+x)/(externalVal-externalVal))*x)))))",
+          "b": "(y+externalVal)",
+          "g": "(((y*externalVal)*externalVal)/(externalVal*x))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(externalVal-x)",
+          "b": "(x-(x/y))",
+          "g": "(((((externalVal*(bri(x,x)+y))-externalVal)+externalVal)*(x*externalVal))+y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(y/y)",
+          "b": "bri(y,(((x*(externalVal+y))*(externalVal+y))/x))",
+          "g": "bri((((((y*x)/externalVal)-(externalVal/(x/externalVal)))+((((bri(((y/(externalVal/x))-x),externalVal)*(externalVal+((x+(externalVal-bri((((bri(externalVal,x)+bri(externalVal,y))+(y*externalVal))/bri(externalVal,(bri(externalVal,externalVal)+y))),x)))-x)))-bri(y,y))-externalVal)-(externalVal*y)))/(bri(y,((y/externalVal)*((y*(externalVal-x))*y)))*(x/(externalVal-x)))),((((((bri(y,((externalVal/bri(y,(((x/(y-(externalVal/externalVal)))*bri(x,(x/(y+y))))/((y*((((bri(x,(externalVal+x))/bri(x,y))*x)+x)+x))*bri(y,externalVal)))))/y))+y)+y)/((y-((x*(y*externalVal))*externalVal))*(y*externalVal)))*x)+(x*(y-(((x*((x+(y*y))*(externalVal+(externalVal+y))))*(y-((externalVal*(bri(y,bri((((bri((y*((bri(x,externalVal)/((x/bri(bri(x,(y*(externalVal-bri((((x/x)*(x-x))/((y*externalVal)*x)),bri((externalVal*(y/externalVal)),y))))),(x/y)))-y))-(y+((externalVal-externalVal)+(externalVal-bri((y/bri(x,y)),externalVal)))))),(bri((x+externalVal),x)*(y+(((externalVal+(externalVal-externalVal))+x)-y))))*(((x+(externalVal*(x/y)))-externalVal)*externalVal))/x)/(((externalVal+externalVal)*((y-(bri((externalVal*((y+(((externalVal+externalVal)-(y-x))/bri(bri(bri(x,(((externalVal-y)/bri(x,y))/x)),(bri(externalVal,y)/(y/y))),bri(y,externalVal))))*y)),y)-externalVal))+x))+((externalVal*(externalVal-x))*x))),((externalVal/(x-x))+(externalVal*x))))*externalVal))*y)))/externalVal))))*(bri(((y/y)-bri((x-((bri((((externalVal/externalVal)+x)/(externalVal*x)),y)-externalVal)/(bri(externalVal,externalVal)+externalVal))),((y+(((x/(x*externalVal))-y)-(externalVal+externalVal)))-(externalVal-((y+x)*externalVal))))),x)-x)))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "bri(x,(externalVal*(x/y)))",
+          "b": "((((x*(y*y))-y)-x)/(x*x))",
+          "g": "(((x+externalVal)*(bri(externalVal,externalVal)/((externalVal+(x/y))+x)))*bri(y,y))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(bri(y,y)/bri(y,y))",
+          "b": "((y+y)-x)",
+          "g": "(y-y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(y+(y-(externalVal/y)))",
+          "b": "(bri(((externalVal/((externalVal-x)*y))+(x+(externalVal+(y*(x/x))))),(externalVal+(externalVal/bri((x*bri((bri((((y/(((externalVal-externalVal)*(x*x))*((y+(y-((externalVal*(y-(x*x)))+(externalVal/(bri(x,(bri(externalVal,y)*y))+externalVal)))))+externalVal)))/y)*(externalVal*y)),x)/(bri(x,(externalVal+bri(bri(x,externalVal),(y+(y-x)))))-y)),externalVal)),(externalVal/x)))))-y)",
+          "g": "(((x/x)/y)*(y-(x/(y-(y/y)))))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(y*y)",
+          "b": "bri(y,externalVal)",
+          "g": "(externalVal/x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(bri(y,x)*externalVal)",
+          "b": "((y+((y+y)/y))-((externalVal-y)*externalVal))",
+          "g": "bri(externalVal,x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "bri((y+(bri(x,((externalVal/externalVal)+y))*(bri(((x*externalVal)*(x/externalVal)),((externalVal-externalVal)+(y-y)))-y))),externalVal)",
+          "b": "bri((x/(bri((externalVal-x),(y-y))*externalVal)),externalVal)",
+          "g": "bri(y,bri(bri((bri(y,externalVal)/externalVal),x),(y*((y/bri((y-(externalVal/externalVal)),((externalVal/externalVal)/(y+externalVal))))*(bri((x-bri((externalVal*externalVal),y)),(((y*(x-externalVal))/((x+((x+externalVal)-(bri(y,x)/(bri(((((externalVal-x)*(y/externalVal))/(x/(externalVal*(bri(x,externalVal)*x))))+y),bri((externalVal-(x+(x/y))),((bri(y,x)/(y-y))+x)))/(externalVal/y)))))*x))/(((externalVal-((y/externalVal)*y))-x)+(externalVal-bri(x,y)))))+(y/x))))))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(y*externalVal)",
+          "b": "(((((x*y)+x)*y)/y)-(x*y))",
+          "g": "(x-y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "((((y/bri(externalVal,(bri(((externalVal-(x+y))/y),x)-bri((externalVal/((y*x)+externalVal)),y))))-y)*bri(externalVal,externalVal))*bri((((bri((y*y),externalVal)/externalVal)-(bri(y,externalVal)/(x/((x/(bri(y,bri(bri(y,externalVal),(y/(x/x))))*x))-((x-externalVal)+(((x-y)-y)*(y*externalVal)))))))-y),(x*externalVal)))",
+          "b": "(x/x)",
+          "g": "(y*y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "((((x-(y+(y/((y+(x*(externalVal-externalVal)))-externalVal))))+bri((x/(y*y)),(((bri(x,externalVal)*(((y*x)+externalVal)+y))+x)*((externalVal-((externalVal+externalVal)+y))/bri((externalVal*x),(x+(bri((y+((externalVal-((x-x)+externalVal))-(y/y))),x)*y)))))))+bri((((bri(x,x)+bri(y,y))+y)+y),(x/((x*bri(externalVal,(bri(externalVal,(y-y))/(((x/externalVal)*x)-((x-(x-((bri(externalVal,(y-y))*x)+y)))*bri(x,((x-((y/(y*externalVal))*(y+externalVal)))-(bri(y,externalVal)*y))))))))+y))))+x)",
+          "b": "(y/(x+x))",
+          "g": "(bri(y,(externalVal*externalVal))-x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(((x-(bri(y,(((externalVal*y)*externalVal)/((bri(externalVal,externalVal)/((x*externalVal)*(((x*y)+y)-x)))*y)))+x))/bri(x,externalVal))+(((bri((y*x),x)+((x*x)-(externalVal+(x+y))))/y)-bri(((y-x)+y),externalVal)))",
+          "b": "bri(((y+bri((y*externalVal),bri((bri(bri(x,externalVal),bri(y,y))/externalVal),(((x+y)-y)+((((y*externalVal)*(y*bri(x,externalVal)))-bri(x,bri(y,externalVal)))*(((y/externalVal)*(externalVal+(((y*(x+(x-(x*y))))*(x*x))-(((y+(y*(externalVal-externalVal)))/x)/(bri(bri(y,(externalVal-(x*(y*y)))),((externalVal-bri(bri(x,y),y))/(externalVal/(y-x))))+y)))))*(externalVal-(x*externalVal))))))))*bri(y,x)),y)",
+          "g": "bri(y,(externalVal-externalVal))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "bri((x-y),((bri(x,((bri(externalVal,(bri((y*y),x)*bri(bri(((externalVal*(((externalVal-(externalVal/(x+bri(y,externalVal))))*(y-y))*y))*((externalVal/y)+x)),y),(externalVal+((y*externalVal)+externalVal)))))+x)-y))-y)-bri(y,externalVal)))",
+          "b": "bri(externalVal,externalVal)",
+          "g": "(x+bri(bri(y,(externalVal/y)),y))"
+        }
+      }
+    ],
+    "timestamp": "22h:39m:27s"
+  }],
+  "timestamp": "2023-11-16-22-39-26"
+}

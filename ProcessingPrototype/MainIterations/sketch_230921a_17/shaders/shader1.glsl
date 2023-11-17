@@ -88,9 +88,9 @@ float bri(float x, float y){ //brightness https://stackoverflow.com/questions/59
 }
 
 vec3 generateRGB(float x, float y){
-    float r = min(pow(((x+y)/(max(externalVal,mod((externalVal/cos(min(noise(max(tan(max(externalVal,noise(externalVal,mod(sin(x),mod(y,y))))),(externalVal+externalVal)),externalVal),sin(x)))),((y-pow(externalVal,y))-x)))*(((externalVal-(externalVal-min(externalVal,tan((tan(max((max(externalVal,x)-noise(y,mod(noise(y,max((y-externalVal),x)),externalVal))),noise(mod(externalVal,noise(x,(x+pow(((externalVal/x)*sin((x*(externalVal*(x/(mod(y,y)-cos(((sin(externalVal)*((y/externalVal)-sin(mod(x,x))))*(externalVal-x))))))))),(externalVal+mod(tan(y),max((pow(y,externalVal)/externalVal),y))))))),max(externalVal,y))))*y)))))-y)*noise(x,((externalVal/x)-externalVal))))),min((tan(externalVal)/x),((x/(y*cos(sin(tan(max(((y*mod(pow(tan(externalVal),y),externalVal))*externalVal),x))))))/x))),y);
-    float g = (y-(tan(min(cos(y),externalVal))+pow(x,(cos((y/((mod(pow(y,min(sin(y),(mod(((x-max(y,externalVal))+pow((x+noise(noise(y,y),max(cos(x),x))),externalVal)),cos(externalVal))+externalVal))),cos(externalVal))-x)*(y+max(y,tan(pow(y,max(noise(min(externalVal,externalVal),noise(mod(min((y/externalVal),mod(y,mod((sin(sin(mod(x,(min(x,externalVal)/(y*y)))))-externalVal),(externalVal/y)))),y),mod(externalVal,mod(y,externalVal)))),min(min(externalVal,cos(x)),noise(pow(mod(min(externalVal,y),y),y),(externalVal-x)))))))))))-noise(mod(x,externalVal),pow(max(sin(externalVal),y),noise(mod(pow(y,externalVal),x),externalVal)))))));
-    float b = mod(externalVal,externalVal);
+    float r = (y*(x+(y+(x*(y/((externalVal*externalVal)/y))))));
+    float g = (y*x);
+    float b = (x/x);
     return vec3(r,g,b);
 }
 
