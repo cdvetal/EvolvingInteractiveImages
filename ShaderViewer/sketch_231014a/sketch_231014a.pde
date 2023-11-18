@@ -1,5 +1,9 @@
 import java.util.*;
 import processing.sound.*;
+import processing.video.*;
+
+Capture cam;
+PImage exampleImage;
 
 Individual[] individuals;
 PImage shaderImage;
@@ -30,12 +34,6 @@ void setup() {
   individuals = loadIndividuals();
   shaderImage = new PImage(width, height, RGB);
   applyShader();
-
-  try {
-    Thread.sleep(3000);    // delay(3000)
-  }
-  catch (Throwable t) {
-  }
 }
 
 void draw() {
@@ -44,6 +42,21 @@ void draw() {
     fft = new FFT(this, nBands);
     soundFiles = loadSongs();
     changeSong();
+
+    String[] cameras = Capture.list();
+    if (cameras.length == 0) {
+      exampleImage = loadImage("shells.jpg");
+    } else {
+      println(cameras.length);
+      cam = new Capture(this, 1280, 720);
+      cam.start();
+    }
+  }
+  if (cam.available() == true) {
+    cam.read();
+    individuals[individualIndex].shader.set("image", cam);
+  } else if (cam == null) {
+    individuals[individualIndex].shader.set("image", exampleImage);
   }
   float external = getExternalValue();
   float[] audioSpectrum = getAudioSpectrum();

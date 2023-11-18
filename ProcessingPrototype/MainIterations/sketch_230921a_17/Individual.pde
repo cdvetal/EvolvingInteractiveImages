@@ -76,8 +76,6 @@ class Individual {
     saveStrings(shaderPath, shaderLines);
 
     shader = loadShader(shaderPath);
-    
-    shader.set("image", exampleImage);
   }
 
   int getBreadth(int _parentIndex, int _depth) {
@@ -179,6 +177,7 @@ class Individual {
     //shader.set("resolution", _w, _h); //doesnt matter
     shader.set("externalVal", _external);
     shader.set("audioSpectrum", _audioSpectrum);
+    shader.set("image", inputImage);
     
     _canvas.shader(shader);
     _canvas.image(image, 0, 0);

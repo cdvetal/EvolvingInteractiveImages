@@ -88,9 +88,9 @@ float bri(float x, float y){ //brightness https://stackoverflow.com/questions/59
 }
 
 vec3 generateRGB(float x, float y){
-    float r = ((x+(externalVal/externalVal))/y);
-    float g = ((externalVal*y)+externalVal);
-    float b = (((((((((((((externalVal-x)*(x*((y*(x/y))-x)))+(((x*x)*externalVal)/(x/((y/((externalVal/externalVal)*externalVal))/x))))*externalVal)-(((externalVal-(externalVal-(y+(externalVal/externalVal))))-x)+x))/x)-((y*y)*(y*x)))*((externalVal+y)-(externalVal/(y*(((((y-externalVal)/(externalVal*externalVal))-y)/externalVal)+externalVal)))))-x)*externalVal)*(externalVal-externalVal))*((y*((x/(((x-(externalVal+y))*(((((y*((externalVal/(externalVal*(((x-x)/externalVal)+((x*((x/((((externalVal/(y-(y+(y-(x/(externalVal+y))))))*x)/x)/(x*((x+y)/((x+externalVal)*(x/y))))))-((y+y)-(x+x))))+externalVal))))+y))+externalVal)/x)/(externalVal-x))*x))+y))/y))-externalVal))-x);
+    float r = bri(externalVal,cos(externalVal));
+    float g = bri(sin(x),x);
+    float b = bri(sin(bri(x,tan(y))),y);
     return vec3(r,g,b);
 }
 

@@ -1,8 +1,10 @@
 import java.util.*;
 import processing.pdf.*;
 import processing.sound.*;
+import processing.video.*;
 
-PImage exampleImage;
+Capture cam;
+PImage inputImage;
 
 int populationSize = 20;
 int eliteSize = 2;
@@ -52,7 +54,14 @@ void setup() {
   //fullScreen(P2D);
   colorMode(RGB, 1);
 
-  exampleImage = loadImage("shells.jpg");
+  String[] cameras = Capture.list();
+  if (cameras.length == 0) {
+    inputImage = loadImage("shells.jpg");
+  } else {
+    println(cameras.length);
+    cam = new Capture(this, 1280, 720);
+    cam.start();
+  }
 
   fft = new FFT(this, nBands);
   soundFiles = loadSongs();
@@ -84,6 +93,7 @@ void draw() {
     break;
 
     case(2):
+    setInputImage();
     float externalValue = getExternalValue();
     float[] audioSpectrum = getAudioSpectrum();
     hoveredIndividual = getHoveredIndividual();
@@ -95,6 +105,13 @@ void draw() {
     drawExternalFeedback(externalValue);
     break;
   }
+}
+
+void setInputImage() {
+  if (cam.available() != true) return;
+
+  cam.read();
+  inputImage = cam;
 }
 
 float[] getAudioSpectrum() {
