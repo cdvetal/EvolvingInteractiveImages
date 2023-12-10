@@ -13,6 +13,8 @@ float maxExternal = 1;
 float minSpeed = 0;
 float maxSpeed = 1;
 
+boolean externalEnabled = true;
+
 FFT fft;
 SoundFile[] soundFiles;
 int nBands = 512;
@@ -60,7 +62,7 @@ void draw() {
   }
   float external = getExternalValue();
   float[] audioSpectrum = getAudioSpectrum();
-  individuals[individualIndex].shader.set("externalVal", external);
+  if(externalEnabled) individuals[individualIndex].shader.set("externalVal", external);
   individuals[individualIndex].shader.set("audioSpectrum", audioSpectrum);
   image(shaderImage, 0, 0);
   showFeedback(external);
@@ -109,6 +111,7 @@ void keyPressed() {
   if (key == 'f' || key == 'F') feedbackAlwaysEnabled = !feedbackAlwaysEnabled;
   if (key == 'r' || key == 'R') resetParameters();
   if (key == 'm' || key == 'M') changeSong();
+  if (key == ' ') externalEnabled = !externalEnabled;
 
   if (key != CODED) return;
 

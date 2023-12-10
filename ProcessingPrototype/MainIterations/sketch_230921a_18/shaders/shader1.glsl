@@ -97,9 +97,9 @@ float bri(float x, float y){ //brightness https://stackoverflow.com/questions/59
 }
 
 vec3 generateRGB(float x, float y){
-    float r = max(max((externalVal/max((x-(bri(audio(x,externalVal),sin(max(externalVal,y)))*x)),externalVal)),sin(x)),(y/max(audio(x,bri(cos(x),((min(externalVal,x)+pow(y,y))-externalVal))),externalVal)));
-    float g = (externalVal*(externalVal*sin(externalVal)));
-    float b = (max(externalVal,x)-y);
+    float r = audio(y,mod(bri(y,externalVal),bri(audio(bri(mod(audio(bri(audio(audio(audio(bri(bri(y,externalVal),audio(externalVal,audio(mod(mod(externalVal,audio(mod(y,bri(externalVal,audio(audio(mod(mod(x,mod(y,externalVal)),audio(y,audio(y,mod(y,externalVal)))),bri(bri(externalVal,y),x)),externalVal))),bri(y,audio(x,externalVal)))),audio(audio(y,y),mod(bri(y,x),x))),externalVal))),mod(y,externalVal)),x),y),externalVal),mod(audio(bri(mod(y,bri(x,y)),externalVal),bri(audio(y,audio(bri(externalVal,x),mod(externalVal,externalVal))),bri(y,audio(x,mod(externalVal,y))))),y)),mod(externalVal,y)),externalVal),y),x)));
+    float g = mod(mod(x,x),externalVal);
+    float b = mod(bri(x,x),y);
     return vec3(r,g,b);
 }
 

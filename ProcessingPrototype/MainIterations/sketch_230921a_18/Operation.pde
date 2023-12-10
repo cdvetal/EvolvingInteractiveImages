@@ -24,20 +24,20 @@ class Operation{
 Operation[] setupOperations(){
   ArrayList<Operation> operationsToReturn = new ArrayList<Operation>();
   
-  operationsToReturn.add(new Operation(0, "+"));
-  operationsToReturn.add(new Operation(0, "-"));
-  operationsToReturn.add(new Operation(0, "*"));
-  operationsToReturn.add(new Operation(0, "/"));
+  //operationsToReturn.add(new Operation(0, "+"));
+  //operationsToReturn.add(new Operation(0, "-"));
+  //operationsToReturn.add(new Operation(0, "*"));
+  //operationsToReturn.add(new Operation(0, "/"));
   
-  operationsToReturn.add(new Operation(1, "sin"));
-  operationsToReturn.add(new Operation(1, "cos"));
-  operationsToReturn.add(new Operation(1, "tan"));
+  //operationsToReturn.add(new Operation(1, "sin"));
+  //operationsToReturn.add(new Operation(1, "cos"));
+  //operationsToReturn.add(new Operation(1, "tan"));
   
-  operationsToReturn.add(new Operation(2, "max"));
-  operationsToReturn.add(new Operation(2, "min"));
+  //operationsToReturn.add(new Operation(2, "max"));
+  //operationsToReturn.add(new Operation(2, "min"));
   //operationsToReturn.add(new Operation(2, "noise"));
-  //operationsToReturn.add(new Operation(2, "mod"));
-  operationsToReturn.add(new Operation(2, "pow"));
+  operationsToReturn.add(new Operation(2, "mod"));
+  //operationsToReturn.add(new Operation(2, "pow"));
   operationsToReturn.add(new Operation(2, "audio"));
   operationsToReturn.add(new Operation(2, "bri"));
   
