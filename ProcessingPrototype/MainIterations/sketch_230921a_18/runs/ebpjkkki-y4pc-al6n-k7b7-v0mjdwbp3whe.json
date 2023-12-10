@@ -1,0 +1,178 @@
+{
+  "id": "ebpjkkki-y4pc-al6n-k7b7-v0mjdwbp3whe",
+  "parameters": {
+    "crossoverRate": 0.5,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.4000000059604645,
+    "populationSize": 20
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "o64gi2wy-to1f-ld6q-nisw-t11zt1g7c4p7",
+    "individuals": [
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(externalVal*bri(cos(externalVal),((externalVal/pow(y,externalVal))+(bri(externalVal,tan(y))+bri(pow(audio(externalVal,min(y,externalVal)),((externalVal+externalVal)/(y*y))),min(tan(bri(x,(y-(externalVal+y)))),(x-bri(((x*pow(x,(externalVal+y)))+audio((y+externalVal),((((tan(x)-bri(x,sin(bri(x,y))))+x)/bri(y,(externalVal+y)))+sin(max(pow(x,y),x))))),externalVal))))))))",
+          "b": "(cos(sin(audio(audio(externalVal,x),pow(tan(tan(y)),externalVal))))*y)",
+          "g": "(x+x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "bri(externalVal,y)",
+          "b": "(tan(x)*x)",
+          "g": "(externalVal*x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "max(x,externalVal)",
+          "b": "audio(bri(tan(y),max(x,x)),pow((pow(externalVal,max((y*bri((bri(((bri(bri(externalVal,(y-y)),max(max(cos(x),y),x))+bri(y,pow(y,(externalVal-externalVal))))/audio(x,externalVal)),(y/x))-y),x)),(pow(max(cos(cos(pow(sin(externalVal),externalVal))),y),x)-x)))/pow(audio(externalVal,pow(x,y)),(pow(pow(externalVal,sin(cos(y))),min((tan(y)*x),sin(y)))*externalVal))),max(x,(x-externalVal))))",
+          "g": "(max(sin(x),(sin(audio((y*x),audio(audio(x,x),min(externalVal,bri(externalVal,externalVal)))))*x))+cos(y))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(y+externalVal)",
+          "b": "bri(audio(y,y),y)",
+          "g": "sin(externalVal)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "audio(audio(externalVal,y),externalVal)",
+          "b": "audio((y/bri(y,(x/max(cos(x),cos(pow(x,max(externalVal,((((((x+y)+y)/(x+x))*y)-y)+bri(((pow(externalVal,y)*externalVal)-audio(y,externalVal)),audio(externalVal,externalVal)))))))))),externalVal)",
+          "g": "tan(y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(x+y)",
+          "b": "(sin(y)/x)",
+          "g": "sin((min(x,(pow(tan((((y*y)-x)*externalVal)),sin(x))-audio((x-((externalVal+y)-audio(x,x))),sin(audio(((max(x,tan(externalVal))/y)*(audio(y,pow(tan(audio(audio((y*x),audio(x,bri(y,(tan(y)*(max(y,externalVal)-bri(externalVal,(bri((((max(audio(min(y,sin(externalVal)),sin(x)),cos(bri(x,externalVal)))/bri(sin(x),externalVal))-(y-bri(externalVal,max(externalVal,externalVal))))/pow(cos(externalVal),cos(x))),sin(audio(y,externalVal)))/(x*tan(bri(x,y)))))))))),bri(sin(x),y))),externalVal))-(tan(min(externalVal,sin(audio((y/x),externalVal))))+audio(y,y)))),externalVal)))))/audio(audio(y,cos(pow(cos((x+y)),(bri(y,x)+tan((x*externalVal)))))),y)))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(externalVal-x)",
+          "b": "(pow(audio(bri(x,max(pow(audio(y,x),y),externalVal)),y),audio((externalVal/x),externalVal))+(y/x))",
+          "g": "audio(x,externalVal)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "((audio(y,bri(externalVal,tan(x)))+x)/x)",
+          "b": "bri(y,y)",
+          "g": "audio(sin(max(y,x)),x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "sin(min(externalVal,y))",
+          "b": "min(x,externalVal)",
+          "g": "min(externalVal,pow(externalVal,externalVal))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "sin(y)",
+          "b": "bri(y,externalVal)",
+          "g": "sin(externalVal)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "audio(min(x,x),audio(pow(tan(x),pow(x,y)),y))",
+          "b": "sin(min(y,externalVal))",
+          "g": "((max(x,externalVal)+((pow(bri(x,sin(x)),tan(x))/y)+externalVal))/max(pow(y,max(externalVal,externalVal)),x))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(x/tan(externalVal))",
+          "b": "sin(externalVal)",
+          "g": "tan(externalVal)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "tan(x)",
+          "b": "max(y,x)",
+          "g": "sin(externalVal)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "sin(sin(y))",
+          "b": "(sin(audio(externalVal,x))/y)",
+          "g": "(cos(tan(sin(bri((x+min(externalVal,x)),(sin(y)+min(tan(y),((audio(x,y)+y)-tan(cos(y)))))))))-x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(audio((x+y),audio((pow(externalVal,sin(max(((bri(x,x)*y)-y),sin(x))))/externalVal),y))/(sin(((max(x,sin(externalVal))*y)*pow((externalVal/(max(externalVal,max(y,x))-y)),audio(sin(externalVal),y))))+((x+y)/y)))",
+          "b": "sin(audio(x,externalVal))",
+          "g": "(externalVal+externalVal)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "tan(y)",
+          "b": "tan(externalVal)",
+          "g": "((sin((externalVal/(bri(externalVal,externalVal)+tan(max(externalVal,y)))))/bri((bri((externalVal/externalVal),(externalVal/y))*(tan((x+y))/externalVal)),x))*audio(sin(tan(externalVal)),y))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(externalVal/(x/x))",
+          "b": "pow(externalVal,externalVal)",
+          "g": "cos((externalVal+audio(x,min(externalVal,min(((x*x)/externalVal),audio((x/externalVal),(pow(pow(y,tan(max(externalVal,((x+externalVal)+((externalVal-pow(x,x))+sin(externalVal)))))),pow(pow(y,y),bri(min(y,tan(externalVal)),(min(x,pow(((sin(externalVal)/y)/externalVal),(y-y)))/y))))*externalVal)))))))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(min(cos(x),(externalVal/tan((cos((externalVal/x))/y))))/tan(x))",
+          "b": "(audio(audio((((x*(externalVal/y))/externalVal)+externalVal),min(cos(y),pow(x,externalVal))),y)-cos(sin(externalVal)))",
+          "g": "sin(max(externalVal,max(pow(externalVal,bri(min(cos(x),x),tan(y))),(tan(externalVal)*x))))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "pow((x-y),min(x,(x-y)))",
+          "b": "bri(y,externalVal)",
+          "g": "tan(y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "min((externalVal*y),externalVal)",
+          "b": "min(sin(x),audio(y,externalVal))",
+          "g": "pow(bri(externalVal,y),tan(max(pow(pow((externalVal/y),x),cos(max((externalVal-externalVal),externalVal))),((min(bri(tan(externalVal),sin(min(sin((y-((externalVal/max(max(max(sin(max(tan(y),externalVal)),x),pow(bri(min(pow((x-sin(externalVal)),externalVal),x),externalVal),sin((y*(externalVal/x))))),externalVal))+(externalVal+y)))),y))),externalVal)+(x-x))+cos(x)))))"
+        }
+      }
+    ],
+    "timestamp": "17h:47m:52s"
+  }],
+  "timestamp": "2023-12-10-17-47-08"
+}
