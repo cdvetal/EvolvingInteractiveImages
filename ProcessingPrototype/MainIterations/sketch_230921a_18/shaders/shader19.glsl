@@ -97,9 +97,9 @@ float bri(float x, float y){ //brightness https://stackoverflow.com/questions/59
 }
 
 vec3 generateRGB(float x, float y){
-    float r = cos(x);
-    float g = max(x,y);
-    float b = (bri(y,(externalVal/externalVal))+externalVal);
+    float r = (y+externalVal);
+    float g = (y*tan(min(externalVal,x)));
+    float b = min((y/y),x);
     return vec3(r,g,b);
 }
 

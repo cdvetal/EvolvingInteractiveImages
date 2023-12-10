@@ -52,7 +52,7 @@ void draw() {
       cam.start();
     }
   }
-  if (cam.available() == true) {
+  if (cam != null && cam.available() == true) {
     cam.read();
     individuals[individualIndex].shader.set("image", cam);
   } else if (cam == null) {
