@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+authors:
+  - family-names: Santos
+    given-names: João
+    orcid: https://orcid.org/0000-0001-8013-8226
+  - family-names: Martins
+    given-names: Tiago
+    orcid: https://orcid.org/0000-0003-2638-237X
+  - family-names: Machado
+    given-names: Penousal
+    orcid: https://orcid.org/0000-0002-6308-6484
+title: "Evolving Interactive Images"
+version: 1.0
+date-released: 2023-09-17
