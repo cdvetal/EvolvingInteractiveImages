@@ -1,0 +1,178 @@
+{
+  "id": "r13aolc6-0571-sc82-z9rl-vk18g723v5z3",
+  "parameters": {
+    "crossoverRate": 0.5,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.4000000059604645,
+    "populationSize": 20
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "8pabiyq9-lw2c-3kl0-7l6e-fv5dn8va4dox",
+    "individuals": [
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "mod(externalVal,x)",
+          "b": "mod(y,mod(audio(audio(externalVal,y),x),y))",
+          "g": "audio(mod(y,externalVal),x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "bri(mod(x,x),y)",
+          "b": "mod(bri(mod(externalVal,mod(bri(y,bri(y,x)),mod(externalVal,bri(audio(audio(bri(x,y),y),mod(mod(x,bri(audio(bri(mod(audio(bri(bri(audio(externalVal,audio(bri(y,y),y)),y),mod(mod(y,audio(audio(x,y),x)),audio(externalVal,y))),y),y),y),mod(x,audio(x,externalVal))),x)),audio(bri(y,externalVal),mod(externalVal,x)))),x)))),mod(externalVal,bri(audio(audio(x,x),bri(externalVal,audio(externalVal,externalVal))),bri(mod(y,mod(bri(mod(bri(externalVal,externalVal),externalVal),x),bri(bri(bri(bri(bri(mod(x,mod(externalVal,mod(x,audio(x,externalVal)))),bri(mod(externalVal,mod(externalVal,bri(bri(mod(bri(mod(x,y),audio(y,audio(x,bri(audio(x,bri(y,y)),externalVal)))),audio(x,y)),externalVal),mod(bri(x,y),mod(externalVal,audio(bri(audio(x,y),externalVal),mod(bri(x,audio(bri(x,x),y)),x))))))),externalVal)),mod(bri(bri(externalVal,externalVal),mod(bri(bri(audio(y,bri(mod(audio(x,externalVal),y),mod(externalVal,audio(mod(bri(x,externalVal),x),externalVal)))),x),bri(externalVal,bri(bri(audio(mod(externalVal,x),externalVal),bri(bri(y,mod(bri(y,audio(externalVal,mod(bri(bri(externalVal,mod(x,bri(bri(y,externalVal),audio(y,externalVal)))),y),mod(audio(audio(mod(x,audio(mod(y,externalVal),bri(externalVal,x))),externalVal),y),bri(y,x))))),mod(bri(externalVal,bri(mod(bri(audio(bri(mod(externalVal,externalVal),mod(mod(y,x),mod(externalVal,x))),x),x),y),audio(externalVal,externalVal))),y))),x)),audio(externalVal,x)))),x)),bri(externalVal,bri(externalVal,bri(bri(y,audio(bri(externalVal,bri(mod(bri(bri(audio(audio(externalVal,audio(y,y)),mod(externalVal,externalVal)),mod(audio(externalVal,x),mod(x,y))),externalVal),mod(bri(mod(y,mod(mod(bri(mod(mod(audio(externalVal,bri(externalVal,x)),audio(externalVal,audio(externalVal,externalVal))),bri(y,audio(bri(x,y),externalVal))),bri(bri(externalVal,y),bri(y,audio(y,bri(externalVal,externalVal))))),x),x)),mod(y,bri(bri(bri(x,externalVal),mod(mod(mod(mod(audio(x,x),bri(y,externalVal)),x),x),bri(bri(audio(audio(y,externalVal),bri(y,x)),y),bri(y,audio(bri(externalVal,y),bri(externalVal,x)))))),externalVal))),audio(audio(bri(externalVal,audio(externalVal,audio(y,audio(x,bri(x,mod(y,externalVal)))))),bri(x,x)),y))),externalVal)),audio(y,externalVal))),x))))),audio(bri(bri(externalVal,audio(mod(bri(y,externalVal),audio(audio(mod(audio(x,mod(audio(x,mod(y,bri(externalVal,audio(mod(mod(audio(x,bri(x,y)),x),audio(bri(externalVal,x),y)),externalVal)))),y)),audio(mod(externalVal,audio(y,externalVal)),x)),mod(bri(audio(externalVal,y),y),y)),externalVal)),mod(y,mod(y,x)))),audio(x,x)),x)),externalVal),x))),y)))),bri(externalVal,y))",
+          "g": "bri(externalVal,audio(mod(mod(audio(audio(x,mod(audio(externalVal,x),audio(mod(audio(mod(bri(y,audio(y,mod(audio(audio(bri(audio(bri(bri(bri(bri(bri(bri(bri(mod(audio(audio(audio(mod(x,x),mod(y,externalVal)),bri(bri(externalVal,y),bri(y,y))),audio(y,x)),externalVal),audio(bri(y,audio(x,externalVal)),x)),x),y),x),externalVal),audio(mod(audio(audio(externalVal,y),mod(audio(mod(externalVal,externalVal),y),x)),bri(externalVal,externalVal)),mod(externalVal,audio(bri(bri(bri(mod(externalVal,x),audio(y,y)),externalVal),externalVal),y)))),x),mod(externalVal,mod(x,y))),mod(x,y)),y),externalVal),mod(x,x)))),externalVal),audio(externalVal,x)),externalVal),mod(y,mod(bri(audio(y,mod(y,x)),audio(bri(bri(bri(x,bri(y,bri(externalVal,x))),x),x),externalVal)),externalVal))))),audio(x,externalVal)),mod(x,bri(y,audio(y,mod(externalVal,audio(bri(externalVal,externalVal),bri(mod(externalVal,x),y))))))),mod(y,x)),externalVal))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "bri(bri(x,externalVal),y)",
+          "b": "mod(audio(x,x),x)",
+          "g": "mod(externalVal,y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "audio(bri(bri(externalVal,mod(externalVal,mod(mod(mod(audio(externalVal,x),audio(audio(externalVal,x),bri(bri(audio(y,externalVal),bri(mod(audio(mod(bri(externalVal,bri(externalVal,audio(bri(audio(mod(mod(y,externalVal),audio(mod(externalVal,externalVal),mod(bri(audio(audio(audio(x,audio(y,bri(externalVal,bri(bri(x,externalVal),y)))),bri(y,mod(bri(bri(bri(y,x),externalVal),audio(bri(y,x),y)),audio(x,mod(y,y))))),bri(x,y)),audio(mod(x,x),x)),x))),bri(mod(y,bri(y,audio(y,y))),bri(bri(x,x),externalVal))),externalVal),audio(externalVal,bri(mod(bri(externalVal,x),y),externalVal))))),x),externalVal),y),audio(externalVal,audio(mod(x,x),y)))),x))),x),x))),audio(y,mod(x,audio(x,y)))),bri(mod(y,mod(audio(externalVal,externalVal),externalVal)),externalVal))",
+          "b": "bri(mod(mod(mod(bri(mod(audio(externalVal,bri(externalVal,externalVal)),y),mod(x,y)),mod(externalVal,y)),mod(y,x)),externalVal),externalVal)",
+          "g": "mod(mod(x,audio(externalVal,y)),y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "mod(audio(mod(mod(audio(y,bri(bri(audio(externalVal,externalVal),x),x)),mod(y,externalVal)),bri(x,mod(y,bri(mod(mod(x,bri(x,bri(y,bri(mod(audio(bri(audio(y,mod(externalVal,mod(x,x))),x),mod(bri(externalVal,externalVal),mod(y,externalVal))),y),audio(mod(mod(audio(externalVal,audio(externalVal,audio(mod(mod(x,audio(y,audio(x,x))),externalVal),x))),audio(mod(bri(audio(externalVal,x),externalVal),x),y)),externalVal),externalVal))))),x),externalVal)))),externalVal),externalVal)",
+          "b": "audio(bri(y,y),mod(mod(bri(mod(mod(mod(externalVal,mod(bri(audio(x,x),externalVal),mod(audio(y,bri(mod(audio(x,x),y),audio(y,y))),mod(bri(audio(x,mod(y,y)),bri(bri(externalVal,externalVal),bri(externalVal,externalVal))),mod(bri(externalVal,x),bri(x,audio(x,externalVal))))))),externalVal),bri(y,y)),bri(externalVal,x)),mod(bri(x,bri(x,y)),bri(y,bri(x,bri(bri(y,externalVal),y))))),externalVal))",
+          "g": "mod(y,y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "mod(mod(externalVal,externalVal),bri(bri(x,externalVal),audio(x,mod(audio(audio(y,externalVal),externalVal),y))))",
+          "b": "bri(audio(audio(externalVal,bri(y,externalVal)),x),externalVal)",
+          "g": "mod(x,y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "audio(externalVal,bri(y,y))",
+          "b": "bri(y,x)",
+          "g": "audio(bri(y,bri(audio(x,y),x)),y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "mod(audio(mod(x,x),y),audio(x,y))",
+          "b": "mod(audio(externalVal,mod(audio(audio(audio(externalVal,x),bri(bri(y,bri(mod(bri(externalVal,bri(externalVal,externalVal)),y),audio(externalVal,externalVal))),bri(audio(y,audio(audio(externalVal,bri(audio(audio(audio(audio(y,mod(externalVal,x)),x),audio(y,externalVal)),externalVal),x)),bri(y,audio(y,x)))),externalVal))),externalVal),audio(y,mod(bri(externalVal,y),externalVal)))),y)",
+          "g": "mod(bri(externalVal,bri(x,y)),x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "mod(audio(x,audio(audio(x,externalVal),mod(externalVal,mod(x,mod(x,audio(audio(externalVal,y),audio(mod(externalVal,externalVal),x))))))),x)",
+          "b": "bri(externalVal,bri(audio(externalVal,externalVal),externalVal))",
+          "g": "audio(mod(x,mod(bri(audio(bri(audio(x,y),y),mod(audio(y,externalVal),x)),x),externalVal)),bri(x,y))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "audio(mod(bri(mod(bri(audio(x,y),x),x),bri(x,audio(mod(bri(externalVal,mod(y,y)),x),y))),bri(y,mod(y,x))),audio(bri(audio(externalVal,x),mod(y,audio(y,externalVal))),mod(x,audio(bri(bri(bri(y,externalVal),x),externalVal),x))))",
+          "b": "bri(x,audio(bri(mod(y,x),externalVal),audio(bri(externalVal,mod(audio(mod(mod(x,externalVal),audio(audio(externalVal,audio(x,audio(mod(x,externalVal),audio(y,mod(y,y))))),mod(bri(y,bri(x,externalVal)),externalVal))),y),externalVal)),mod(externalVal,x))))",
+          "g": "bri(bri(bri(mod(y,x),y),mod(bri(externalVal,bri(y,bri(y,externalVal))),x)),mod(y,y))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "mod(x,bri(bri(audio(mod(externalVal,externalVal),bri(y,externalVal)),audio(mod(externalVal,x),y)),bri(mod(y,x),audio(externalVal,externalVal))))",
+          "b": "audio(audio(x,audio(mod(x,audio(externalVal,bri(bri(audio(y,bri(externalVal,mod(y,mod(x,externalVal)))),externalVal),externalVal))),audio(mod(bri(y,mod(x,audio(mod(externalVal,bri(bri(audio(bri(y,audio(mod(y,x),audio(y,x))),mod(y,audio(mod(x,externalVal),x))),bri(externalVal,y)),audio(x,bri(audio(x,bri(bri(audio(mod(x,audio(y,y)),mod(mod(audio(mod(y,bri(externalVal,mod(mod(bri(audio(audio(y,mod(audio(audio(bri(x,x),audio(y,externalVal)),y),mod(mod(audio(x,externalVal),bri(x,externalVal)),y))),mod(mod(mod(mod(mod(x,externalVal),y),x),audio(mod(audio(externalVal,x),audio(x,x)),externalVal)),y)),externalVal),mod(mod(audio(mod(bri(bri(externalVal,bri(y,externalVal)),externalVal),bri(mod(y,externalVal),x)),audio(bri(x,mod(audio(y,x),audio(y,externalVal))),mod(y,x))),y),bri(bri(x,x),audio(externalVal,mod(bri(externalVal,bri(x,audio(x,x))),mod(x,y)))))),y))),y),audio(bri(externalVal,externalVal),x)),y)),x),bri(mod(x,audio(mod(externalVal,audio(x,bri(audio(audio(audio(externalVal,mod(bri(mod(externalVal,externalVal),externalVal),bri(mod(audio(externalVal,x),audio(audio(audio(x,bri(x,x)),audio(bri(externalVal,externalVal),x)),audio(x,externalVal))),externalVal))),bri(bri(audio(bri(externalVal,bri(externalVal,x)),x),mod(y,y)),bri(x,audio(bri(x,audio(x,externalVal)),audio(x,externalVal))))),bri(x,x)),audio(y,x)))),mod(audio(audio(y,externalVal),x),audio(externalVal,externalVal)))),mod(bri(y,y),audio(y,audio(externalVal,y)))))),y)))),externalVal))),bri(audio(y,y),audio(bri(y,x),y))),audio(mod(y,mod(mod(externalVal,mod(x,x)),x)),y)))),externalVal)",
+          "g": "mod(mod(audio(bri(mod(externalVal,externalVal),y),mod(x,y)),audio(mod(bri(externalVal,y),mod(externalVal,x)),y)),mod(x,mod(externalVal,externalVal)))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "mod(x,y)",
+          "b": "audio(x,y)",
+          "g": "bri(x,mod(mod(mod(audio(y,mod(externalVal,audio(x,y))),bri(mod(y,mod(bri(mod(x,audio(audio(y,mod(x,audio(audio(audio(externalVal,x),y),mod(bri(audio(audio(y,bri(audio(x,y),y)),bri(externalVal,externalVal)),x),audio(bri(externalVal,x),audio(mod(externalVal,audio(mod(externalVal,y),mod(mod(x,audio(x,externalVal)),audio(externalVal,bri(y,externalVal))))),y)))))),externalVal)),x),y)),y)),audio(externalVal,externalVal)),audio(bri(y,x),externalVal)))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "bri(audio(y,x),externalVal)",
+          "b": "mod(externalVal,mod(externalVal,audio(mod(mod(externalVal,mod(y,mod(x,y))),externalVal),bri(bri(mod(externalVal,y),mod(x,y)),x))))",
+          "g": "mod(y,audio(bri(x,mod(mod(bri(externalVal,y),audio(x,x)),x)),y))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "mod(bri(externalVal,audio(bri(bri(externalVal,mod(audio(externalVal,y),mod(audio(externalVal,audio(mod(mod(audio(x,x),y),audio(y,y)),bri(y,mod(audio(x,audio(y,x)),externalVal)))),y))),externalVal),mod(bri(externalVal,x),audio(mod(externalVal,externalVal),bri(y,audio(mod(bri(bri(externalVal,y),mod(externalVal,mod(audio(audio(y,externalVal),mod(audio(audio(bri(bri(x,x),mod(audio(audio(externalVal,externalVal),audio(externalVal,externalVal)),externalVal)),audio(audio(bri(externalVal,audio(mod(x,audio(audio(audio(audio(externalVal,y),y),x),audio(bri(audio(mod(audio(y,y),y),bri(x,mod(y,x))),externalVal),bri(mod(externalVal,externalVal),mod(mod(y,audio(externalVal,externalVal)),mod(bri(mod(bri(bri(x,bri(x,x)),bri(audio(y,y),bri(externalVal,y))),x),externalVal),mod(x,y))))))),y)),y),audio(y,audio(audio(x,externalVal),x)))),externalVal),mod(audio(audio(mod(y,bri(x,x)),bri(bri(bri(externalVal,mod(bri(y,externalVal),y)),x),x)),mod(audio(externalVal,bri(mod(externalVal,bri(bri(bri(externalVal,x),audio(y,bri(externalVal,x))),audio(y,audio(x,x)))),externalVal)),bri(y,audio(bri(bri(x,mod(y,y)),y),mod(bri(y,y),x))))),audio(audio(x,bri(x,x)),mod(externalVal,mod(y,externalVal)))))),bri(y,externalVal)))),mod(mod(mod(x,bri(bri(externalVal,externalVal),audio(bri(audio(bri(y,x),x),audio(y,mod(audio(audio(externalVal,mod(audio(mod(mod(x,y),y),externalVal),x)),y),x))),x))),mod(externalVal,y)),y)),bri(x,audio(externalVal,externalVal)))))))),externalVal)",
+          "b": "bri(audio(x,externalVal),x)",
+          "g": "mod(x,bri(externalVal,mod(audio(bri(externalVal,audio(bri(y,externalVal),y)),x),audio(mod(y,bri(mod(audio(x,externalVal),mod(mod(x,bri(bri(audio(audio(mod(audio(mod(y,bri(bri(y,x),x)),externalVal),mod(x,audio(y,mod(externalVal,externalVal)))),mod(y,bri(y,externalVal))),externalVal),mod(externalVal,x)),x)),mod(audio(x,audio(audio(mod(mod(externalVal,bri(bri(y,x),mod(bri(mod(externalVal,bri(mod(x,bri(bri(x,audio(mod(externalVal,x),x)),y)),y)),externalVal),bri(mod(audio(externalVal,y),y),x)))),mod(bri(bri(audio(audio(x,y),y),bri(audio(bri(bri(y,bri(mod(externalVal,bri(mod(x,audio(bri(y,x),audio(externalVal,x))),externalVal)),externalVal)),mod(audio(externalVal,bri(audio(x,bri(bri(externalVal,y),externalVal)),x)),audio(y,externalVal))),y),x)),bri(audio(mod(x,bri(y,mod(x,bri(bri(audio(bri(externalVal,x),externalVal),x),y)))),x),mod(bri(bri(x,audio(y,bri(y,mod(bri(bri(y,mod(externalVal,audio(audio(bri(audio(externalVal,externalVal),y),y),mod(x,bri(y,x))))),mod(mod(mod(bri(x,y),y),y),x)),y)))),y),audio(bri(mod(audio(y,x),externalVal),audio(y,externalVal)),x)))),mod(mod(audio(bri(bri(audio(x,y),mod(externalVal,audio(x,externalVal))),x),mod(externalVal,y)),audio(x,bri(y,bri(externalVal,y)))),y))),mod(y,externalVal)),bri(externalVal,x))),bri(externalVal,mod(bri(audio(audio(mod(externalVal,bri(bri(x,y),bri(x,audio(mod(x,mod(externalVal,y)),bri(y,mod(y,externalVal)))))),audio(y,mod(bri(externalVal,mod(externalVal,bri(x,y))),x))),externalVal),x),externalVal))))),x)),bri(mod(externalVal,externalVal),mod(y,x))))))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "audio(y,x)",
+          "b": "bri(x,mod(audio(y,bri(audio(x,x),bri(audio(bri(externalVal,y),y),y))),y))",
+          "g": "audio(y,bri(audio(audio(y,y),x),mod(x,externalVal)))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "audio(x,bri(x,audio(bri(x,audio(y,bri(mod(y,audio(audio(bri(audio(audio(bri(bri(bri(audio(x,y),audio(audio(mod(externalVal,x),mod(mod(y,externalVal),externalVal)),bri(audio(audio(audio(y,mod(bri(bri(x,y),audio(audio(y,bri(externalVal,mod(audio(externalVal,bri(externalVal,y)),bri(y,mod(x,audio(audio(y,x),externalVal)))))),bri(externalVal,externalVal))),externalVal)),x),y),y))),audio(x,y)),y),externalVal),externalVal),bri(mod(y,audio(x,x)),externalVal)),externalVal),y)),externalVal))),x)))",
+          "b": "bri(audio(bri(bri(x,y),x),x),audio(x,x))",
+          "g": "bri(externalVal,externalVal)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "bri(bri(bri(y,audio(mod(externalVal,x),externalVal)),audio(externalVal,mod(mod(bri(externalVal,mod(x,externalVal)),mod(mod(mod(externalVal,externalVal),bri(y,x)),externalVal)),mod(bri(x,audio(x,audio(x,mod(mod(bri(mod(mod(mod(mod(audio(x,mod(y,mod(y,externalVal))),bri(audio(y,externalVal),y)),externalVal),y),x),bri(bri(mod(externalVal,mod(mod(externalVal,mod(mod(x,x),x)),bri(y,mod(y,y)))),bri(x,externalVal)),mod(mod(externalVal,y),x))),bri(mod(mod(audio(y,mod(audio(y,bri(externalVal,bri(x,x))),audio(mod(mod(bri(y,externalVal),bri(x,externalVal)),x),audio(externalVal,x)))),audio(x,y)),audio(bri(y,mod(x,audio(bri(x,externalVal),x))),mod(audio(mod(mod(y,x),y),externalVal),externalVal))),bri(x,x))),mod(audio(x,bri(x,externalVal)),bri(externalVal,bri(externalVal,x))))))),bri(y,externalVal))))),bri(audio(bri(bri(x,audio(x,mod(externalVal,mod(audio(externalVal,externalVal),y)))),x),bri(audio(mod(externalVal,mod(x,mod(y,externalVal))),externalVal),x)),y))",
+          "b": "audio(bri(bri(audio(bri(bri(bri(x,externalVal),mod(audio(mod(audio(x,externalVal),x),bri(mod(y,externalVal),y)),x)),mod(mod(mod(externalVal,externalVal),bri(y,audio(mod(y,y),audio(audio(x,externalVal),y)))),mod(x,bri(x,externalVal)))),mod(x,y)),y),y),externalVal)",
+          "g": "mod(externalVal,x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "mod(x,mod(bri(y,bri(audio(y,mod(mod(x,x),x)),audio(bri(bri(bri(y,mod(y,audio(externalVal,mod(externalVal,externalVal)))),x),externalVal),externalVal))),mod(audio(externalVal,bri(mod(audio(audio(externalVal,audio(bri(mod(mod(y,audio(x,audio(bri(audio(audio(externalVal,mod(y,externalVal)),mod(x,y)),mod(mod(y,audio(x,audio(bri(bri(y,externalVal),mod(audio(externalVal,bri(y,mod(bri(x,bri(x,mod(bri(externalVal,externalVal),externalVal))),y))),x)),bri(audio(x,mod(mod(y,externalVal),audio(audio(x,mod(x,bri(externalVal,mod(bri(x,x),audio(x,bri(y,y)))))),x))),externalVal)))),audio(y,mod(audio(audio(audio(audio(audio(y,bri(bri(audio(y,mod(x,externalVal)),externalVal),x)),mod(x,bri(audio(mod(bri(y,y),y),y),externalVal))),mod(y,x)),y),bri(x,x)),x)))),x))),y),externalVal),bri(audio(bri(y,x),x),mod(y,audio(x,mod(externalVal,x)))))),y),x),y)),audio(audio(y,x),audio(mod(audio(y,mod(bri(mod(audio(bri(externalVal,bri(mod(x,audio(x,audio(audio(y,audio(mod(y,audio(mod(externalVal,bri(externalVal,bri(audio(bri(x,mod(y,audio(bri(y,x),bri(y,y)))),bri(audio(y,audio(y,externalVal)),x)),bri(externalVal,bri(y,audio(mod(externalVal,bri(bri(audio(x,x),audio(y,y)),audio(mod(x,x),audio(externalVal,x)))),y)))))),y)),x)),externalVal))),x)),audio(y,externalVal)),mod(y,audio(externalVal,y))),audio(bri(audio(bri(x,bri(mod(y,mod(externalVal,mod(audio(mod(x,bri(bri(x,audio(bri(bri(mod(y,externalVal),externalVal),audio(x,audio(y,y))),bri(audio(y,y),x))),bri(y,y))),externalVal),externalVal))),mod(audio(mod(mod(x,audio(x,y)),bri(x,bri(x,bri(audio(y,y),audio(externalVal,mod(y,x)))))),y),mod(bri(mod(y,x),x),externalVal)))),y),audio(externalVal,externalVal)),y)),mod(x,bri(y,mod(bri(y,y),mod(mod(audio(x,y),bri(x,x)),y)))))),mod(x,bri(externalVal,audio(y,externalVal)))),y)))))",
+          "b": "bri(mod(bri(externalVal,audio(x,externalVal)),bri(externalVal,x)),y)",
+          "g": "mod(x,bri(externalVal,y))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "mod(mod(mod(y,y),externalVal),y)",
+          "b": "audio(externalVal,y)",
+          "g": "mod(externalVal,bri(mod(x,externalVal),externalVal))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "mod(y,mod(externalVal,y))",
+          "b": "bri(bri(audio(y,mod(bri(y,mod(bri(audio(bri(y,y),audio(y,bri(mod(bri(externalVal,y),bri(y,bri(bri(mod(externalVal,x),externalVal),audio(externalVal,externalVal)))),x))),bri(mod(audio(mod(bri(bri(mod(bri(mod(mod(x,bri(y,mod(mod(audio(bri(y,mod(bri(y,bri(mod(externalVal,audio(bri(bri(externalVal,x),x),mod(audio(externalVal,y),bri(bri(x,y),audio(y,y))))),externalVal)),x)),audio(y,audio(audio(y,mod(mod(mod(bri(bri(x,externalVal),audio(audio(externalVal,x),y)),audio(mod(audio(y,y),x),externalVal)),x),y)),mod(externalVal,y)))),mod(x,bri(mod(x,externalVal),x))),bri(audio(x,y),audio(y,externalVal))))),bri(audio(audio(audio(x,x),x),audio(x,audio(audio(x,bri(bri(bri(audio(externalVal,bri(externalVal,y)),mod(y,externalVal)),mod(x,y)),externalVal)),bri(y,audio(externalVal,externalVal))))),bri(y,externalVal))),externalVal),bri(audio(x,mod(externalVal,y)),x)),mod(audio(bri(externalVal,y),externalVal),x)),x),bri(y,mod(y,externalVal))),mod(bri(externalVal,bri(x,y)),y)),mod(audio(mod(bri(audio(x,mod(y,externalVal)),audio(y,bri(x,bri(externalVal,x)))),mod(y,x)),audio(bri(externalVal,y),externalVal)),x)),mod(externalVal,externalVal))),x)),externalVal)),mod(externalVal,x)),externalVal)",
+          "g": "bri(externalVal,bri(x,externalVal))"
+        }
+      }
+    ],
+    "timestamp": "22h:22m:40s"
+  }],
+  "timestamp": "2024-01-08-22-22-38"
+}

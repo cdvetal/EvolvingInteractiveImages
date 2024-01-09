@@ -19,6 +19,7 @@ FFT fft;
 SoundFile[] soundFiles;
 int nBands = 512;
 int soundIndex = 0;
+boolean songPlaying = true;
 
 float currentSpeed;
 float previousSpeed;
@@ -57,7 +58,7 @@ void draw() {
   if (cam != null && cam.available() == true) {
     cam.read();
     individuals[individualIndex].shader.set("image", cam);
-  } else if (cam == null) {
+  } else {
     individuals[individualIndex].shader.set("image", exampleImage);
   }
   float external = getExternalValue();
@@ -111,6 +112,8 @@ void keyPressed() {
   if (key == 'f' || key == 'F') feedbackAlwaysEnabled = !feedbackAlwaysEnabled;
   if (key == 'r' || key == 'R') resetParameters();
   if (key == 'm' || key == 'M') changeSong();
+  if (key == 'a' || key == 'A') muteSong();
+  if (key == 'e' || key == 'E') exportImage();
   if (key == ' ') externalEnabled = !externalEnabled;
 
   if (key != CODED) return;
@@ -179,6 +182,15 @@ float[] getAudioSpectrum() {
   return spectrum;
 }
 
+PImage getInputImage(){
+  if (cam != null && cam.available() == true) {
+    cam.read();
+    return cam;
+  }
+
+  return exampleImage;
+}
+
 Individual[] loadIndividuals() {
   String directory = "/shaders";
 
@@ -206,6 +218,13 @@ void changeSong() {
   fft.input(soundFiles[soundIndex]);
 }
 
+void muteSong() {
+  if(songPlaying) soundFiles[soundIndex].stop();
+  else soundFiles[soundIndex].loop();
+  
+  songPlaying =! songPlaying;
+}
+
 SoundFile[] loadSongs() {
   String directory = sketchPath("music/");
 
@@ -220,4 +239,15 @@ SoundFile[] loadSongs() {
   }
 
   return toReturn;
+}
+
+void exportImage(){
+  String fileName = individuals[individualIndex].file + millis() + ".png";
+  
+  String outputPath = sketchPath("outputs/" + individuals[individualIndex].file + "/");
+  
+  PImage image = individuals[individualIndex].getPhenotype(2100, 1920, getExternalValue(), getAudioSpectrum(), getInputImage());
+  image.save(outputPath + fileName);
+  
+  println("exported image to:" + outputPath);
 }
