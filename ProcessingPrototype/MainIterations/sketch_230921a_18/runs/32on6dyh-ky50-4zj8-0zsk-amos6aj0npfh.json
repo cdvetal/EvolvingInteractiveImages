@@ -1,0 +1,178 @@
+{
+  "id": "32on6dyh-ky50-4zj8-0zsk-amos6aj0npfh",
+  "parameters": {
+    "crossoverRate": 0.5,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.4000000059604645,
+    "populationSize": 20
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "hmnoqh3l-h6wc-tbeo-9zfp-phmttqctgwk3",
+    "individuals": [
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "sin(externalVal)",
+          "b": "(cos(audio((y/y),externalVal))/tan(externalVal))",
+          "g": "(externalVal*x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(audio(mod(x,sin(mod(sin(x),(mod(x,x)+externalVal)))),y)+y)",
+          "b": "(externalVal+((y/mod(externalVal,externalVal))+tan(x)))",
+          "g": "(x*((x*externalVal)/x))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(externalVal-(sin(x)+sin(externalVal)))",
+          "b": "(((cos(externalVal)-externalVal)/x)/x)",
+          "g": "((externalVal-x)*(x-y))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(externalVal+x)",
+          "b": "cos(externalVal)",
+          "g": "cos(tan(y))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(tan(y)*externalVal)",
+          "b": "(x-y)",
+          "g": "(x*cos(sin(externalVal)))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(audio((y/(externalVal-y)),tan(externalVal))/x)",
+          "b": "(((tan(x)+tan(audio((y*y),((externalVal/(audio(x,externalVal)+externalVal))-(y/y)))))/externalVal)/y)",
+          "g": "mod(sin(y),externalVal)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "audio((audio((y+mod(externalVal,(externalVal/tan(y)))),tan(y))+(y/x)),(x-x))",
+          "b": "(y/externalVal)",
+          "g": "((externalVal/y)*x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(externalVal-audio(mod(x,audio(externalVal,y)),y))",
+          "b": "(x/externalVal)",
+          "g": "(((cos(sin(mod(audio(y,y),y)))+y)/x)/y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(audio(x,sin(externalVal))/x)",
+          "b": "audio(((externalVal*y)+y),(cos(externalVal)*sin(y)))",
+          "g": "(y-x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "sin(y)",
+          "b": "audio((tan(tan(audio(externalVal,tan((mod((y*(y*(sin(externalVal)+(externalVal+y)))),sin(audio(((audio(y,externalVal)-y)/audio(((x-y)*externalVal),sin(tan(audio(sin(sin(x)),externalVal))))),externalVal)))+mod(x,sin(x)))))))/tan(x)),((((mod((cos(((cos(externalVal)+externalVal)-mod(y,x)))+cos(externalVal)),sin(tan(audio(x,x))))+y)+x)-y)/tan(tan(y))))",
+          "g": "sin(x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "cos(y)",
+          "b": "audio((sin((x+(cos(x)-(y*(x+x)))))/sin(x)),(cos(x)*externalVal))",
+          "g": "cos(y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(sin(y)*cos((cos(((externalVal/tan(x))/externalVal))+x)))",
+          "b": "sin((x/cos(y)))",
+          "g": "(x-((y-(x-y))+x))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(x/audio(y,audio(cos(audio((tan(externalVal)+x),tan(externalVal))),(x*((x/mod((externalVal+((mod((sin((externalVal-externalVal))*x),tan(x))-y)+tan(externalVal))),tan(tan(x))))*y)))))",
+          "b": "(x-x)",
+          "g": "(externalVal*y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(x*tan(x))",
+          "b": "audio(tan(((y*((tan((mod((y+x),y)/tan(tan(sin(cos(audio(externalVal,x)))))))+externalVal)+x))*y)),externalVal)",
+          "g": "(mod((audio(x,((x-tan(externalVal))/(audio(externalVal,x)+x)))*externalVal),(((cos((y+y))/externalVal)-(y/(cos(externalVal)/x)))+mod(cos(cos((y-externalVal))),x)))*externalVal)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "((audio(y,cos(externalVal))-x)/x)",
+          "b": "((externalVal*y)*externalVal)",
+          "g": "tan(y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(externalVal-x)",
+          "b": "(y-(y-(x+(mod((((sin(y)*y)/audio((y+(mod(((audio(x,x)/cos(((((sin(audio(externalVal,sin(cos((mod(y,(tan(externalVal)/mod(x,externalVal)))-tan((x-x)))))))-y)/audio(x,externalVal))+externalVal)/externalVal)))-audio(x,mod(sin(sin(externalVal)),y))),y)*externalVal)),cos(mod(audio(x,y),y))))/sin((y-cos((tan(x)/externalVal))))),mod(x,y))-audio(externalVal,x)))))",
+          "g": "sin(externalVal)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "((x*(y+externalVal))*cos((x*y)))",
+          "b": "tan(externalVal)",
+          "g": "sin(x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "((x/((audio((x+mod(externalVal,externalVal)),x)/(audio(x,x)-y))*(audio(externalVal,y)*audio(x,x))))/(sin(x)-y))",
+          "b": "cos((y/x))",
+          "g": "tan((x-((x*x)*tan(tan(sin(externalVal))))))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(mod(sin(x),(mod(y,sin(x))-tan(cos(cos((externalVal/mod(x,externalVal)))))))*tan(cos((y*audio((sin((y+externalVal))*x),y)))))",
+          "b": "mod(externalVal,x)",
+          "g": "audio(externalVal,x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "sin((x*mod((externalVal-mod((externalVal+x),sin(externalVal))),externalVal)))",
+          "b": "(y/audio((y+mod(y,((mod(cos(x),(tan(externalVal)/(externalVal+(externalVal/((y*y)/x)))))/(externalVal+y))-externalVal))),y))",
+          "g": "(x+audio(y,(externalVal+externalVal)))"
+        }
+      }
+    ],
+    "timestamp": "23h:45m:14s"
+  }],
+  "timestamp": "2024-01-20-23-45-12"
+}

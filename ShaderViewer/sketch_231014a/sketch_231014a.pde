@@ -45,6 +45,7 @@ void draw() {
     fft = new FFT(this, nBands);
     soundFiles = loadSongs();
     changeSong();
+    muteSong();
 
     String[] cameras = Capture.list();
     if (cameras.length == 0) {
@@ -196,7 +197,7 @@ Individual[] loadIndividuals() {
 
   File f = dataFile(directory);
   String[] names = f.list();
-  Collections.shuffle(Arrays.asList(names));
+  //Collections.shuffle(Arrays.asList(names));
 
   Individual[] individualsToReturn = new Individual[names.length];
 
@@ -209,6 +210,8 @@ Individual[] loadIndividuals() {
 }
 
 void changeSong() {
+  if(!songPlaying) return;
+  
   soundFiles[soundIndex].stop();
   soundIndex ++;
 

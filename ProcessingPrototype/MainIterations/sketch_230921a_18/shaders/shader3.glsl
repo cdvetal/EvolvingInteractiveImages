@@ -97,9 +97,9 @@ float bri(float x, float y){ //brightness https://stackoverflow.com/questions/59
 }
 
 vec3 generateRGB(float x, float y){
-    float r = cos(noise(externalVal,x));
-    float g = pow((y/x),max(y,((externalVal-x)+x)));
-    float b = cos(y);
+    float r = audio(x,x);
+    float g = min(mod(bri(audio(externalVal,y),pow(y,x)),externalVal),y);
+    float b = noise(sin(y),audio(y,externalVal));
     return vec3(r,g,b);
 }
 

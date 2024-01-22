@@ -1,0 +1,684 @@
+{
+  "id": "78pa2vcw-kkws-6aoz-jtir-9nq6cjhm2vzd",
+  "parameters": {
+    "crossoverRate": 0.5,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.4000000059604645,
+    "populationSize": 20
+  },
+  "populations": [
+    {
+      "generation": 0,
+      "id": "zfu48n09-j9gr-pmj8-nt3e-zjjzyo50qbqh",
+      "individuals": [
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(cos(x))",
+            "b": "sin(y)",
+            "g": "sin(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(x)",
+            "b": "sin(tan(externalVal))",
+            "g": "audio(x,tan(y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(sin(y))",
+            "b": "tan(cos(y))",
+            "g": "sin(x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(x)",
+            "b": "cos(tan(audio(externalVal,externalVal)))",
+            "g": "audio(y,externalVal)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "audio(x,y)",
+            "b": "tan(x)",
+            "g": "sin(externalVal)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(x)",
+            "b": "tan(audio(externalVal,cos(y)))",
+            "g": "audio(externalVal,audio(audio(x,y),externalVal))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(x)",
+            "b": "cos(externalVal)",
+            "g": "sin(externalVal)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(cos(sin(sin(externalVal))))",
+            "b": "sin(cos(externalVal))",
+            "g": "sin(externalVal)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(audio(tan(sin(sin(externalVal))),sin(x)))",
+            "b": "cos(externalVal)",
+            "g": "audio(externalVal,audio(externalVal,x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(y)",
+            "b": "sin(sin(y))",
+            "g": "sin(cos(x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(audio(y,audio(sin(externalVal),y)))",
+            "b": "tan(tan(audio(tan(externalVal),tan(cos(sin(sin(audio(sin(externalVal),tan(tan(x))))))))))",
+            "g": "tan(sin(y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "audio(x,x)",
+            "b": "audio(tan(x),sin(y))",
+            "g": "tan(x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(cos(tan(sin(y))))",
+            "b": "audio(cos(y),x)",
+            "g": "cos(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(tan(audio(x,tan(x))))",
+            "b": "audio(x,y)",
+            "g": "audio(cos(y),x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "audio(externalVal,tan(sin(cos(cos(tan(x))))))",
+            "b": "cos(externalVal)",
+            "g": "tan(sin(tan(externalVal)))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(x)",
+            "b": "audio(y,x)",
+            "g": "sin(x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "audio(externalVal,x)",
+            "b": "sin(sin(x))",
+            "g": "sin(externalVal)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(audio(x,audio(x,tan(y))))",
+            "b": "tan(y)",
+            "g": "tan(sin(y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(y)",
+            "b": "tan(x)",
+            "g": "sin(externalVal)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(cos(x))",
+            "b": "sin(x)",
+            "g": "tan(cos(x))"
+          }
+        }
+      ],
+      "timestamp": "23h:54m:29s"
+    },
+    {
+      "generation": 1,
+      "ascendantID": "zfu48n09-j9gr-pmj8-nt3e-zjjzyo50qbqh",
+      "id": "rmcs80el-l274-58en-2for-1r377hk899zf",
+      "individuals": [
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(cos(x))",
+            "b": "sin(y)",
+            "g": "sin(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(x)",
+            "b": "sin(tan(externalVal))",
+            "g": "audio(x,tan(y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(y)",
+            "b": "sin(cos(x))",
+            "g": "sin(cos(x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(cos(x))",
+            "b": "sin(y)",
+            "g": "tan(cos(x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(cos(tan(sin(y))))",
+            "b": "audio(cos(y),x)",
+            "g": "cos(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(cos(sin(sin(externalVal))))",
+            "b": "sin(cos(externalVal))",
+            "g": "sin(externalVal)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(x)",
+            "b": "audio(y,x)",
+            "g": "sin(x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(sin(x))",
+            "b": "sin(y)",
+            "g": "sin(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(tan(audio(x,tan(x))))",
+            "b": "audio(x,y)",
+            "g": "audio(cos(y),x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(y)",
+            "b": "tan(x)",
+            "g": "sin(externalVal)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(y)",
+            "b": "sin(sin(y))",
+            "g": "sin(cos(x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(audio(x,audio(x,tan(y))))",
+            "b": "tan(y)",
+            "g": "tan(sin(y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(tan(audio(x,tan(x))))",
+            "b": "audio(x,y)",
+            "g": "audio(cos(y),x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(x)",
+            "b": "audio(y,x)",
+            "g": "sin(x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(x)",
+            "b": "cos(tan(audio(externalVal,externalVal)))",
+            "g": "audio(y,externalVal)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(x)",
+            "b": "tan(audio(externalVal,cos(y)))",
+            "g": "audio(externalVal,audio(audio(x,y),externalVal))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(cos(tan(sin(y))))",
+            "b": "audio(tan(cos(y)),x)",
+            "g": "cos(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(x)",
+            "b": "cos(tan(externalVal))",
+            "g": "audio(x,tan(y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "audio(externalVal,x)",
+            "b": "sin(sin(x))",
+            "g": "sin(externalVal)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "audio(x,x)",
+            "b": "audio(audio(x,externalVal),cos(x))",
+            "g": "tan(x)"
+          }
+        }
+      ],
+      "timestamp": "23h:54m:35s"
+    },
+    {
+      "generation": 2,
+      "ascendantID": "rmcs80el-l274-58en-2for-1r377hk899zf",
+      "id": "9mkja4p2-0rj4-alvh-iwhw-y4mqvh4lueyw",
+      "individuals": [
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(cos(x))",
+            "b": "sin(y)",
+            "g": "sin(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(x)",
+            "b": "sin(tan(externalVal))",
+            "g": "audio(x,tan(y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(y)",
+            "b": "tan(x)",
+            "g": "sin(externalVal)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(tan(audio(x,tan(x))))",
+            "b": "audio(x,y)",
+            "g": "audio(cos(y),x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(cos(tan(sin(externalVal))))",
+            "b": "audio(tan(cos(y)),x)",
+            "g": "cos(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(x)",
+            "b": "audio(y,x)",
+            "g": "sin(x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(y)",
+            "b": "tan(x)",
+            "g": "sin(externalVal)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(tan(audio(x,tan(x))))",
+            "b": "audio(x,y)",
+            "g": "audio(cos(y),x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(x)",
+            "b": "cos(sin(y))",
+            "g": "audio(x,tan(y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(cos(tan(sin(y))))",
+            "b": "audio(cos(externalVal),x)",
+            "g": "cos(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(cos(x))",
+            "b": "sin(externalVal)",
+            "g": "sin(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(y)",
+            "b": "sin(sin(externalVal))",
+            "g": "sin(cos(x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(externalVal)",
+            "b": "sin(sin(x))",
+            "g": "sin(externalVal)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(y)",
+            "b": "tan(x)",
+            "g": "sin(externalVal)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(y)",
+            "b": "tan(x)",
+            "g": "sin(externalVal)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(y)",
+            "b": "sin(audio(x,tan(cos(externalVal))))",
+            "g": "sin(cos(x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(x)",
+            "b": "audio(y,x)",
+            "g": "sin(x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "audio(externalVal,x)",
+            "b": "sin(sin(x))",
+            "g": "sin(externalVal)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(cos(tan(sin(y))))",
+            "b": "audio(cos(x),x)",
+            "g": "cos(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(y)",
+            "b": "sin(cos(y))",
+            "g": "sin(cos(x))"
+          }
+        }
+      ],
+      "timestamp": "23h:54m:38s"
+    },
+    {
+      "generation": 3,
+      "ascendantID": "9mkja4p2-0rj4-alvh-iwhw-y4mqvh4lueyw",
+      "id": "xgt3mow5-vif8-9hob-j682-loxbrehp35bd",
+      "individuals": [
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(cos(x))",
+            "b": "sin(y)",
+            "g": "sin(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(x)",
+            "b": "sin(tan(externalVal))",
+            "g": "audio(x,tan(y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(x)",
+            "b": "cos(tan(externalVal))",
+            "g": "audio(x,tan(y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(cos(tan(cos(externalVal))))",
+            "b": "audio(cos(tan(y)),x)",
+            "g": "cos(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(sin(x))",
+            "b": "audio(x,y)",
+            "g": "audio(audio(x,tan(y)),x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(y)",
+            "b": "sin(cos(y))",
+            "g": "sin(cos(x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(x)",
+            "b": "audio(y,x)",
+            "g": "sin(x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(x)",
+            "b": "audio(y,x)",
+            "g": "sin(x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(x)",
+            "b": "sin(tan(externalVal))",
+            "g": "audio(x,tan(y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(cos(tan(sin(externalVal))))",
+            "b": "audio(sin(y),x)",
+            "g": "cos(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(cos(x))",
+            "b": "cos(y)",
+            "g": "sin(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "audio(externalVal,x)",
+            "b": "sin(sin(x))",
+            "g": "sin(externalVal)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(cos(tan(sin(externalVal))))",
+            "b": "audio(tan(tan(y)),x)",
+            "g": "cos(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(y)",
+            "b": "tan(x)",
+            "g": "sin(externalVal)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(externalVal)",
+            "b": "sin(sin(x))",
+            "g": "sin(externalVal)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(y)",
+            "b": "tan(x)",
+            "g": "sin(externalVal)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(x)",
+            "b": "cos(sin(y))",
+            "g": "audio(x,tan(y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(cos(x))",
+            "b": "sin(y)",
+            "g": "sin(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(y)",
+            "b": "sin(cos(y))",
+            "g": "sin(cos(x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(cos(tan(sin(y))))",
+            "b": "audio(cos(x),x)",
+            "g": "tan(y)"
+          }
+        }
+      ],
+      "timestamp": "23h:54m:40s"
+    }
+  ],
+  "timestamp": "2024-01-20-23-54-27"
+}

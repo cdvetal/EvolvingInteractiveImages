@@ -1,0 +1,178 @@
+{
+  "id": "e5ok6i84-jm3u-c49o-4hac-t9e21vbhe1n7",
+  "parameters": {
+    "crossoverRate": 0.5,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.4000000059604645,
+    "populationSize": 20
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "2rz39gla-oimk-pndg-ygoh-egdicsoijfsg",
+    "individuals": [
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(externalVal+y)",
+          "b": "((y+y)-y)",
+          "g": "audio(((y-(externalVal-y))+(externalVal+audio((y+audio(y,(x-audio((externalVal+y),((audio(((externalVal+audio(y,(y-externalVal)))+(y+externalVal)),(y-((((externalVal-y)-externalVal)+audio(audio(audio(audio((y-externalVal),((x+y)+(audio(audio(externalVal,externalVal),externalVal)+x))),(x+externalVal)),(externalVal+(((audio(y,y)-y)+audio((y+externalVal),(audio(externalVal,x)-audio(x,(audio(((externalVal-audio(x,((externalVal-x)+externalVal)))+y),audio(((externalVal-x)-y),x))+(externalVal-externalVal))))))-x))),externalVal))+(y-x))))+y)-y))))),x))),(((externalVal-audio(audio((x+y),y),y))-audio(x,externalVal))-x))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "((externalVal-((externalVal-x)+externalVal))+x)",
+          "b": "(x-(audio(y,(externalVal-x))+externalVal))",
+          "g": "audio((audio((audio(x,externalVal)-externalVal),(externalVal+audio(((((y+x)-(audio(((externalVal+y)-audio(y,x)),externalVal)+y))+x)+externalVal),y)))+(externalVal-x)),(x+y))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "audio((y-externalVal),x)",
+          "b": "(audio(((((externalVal+(((audio(y,((audio(audio((audio((((x-y)+y)-x),(externalVal+(((x-y)-(((externalVal+externalVal)+(y+audio(y,(y+x))))+audio(x,audio((((externalVal-audio(audio(audio((y-externalVal),x),(externalVal+((externalVal+y)-y))),x))-(audio(externalVal,((y-y)-x))+externalVal))-y),(audio((((x+audio(y,externalVal))-y)+audio((y-(externalVal+(externalVal+externalVal))),externalVal)),(((externalVal+externalVal)+((audio(y,y)-audio(audio(y,y),externalVal))-(x+(externalVal+x))))-audio(((((externalVal+externalVal)+(y-x))+externalVal)-y),y)))-y)))))-y)))+(y-y)),x),externalVal)-audio(y,y))-((y+(((audio(externalVal,x)+audio(((((x-audio(((x+y)+x),externalVal))+externalVal)+audio(y,(y-((externalVal+audio((x-(((x-y)-(externalVal-externalVal))+externalVal)),externalVal))+(audio(x,(externalVal+externalVal))+y)))))+(y-audio(externalVal,((y+audio(((x+externalVal)+x),x))+audio(y,((x-audio(x,(audio(audio(x,externalVal),audio(x,((x+x)-x)))+(x-x))))+(externalVal+((audio(externalVal,externalVal)-externalVal)+audio(externalVal,externalVal))))))))),x))+y)+externalVal))+x)))+y)-((externalVal+x)-audio((x+(((((x-externalVal)+y)-y)+y)+x)),x)))-y))+x)-x)+x),y)+audio(x,y))",
+          "g": "audio((externalVal-y),(((((audio((y+x),y)-y)-externalVal)+(externalVal+(externalVal+audio(externalVal,externalVal))))-(x+(audio((audio(externalVal,(y-((audio(x,x)+x)-y)))-externalVal),x)+((externalVal+externalVal)+y))))+y))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "audio(((audio(externalVal,externalVal)-(audio(audio(externalVal,(((y+audio(externalVal,(y+y)))+(externalVal-(externalVal-audio(externalVal,audio(y,audio(y,externalVal))))))-x)),((x+externalVal)+y))-audio((((x-y)+x)-externalVal),x)))-externalVal),audio(x,y))",
+          "b": "((y+((x+(y-x))+audio(y,y)))+externalVal)",
+          "g": "(x-x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "audio(x,(externalVal-(x-audio(x,y))))",
+          "b": "audio(y,(externalVal+(externalVal+audio(y,(y-(externalVal-((audio(audio(y,((externalVal+externalVal)+x)),(((x-x)-(x+x))-y))-y)+(audio(((y+externalVal)+y),y)-externalVal))))))))",
+          "g": "audio(x,externalVal)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "audio(audio((y+y),x),audio(x,x))",
+          "b": "audio(y,y)",
+          "g": "((externalVal-x)+externalVal)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(externalVal-audio(y,(((x+(y-audio((((((audio(externalVal,(audio((externalVal+(((audio(audio((x+audio(x,audio(x,(externalVal+y)))),(x+y)),x)+(((externalVal+((x-x)+x))+(externalVal+audio(x,y)))-(x+(externalVal-externalVal))))-(y-(y+audio(externalVal,(x+externalVal)))))-externalVal)),externalVal)-(y+externalVal)))-externalVal)-x)+externalVal)+(x-y))+audio(y,externalVal)),y)))+audio(y,audio(x,(externalVal-externalVal))))-(y+y))))",
+          "b": "(x+externalVal)",
+          "g": "(x+(externalVal+x))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "audio(externalVal,((externalVal-externalVal)-x))",
+          "b": "((y-externalVal)+externalVal)",
+          "g": "(((x+y)+externalVal)-externalVal)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(y+x)",
+          "b": "audio(((y+x)+externalVal),(y-x))",
+          "g": "((externalVal+y)+y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(audio(externalVal,(externalVal-audio(x,externalVal)))+x)",
+          "b": "(((externalVal-(y+y))+audio(x,externalVal))+x)",
+          "g": "(externalVal-audio(audio(externalVal,externalVal),(externalVal-(externalVal+externalVal))))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(y+audio((externalVal+externalVal),(y+((((y+y)+((externalVal+y)-audio(externalVal,y)))-x)-x))))",
+          "b": "audio(y,externalVal)",
+          "g": "((x+((audio(externalVal,audio(audio(y,(((((audio(y,(externalVal+x))-y)-((x-y)-y))+externalVal)-(x+y))-externalVal)),audio(y,(x-externalVal))))-(audio(audio((audio(audio((audio(y,x)+audio((x-externalVal),x)),externalVal),x)+((((y+externalVal)-(y-audio(x,(audio((externalVal-audio(x,(audio(externalVal,((externalVal-y)-x))-(externalVal+audio((((((y+(externalVal+audio(externalVal,(audio(y,(y+y))+y))))-x)-(externalVal+externalVal))+externalVal)-(audio(x,(y+audio(x,externalVal)))-externalVal)),y))))),x)-x))))-(externalVal+((externalVal+audio(x,externalVal))+audio(y,externalVal))))+(((x+y)-(((audio(((((x+externalVal)+audio((y-externalVal),y))-(externalVal-externalVal))-((((x+y)+audio(audio((x+(externalVal-y)),y),audio(((audio(externalVal,x)-audio(externalVal,audio(x,y)))+(externalVal-(x-y))),externalVal)))-y)-(audio(audio((audio(y,(audio((x+audio(externalVal,x)),(x-((y-y)+x)))-(externalVal+(x+(audio((audio(audio(x,externalVal),x)+x),externalVal)-externalVal)))))+externalVal),(((((y+audio(audio(y,audio(audio((externalVal+externalVal),x),x)),audio(((externalVal-(externalVal+externalVal))+(audio(x,x)-x)),externalVal)))+x)+(y-audio(x,y)))-audio(x,externalVal))-y)),externalVal)-externalVal))),externalVal)-y)+((y-externalVal)-(audio(externalVal,x)-x)))+externalVal))+externalVal))),(audio(audio((externalVal-(externalVal+x)),audio(y,(externalVal+((y-audio((x-(externalVal+(x+audio(externalVal,(x-(y+(audio(externalVal,audio(y,x))-audio(((externalVal-x)-y),(externalVal+y))))))))),(y-(x+x))))-(audio((externalVal-y),externalVal)-externalVal))))),x)-(((externalVal+y)+(audio(audio(externalVal,(externalVal+(audio((y+y),externalVal)-externalVal))),y)-audio(audio(audio(x,(externalVal+externalVal)),externalVal),(y+((((externalVal-(externalVal-y))+(y-x))+(audio((audio(((y+audio(audio(externalVal,(externalVal-((y-(audio((x-(y-externalVal)),audio(audio(externalVal,x),(externalVal-x)))+externalVal))-(((x+x)-x)-(externalVal+y))))),y))+((y-x)+((externalVal+y)+y))),audio(x,(audio(x,y)-audio(audio(y,externalVal),externalVal))))+x),(audio(x,(y-x))-externalVal))-(audio((y+y),y)+((audio(x,externalVal)-audio(x,((((y+x)-(y-(x+externalVal)))-(y+(y+(((audio((externalVal-y),((x-x)-(externalVal+x)))+(y-(x+(externalVal-y))))+(x-audio(externalVal,audio(audio(externalVal,y),x))))-audio((externalVal+y),(externalVal-(((externalVal-externalVal)-externalVal)-externalVal)))))))+(y-externalVal))))+x))))-y)))))+x))),x)-(y+(externalVal-x))))+audio(externalVal,x)))+(x-audio(x,y)))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "((y+x)-audio(y,x))",
+          "b": "(externalVal+(((x-y)+x)-((audio(y,externalVal)+x)-x)))",
+          "g": "audio(audio(((y+externalVal)-x),x),y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "((audio((((((audio(x,(x-audio(audio(((y-y)-((externalVal-x)-x)),y),(externalVal+audio((y+(externalVal-x)),(y+audio(x,audio((externalVal-x),audio(audio(((externalVal+audio(y,(x-audio(audio(externalVal,externalVal),x))))+((x+audio((y+((x+((audio(externalVal,externalVal)+y)+audio((x+externalVal),(externalVal-(x-x)))))-x)),y))-(audio(audio(externalVal,x),x)-x))),audio((y+x),externalVal)),audio(x,(x-(x-y))))))))))))+x)+x)-x)+audio(y,externalVal))-y),(((y+y)+(externalVal-(x-(y-x))))+x))-x)-y)",
+          "b": "audio(externalVal,externalVal)",
+          "g": "((audio(audio(externalVal,(y-audio(externalVal,y))),(y+(externalVal+y)))-externalVal)+x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "((x-externalVal)+externalVal)",
+          "b": "audio(y,(audio((externalVal-(y-((x-y)+y))),((audio(y,(((y-y)+y)+x))+(x-y))-y))-x))",
+          "g": "audio(y,x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(externalVal-(audio(y,audio(((externalVal+audio(externalVal,externalVal))+y),(externalVal+audio(audio(y,(externalVal+audio(externalVal,y))),(audio((externalVal+x),y)+audio(externalVal,externalVal))))))+(x-externalVal)))",
+          "b": "(audio(y,x)-externalVal)",
+          "g": "audio(externalVal,y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "audio(externalVal,externalVal)",
+          "b": "(y+y)",
+          "g": "audio(y,audio(y,((externalVal-y)+((externalVal+(audio(audio((y+x),(externalVal+externalVal)),audio((audio(externalVal,x)+x),externalVal))+(x+(externalVal+audio(((x-x)-(externalVal+x)),audio(externalVal,externalVal))))))-externalVal))))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "((externalVal-(externalVal+x))+(x-(y-((y+(externalVal-audio(y,y)))-x))))",
+          "b": "audio(y,((x-(externalVal+((audio(x,x)-externalVal)-(externalVal-externalVal))))-externalVal))",
+          "g": "audio((y-externalVal),x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "audio(externalVal,(audio(x,audio((x+y),audio((audio(externalVal,((((audio(audio(audio((audio((((audio(y,(audio(y,(externalVal+externalVal))-(((externalVal+y)+(audio(((x+(audio(externalVal,(y-externalVal))+((x-x)-(externalVal-x))))-audio((((x-x)-(y+x))+y),externalVal)),externalVal)-audio(((audio(x,((y-x)+y))-(externalVal+y))+x),x)))+audio(x,audio(((x+(audio(audio((externalVal+x),(externalVal-y)),((externalVal-externalVal)+(externalVal-x)))+externalVal))+externalVal),audio((audio(x,audio(((x-y)+(y+y)),(externalVal+audio(x,x))))+x),(audio(y,(audio(audio(x,x),x)-x))-(audio(((externalVal+x)+externalVal),x)-audio(audio(externalVal,y),(audio(externalVal,y)-(y+y)))))))))))-externalVal)-((x+((x-((externalVal-(y-x))-audio(((x-externalVal)+((((x+(y+y))+externalVal)-(x-x))-externalVal)),x)))-y))-audio(audio(x,(audio(y,x)-audio((x+(externalVal+audio(audio(audio((externalVal-(x+x)),audio(y,(externalVal+x))),x),(y+(x-(y+externalVal)))))),externalVal))),y)))-externalVal),x)-(externalVal+(y+externalVal))),externalVal),x),y)-(externalVal-(audio((((externalVal-(externalVal-(audio((x-(((x+(audio(x,y)-(((y-(externalVal-audio(externalVal,x)))+audio(y,x))+audio(x,(x-audio(y,y))))))+externalVal)+(y-(y-((((((x-y)+(y+externalVal))+x)+audio(((x+x)+(x+x)),audio(audio(x,y),x)))-externalVal)-audio(x,((y-(externalVal+(y+externalVal)))+externalVal))))))),audio(externalVal,audio(y,x)))+externalVal)))+audio((audio((y+y),x)+y),x))-audio(audio(x,x),x)),x)+((y-((audio(externalVal,audio(audio(externalVal,(externalVal-((x+y)-externalVal))),externalVal))-externalVal)-(y+audio((externalVal-audio(y,x)),x))))+y))))-y)-((x-(x+externalVal))-y))-y))-x),x)))+(audio(x,(x-((y-x)-audio(audio(externalVal,x),audio(y,x)))))-x)))",
+          "b": "(externalVal-(((x+y)-(audio((externalVal+y),y)+externalVal))-(externalVal-x)))",
+          "g": "audio(audio(((audio(audio((((externalVal-externalVal)+audio((x+y),(x+externalVal)))-externalVal),((y-y)+y)),y)-audio((x-externalVal),audio(y,(externalVal+y))))-x),y),externalVal)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "((audio(externalVal,((externalVal-y)+(externalVal-(((x+(externalVal-y))+externalVal)+audio((y-audio(externalVal,externalVal)),(x-audio(x,x)))))))+(externalVal-externalVal))+(audio(((y-(externalVal+audio(x,y)))+(audio((x+y),x)+audio((x-y),x))),x)-(audio(audio(externalVal,(x+y)),(audio(y,x)-x))-audio((((audio(audio(x,y),(((audio((externalVal-x),externalVal)+(externalVal+x))+(y+x))-audio((y-externalVal),y)))-(((((externalVal+((x-audio(y,y))+x))-audio((((audio(audio(x,(audio((audio(x,audio(audio(audio(y,(externalVal+(audio((x-y),(y+audio(x,audio(externalVal,y))))+y))),audio(externalVal,x)),externalVal))+x),audio(y,(y+externalVal)))+(x+y))),(externalVal+x))+audio(externalVal,y))-externalVal)-y),y))+x)+externalVal)-((y-audio((externalVal-((y+audio(x,audio(x,y)))-x)),(audio(externalVal,externalVal)+x)))-audio((y+y),y))))-((((externalVal+externalVal)-audio(((y-(x-(x+audio((y-audio((x+(y-externalVal)),(y-externalVal))),((y+externalVal)-y)))))-((externalVal-audio((y-audio(x,externalVal)),x))-x)),x))-x)-x))+y),externalVal))))",
+          "b": "(audio((externalVal-x),x)-y)",
+          "g": "(x-x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "((audio(((((x-externalVal)+externalVal)+(externalVal-audio(audio(y,audio(audio(y,x),y)),(audio((externalVal+externalVal),(externalVal-y))+externalVal))))+audio(((x-x)+externalVal),x)),(x+(externalVal-(y-(audio(y,audio(x,audio(externalVal,(externalVal+((externalVal-(audio((audio((externalVal+x),(externalVal+(x+audio(y,x))))-y),(audio((externalVal-externalVal),(y-(audio(y,(((y-y)+(y+y))-y))-((audio((x+audio(((x-((((y+externalVal)+x)-externalVal)+externalVal))+(y+audio(((audio(externalVal,y)-externalVal)+y),x))),externalVal)),y)+(x-y))+y))))-externalVal))-audio(audio((y-audio(audio((externalVal-y),x),(y-(x-(audio(((x+x)-y),y)+x))))),externalVal),externalVal)))+y)))))-(((externalVal+x)+externalVal)-audio(y,(y+((y+(y+x))-audio(y,x))))))))))+((y-audio(audio((x-externalVal),x),y))-y))-y)",
+          "b": "(y-externalVal)",
+          "g": "(externalVal+((y+((y+y)-((((externalVal-audio(audio((x-y),externalVal),y))+audio(y,audio(x,x)))+((((((((audio(externalVal,(y+(((x+(x+externalVal))+((y-x)+x))-x)))+externalVal)+(y+externalVal))-(externalVal+y))-((audio((y-y),audio((externalVal+(x+x)),externalVal))-x)-externalVal))-x)-x)+x)-externalVal))+(y-x))))+externalVal))"
+        }
+      }
+    ],
+    "timestamp": "0h:14m:25s"
+  }],
+  "timestamp": "2024-01-21-00-14-24"
+}
