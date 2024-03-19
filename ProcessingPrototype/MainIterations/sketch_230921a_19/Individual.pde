@@ -112,6 +112,10 @@ class Individual {
       if(toMutate == null) continue;
       toMutate.mutate();
     }
+    
+    identifyNodes();
+    
+    if (random(1) < mutationRate) replaceRandomNode(createRandomNode());
 
     generateID();
   }
@@ -123,6 +127,14 @@ class Individual {
     Node randomNode = tree.getNode(randomNodeIndex);
 
     return _isCopy ? randomNode.getCopy() : randomNode;
+  }
+  
+  Node createRandomNode() {
+    Node randomNode = new Node(0);
+    randomNode.randomizeNode(true);
+    
+    return randomNode;
+    
   }
 
   void replaceRandomNode(Node _newNode) {

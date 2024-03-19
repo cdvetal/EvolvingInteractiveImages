@@ -9,10 +9,10 @@ PImage inputImage;
 int populationSize = 20;
 int eliteSize = 2;
 int tournamentSize = 3;
-float crossoverRate = .5;
-float mutationRate = .4;
+float crossoverRate = .3;
+float mutationRate = .9;
 
-int maxDepth = 30;
+int maxDepth = 400;
 int resolution = 150;
 int imageExportResolution = 1920;
 int animationExportResolution = 1440;

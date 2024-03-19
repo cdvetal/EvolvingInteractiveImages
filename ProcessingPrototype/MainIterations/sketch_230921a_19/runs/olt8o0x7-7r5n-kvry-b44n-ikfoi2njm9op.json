@@ -1,0 +1,178 @@
+{
+  "id": "olt8o0x7-7r5n-kvry-b44n-ikfoi2njm9op",
+  "parameters": {
+    "crossoverRate": 0.30000001192092896,
+    "eliteSize": 1,
+    "tournamentSize": 3,
+    "mutationRate": 0.5,
+    "populationSize": 20
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "h6da4v9e-y35m-oqjz-m0ue-8kr851oy7qia",
+    "individuals": [
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "audio((max(((externalVal+y)*max(mod(pow((y/y),tan(noise(pow(externalVal,externalVal),externalVal))),externalVal),0.040941477)),y)-min(y,x)),externalVal)",
+          "b": "audio((max(((externalVal+y)*max(mod(pow((y/0.105396986),tan(noise(pow(externalVal,0.8637383),x))),x),x)),y)-min(x,externalVal)),y)",
+          "g": "audio((max(((y+0.56019306)*max(mod(pow((x/0.069206715),tan(noise(pow(0.79572725,0.06095624),externalVal))),x),x)),x)-min(0.30235505,externalVal)),y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "0.918638",
+          "b": "externalVal",
+          "g": "0.54068494"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "y",
+          "b": "externalVal",
+          "g": "0.6739304"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "y",
+          "b": "0.04435587",
+          "g": "x"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "0.016616106",
+          "b": "y",
+          "g": "externalVal"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "noise(externalVal,y)",
+          "b": "noise(0.07856488,externalVal)",
+          "g": "noise(x,y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "min(y,externalVal)",
+          "b": "min(x,0.138803)",
+          "g": "min(x,externalVal)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "cos((x*x))",
+          "b": "cos((y*externalVal))",
+          "g": "cos((y*x))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "externalVal",
+          "b": "externalVal",
+          "g": "0.432765"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "pow(sin(x),audio(x,y))",
+          "b": "pow(sin(0.58235526),audio(x,y))",
+          "g": "pow(sin(x),audio(x,y))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "x",
+          "b": "externalVal",
+          "g": "y"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(externalVal+x)",
+          "b": "(0.53452396+x)",
+          "g": "(externalVal+0.40838718)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "externalVal",
+          "b": "y",
+          "g": "x"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "0.006923437",
+          "b": "y",
+          "g": "0.2098825"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "y",
+          "b": "externalVal",
+          "g": "0.71592045"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "externalVal",
+          "b": "y",
+          "g": "y"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "tan((x-x))",
+          "b": "tan((x-externalVal))",
+          "g": "tan((x-0.40518618))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "pow(x,externalVal)",
+          "b": "pow(0.7773888,0.6624613)",
+          "g": "pow(y,externalVal)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "0.7340102",
+          "b": "x",
+          "g": "externalVal"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "min(((externalVal+externalVal)/sin((y*0.22186518))),externalVal)",
+          "b": "min(((y+0.9310365)/sin((y*externalVal))),y)",
+          "g": "min(((x+externalVal)/sin((y*x))),x)"
+        }
+      }
+    ],
+    "timestamp": "0h:28m:34s"
+  }],
+  "timestamp": "2024-03-19-00-28-32"
+}

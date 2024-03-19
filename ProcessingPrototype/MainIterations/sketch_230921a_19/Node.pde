@@ -9,7 +9,6 @@ class Node {
   Node aNode = null;
   Node bNode = null;
 
-  String[] valTypes = {"x", "y", "externalVal"};
   String[] terminalSet = {"x", "y", "externalVal"};
   
   float[] scalar = new float[3]; //scalar terminal
@@ -57,8 +56,6 @@ class Node {
       bNode = new Node(depth + 1);
       bNode.randomizeNode(true);
     }
-    
-    removeUnusedNodes();
   }
 
   void identify(Individual _indiv) { //parentIndex refers to individual's nodes[ID]
@@ -74,18 +71,17 @@ class Node {
     mathType = constrain(mathType + toAdd, 0, 1);
     
     for(int i = 0; i < scalar.length; i++){
+      if(random(1) > mutationRate) continue;
       toAdd = random(-.1, .1);
       scalar[i] = constrain(scalar[i] + toAdd, 0, 1);
     }
-    
-    removeUnusedNodes();
   }
 
   Node getCopy() {
     Node aNodeCopy = aNode == null ? null : aNode.getCopy();
     Node bNodeCopy = bNode == null ? null : bNode.getCopy();
 
-    return new Node(mathType, aNodeCopy, bNodeCopy, scalar);
+    return new Node(mathType, aNodeCopy, bNodeCopy, scalar.clone());
   }
 
   Node getNode(int _index) {
@@ -318,7 +314,7 @@ class Node {
     float converter = scalarValue * nOptions;
     
     if(converter > 1){ //if > 1 then we choose from terminal set
-      int terminalSetIndex = floor(converter - 1);
+      int terminalSetIndex = constrain(floor(converter - 1), 0, terminalSet.length -1);
       return terminalSet[terminalSetIndex];
       
     }else { //else scalar is a value (0-1)
@@ -326,21 +322,10 @@ class Node {
     }
   }
 
-  int getValType(float _type) {
-    int value = floor(map(_type, 0, 1, 0, valTypes.length));
-    value = constrain(value, 0, valTypes.length); //could be wrong
-    return value;
-  }
-
   int getMathType(float _type) {
     int value = floor(map(_type, 0, 1, 0, nMathTypes));
     value = constrain(value, 0, nMathTypes - 1);
     return value;
-  }
-
-  String getValTypeString(int _type) {
-    _type = constrain(_type, 0, valTypes.length-1);
-    return valTypes[_type];
   }
 
   float mathTypeFromOperatorIndex(int _operatorIndex) {

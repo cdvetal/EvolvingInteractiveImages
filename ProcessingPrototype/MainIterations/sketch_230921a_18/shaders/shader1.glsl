@@ -97,9 +97,9 @@ float bri(float x, float y){ //brightness https://stackoverflow.com/questions/59
 }
 
 vec3 generateRGB(float x, float y){
-    float r = (tan(noise(externalVal,externalVal))+x);
-    float g = pow(x,externalVal);
-    float b = max(externalVal,(externalVal*audio((bri(externalVal,bri(min(y,y),externalVal))/(y/x)),y)));
+    float r = bri(sin(x),(externalVal-x));
+    float g = bri(x,(y-bri(sin(x),noise(noise(pow(sin((cos(noise(audio(x,x),externalVal))/min(y,bri(min((max(x,(y*x))+(((audio(externalVal,externalVal)*externalVal)-mod(mod(audio(externalVal,externalVal),cos(externalVal)),pow(cos(y),x)))+cos(y))),externalVal),((cos(noise(y,externalVal))*max(tan((pow(audio(((tan(y)/sin(mod(tan(x),cos(y))))-tan(mod(cos(externalVal),audio(y,min(externalVal,x))))),tan(bri((externalVal+max(y,cos(bri(externalVal,externalVal)))),noise(externalVal,x)))),mod((sin(max(min(y,sin(noise(y,max(externalVal,cos(mod(externalVal,noise((bri(x,audio(y,y))/y),sin(audio(y,cos(externalVal)))))))))),(x*mod(y,y))))*mod(bri(externalVal,y),x)),x))+externalVal)),externalVal))/x))))),mod(min((sin(x)+tan(externalVal)),externalVal),((x/externalVal)*(audio(sin(x),externalVal)+externalVal)))),y),y))));
+    float b = noise(max(x,x),cos(mod(externalVal,externalVal)));
     return vec3(r,g,b);
 }
 
