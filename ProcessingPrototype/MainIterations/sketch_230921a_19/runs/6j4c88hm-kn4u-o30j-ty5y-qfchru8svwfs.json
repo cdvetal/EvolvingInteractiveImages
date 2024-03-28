@@ -1,0 +1,24 @@
+{
+  "id": "6j4c88hm-kn4u-o30j-ty5y-qfchru8svwfs",
+  "parameters": {
+    "crossoverRate": 0.30000001192092896,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.8999999761581421,
+    "populationSize": 1
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "hvtmct6v-sfs9-he3m-oofv-r9ieqnu6j1zn",
+    "individuals": [{
+      "fitness": 0,
+      "expressions": {
+        "r": "((externalVal/x)/pow((pow(mod(pow(pow(pow(externalVal,(x/x)),0.17417336),mod(x,audio(0.94547296,y))),0.041472197),pow(pow(pow(mod(x,(0.9801278/y)),pow(externalVal,externalVal)),mod(pow(pow(y,y),(0.5142791/y)),pow(externalVal,y))),externalVal))/mod(x,0.21458483)),mod(y,(pow(((pow(y,audio(x,0.2326386))/(0.67508674/x))/mod(x,0.34110498)),mod(x,externalVal))/mod((pow(audio(mod(externalVal,x),audio(0.53331566,0.99107504)),pow(externalVal,audio(0.4010408,0.19342971)))/externalVal),mod(x,0.7305467))))))",
+        "b": "((x/0.15430808)/pow((pow(mod(pow(pow(pow(x,(x/0.22035122)),y),mod(0.5883105,audio(externalVal,x))),x),pow(pow(pow(mod(y,(x/x)),pow(0.16542172,0.3149736)),mod(pow(pow(y,0.9857955),(y/x)),pow(externalVal,0.45204473))),0.92927885))/mod(x,x)),mod(externalVal,(pow(((pow(y,audio(y,y))/(externalVal/externalVal))/mod(externalVal,y)),mod(0.94407845,externalVal))/mod((pow(audio(mod(x,x),audio(y,y)),pow(y,audio(0.6772325,x)))/externalVal),mod(0.70501685,externalVal))))))",
+        "g": "((externalVal/y)/pow((pow(mod(pow(pow(pow(0.5712421,(y/externalVal)),externalVal),mod(y,audio(y,y))),0.86076236),pow(pow(pow(mod(externalVal,(externalVal/x)),pow(x,x)),mod(pow(pow(externalVal,y),(0.33180022/x)),pow(x,externalVal))),0.6572759))/mod(0.3279245,externalVal)),mod(x,(pow(((pow(x,audio(y,0.14739656))/(0.16651917/x))/mod(y,x)),mod(externalVal,x))/mod((pow(audio(mod(externalVal,0.86321735),audio(y,externalVal)),pow(0.6401241,audio(x,externalVal)))/x),mod(0.5289054,x))))))"
+      }
+    }],
+    "timestamp": "2h:21m:22s"
+  }],
+  "timestamp": "2024-03-28-02-21-15"
+}

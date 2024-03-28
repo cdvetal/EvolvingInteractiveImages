@@ -1,0 +1,24 @@
+{
+  "id": "2kbyp1jy-lpr5-wg00-vg42-343xfe7ehhk3",
+  "parameters": {
+    "crossoverRate": 0.30000001192092896,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.8999999761581421,
+    "populationSize": 1
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "sdllfv50-urqz-5dtw-7net-7y015fhbl71n",
+    "individuals": [{
+      "fitness": 0,
+      "expressions": {
+        "r": "0.41675782",
+        "b": "0.777848",
+        "g": "x"
+      }
+    }],
+    "timestamp": "2h:31m:48s"
+  }],
+  "timestamp": "2024-03-28-02-31-46"
+}

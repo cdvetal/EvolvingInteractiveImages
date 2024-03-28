@@ -58,7 +58,7 @@ class Population {
     for (int i = 0; i < individuals.length; i++) {
       individuals[i] = newGeneration[i];
       individuals[i].setFitness(0);
-      individuals[i].identifyNodes();
+      individuals[i].cleanUp();
       individuals[i].doShader(i);
     }
 

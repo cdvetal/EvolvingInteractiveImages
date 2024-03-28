@@ -1,9 +1,9 @@
 class Individual {
-  //private Node[] nodes = new Node[3];
+
   private Node tree;
   PShader shader;
-  //private int[][] breadthTracker;
-  ArrayList<Integer>[] breadthTracker = new ArrayList[3];
+  ArrayList<Integer> breadthTracker = new ArrayList<Integer>();
+  int highestVisX = 0;
 
   int nChildNodes = 0;
 
@@ -16,6 +16,7 @@ class Individual {
 
     tree = new Node(0);
     tree.randomizeNode(true);
+    cleanUp();
     
     generateID();
   }
@@ -23,7 +24,7 @@ class Individual {
   Individual(Node _tree, float _fitness) {
     tree = _tree;
     fitness = _fitness;
-    identifyNodes();
+    cleanUp();
     generateID();
   }
   
@@ -36,11 +37,15 @@ class Individual {
     
     fitness = _fitness;
   }*/
+  
+  void cleanUp(){
+     tree.removeUnusedNodes();
+     identifyNodes(); 
+  }
 
   void identifyNodes() {
-
     nChildNodes = 0;
-    
+    breadthTracker = new ArrayList<Integer>();
     tree.identify(this);
   }
   
@@ -76,17 +81,16 @@ class Individual {
     shader = loadShader(shaderPath);
   }
 
-  int getBreadth(int _parentIndex, int _depth) {
-    if (breadthTracker[_parentIndex].size() == _depth) {
-      breadthTracker[_parentIndex].add(0);
+  int getBreadth(int _depth) {
+    if(_depth < breadthTracker.size()){
+       breadthTracker.set(_depth,breadthTracker.get(_depth) + 1);
+    } else if (_depth == breadthTracker.size()){
+      breadthTracker.add(0);
     } else {
-      int thisDepthBreadth = breadthTracker[_parentIndex].get(_depth);
-      breadthTracker[_parentIndex].set(_depth, thisDepthBreadth + 1); //increases value at depth by one
+     print("ERROR"); 
     }
 
-    int toReturn = breadthTracker[_parentIndex].get(_depth);
-
-    return toReturn;
+    return breadthTracker.get(_depth);
   }
 
   int getIndex() {
@@ -116,7 +120,7 @@ class Individual {
     identifyNodes();
     
     if (random(1) < mutationRate) replaceRandomNode(createRandomNode());
-
+    
     generateID();
   }
 
@@ -190,6 +194,14 @@ class Individual {
 
   int getNChildNodes() {
     return nChildNodes;
+  }
+  
+  PVector getVisDimensions(){
+    return new PVector(breadthTracker.get(breadthTracker.size() - 1) + 1, breadthTracker.size() + 1);
+  }
+  
+  Node getTreeCopy() {
+    return tree.getCopy();
   }
 
   void generateID() {

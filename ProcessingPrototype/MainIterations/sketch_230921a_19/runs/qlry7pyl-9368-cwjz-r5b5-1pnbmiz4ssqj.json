@@ -1,0 +1,24 @@
+{
+  "id": "qlry7pyl-9368-cwjz-r5b5-1pnbmiz4ssqj",
+  "parameters": {
+    "crossoverRate": 0.30000001192092896,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.8999999761581421,
+    "populationSize": 1
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "9zncosb8-rr9d-ysro-bcfu-9bj9u6ja0wb1",
+    "individuals": [{
+      "fitness": 0,
+      "expressions": {
+        "r": "(externalVal/mod((audio(mod(pow(x,0.0762763),0.818275),pow(mod(0.028324842,externalVal),mod(y,0.371027)))/pow((audio(x,externalVal)/externalVal),x)),audio(audio((audio(mod(y,mod((0.7107215/y),mod(x,externalVal))),0.284019)/x),mod(pow(audio(pow(pow(y,y),0.69362545),(0.2527213/audio(0.69793916,0.54791737))),pow(audio(audio(0.3387077,0.987993),(externalVal/0.25138783)),mod(pow(y,y),(y/externalVal)))),x)),(pow((audio(mod(y,pow(x,y)),y)/mod(pow(mod(0.6406696,y),audio(x,0.8036797)),0.6985338)),0.4893117)/mod(pow((audio((externalVal/0.1309073),pow(externalVal,externalVal))/mod(x,pow(x,externalVal))),mod(y,x)),(((x/x)/y)/0.11599684))))))",
+        "b": "(externalVal/mod((audio(mod(pow(externalVal,0.13760042),x),pow(mod(x,x),mod(0.46499705,externalVal)))/pow((audio(0.09839201,x)/0.3476615),0.69085)),audio(audio((audio(mod(y,mod((0.54267144/0.18152666),mod(y,externalVal))),y)/externalVal),mod(pow(audio(pow(pow(externalVal,y),y),(0.83313084/audio(x,x))),pow(audio(audio(x,0.62621284),(externalVal/externalVal)),mod(pow(y,y),(0.58343816/x)))),externalVal)),(pow((audio(mod(x,pow(x,x)),externalVal)/mod(pow(mod(x,externalVal),audio(0.72255087,externalVal)),x)),0.064884186)/mod(pow((audio((x/externalVal),pow(externalVal,0.84647393))/mod(externalVal,pow(y,x))),mod(externalVal,externalVal)),(((x/externalVal)/x)/x))))))",
+        "g": "(y/mod((audio(mod(pow(externalVal,0.821784),externalVal),pow(mod(y,x),mod(externalVal,externalVal)))/pow((audio(externalVal,externalVal)/y),y)),audio(audio((audio(mod(x,mod((x/0.10242748),mod(0.40420866,0.11408925))),y)/0.35353708),mod(pow(audio(pow(pow(x,x),x),(0.44929314/audio(x,x))),pow(audio(audio(y,y),(y/x)),mod(pow(externalVal,0.47109532),(x/0.5630388)))),externalVal)),(pow((audio(mod(externalVal,pow(0.81961465,externalVal)),0.06525421)/mod(pow(mod(0.9045656,externalVal),audio(x,y)),y)),y)/mod(pow((audio((x/x),pow(externalVal,externalVal))/mod(y,pow(x,y))),mod(externalVal,externalVal)),(((y/0.42689323)/0.55617213)/0.17170095))))))"
+      }
+    }],
+    "timestamp": "2h:43m:32s"
+  }],
+  "timestamp": "2024-03-28-02-43-30"
+}

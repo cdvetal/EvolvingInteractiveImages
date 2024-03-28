@@ -1,0 +1,24 @@
+{
+  "id": "v1c2y7kk-40qh-glxw-pm9s-a0h8csie833m",
+  "parameters": {
+    "crossoverRate": 0.30000001192092896,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.8999999761581421,
+    "populationSize": 1
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "42bb7hx1-blax-0syg-177t-zcw4pbo3o60g",
+    "individuals": [{
+      "fitness": 0,
+      "expressions": {
+        "r": "mod((externalVal/mod(audio(mod(0.6618991,y),mod(mod(mod(x,externalVal),x),(x/x))),y)),x)",
+        "b": "mod((0.80215955/mod(audio(mod(x,y),mod(mod(mod(y,y),0.82749104),(externalVal/0.35975623))),0.19572377)),x)",
+        "g": "mod((0.97245765/mod(audio(mod(x,externalVal),mod(mod(mod(y,x),externalVal),(x/externalVal))),externalVal)),x)"
+      }
+    }],
+    "timestamp": "2h:33m:35s"
+  }],
+  "timestamp": "2024-03-28-02-33-30"
+}

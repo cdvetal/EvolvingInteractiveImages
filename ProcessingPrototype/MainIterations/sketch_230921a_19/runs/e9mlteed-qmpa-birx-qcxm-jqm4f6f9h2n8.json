@@ -1,0 +1,24 @@
+{
+  "id": "e9mlteed-qmpa-birx-qcxm-jqm4f6f9h2n8",
+  "parameters": {
+    "crossoverRate": 0.30000001192092896,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.8999999761581421,
+    "populationSize": 1
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "p8tuws0s-j2sv-klnr-46xu-wewiw9br5jtb",
+    "individuals": [{
+      "fitness": 0,
+      "expressions": {
+        "r": "pow(audio(pow(mod(x,mod(y,y)),pow(y,x)),x),audio(audio(pow(x,0.67328477),y),((y/mod(pow(pow(pow(audio(0.7580302,0.119166136),audio(externalVal,y)),mod(y,pow(y,x))),(pow(0.57261586,mod(y,y))/y)),(0.45628476/(0.8227136/y))))/(y/mod(externalVal,y)))))",
+        "b": "pow(audio(pow(mod(externalVal,mod(externalVal,0.72933555)),pow(y,y)),y),audio(audio(pow(x,y),externalVal),((x/mod(pow(pow(pow(audio(y,0.5886953),audio(x,x)),mod(externalVal,pow(y,x))),(pow(externalVal,mod(x,x))/0.63552713)),(externalVal/(0.3835702/externalVal))))/(y/mod(y,y)))))",
+        "g": "pow(audio(pow(mod(x,mod(externalVal,0.2262888)),pow(y,externalVal)),externalVal),audio(audio(pow(y,externalVal),0.4101913),((externalVal/mod(pow(pow(pow(audio(externalVal,y),audio(externalVal,externalVal)),mod(externalVal,pow(0.98544025,externalVal))),(pow(0.8905673,mod(y,y))/x)),(y/(0.72319126/y))))/(externalVal/mod(externalVal,y)))))"
+      }
+    }],
+    "timestamp": "3h:1m:4s"
+  }],
+  "timestamp": "2024-03-28-03-01-02"
+}

@@ -1,0 +1,24 @@
+{
+  "id": "vy2wiql9-n8pu-w0wc-azll-paufbmzzwm2m",
+  "parameters": {
+    "crossoverRate": 0.30000001192092896,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.8999999761581421,
+    "populationSize": 1
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "1tofwuds-p0nc-h3k3-7muq-gh6cma20ujrk",
+    "individuals": [{
+      "fitness": 0,
+      "expressions": {
+        "r": "pow(pow(audio(pow(((audio(mod(externalVal,(0.884923/y)),externalVal)/externalVal)/0.5785856),audio(x,pow(audio(mod((0.83023643/y),pow(y,x)),externalVal),audio((x/(0.4777646/y)),0.81420183)))),y),mod(audio(externalVal,((mod((audio(0.35450244,externalVal)/pow(x,externalVal)),x)/(audio(audio(x,x),pow(externalVal,0.36198473))/0.33646464))/x)),(((pow(externalVal,audio(externalVal,y))/x)/0.58179426)/0.63436174))),0.7160473)",
+        "b": "pow(pow(audio(pow(((audio(mod(0.319407,(externalVal/externalVal)),externalVal)/externalVal)/externalVal),audio(y,pow(audio(mod((externalVal/0.4512279),pow(0.5022106,0.9077909)),externalVal),audio((0.24341774/(externalVal/0.9574282)),externalVal)))),externalVal),mod(audio(externalVal,((mod((audio(x,y)/pow(externalVal,externalVal)),externalVal)/(audio(audio(y,externalVal),pow(y,x))/0.7042258))/0.051943302)),(((pow(externalVal,audio(0.16822338,x))/externalVal)/externalVal)/y))),y)",
+        "g": "pow(pow(audio(pow(((audio(mod(x,(y/x)),0.38008952)/x)/externalVal),audio(externalVal,pow(audio(mod((y/0.75564885),pow(x,x)),x),audio((0.4659629/(0.64984155/externalVal)),externalVal)))),x),mod(audio(0.006433964,((mod((audio(0.7699158,y)/pow(externalVal,y)),0.7198343)/(audio(audio(0.8063748,y),pow(y,0.20188951))/0.0560596))/0.442559)),(((pow(x,audio(0.32959366,x))/y)/externalVal)/0.7596557))),x)"
+      }
+    }],
+    "timestamp": "2h:21m:56s"
+  }],
+  "timestamp": "2024-03-28-02-21-54"
+}

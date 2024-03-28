@@ -6,13 +6,13 @@ import processing.video.*;
 Capture cam;
 PImage inputImage;
 
-int populationSize = 20;
+int populationSize = 1;
 int eliteSize = 2;
 int tournamentSize = 3;
 float crossoverRate = .3;
 float mutationRate = .9;
 
-int maxDepth = 400;
+int maxDepth = 10;
 int resolution = 150;
 int imageExportResolution = 1920;
 int animationExportResolution = 1440;
@@ -58,7 +58,6 @@ void setup() {
   if (cameras.length == 0) {
     inputImage = loadImage("shells.jpg");
   } else {
-    println(cameras.length);
     cam = new Capture(this, 1280, 720);
     cam.start();
   }
@@ -98,7 +97,9 @@ void draw() {
     float[] audioSpectrum = getAudioSpectrum();
     hoveredIndividual = getHoveredIndividual();
     if (hoveredIndividual != null) {
-      drawIndividualFullScreen(hoveredIndividual, externalValue, audioSpectrum);
+      //drawIndividualFullScreen(hoveredIndividual, externalValue, audioSpectrum);
+      TreeVis vis = new TreeVis(hoveredIndividual);
+      vis.showTree();
     } else {
       drawPopulation(externalValue, audioSpectrum);
     }

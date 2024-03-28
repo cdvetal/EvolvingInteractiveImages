@@ -1,0 +1,24 @@
+{
+  "id": "x4xzfvmv-7dbz-rfzj-qre4-iued9bam8hgp",
+  "parameters": {
+    "crossoverRate": 0.30000001192092896,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.8999999761581421,
+    "populationSize": 1
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "lzrzhkjf-77qy-vklw-iix0-5p4wxh7a9vm6",
+    "individuals": [{
+      "fitness": 0,
+      "expressions": {
+        "r": "audio((0.3363943/0.83371925),audio(x,mod(pow((audio((externalVal/externalVal),(mod(audio(y,0.7168207),mod(0.6623044,x))/((y/0.7522998)/x)))/(((mod(x,externalVal)/0.61679435)/0.16888475)/externalVal)),0.2807021),mod(mod(pow(audio(x,y),audio((x/mod(0.85620904,0.28257036)),pow(externalVal,(x/0.8174393)))),(0.2511227/audio(pow(externalVal,0.8164041),0.11516571))),pow(x,(pow(mod(mod(externalVal,x),(y/externalVal)),y)/audio(audio(pow(x,x),audio(0.7318065,x)),0.6636517)))))))",
+        "b": "audio((externalVal/y),audio(x,mod(pow((audio((y/x),(mod(audio(externalVal,y),mod(0.4199164,y))/((x/0.37836313)/x)))/(((mod(externalVal,externalVal)/x)/x)/x)),x),mod(mod(pow(audio(y,y),audio((x/mod(0.3957038,x)),pow(externalVal,(x/0.98537207)))),(x/audio(pow(0.27201653,y),x))),pow(externalVal,(pow(mod(mod(x,y),(externalVal/x)),0.6813903)/audio(audio(pow(0.78282404,y),audio(externalVal,0.4031155)),x)))))))",
+        "g": "audio((0.90918136/x),audio(0.45856404,mod(pow((audio((0.13917994/0.6726086),(mod(audio(y,externalVal),mod(x,x))/((x/0.967314)/externalVal)))/(((mod(y,x)/0.6651418)/y)/x)),y),mod(mod(pow(audio(0.022002935,externalVal),audio((y/mod(x,0.4290464)),pow(x,(x/externalVal)))),(x/audio(pow(0.771873,0.19266176),externalVal))),pow(0.33791375,(pow(mod(mod(y,externalVal),(0.082552195/0.8136883)),0.6920824)/audio(audio(pow(y,y),audio(y,externalVal)),externalVal)))))))"
+      }
+    }],
+    "timestamp": "3h:3m:34s"
+  }],
+  "timestamp": "2024-03-28-03-03-32"
+}

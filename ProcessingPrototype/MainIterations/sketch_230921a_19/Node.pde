@@ -5,6 +5,9 @@ class Node {
 
   int nodeIndex;
   int depth;
+  int breadth;
+
+  int visX; //location of node in tree visualization horizontally. vertical is depth
 
   Node aNode = null;
   Node bNode = null;
@@ -48,22 +51,30 @@ class Node {
       return;
     }
 
-    if (random(1) > .5 && depth < maxDepth - 1) {
+    if (random(1) > .3 && depth < maxDepth - 1) {
       aNode = new Node(depth + 1);
       aNode.randomizeNode(true);
     }
-    if (random(1) > .5 && depth < maxDepth - 1  && requiredArguments == 2) {
+    if (random(1) > .3 && depth < maxDepth - 1  && requiredArguments == 2) {
       bNode = new Node(depth + 1);
       bNode.randomizeNode(true);
     }
   }
 
-  void identify(Individual _indiv) { //parentIndex refers to individual's nodes[ID]
-
+  int identify(Individual _indiv) {
+    visX = 0;
+    
     nodeIndex = _indiv.getIndex();
+    
+    breadth = _indiv.getBreadth(depth);
 
-    if (aNode != null) aNode.identify(_indiv);
+    if (aNode != null) visX = aNode.identify(_indiv);
+    else visX = breadth;
     if (bNode != null) bNode.identify(_indiv);
+    
+    println(depth + "  " + visX);
+    
+    return visX;
   }
 
   void mutate() {
@@ -94,6 +105,24 @@ class Node {
 
     if (bNode != null) {
       Node potencialNode = bNode.getNode(_index);
+      if (potencialNode != null) return potencialNode;
+    }
+
+    return null;
+  }
+  
+  Node getNodeVis(PVector _visLocation) { //gets node based on depth and visX
+    if (depth > _visLocation.y || visX > _visLocation.x) return null;
+    
+    if (depth == int(_visLocation.y) && visX == int(_visLocation.x)) return this;
+
+    if (aNode != null) {
+      Node potencialNode = aNode.getNodeVis(_visLocation);
+      if (potencialNode != null) return potencialNode;
+    }
+
+    if (bNode != null) {
+      Node potencialNode = bNode.getNodeVis(_visLocation);
       if (potencialNode != null) return potencialNode;
     }
 
@@ -407,5 +436,9 @@ class Node {
 
     println("No acceptable simple operator at getMainSimpleOperatorIndex(" + _string + ")");
     return -1;
+  }
+  
+  PVector getVisLocation(){
+   return new PVector(visX, depth); 
   }
 }

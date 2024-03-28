@@ -1,0 +1,24 @@
+{
+  "id": "drvqsuuc-5n7q-tzrr-mud7-bam39kq6va6i",
+  "parameters": {
+    "crossoverRate": 0.30000001192092896,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.8999999761581421,
+    "populationSize": 1
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "7qj6qa98-e4h1-md7u-srpd-kv2mc0vrx7ur",
+    "individuals": [{
+      "fitness": 0,
+      "expressions": {
+        "r": "mod(mod(audio(y,externalVal),mod(pow((mod(((pow(y,0.836488)/0.66027975)/y),x)/(audio(mod(pow(externalVal,x),pow(x,externalVal)),pow(mod(x,0.729058),(y/0.6756227)))/0.7518089)),mod(audio(audio(audio(pow(0.4228208,0.37812042),0.60077643),x),(x/y)),0.049275875)),y)),audio(((audio(mod(x,mod(audio(mod(y,y),mod(0.20207381,x)),0.7145879)),pow(pow(mod(mod(0.6930392,0.5284636),pow(x,0.99796295)),audio(y,audio(externalVal,externalVal))),x))/pow(y,y))/audio(externalVal,externalVal)),(0.7969177/externalVal)))",
+        "b": "mod(mod(audio(externalVal,y),mod(pow((mod(((pow(0.41055703,x)/y)/0.21378732),externalVal)/(audio(mod(pow(0.36943197,0.011131525),pow(y,0.1571629)),pow(mod(x,0.80003095),(0.4014721/0.21905637)))/y)),mod(audio(audio(audio(pow(x,x),y),y),(y/externalVal)),x)),y)),audio(((audio(mod(0.8908689,mod(audio(mod(externalVal,0.8193464),mod(y,0.48784184)),0.68674445)),pow(pow(mod(mod(0.9592893,0.04269433),pow(externalVal,0.40788913)),audio(y,audio(y,externalVal))),x))/pow(y,externalVal))/audio(0.41650796,externalVal)),(x/0.47604585)))",
+        "g": "mod(mod(audio(0.6306374,0.9191282),mod(pow((mod(((pow(y,y)/externalVal)/y),0.7973511)/(audio(mod(pow(0.14717603,x),pow(externalVal,0.9083638)),pow(mod(0.23132563,y),(externalVal/y)))/x)),mod(audio(audio(audio(pow(x,0.48995924),externalVal),0.6881089),(externalVal/externalVal)),y)),0.58309126)),audio(((audio(mod(externalVal,mod(audio(mod(0.13480234,externalVal),mod(externalVal,y)),x)),pow(pow(mod(mod(0.90300965,0.4306178),pow(0.9867778,y)),audio(y,audio(externalVal,y))),externalVal))/pow(x,externalVal))/audio(y,y)),(x/0.28425765)))"
+      }
+    }],
+    "timestamp": "1h:5m:16s"
+  }],
+  "timestamp": "2024-03-28-01-05-14"
+}

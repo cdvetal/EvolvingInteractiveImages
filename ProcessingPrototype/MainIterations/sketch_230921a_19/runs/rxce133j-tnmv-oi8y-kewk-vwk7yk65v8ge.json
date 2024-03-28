@@ -1,0 +1,24 @@
+{
+  "id": "rxce133j-tnmv-oi8y-kewk-vwk7yk65v8ge",
+  "parameters": {
+    "crossoverRate": 0.30000001192092896,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.8999999761581421,
+    "populationSize": 1
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "et5sa8s5-wjjr-xf2m-3vh7-hqflbmmz8jzq",
+    "individuals": [{
+      "fitness": 0,
+      "expressions": {
+        "r": "audio(externalVal,pow((audio(y,0.21085119)/externalVal),0.99348736))",
+        "b": "audio(externalVal,pow((audio(y,0.19048905)/y),y))",
+        "g": "audio(x,pow((audio(0.5629122,x)/externalVal),x))"
+      }
+    }],
+    "timestamp": "2h:44m:36s"
+  }],
+  "timestamp": "2024-03-28-02-44-35"
+}
