@@ -97,9 +97,9 @@ float bri(float x, float y){ //brightness https://stackoverflow.com/questions/59
 }
 
 vec3 generateRGB(float x, float y){
-    float r = audio(((((y/pow((pow(pow(x,0.54516196),mod(y,0.776386))/y),x))/mod((pow((y/pow(externalVal,0.8040428)),mod(pow(0.72208405,0.9006376),y))/(0.20079279/0.45118713)),externalVal))/(mod(audio(mod(((y/0.85225606)/y),y),pow((y/mod(y,x)),0.95962214)),audio(audio(audio(mod(externalVal,x),(y/externalVal)),externalVal),y))/pow(audio(audio(mod((0.12542963/externalVal),externalVal),pow(0.86147046,x)),0.1872015),x)))/audio(x,mod(pow((0.29179907/0.5488415),externalVal),audio(audio(mod(pow(x,externalVal),((y/y)/(x/x))),externalVal),(0.64059114/pow(mod((externalVal/externalVal),y),y)))))),y);
-    float g = audio(((((externalVal/pow((pow(pow(externalVal,0.8826153),mod(x,externalVal))/x),y))/mod((pow((externalVal/pow(0.10080099,x)),mod(pow(x,x),y))/(externalVal/externalVal)),externalVal))/(mod(audio(mod(((externalVal/externalVal)/y),x),pow((externalVal/mod(0.2857306,x)),x)),audio(audio(audio(mod(0.2549386,y),(y/x)),y),y))/pow(audio(audio(mod((0.61610436/externalVal),x),pow(0.5394192,y)),y),0.81536674)))/audio(x,mod(pow((y/0.94587755),externalVal),audio(audio(mod(pow(0.42448425,0.9759438),((y/x)/(x/y))),0.19205332),(y/pow(mod((0.10895133/x),x),x)))))),externalVal);
-    float b = audio(((((externalVal/pow((pow(pow(0.96919537,y),mod(externalVal,0.6839552))/0.34094667),x))/mod((pow((0.8860526/pow(externalVal,y)),mod(pow(0.65201354,0.5696671),0.0627563))/(y/externalVal)),x))/(mod(audio(mod(((x/0.48107743)/0.29434562),0.7173028),pow((y/mod(0.29447746,y)),y)),audio(audio(audio(mod(0.25448823,externalVal),(externalVal/x)),externalVal),y))/pow(audio(audio(mod((externalVal/x),externalVal),pow(y,y)),x),y)))/audio(x,mod(pow((y/x),0.6243253),audio(audio(mod(pow(externalVal,0.65033937),((y/0.7855387)/(externalVal/0.2895515))),x),(0.78187346/pow(mod((x/0.608521),externalVal),0.98336005)))))),x);
+    float r = (audio(audio(mod(audio(y,mod(y,externalVal)),audio(x,externalVal)),mod(audio((mod(pow(pow(externalVal,0.72999406),externalVal),x)/(0.5192139/y)),externalVal),y)),y)/0.67271686);
+    float g = (audio(audio(mod(audio(y,mod(y,0.53874016)),audio(x,externalVal)),mod(audio((mod(pow(pow(x,y),x),externalVal)/(x/x)),0.21925211),x)),y)/0.75301886);
+    float b = (audio(audio(mod(audio(x,mod(0.21913052,x)),audio(externalVal,y)),mod(audio((mod(pow(pow(0.24976039,externalVal),y),externalVal)/(y/y)),0.38302946),x)),y)/0.08197832);
     return vec3(r,g,b);
 }
 

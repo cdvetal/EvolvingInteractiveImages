@@ -3,6 +3,7 @@ import processing.pdf.*;
 import processing.sound.*;
 import processing.video.*;
 
+
 Capture cam;
 PImage inputImage;
 
@@ -26,6 +27,8 @@ SoundFile[] soundFiles;
 boolean muted = true;
 int nBands = 512;
 int soundIndex = 0;
+
+HashMap<String, PShape> icons;
 
 Run run;
 
@@ -65,6 +68,8 @@ void setup() {
   fft = new FFT(this, nBands);
   soundFiles = loadSongs();
   changeSong();
+  
+  icons = loadIcons();
 
   operations = setupOperations();
   templateShaderLines = loadStrings("shaderTemplate.glsl");
@@ -103,7 +108,6 @@ void draw() {
     } else {
       drawPopulation(externalValue, audioSpectrum);
     }
-    drawExternalFeedback(externalValue);
     break;
   }
 }
@@ -129,19 +133,6 @@ float getExternalValue() {
   else toReturn = map(sin((float)millis()/1000), -1, 1, minExternal, maxExternal);
 
   return toReturn;
-}
-
-void drawExternalFeedback(float _external) {
-  noStroke();
-
-  if (_external > 0) fill(0, 1, 0);
-  else fill(1, 0, 0);
-
-  circle(width - 20, height - 20, _external * 20);
-
-  fill(1);
-  textAlign(LEFT, CENTER);
-  text(_external, width - 80, height - 20);
 }
 
 void drawIndividualFullScreen(Individual _indiv, float _external, float[] _audioSpectrum) {
@@ -321,22 +312,6 @@ void mouseReleased() {
   pressedButton = null;
 }
 
-String generateUUID() {
-  String characters = "abcdefghijklmnopqrstuvwxyz0123456789";
-  int[] nCharsPerSequence = {8, 4, 4, 4, 12};
-  String[] sequences = new String[5];
-
-
-  for (int i = 0; i < sequences.length; i++) {
-    sequences[i] = "";
-    for (int j = 0; j < nCharsPerSequence[i]; j++) {
-      int index = floor(random(characters.length()));
-      sequences[i] += characters.charAt(index);
-    }
-  }
-
-  return String.join("-", sequences);
-}
 
 String[] splitStringAtIndex(String _string, int _index) {
   String[] toReturn = new String[2];
@@ -346,37 +321,6 @@ String[] splitStringAtIndex(String _string, int _index) {
 
   toReturn[0] = _string.substring(0, _index);
   toReturn[1] = _string.substring(_index+1);
-
-  return toReturn;
-}
-
-void changeSong() {
-  soundFiles[soundIndex].stop();
-  soundIndex ++;
-
-  if (soundIndex >= soundFiles.length) soundIndex = 0;
-
-  soundFiles[soundIndex].loop();
-  muteSong();
-  fft.input(soundFiles[soundIndex]);
-}
-
-void muteSong() {
-  soundFiles[soundIndex].amp(muted ? 0 : 1);
-}
-
-SoundFile[] loadSongs() {
-  String directory = sketchPath("music/");
-
-  File f = dataFile(directory);
-  String[] names = f.list();
-
-  SoundFile[] toReturn = new SoundFile[names.length];
-
-  for (int i = 0; i < toReturn.length; i++)
-  {
-    toReturn[i] = new SoundFile(this, directory + names[i]);
-  }
 
   return toReturn;
 }
