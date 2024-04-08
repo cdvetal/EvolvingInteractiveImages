@@ -1,0 +1,98 @@
+{
+  "id": "sk92k56o-c3hh-y1fg-odya-vtbjhcfh5vgu",
+  "parameters": {
+    "crossoverRate": 0.30000001192092896,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.8999999761581421,
+    "populationSize": 10
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "ttzspw15-q7t6-oyf6-7dlq-2vht5zivit4g",
+    "individuals": [
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "0.70913386",
+          "b": "x",
+          "g": "y"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "y",
+          "b": "y",
+          "g": "y"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "max(mod(x,0.9625437),0.84272957)",
+          "b": "max(mod(externalVal,externalVal),0.48950648)",
+          "g": "max(mod(0.30170846,x),0.409348)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "x",
+          "b": "y",
+          "g": "y"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "max(y,tan(sin(pow(cos(cos(externalVal)),cos(mod(max(pow((externalVal/y),cos(0.3833468)),y),x))))))",
+          "b": "max(externalVal,tan(sin(pow(cos(cos(externalVal)),cos(mod(max(pow((y/externalVal),cos(externalVal)),externalVal),x))))))",
+          "g": "max(x,tan(sin(pow(cos(cos(externalVal)),cos(mod(max(pow((x/y),cos(externalVal)),x),0.22411108))))))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "noise(externalVal,x)",
+          "b": "noise(y,y)",
+          "g": "noise(0.41516995,y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "x",
+          "b": "0.9885516",
+          "g": "externalVal"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "sin(externalVal)",
+          "b": "sin(externalVal)",
+          "g": "sin(y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(y/cos(y))",
+          "b": "(externalVal/cos(y))",
+          "g": "(0.54232/cos(0.545346))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "sin(tan(max(externalVal,y)))",
+          "b": "sin(tan(max(0.4955852,0.016683578)))",
+          "g": "sin(tan(max(x,externalVal)))"
+        }
+      }
+    ],
+    "timestamp": "23h:59m:46s"
+  }],
+  "timestamp": "2024-04-07-23-59-45"
+}

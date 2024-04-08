@@ -1,0 +1,24 @@
+{
+  "id": "kqk54e29-4czk-d7wz-frhv-0dlxohnyfp4d",
+  "parameters": {
+    "crossoverRate": 0.30000001192092896,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.8999999761581421,
+    "populationSize": 1
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "ou61dfqf-7moa-xgvq-3a2j-pkdd379bipdp",
+    "individuals": [{
+      "fitness": 0,
+      "expressions": {
+        "r": "audio((x/pow(mod((externalVal/y),y),0.44543076)),pow(mod(pow(audio(pow(audio(audio((0.107517004/externalVal),0.38950467),mod(pow(y,0.30636024),mod(0.5000794,x))),0.5408108),pow(pow(audio(y,externalVal),(pow(0.46123052,y)/audio(externalVal,externalVal))),((y/externalVal)/audio(pow(x,0.6191621),x)))),y),pow(pow(y,0.47175598),audio((pow(pow(0.07824659,audio(x,y)),0.28864598)/pow(pow(mod(x,0.009676695),audio(x,0.51397777)),(audio(0.6766076,externalVal)/y))),y))),mod(x,mod(pow(pow(mod(mod(mod(x,y),x),mod((0.094721794/externalVal),0.6256726)),externalVal),mod(y,externalVal)),x))))",
+        "b": "audio((y/pow(mod((y/x),y),x)),pow(mod(pow(audio(pow(audio(audio((y/y),0.15713167),mod(pow(x,externalVal),mod(x,0.9470694))),x),pow(pow(audio(x,externalVal),(pow(y,0.9686816)/audio(y,y))),((externalVal/0.50901175)/audio(pow(externalVal,x),x)))),y),pow(pow(externalVal,y),audio((pow(pow(x,audio(y,y)),0.45736623)/pow(pow(mod(x,0.057325125),audio(x,x)),(audio(0.43301034,x)/x))),y))),mod(externalVal,mod(pow(pow(mod(mod(mod(x,x),x),mod((y/x),y)),x),mod(0.25664043,x)),x))))",
+        "g": "audio((x/pow(mod((x/x),x),0.9632571)),pow(mod(pow(audio(pow(audio(audio((x/x),externalVal),mod(pow(externalVal,y),mod(0.06102109,y))),0.4023173),pow(pow(audio(x,externalVal),(pow(y,y)/audio(0.38681388,externalVal))),((0.35226822/y)/audio(pow(x,0.06633735),externalVal)))),externalVal),pow(pow(externalVal,0.3765688),audio((pow(pow(0.80209947,audio(0.023921967,x)),0.69658685)/pow(pow(mod(x,externalVal),audio(0.2432077,externalVal)),(audio(x,externalVal)/y))),0.96321535))),mod(x,mod(pow(pow(mod(mod(mod(externalVal,0.23192024),externalVal),mod((y/x),0.70950294)),externalVal),mod(0.887789,externalVal)),externalVal))))"
+      }
+    }],
+    "timestamp": "19h:32m:57s"
+  }],
+  "timestamp": "2024-04-07-19-32-54"
+}

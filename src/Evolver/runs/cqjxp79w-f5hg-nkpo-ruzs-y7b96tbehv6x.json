@@ -1,0 +1,98 @@
+{
+  "id": "cqjxp79w-f5hg-nkpo-ruzs-y7b96tbehv6x",
+  "parameters": {
+    "crossoverRate": 0.30000001192092896,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.8999999761581421,
+    "populationSize": 10
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "qo4g6r0m-xc3f-qn02-81je-tivu2ksbsg9z",
+    "individuals": [
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(externalVal/x)",
+          "b": "(x/y)",
+          "g": "(x/y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "min(max(externalVal,sin(noise(mod(x,(min(externalVal,externalVal)/max(x,y))),mod(y,0.64543414)))),y)",
+          "b": "min(max(0.90674233,sin(noise(mod(y,(min(0.9697876,y)/max(0.7554376,x))),mod(x,x)))),0.21278286)",
+          "g": "min(max(x,sin(noise(mod(x,(min(externalVal,y)/max(y,externalVal))),mod(0.18108416,y)))),externalVal)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "x",
+          "b": "0.55361104",
+          "g": "0.6864636"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "sin(tan(cos(externalVal)))",
+          "b": "sin(tan(cos(0.98235655)))",
+          "g": "sin(tan(cos(x)))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "pow(tan(noise((mod(noise((max(0.447587,min(y,y))/(x/x)),externalVal),max(noise(tan(0.48220754),externalVal),0.38047338))/(x/0.32737446)),0.4270854)),y)",
+          "b": "pow(tan(noise((mod(noise((max(x,min(y,x))/(y/0.42870116)),y),max(noise(tan(y),x),y))/(x/externalVal)),y)),0.12250757)",
+          "g": "pow(tan(noise((mod(noise((max(0.21226978,min(externalVal,x))/(y/0.73397064)),y),max(noise(tan(y),externalVal),0.26602578))/(y/externalVal)),externalVal)),0.60294676)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "cos(0.833406)",
+          "b": "cos(0.496305)",
+          "g": "cos(y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "max(x,mod(0.74166393,0.84301805))",
+          "b": "max(externalVal,mod(externalVal,externalVal))",
+          "g": "max(x,mod(x,y))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "x",
+          "b": "y",
+          "g": "y"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "x",
+          "b": "0.96222687",
+          "g": "externalVal"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "max(externalVal,cos(noise(sin(min(tan(mod(pow(y,y),max(tan(externalVal),tan(0.41439176)))),cos(min(max(x,mod(y,externalVal)),0.8499272)))),externalVal)))",
+          "b": "max(x,cos(noise(sin(min(tan(mod(pow(0.43075728,y),max(tan(0.28593063),tan(x)))),cos(min(max(x,mod(y,y)),x)))),x)))",
+          "g": "max(0.94324327,cos(noise(sin(min(tan(mod(pow(externalVal,y),max(tan(x),tan(externalVal)))),cos(min(max(externalVal,mod(externalVal,x)),x)))),0.55770874)))"
+        }
+      }
+    ],
+    "timestamp": "1h:55m:1s"
+  }],
+  "timestamp": "2024-04-08-01-55-00"
+}

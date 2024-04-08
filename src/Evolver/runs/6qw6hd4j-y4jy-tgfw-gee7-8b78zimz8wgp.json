@@ -1,0 +1,24 @@
+{
+  "id": "6qw6hd4j-y4jy-tgfw-gee7-8b78zimz8wgp",
+  "parameters": {
+    "crossoverRate": 0.30000001192092896,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.8999999761581421,
+    "populationSize": 1
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "l7s7cje5-43h7-i0pq-skxs-i7tweozsxwps",
+    "individuals": [{
+      "fitness": 0,
+      "expressions": {
+        "r": "pow(audio(audio((pow(((audio(y,x)/externalVal)/x),0.27078176)/audio(0.70172787,x)),x),(pow((mod(audio(mod(0.8465736,y),0.74811864),(mod(mod(y,y),(y/y))/audio((y/0.5878768),(externalVal/y))))/y),mod(y,(x/pow(mod(audio(y,y),(externalVal/0.8848758)),audio((0.66910815/externalVal),audio(x,x))))))/externalVal)),externalVal)",
+        "b": "pow(audio(audio((pow(((audio(y,x)/externalVal)/y),y)/audio(0.8733647,x)),externalVal),(pow((mod(audio(mod(x,0.2614634),externalVal),(mod(mod(x,externalVal),(externalVal/y))/audio((x/y),(0.7783649/externalVal))))/x),mod(externalVal,(y/pow(mod(audio(externalVal,externalVal),(x/0.92066026)),audio((externalVal/x),audio(0.8505125,y))))))/y)),x)",
+        "g": "pow(audio(audio((pow(((audio(0.3076334,externalVal)/0.28303432)/x),externalVal)/audio(x,y)),externalVal),(pow((mod(audio(mod(y,externalVal),x),(mod(mod(externalVal,x),(0.73279476/externalVal))/audio((externalVal/x),(y/externalVal))))/0.6154146),mod(0.5799856,(0.8716965/pow(mod(audio(externalVal,0.5315101),(x/0.7656429)),audio((externalVal/0.34939265),audio(externalVal,externalVal))))))/0.27240753)),y)"
+      }
+    }],
+    "timestamp": "19h:33m:30s"
+  }],
+  "timestamp": "2024-04-07-19-33-28"
+}

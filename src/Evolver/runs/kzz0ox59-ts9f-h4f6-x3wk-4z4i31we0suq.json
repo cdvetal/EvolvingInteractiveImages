@@ -1,0 +1,98 @@
+{
+  "id": "kzz0ox59-ts9f-h4f6-x3wk-4z4i31we0suq",
+  "parameters": {
+    "crossoverRate": 0.30000001192092896,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.8999999761581421,
+    "populationSize": 10
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "fddoxmwu-v9bf-b8qt-q30e-izfegv74qsdl",
+    "individuals": [
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "externalVal",
+          "b": "0.9156201",
+          "g": "x"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "audio(x,(x/(audio(audio(pow(mod(pow(0.5444312,mod(externalVal,x)),audio(y,0.6263044)),audio(audio(audio(externalVal,externalVal),(x/0.799073)),x)),0.7122917),0.19294906)/y)))",
+          "b": "audio(x,(x/(audio(audio(pow(mod(pow(y,mod(y,x)),audio(y,x)),audio(audio(audio(externalVal,0.27612042),(y/x)),y)),0.32026458),externalVal)/0.21394372)))",
+          "g": "audio(x,(externalVal/(audio(audio(pow(mod(pow(0.6676836,mod(y,externalVal)),audio(0.77221847,y)),audio(audio(audio(externalVal,x),(y/0.992218)),externalVal)),0.7689564),0.59835625)/0.787349)))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "externalVal",
+          "b": "0.7606201",
+          "g": "y"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "audio(audio((audio(mod((x/audio(mod(pow(externalVal,y),x),(pow(x,0.6597779)/externalVal))),(0.606915/y)),audio(pow(mod(mod(pow(x,x),externalVal),x),audio(((x/x)/audio(externalVal,y)),(x/0.6402974))),mod(pow(mod(audio(x,0.7294471),externalVal),0.21416831),externalVal)))/mod(0.6922214,0.9400778)),mod(mod(audio(externalVal,y),mod(0.065585375,mod(0.43665242,mod(x,x)))),pow(externalVal,pow((y/x),(mod(audio(y,audio(0.04013133,x)),externalVal)/pow(pow((x/x),0.21695495),0.98679924)))))),externalVal)",
+          "b": "audio(audio((audio(mod((externalVal/audio(mod(pow(0.8162818,y),externalVal),(pow(0.30661488,x)/x))),(0.6378572/x)),audio(pow(mod(mod(pow(y,x),0.7888851),x),audio(((x/externalVal)/audio(x,0.27627873)),(externalVal/y))),mod(pow(mod(audio(0.9628496,y),x),0.78370094),externalVal)))/mod(0.49468184,externalVal)),mod(mod(audio(externalVal,externalVal),mod(0.8287606,mod(0.95224357,mod(externalVal,externalVal)))),pow(externalVal,pow((y/x),(mod(audio(y,audio(externalVal,y)),externalVal)/pow(pow((0.6745453/0.3494935),x),externalVal)))))),0.13991427)",
+          "g": "audio(audio((audio(mod((externalVal/audio(mod(pow(x,0.9862945),externalVal),(pow(y,y)/0.27863407))),(0.4514413/0.5127146)),audio(pow(mod(mod(pow(y,externalVal),externalVal),x),audio(((x/x)/audio(x,x)),(y/x))),mod(pow(mod(audio(externalVal,y),externalVal),x),externalVal)))/mod(externalVal,externalVal)),mod(mod(audio(externalVal,externalVal),mod(externalVal,mod(externalVal,mod(x,externalVal)))),pow(externalVal,pow((externalVal/x),(mod(audio(externalVal,audio(y,x)),y)/pow(pow((0.57431626/externalVal),y),y)))))),externalVal)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "mod(y,pow(pow(mod(pow(y,mod(mod(((y/y)/y),0.8020375),externalVal)),y),externalVal),audio(y,mod(mod(audio(pow(pow(mod(externalVal,y),y),((externalVal/0.31994534)/externalVal)),x),audio(y,mod((pow(0.24215388,y)/audio(x,x)),mod(externalVal,mod(0.2735939,x))))),externalVal))))",
+          "b": "mod(0.79395366,pow(pow(mod(pow(x,mod(mod(((0.5079961/y)/x),x),externalVal)),0.99719834),externalVal),audio(y,mod(mod(audio(pow(pow(mod(y,x),0.17112899),((y/x)/y)),y),audio(0.018211126,mod((pow(y,y)/audio(externalVal,y)),mod(x,mod(0.9940126,0.4139495))))),y))))",
+          "g": "mod(x,pow(pow(mod(pow(y,mod(mod(((externalVal/0.21098995)/x),y),x)),x),0.90123725),audio(externalVal,mod(mod(audio(pow(pow(mod(y,0.12965679),0.04817915),((0.18042803/y)/externalVal)),y),audio(x,mod((pow(externalVal,y)/audio(y,0.33944535)),mod(externalVal,mod(x,y))))),0.97519135))))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "audio(pow(mod(x,externalVal),audio((x/y),x)),audio(mod(pow(pow(pow(mod(0.5933418,mod((externalVal/x),y)),x),audio(audio(audio(pow(x,0.034796715),x),(pow(y,externalVal)/x)),pow(mod(audio(externalVal,x),x),(pow(x,y)/externalVal)))),y),pow(mod(0.5819781,y),0.517725)),(pow(mod(x,pow(audio(mod(audio(x,externalVal),mod(0.42461205,y)),0.9310708),((0.3122952/(x/x))/0.66079617))),(((mod(externalVal,pow(x,externalVal))/0.06369996)/x)/externalVal))/(pow(0.3552513,mod(audio(x,y),y))/audio((0.98071957/y),externalVal)))))",
+          "b": "audio(pow(mod(0.022732258,0.16098452),audio((0.1432643/x),x)),audio(mod(pow(pow(pow(mod(0.59937644,mod((externalVal/x),y)),y),audio(audio(audio(pow(y,y),y),(pow(y,x)/externalVal)),pow(mod(audio(externalVal,externalVal),x),(pow(x,y)/x)))),y),pow(mod(y,x),y)),(pow(mod(x,pow(audio(mod(audio(y,externalVal),mod(0.64249206,y)),externalVal),((y/(0.23278284/externalVal))/0.6279769))),(((mod(externalVal,pow(0.19344449,x))/0.23617458)/externalVal)/0.95925546))/(pow(y,mod(audio(externalVal,externalVal),externalVal))/audio((x/0.60133886),x)))))",
+          "g": "audio(pow(mod(0.6081712,x),audio((y/0.87957835),x)),audio(mod(pow(pow(pow(mod(externalVal,mod((0.6436486/externalVal),x)),y),audio(audio(audio(pow(x,x),x),(pow(y,y)/y)),pow(mod(audio(externalVal,y),x),(pow(y,externalVal)/externalVal)))),x),pow(mod(0.42461038,0.3626032),x)),(pow(mod(x,pow(audio(mod(audio(externalVal,x),mod(y,x)),0.026719809),((0.72584605/(y/y))/y))),(((mod(x,pow(externalVal,x))/x)/x)/0.946435))/(pow(y,mod(audio(y,externalVal),0.013528585))/audio((x/y),0.8328819)))))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "audio(mod(0.9084146,externalVal),pow(pow(mod(pow(0.7980411,x),y),y),audio(mod(0.06600523,x),mod(audio(pow(pow(mod(y,pow(y,y)),externalVal),0.8492451),x),0.14643025))))",
+          "b": "audio(mod(y,externalVal),pow(pow(mod(pow(0.21052408,0.18466043),x),0.045388937),audio(mod(x,y),mod(audio(pow(pow(mod(x,pow(y,x)),0.5561693),0.18917084),0.1231401),y))))",
+          "g": "audio(mod(y,y),pow(pow(mod(pow(x,externalVal),x),externalVal),audio(mod(y,x),mod(audio(pow(pow(mod(0.29562235,pow(x,0.94013834)),externalVal),externalVal),y),x))))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "externalVal",
+          "b": "y",
+          "g": "0.6947868"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(audio(0.5455148,mod((y/(mod(0.74197745,mod(audio(audio(externalVal,0.06662798),(0.67689776/x)),mod(pow(externalVal,y),x)))/pow(audio(audio(y,mod(x,externalVal)),(audio(externalVal,y)/mod(externalVal,0.86646175))),mod(pow(0.86827874,mod(x,externalVal)),0.74277425)))),y))/externalVal)",
+          "b": "(audio(externalVal,mod((externalVal/(mod(0.9927137,mod(audio(audio(0.94075775,x),(y/y)),mod(pow(externalVal,0.545562),externalVal)))/pow(audio(audio(y,mod(0.44603205,y)),(audio(0.7482271,0.769202)/mod(x,x))),mod(pow(x,mod(0.05324316,y)),x)))),x))/x)",
+          "g": "(audio(0.71990967,mod((externalVal/(mod(x,mod(audio(audio(externalVal,externalVal),(y/y)),mod(pow(0.9388788,0.109022856),y)))/pow(audio(audio(x,mod(externalVal,x)),(audio(x,y)/mod(0.108061075,y))),mod(pow(x,mod(externalVal,x)),x)))),y))/0.51457906)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "mod(audio((audio((mod(audio(audio(x,externalVal),externalVal),audio(externalVal,((y/0.42851925)/(externalVal/0.6578903))))/pow(mod(audio(y,audio(y,externalVal)),audio(audio(x,0.8117254),x)),x)),x)/0.7467885),y),y)",
+          "b": "mod(audio((audio((mod(audio(audio(x,x),x),audio(0.19095778,((0.5616412/x)/(x/y))))/pow(mod(audio(y,audio(0.7249613,y)),audio(audio(0.41326547,x),y)),0.22783732)),0.4027946)/0.25897527),y),x)",
+          "g": "mod(audio((audio((mod(audio(audio(x,x),x),audio(y,((x/0.68711996)/(externalVal/externalVal))))/pow(mod(audio(externalVal,audio(0.65388703,x)),audio(audio(x,0.41030526),y)),0.32511592)),x)/externalVal),y),externalVal)"
+        }
+      }
+    ],
+    "timestamp": "19h:53m:20s"
+  }],
+  "timestamp": "2024-04-07-19-53-19"
+}

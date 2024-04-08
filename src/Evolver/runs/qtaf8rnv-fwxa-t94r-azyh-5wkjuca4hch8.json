@@ -1,0 +1,24 @@
+{
+  "id": "qtaf8rnv-fwxa-t94r-azyh-5wkjuca4hch8",
+  "parameters": {
+    "crossoverRate": 0.30000001192092896,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.8999999761581421,
+    "populationSize": 1
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "n0g14xix-hw2c-rbg8-mhz7-hupkwbktvlp4",
+    "individuals": [{
+      "fitness": 0,
+      "expressions": {
+        "r": "(0.47108555/y)",
+        "b": "(x/y)",
+        "g": "(x/externalVal)"
+      }
+    }],
+    "timestamp": "19h:30m:49s"
+  }],
+  "timestamp": "2024-04-07-19-30-47"
+}
