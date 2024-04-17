@@ -48,19 +48,21 @@ class PopulationScreen {
 
     pushMatrix();
     translate(x, y);
+    noFill();
 
     for (int i = 0; i < population.getSize(); i++) {
       float gridX = individualsGrid[row][col].x;
       float gridY = individualsGrid[row][col].y;
-      noFill();
-      
-      if (aspectRatio > 1) {
-        image(pop.getIndividual(i).getPhenotype(gridD, gridH, externalValue, audioSpectrum), gridX, gridY + shift, gridD, gridH);
+
+      if (aspectRatio >= 1) {
+        image(pop.getIndividual(i).getPhenotype(gridD,gridH,externalValue,audioSpectrum), gridX, gridY + shift, gridD, gridH);
+
         stroke(colors.get("primary"));
         strokeWeight(4);
         line(gridX, gridY + gap/2 + gridH + shift, gridX + (gridD * pop.getIndividual(i).getFitness()), gridY + gap/2 + gridH + shift);
       } else {
-        image(pop.getIndividual(i).getPhenotype(gridW, gridD, externalValue, audioSpectrum), gridX + shift, gridY, gridW, gridD);
+        image(pop.getIndividual(i).getPhenotype(gridD,gridH,externalValue,audioSpectrum), gridX, gridY + shift, gridD, gridH);
+
         stroke(colors.get("primary"));
         strokeWeight(4);
         line(gridX, gridY + gap/2 + gridD, gridX + (gridD * pop.getIndividual(i).getFitness()), gridY + gap/2 + gridD);

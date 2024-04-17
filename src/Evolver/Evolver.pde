@@ -7,7 +7,7 @@ import processing.video.*;
 Capture cam;
 PImage inputImage;
 
-int populationSize = 10;
+int populationSize = 20;
 int eliteSize = 2;
 int tournamentSize = 3;
 float crossoverRate = .3;
@@ -120,7 +120,6 @@ void draw() {
     leftTab.show();
     break;
   }
-
 }
 
 void setInputImage() {

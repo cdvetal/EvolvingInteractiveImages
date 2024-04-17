@@ -1,7 +1,7 @@
 void exportImage(Individual _individualToExport){
   String outputPath = sketchPath("outputs/" + _individualToExport.getID() + "/");
   float imageExternal = (minExternal + maxExternal) / 2;
-  
+
   PImage image = _individualToExport.getPhenotype(imageExportResolution, imageExportResolution, imageExternal, getAudioSpectrum());
   image.save(outputPath + "img.png");
   

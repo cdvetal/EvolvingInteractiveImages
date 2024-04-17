@@ -176,27 +176,33 @@ class Individual {
     int w = floor(_w);
     int h = floor(_h);
     PGraphics canvas = createGraphics(w, h, P2D);
-
-    canvas.beginDraw();
-
-    render(canvas, w, h, _external, _audioSpectrum);
-
-    canvas.endDraw();
-
-    return canvas;
-  }
-
-  void render(PGraphics _canvas, int _w, int _h, float _external, float[] _audioSpectrum) {
-    PImage image = new PImage(_w, _h, RGB);
-
-    //shader.set("resolution", _w, _h); //doesnt matter
+    
+    shader.set("resolution", _w, _h); //needed?
     shader.set("externalVal", _external);
     shader.set("audioSpectrum", _audioSpectrum);
     shader.set("image", inputImage);
+
+    canvas.beginDraw();
+    
+    canvas.shader(shader);
+    
+    canvas.noStroke();
+    
+    canvas.rect(0,0,canvas.width, canvas.height);
+
+    canvas.endDraw();
+    
+    return canvas;
+  }
+
+  void render(PGraphics _canvas, int _w, int _h) {
+    PImage image = new PImage(_w, _h, RGB);
     
     _canvas.shader(shader);
     _canvas.image(image, 0, 0);
   }
+
+  
 
   int getNChildNodes() {
     return nChildNodes;
