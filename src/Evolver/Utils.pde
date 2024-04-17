@@ -1,18 +1,77 @@
-void exportImage(Individual _individualToExport){
+void exportImage(Individual _individualToExport) {
   String outputPath = sketchPath("outputs/" + _individualToExport.getID() + "/");
   float imageExternal = (minExternal + maxExternal) / 2;
 
-  PImage image = _individualToExport.getPhenotype(imageExportResolution, imageExportResolution, imageExternal, getAudioSpectrum());
+  PImage image = getPhenotype(imageExportResolution, imageExportResolution, _individualToExport.shader, imageExternal, getAudioSpectrum());
   image.save(outputPath + "img.png");
-  
+
   println("exported image to:" + outputPath);
 }
 
-void exportShader(Individual _individualToExport){
-  String outputPath = sketchPath("outputs/" + _individualToExport.getID() + "/");
-  saveStrings(outputPath + _individualToExport.getID() + ".glsl", _individualToExport.getShaderTextLines());
+void exportShader(Individual _individualToExport) {
+  exportShader(_individualToExport.tree, "" + _individualToExport.getID());
+}
+
+void exportShader(Node _node, String _name){
+  String outputPath = sketchPath("outputs/" + _name + "/");
+  saveStrings(outputPath + _name + ".glsl", getShaderTextLines(_node));
   println("exported shader to :" + outputPath);
 }
+
+void exportTreeShader(Node _node, String _name){
+  String outputPath = sketchPath("shaders/tree/");
+  saveStrings(outputPath + _name + ".glsl", getShaderTextLines(_node));
+}
+
+String[] getShaderTextLines(Node _node) {
+  String[] shaderLines = templateShaderLines.clone();
+
+  String[] expressions = _node.getExpressions();
+
+  shaderLines[shaderChangeLineStart - 1] = "    float r = " + expressions[0] + ";";
+  shaderLines[shaderChangeLineStart    ] = "    float g = " + expressions[1] + ";";
+  shaderLines[shaderChangeLineStart + 1] = "    float b = " + expressions[2] + ";";
+
+  return shaderLines;
+}
+
+PImage getPhenotype(float _w, float _h, PShader _shader, float _external, float[] _audioSpectrum) {
+    int w = floor(_w);
+    int h = floor(_h);
+    PGraphics canvas = createGraphics(w, h, P2D);
+    
+    _shader.set("resolution", _w, _h); //needed?
+    _shader.set("externalVal", _external);
+    _shader.set("audioSpectrum", _audioSpectrum);
+    _shader.set("image", inputImage);
+
+    canvas.beginDraw();
+    
+    canvas.shader(_shader);
+    
+    canvas.noStroke();
+    
+    canvas.rect(0,0,canvas.width, canvas.height);
+
+    canvas.endDraw();
+    
+    return canvas;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 String generateUUID() {
@@ -65,73 +124,73 @@ SoundFile[] loadSongs() {
 
 HashMap<String, PShape> loadIcons() {
   String directory = sketchPath("data/icons/");
-  
+
   File f = dataFile(directory);
   String[] names = f.list();
-  
+
   HashMap<String, PShape> toReturn = new HashMap<String, PShape>();
-  
-  for(int i = 0; i < names.length; i++){
-      PShape shape = loadShape(directory + names[i]);
-      String keyName = names[i].substring(0, names[i].indexOf('.'));
-      toReturn.put(keyName, shape);
+
+  for (int i = 0; i < names.length; i++) {
+    PShape shape = loadShape(directory + names[i]);
+    String keyName = names[i].substring(0, names[i].indexOf('.'));
+    toReturn.put(keyName, shape);
   }
-  
+
   return toReturn;
 }
 
 HashMap<String, Integer> loadColors() {
   String directory = sketchPath("data/colors.txt");
-  
+
   String[] strings = loadStrings(directory);
-  
+
   HashMap<String, Integer> toReturn = new HashMap<String, Integer>();
-  
-  for(int i = 0; i < strings.length; i++){
+
+  for (int i = 0; i < strings.length; i++) {
     String[] colorPair = strings[i].split("_");
     String keyName = colorPair[0];
     String colorHex = "FF" + colorPair[1]; //FF means it's opaque
     color c = unhex(colorHex);
     toReturn.put(keyName, c);
   }
-  
+
   return toReturn;
 }
 
-HashMap<String, PFont> loadFonts(){
+HashMap<String, PFont> loadFonts() {
   String directory = sketchPath("data/fonts/");
-  
+
   File f = dataFile(directory);
   String[] names = f.list();
-  
+
   HashMap<String, PFont> toReturn = new HashMap<String, PFont>();
-  
-  for(int i = 0; i < names.length; i++){
-      PFont font = createFont(directory + names[i], 128);
-      String keyName = names[i].substring(0, names[i].indexOf('.'));
-      toReturn.put(keyName, font);
+
+  for (int i = 0; i < names.length; i++) {
+    PFont font = createFont(directory + names[i], 128);
+    String keyName = names[i].substring(0, names[i].indexOf('.'));
+    toReturn.put(keyName, font);
   }
-  
+
   return toReturn;
 }
 
-PVector[] setupColumns(int _nColumns){
-  
+PVector[] setupColumns(int _nColumns) {
+
   PVector[] toReturn = new PVector[_nColumns];
-  
+
   int widthNoBorder = width - border - border;
   int widthGaps = (_nColumns - 1) * gap;
   float columnWidth = (widthNoBorder - widthGaps) / _nColumns;
-  
+
   int currentX = border;
-  
-  for(int i = 0; i < _nColumns; i++){
+
+  for (int i = 0; i < _nColumns; i++) {
     float xA = currentX;
     currentX += columnWidth;
     toReturn[i] = new PVector(xA, currentX, columnWidth);
     currentX += gap;
   }
-  
+
   return toReturn;
 }
 

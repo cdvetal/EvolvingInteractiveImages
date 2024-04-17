@@ -48,33 +48,11 @@ class Individual {
     breadthTracker = new ArrayList<Integer>();
     tree.identify(this);
   }
-  
-  String[] getExpressions(){
-   String[] expressions = new String[3];
-   
-   for(int i = 0; i < expressions.length; i++){
-     expressions[i] = tree.getFunctionString(i);
-   }
-   
-   return expressions;
-  }
-
-  String[] getShaderTextLines() {
-    String[] shaderLines = templateShaderLines.clone();
-    
-    String[] expressions = getExpressions();
-
-    shaderLines[shaderChangeLineStart - 1] = "    float r = " + expressions[0] + ";";
-    shaderLines[shaderChangeLineStart    ] = "    float g = " + expressions[1] + ";";
-    shaderLines[shaderChangeLineStart + 1] = "    float b = " + expressions[2] + ";";
-
-    return shaderLines;
-  }
 
   void doShader(int _index) {
-    String [] shaderLines = getShaderTextLines();
+    String [] shaderLines = getShaderTextLines(tree);
 
-    String shaderPath = sketchPath("shaders\\shader" + _index + ".glsl");
+    String shaderPath = sketchPath("shaders\\individuals\\shader" + _index + ".glsl");
 
     saveStrings(shaderPath, shaderLines);
 
@@ -172,29 +150,6 @@ class Individual {
     return new Individual(copiedTree, fitness);
   }
 
-  PImage getPhenotype(float _w, float _h, float _external, float[] _audioSpectrum) {
-    int w = floor(_w);
-    int h = floor(_h);
-    PGraphics canvas = createGraphics(w, h, P2D);
-    
-    shader.set("resolution", _w, _h); //needed?
-    shader.set("externalVal", _external);
-    shader.set("audioSpectrum", _audioSpectrum);
-    shader.set("image", inputImage);
-
-    canvas.beginDraw();
-    
-    canvas.shader(shader);
-    
-    canvas.noStroke();
-    
-    canvas.rect(0,0,canvas.width, canvas.height);
-
-    canvas.endDraw();
-    
-    return canvas;
-  }
-
   void render(PGraphics _canvas, int _w, int _h) {
     PImage image = new PImage(_w, _h, RGB);
     
@@ -209,7 +164,7 @@ class Individual {
   }
   
   PVector getVisDimensions(){
-    return new PVector(breadthTracker.get(breadthTracker.size() - 1) + 1, breadthTracker.size() + 1);
+    return new PVector(breadthTracker.get(breadthTracker.size() - 1) + 1, breadthTracker.size());
   }
   
   Node getTreeCopy() {
@@ -222,5 +177,9 @@ class Individual {
 
   int getID() {
     return individualID;
+  }
+  
+  PShader getShader(){
+  return shader;
   }
 }

@@ -55,13 +55,13 @@ class PopulationScreen {
       float gridY = individualsGrid[row][col].y;
 
       if (aspectRatio >= 1) {
-        image(pop.getIndividual(i).getPhenotype(gridD,gridH,externalValue,audioSpectrum), gridX, gridY + shift, gridD, gridH);
+        image(getPhenotype(gridD,gridH,pop.getIndividual(i).getShader(),externalValue,audioSpectrum), gridX, gridY + shift, gridD, gridH);
 
         stroke(colors.get("primary"));
         strokeWeight(4);
         line(gridX, gridY + gap/2 + gridH + shift, gridX + (gridD * pop.getIndividual(i).getFitness()), gridY + gap/2 + gridH + shift);
       } else {
-        image(pop.getIndividual(i).getPhenotype(gridD,gridH,externalValue,audioSpectrum), gridX, gridY + shift, gridD, gridH);
+        image(getPhenotype(gridD,gridH,pop.getIndividual(i).getShader(),externalValue,audioSpectrum), gridX, gridY + shift, gridD, gridH);
 
         stroke(colors.get("primary"));
         strokeWeight(4);

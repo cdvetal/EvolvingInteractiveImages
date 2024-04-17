@@ -69,7 +69,7 @@ class Run {
     for (int i = 0; i < _individuals.length; i++) {
       JSONObject individualJSON = new JSONObject();
 
-      String[] individualExpressions = _individuals[i].getExpressions();
+      String[] individualExpressions = _individuals[i].tree.getExpressions();
       JSONObject expressionsJSON = new JSONObject();
 
       expressionsJSON.setString("r", individualExpressions[0]);

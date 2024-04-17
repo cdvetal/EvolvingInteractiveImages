@@ -4,28 +4,35 @@ class TreeVis {
   PVector treeDimensions;
   int cellSize;
   Node[][] nodeGrid;
+  String directory;
 
   TreeVis(Individual _individual) {
     individual = _individual;
     treeDimensions = individual.getVisDimensions();
 
+    directory = sketchPath("shaders/tree/");
+
+    println(treeDimensions.x + " _ " + treeDimensions.y);
     nodeGrid = new Node[int(treeDimensions.x)][int(treeDimensions.y)];
 
     cellSize = floor(min(width/treeDimensions.x, height/treeDimensions.y));
 
-    setupNodeGrid();
+    setupNodes();
   }
-  
-  void setDimensions(float _w, float _y){
+
+  void setDimensions(float _w, float _y) {
     cellSize = floor(min(_w/treeDimensions.x, _y/treeDimensions.y));
   }
 
-  void setupNodeGrid() {
+  void setupNodes() {
     for (int i = 0; i < individual.getNChildNodes(); i++) {
       Node node = individual.tree.getNode(i);
       if (node == null) continue;
       PVector nodeLocation = node.getVisLocation();
-      nodeGrid[floor(nodeLocation.x)][floor(nodeLocation.y)] = node.getCopy();
+      int x = floor(nodeLocation.x), y = floor(nodeLocation.y);
+      String shaderName = doShaderName(x, y);
+      exportTreeShader(node, shaderName);
+      nodeGrid[x][y] = node.getCopy(); //out of bounds x - 3; y - 0
     }
   }
 
@@ -36,9 +43,17 @@ class TreeVis {
           float x = (i + 0.1) * cellSize;
           float y = (j + 0.1) * cellSize;
           float side = cellSize * 0.8;
-          fill(colors.get("surface"));
-          noStroke();
-          rect(x, y, side, side);
+
+          PImage img = getCellImage(i, j, side, side);
+
+          if (img != null) {
+            image(img, x, y, side, side);
+          } else {
+            fill(colors.get("surface"));
+            noStroke();
+            rect(x, y, side, side);
+          }
+
 
           if (j > 0) {
             float parentCenterX = 0;
@@ -63,6 +78,26 @@ class TreeVis {
           }
         }
       }
+    }
+  }
+
+  String doShaderName(int _a, int _b) {
+    return _a + "_" + _b;
+  }
+
+  PImage getCellImage(int _a, int _b, float _w, float _h) {
+
+    String shaderName = doShaderName(_a, _b);
+    String shaderPath = directory + shaderName + ".glsl";
+
+    File shaderFile = dataFile(shaderPath);
+    if (shaderFile.exists()) {
+
+      PShader shader = loadShader(shaderPath);
+
+      return getPhenotype(_w, _h, shader, getExternalValue(), getAudioSpectrum());
+    } else {
+      return null;
     }
   }
 }

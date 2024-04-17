@@ -77,7 +77,7 @@ void setup() {
   fft = new FFT(this, nBands);
   soundFiles = loadSongs();
   changeSong();
-  
+
   icons = loadIcons();
   colors = loadColors();
   fonts = loadFonts();
@@ -100,7 +100,7 @@ void setup() {
 void draw() {
   resetShader();
   background(colors.get("background"));
-  
+
   switch(screen) {
     case(0):
     mainMenu.run();
@@ -114,7 +114,7 @@ void draw() {
     populationScreen.show();
     leftTab.show();
     break;
-    
+
     case(3):
     individualScreen.show();
     leftTab.show();
@@ -150,11 +150,11 @@ void drawIndividualFullScreen(Individual _indiv, float _external, float[] _audio
   if (windowAspectRatio < aspectRatio) {
     float h = width/aspectRatio;
     float y = (height - h) / 2;
-    image(_indiv.getPhenotype(width, h, _external, _audioSpectrum), 0, y, width, h);
+    image(getPhenotype(width, h, _indiv.getShader(), _external, _audioSpectrum), 0, y, width, h);
   } else {
     float w = height * aspectRatio;
     float x = (width - w) / 2;
-    image(_indiv.getPhenotype(w, height, _external, _audioSpectrum), x, 0, w, height);
+    image(getPhenotype(w, height, _indiv.getShader(), _external, _audioSpectrum), x, 0, w, height);
   }
 }
 

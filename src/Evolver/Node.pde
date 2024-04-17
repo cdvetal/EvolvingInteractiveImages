@@ -184,6 +184,17 @@ class Node {
     return finalString;
   }
   
+    
+  String[] getExpressions(){
+   String[] expressions = new String[3];
+   
+   for(int i = 0; i < expressions.length; i++){
+     expressions[i] = getFunctionString(i);
+   }
+   
+   return expressions;
+  }
+  
   /*
   void setupNodeFromExpression(String _expression) {
     
@@ -437,6 +448,6 @@ class Node {
   }
   
   PVector getVisLocation(){
-   return new PVector(visX, depth); 
+   return new PVector(visX, depth);
   }
 }
