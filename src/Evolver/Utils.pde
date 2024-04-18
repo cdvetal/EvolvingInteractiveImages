@@ -1,8 +1,7 @@
 void exportImage(Individual _individualToExport) {
   String outputPath = sketchPath("outputs/" + _individualToExport.getID() + "/");
-  float imageExternal = (minExternal + maxExternal) / 2;
 
-  PImage image = getPhenotype(imageExportResolution, imageExportResolution, _individualToExport.shader, imageExternal, getAudioSpectrum());
+  PImage image = getPhenotype(imageExportResolution, imageExportResolution, _individualToExport.shader, variablesManager.getShaderReadyVariables(), getAudioSpectrum());
   image.save(outputPath + "img.png");
 
   println("exported image to:" + outputPath);
@@ -35,13 +34,15 @@ String[] getShaderTextLines(Node _node) {
   return shaderLines;
 }
 
-PImage getPhenotype(float _w, float _h, PShader _shader, float _external, float[] _audioSpectrum) {
+PImage getPhenotype(float _w, float _h, PShader _shader, float[] _variables, float[] _audioSpectrum) {
     int w = floor(_w);
     int h = floor(_h);
     PGraphics canvas = createGraphics(w, h, P2D);
     
     _shader.set("resolution", _w, _h); //needed?
-    _shader.set("externalVal", _external);
+    //_shader.set("externalVal", _external);
+    _shader.set("nVariables", variablesManager.nVariables);
+    _shader.set("variables", _variables);
     _shader.set("audioSpectrum", _audioSpectrum);
     _shader.set("image", inputImage);
 
@@ -57,15 +58,6 @@ PImage getPhenotype(float _w, float _h, PShader _shader, float _external, float[
     
     return canvas;
   }
-
-
-
-
-
-
-
-
-
 
 
 

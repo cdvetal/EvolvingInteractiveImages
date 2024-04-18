@@ -32,6 +32,7 @@ class PopulationScreen {
     setInputImage();
     float externalValue = getExternalValue();
     float[] audioSpectrum = getAudioSpectrum();
+    float[] variables = variablesManager.getShaderReadyVariables();
 
     int row = 0, col = 0;
 
@@ -55,13 +56,13 @@ class PopulationScreen {
       float gridY = individualsGrid[row][col].y;
 
       if (aspectRatio >= 1) {
-        image(getPhenotype(gridD,gridH,pop.getIndividual(i).getShader(),externalValue,audioSpectrum), gridX, gridY + shift, gridD, gridH);
+        image(getPhenotype(gridD,gridH,pop.getIndividual(i).getShader(),variables,audioSpectrum), gridX, gridY + shift, gridD, gridH);
 
         stroke(colors.get("primary"));
         strokeWeight(4);
         line(gridX, gridY + gap/2 + gridH + shift, gridX + (gridD * pop.getIndividual(i).getFitness()), gridY + gap/2 + gridH + shift);
       } else {
-        image(getPhenotype(gridD,gridH,pop.getIndividual(i).getShader(),externalValue,audioSpectrum), gridX, gridY + shift, gridD, gridH);
+        image(getPhenotype(gridD,gridH,pop.getIndividual(i).getShader(),variables,audioSpectrum), gridX, gridY + shift, gridD, gridH);
 
         stroke(colors.get("primary"));
         strokeWeight(4);

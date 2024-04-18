@@ -3,6 +3,8 @@ in vec4 gl_FragCoord;
 uniform vec2 resolution;
 uniform sampler2D image;
 uniform float externalVal;
+uniform int nVariables;
+uniform float variables[10];
 uniform float audioSpectrum[512];
 
 const float EPSILON = 1e-10;
@@ -43,14 +45,14 @@ float hash(float p) { p = fract(p * 0.011); p *= p + 7.5; p *= p + p; return fra
 float hash(vec2 p) {vec3 p3 = fract(vec3(p.xyx) * 0.13); p3 += dot(p3, p3.yzx + 3.333); return fract((p3.x + p3.y) * p3.z); }
 
 //noise from https://www.shadertoy.com/view/4dS3Wd
-float noise(float x) {
+float noi(float x) {
     float i = floor(x);
     float f = fract(x);
     float u = f * f * (3.0 - 2.0 * f);
     return mix(hash(i), hash(i + 1.0), u);
 }
 
-float noise(float x, float y) {
+float noi(float x, float y) {
     vec2 inVec = vec2(x,y);
     vec2 i = floor(inVec);
     vec2 f = fract(inVec);
@@ -64,7 +66,8 @@ float noise(float x, float y) {
 	return mix(a, b, u.x) + (c - a) * u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
 }
 
-float audio(float x, float y){
+//audio
+float aud(float x, float y){
     float center = x * audioSpectrum.length;
     float radius = (y * audioSpectrum.length) / 2;
     int minIndex = int(max(center - radius, 0));
@@ -96,10 +99,20 @@ float bri(float x, float y){ //brightness https://stackoverflow.com/questions/59
     return brightness;
 }
 
+float var(float x){
+    int varIndex = int(floor(x * nVariables));
+
+    if(varIndex >= nVariables){
+        varIndex = nVariables - 1;
+    }
+
+    return variables[varIndex];
+}
+
 vec3 generateRGB(float x, float y){
-    float r = cos(max(tan(x),pow(pow(externalVal,max(max((externalVal/noise(0.88554215,0.571481)),max(mod(cos(x),y),(sin(0.41236496)/x))),sin(min(noise(x,0.78483343),max(mod(externalVal,x),max(externalVal,y)))))),mod(mod(max(0.04659319,pow(sin(externalVal),externalVal)),sin(x)),pow(noise(tan(sin(pow(0.9698107,x))),x),0.7155664)))));
-    float g = cos(max(tan(x),pow(pow(x,max(max((0.8365617/noise(0.84968233,0.8931546)),max(mod(cos(x),x),(sin(0.46325707)/x))),sin(min(noise(y,y),max(mod(externalVal,x),max(y,0.23547912)))))),mod(mod(max(y,pow(sin(0.27361536),0.852829)),sin(y)),pow(noise(tan(sin(pow(0.35877562,y))),externalVal),0.62669015)))));
-    float b = cos(max(tan(0.09579277),pow(pow(0.8808577,max(max((0.623297/noise(x,0.36131668)),max(mod(cos(0.24901915),y),(sin(externalVal)/0.95944405))),sin(min(noise(externalVal,y),max(mod(externalVal,x),max(x,0.46505046)))))),mod(mod(max(0.7611704,pow(sin(0.047648907),y)),sin(y)),pow(noise(tan(sin(pow(x,externalVal))),externalVal),x)))));
+    float r = y;
+    float g = y;
+    float b = 0.4246981;
     return vec3(r,g,b);
 }
 

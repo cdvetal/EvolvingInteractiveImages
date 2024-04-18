@@ -5,10 +5,14 @@ class LeftTab {
   int columnWidth = 2;
 
   BackController backController = new BackController();
-  VariablesController variablesController = new VariablesController(4);
+  VariablesController variablesController;
   MusicController musicController = new MusicController();
   GenerationController generationController = new GenerationController();
   LayoutController layoutController = new LayoutController();
+
+  LeftTab(int _nVariables) {
+    variablesController = new VariablesController(_nVariables);
+  }
 
   void show() {
     noStroke();
@@ -58,6 +62,10 @@ class LeftTab {
     }
   }
 
+  float getSliderValue(int _sliderIndex) {
+    return variablesController.getSliderValue(_sliderIndex);
+  }
+
   Boolean getBack() {
     return backController.back.getSelected();
   }
@@ -88,7 +96,7 @@ class BackController {
 
 class VariablesController {
   int nVariables;
-  int nTypes = 3;
+  int nTypes = 4;
   Icon[] icons;
   Slider[] sliders;
   ToggleButton[][] toggles;
@@ -99,7 +107,7 @@ class VariablesController {
     nVariables = _nVariables;
 
     icons = new Icon[nTypes];
-    String[] iconNames = {"mouse_horizontal", "mouse_vertical", "wave"};
+    String[] iconNames = {"mouse_horizontal", "mouse_vertical", "wave", "perlin"};
     sliders = new Slider[_nVariables];
     toggles = new ToggleButton[_nVariables][nTypes]; // [horizontal] / [vertical]
 
@@ -113,6 +121,7 @@ class VariablesController {
     float currentY = incY;
     for (int i = 0; i < _nVariables; i++) {
       sliders[i] = new Slider(0, currentY + toggleW/2, columns[0].z - gap);
+      variablesManager.switchType(i, -1);
 
       for (int j = 0; j < toggles[0].length; j++) {
         icons[j] = new Icon(currentX, 0, gap, iconNames[j]);
@@ -128,7 +137,11 @@ class VariablesController {
 
   void show() {
     for (int i = 0; i < sliders.length; i++) {
+      if (!sliders[i].enabled) {
+        sliders[i].setValue(variablesManager.getVariable(i));
+      }
       sliders[i].show();
+
 
       for (int j = 0; j < toggles[0].length; j++) {
         icons[j].show();
@@ -136,9 +149,30 @@ class VariablesController {
 
         if (toggles[i][j].getSelected()) {
           toggles[i][j].toggle();
+
+          if (toggles[i][j].toggled) {
+            untoggleToggles(i, j);
+            sliders[i].setEnabled(false);
+            variablesManager.switchType(i, j);
+          } else {
+            variablesManager.switchType(i, -1);
+            sliders[i].setEnabled(true);
+          }
         }
       }
     }
+  }
+
+  void untoggleToggles(int _row, int _column) {
+    for (int i = 0; i < toggles[_row].length; i++) {
+      if (i != _column) {
+        toggles[_row][i].toggled = false;
+      }
+    }
+  }
+
+  float getSliderValue(int _sliderIndex) {
+    return sliders[_sliderIndex].value;
   }
 }
 
@@ -201,7 +235,7 @@ class GenerationController {
     left = new IconButton(0, 0, buttonW, "left");
     tree = new IconButton(buttonGap + buttonW, 0, buttonW, "tree");
     right = new IconButton((buttonGap + buttonW) * 2, 0, buttonW, "right");
-    
+
     left.disabled = true;
     right.disabled = true;
 

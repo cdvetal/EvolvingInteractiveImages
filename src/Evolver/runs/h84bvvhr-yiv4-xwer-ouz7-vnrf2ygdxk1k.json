@@ -1,0 +1,178 @@
+{
+  "id": "h84bvvhr-yiv4-xwer-ouz7-vnrf2ygdxk1k",
+  "parameters": {
+    "crossoverRate": 0.30000001192092896,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.8999999761581421,
+    "populationSize": 20
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "tz6mzt3l-uwj1-r1fg-qb7u-wjw3y2af4q1r",
+    "individuals": [
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "pow(0.7486283,max(0.24936694,cos(x)))",
+          "b": "pow(0.50200135,max(0.009398282,cos(0.53180087)))",
+          "g": "pow(x,max(x,cos(y)))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(tan(tan(pow(x,cos((tan(pow(pow(0.91836226,y),x))/y)))))/pow(var(y),mod(0.65784055,sin(noi(0.8449661,x)))))",
+          "b": "(tan(tan(pow(y,cos((tan(pow(pow(x,0.5719723),x))/y)))))/pow(var(y),mod(0.2579257,sin(noi(y,x)))))",
+          "g": "(tan(tan(pow(x,cos((tan(pow(pow(y,0.8922395),y))/y)))))/pow(var(y),mod(y,sin(noi(x,0.25275815)))))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "cos(var(var(max(pow(y,x),0.07886928))))",
+          "b": "cos(var(var(max(pow(0.1920147,0.36198235),x))))",
+          "g": "cos(var(var(max(pow(y,y),0.89521354))))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "0.6413652",
+          "b": "x",
+          "g": "y"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "mod(max(y,tan(y)),(min(x,x)/y))",
+          "b": "mod(max(x,tan(0.006660104)),(min(y,y)/y))",
+          "g": "mod(max(y,tan(0.9766642)),(min(0.4663319,0.6991648)/0.63976943))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "y",
+          "b": "y",
+          "g": "0.31860727"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "sin(y)",
+          "b": "sin(x)",
+          "g": "sin(x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "tan(min((tan(tan(cos((x/pow(cos(0.7342218),var(0.3843364))))))/noi(cos(pow(tan(y),x)),0.7216789)),y))",
+          "b": "tan(min((tan(tan(cos((y/pow(cos(y),var(y))))))/noi(cos(pow(tan(0.9668496),y)),x)),0.6624888))",
+          "g": "tan(min((tan(tan(cos((x/pow(cos(y),var(y))))))/noi(cos(pow(tan(x),x)),y)),x))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "max(pow(x,x),max(y,0.47353238))",
+          "b": "max(pow(y,0.69284034),max(0.51047,y))",
+          "g": "max(pow(y,y),max(0.73097116,x))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "cos(0.43755144)",
+          "b": "cos(0.96717614)",
+          "g": "cos(y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "cos(max((y/x),noi((0.52192676/y),max(y,pow(y,mod(x,max(noi(mod(0.2076475,0.15958285),0.82911193),0.04776138)))))))",
+          "b": "cos(max((y/x),noi((0.016562104/0.8768116),max(x,pow(x,mod(0.045896888,max(noi(mod(x,y),0.099476695),0.7717341)))))))",
+          "g": "cos(max((x/0.13429981),noi((x/y),max(y,pow(x,mod(0.42618388,max(noi(mod(x,y),y),0.62130797)))))))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "pow(x,0.5782081)",
+          "b": "pow(x,0.20026678)",
+          "g": "pow(y,0.65925086)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "noi(y,0.1111781)",
+          "b": "noi(y,y)",
+          "g": "noi(x,x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "max(y,x)",
+          "b": "max(x,x)",
+          "g": "max(0.44587165,y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "y",
+          "b": "y",
+          "g": "0.17947716"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "noi(0.25984418,mod(max(max(mod(y,(pow(sin(y),y)/(pow(tan(x),0.051143646)/pow(pow(y,x),(x/y))))),var(pow(sin(sin(var(0.8175534))),max(pow(noi(0.3164776,0.40281057),mod(x,0.15421969)),sin(0.99984115))))),y),noi(sin(x),min(tan(y),0.16262949))))",
+          "b": "noi(x,mod(max(max(mod(0.73406214,(pow(sin(x),y)/(pow(tan(0.086817026),x)/pow(pow(x,x),(y/x))))),var(pow(sin(sin(var(0.9273205))),max(pow(noi(y,x),mod(x,0.40408373)),sin(y))))),x),noi(sin(x),min(tan(0.43637305),0.4495647))))",
+          "g": "noi(x,mod(max(max(mod(0.2961899,(pow(sin(0.33699292),x)/(pow(tan(0.9860369),y)/pow(pow(y,y),(0.90601087/x))))),var(pow(sin(sin(var(y))),max(pow(noi(0.8844536,x),mod(y,x)),sin(x))))),0.32481676),noi(sin(x),min(tan(y),0.3776132))))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(0.9366088/tan(y))",
+          "b": "(y/tan(y))",
+          "g": "(x/tan(y))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "var(pow(0.62558395,pow(min(min(mod(y,x),max(0.39857787,max(x,y))),sin((0.57712716/y))),var(mod(mod(var(x),0.34287304),noi(x,0.9687701))))))",
+          "b": "var(pow(x,pow(min(min(mod(y,0.9722541),max(0.6064732,max(x,0.8039959))),sin((0.5195709/0.09673673))),var(mod(mod(var(0.84111035),y),noi(x,y))))))",
+          "g": "var(pow(x,pow(min(min(mod(0.06732702,y),max(0.15916085,max(0.48933667,y))),sin((y/y))),var(mod(mod(var(y),y),noi(x,y))))))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "min(max(noi(0.5802621,max(noi(sin(0.44822145),x),pow(x,var(x)))),y),0.51868737)",
+          "b": "min(max(noi(0.5389003,max(noi(sin(y),0.8291849),pow(x,var(0.71839124)))),0.9446175),y)",
+          "g": "min(max(noi(y,max(noi(sin(0.033925474),x),pow(y,var(0.7646148)))),x),y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "0.4578631",
+          "b": "0.64250207",
+          "g": "y"
+        }
+      }
+    ],
+    "timestamp": "19h:55m:6s"
+  }],
+  "timestamp": "2024-04-18-19-55-05"
+}

@@ -30,6 +30,12 @@ class TreeVis {
       if (node == null) continue;
       PVector nodeLocation = node.getVisLocation();
       int x = floor(nodeLocation.x), y = floor(nodeLocation.y);
+
+      if (x >= nodeGrid.length) {//out of bounds temporary fix
+        println("TreeVis out of bounds");
+        break;
+      }
+
       String shaderName = doShaderName(x, y);
       exportTreeShader(node, shaderName);
       nodeGrid[x][y] = node.getCopy(); //out of bounds x - 3; y - 0
@@ -37,6 +43,12 @@ class TreeVis {
   }
 
   void showTree() {
+    textAlign(CENTER, CENTER);
+    textFont(fonts.get("light"));
+    textSize(12);
+
+    boolean aCellIsHovered = false;
+
     for (int i = 0; i < nodeGrid.length; i ++) {
       for (int j = 0; j < nodeGrid[nodeGrid.length-1].length; j++) {
         if (nodeGrid[i][j] != null) {
@@ -54,6 +66,15 @@ class TreeVis {
             rect(x, y, side, side);
           }
 
+          if (!aCellIsHovered) {
+            if (detectHover(x, y)) {
+              noStroke();
+              fill(colors.get("surface"));
+              rect(x, y+side-gap, side, gap);
+              fill(colors.get("primary"));
+              text(nodeGrid[i][j].getNodeText(), x + side/2, y + side - gap + gap/2);
+            }
+          }
 
           if (j > 0) {
             float parentCenterX = 0;
@@ -95,9 +116,18 @@ class TreeVis {
 
       PShader shader = loadShader(shaderPath);
 
-      return getPhenotype(_w, _h, shader, getExternalValue(), getAudioSpectrum());
+      return getPhenotype(_w, _h, shader, variablesManager.getShaderReadyVariables(), getAudioSpectrum());
     } else {
       return null;
     }
+  }
+
+  boolean detectHover(float _x, float _y) {
+    if (mouseX < screenX(_x, 0))return false; //screenX and screenY because of matrix transformations
+    if (mouseX > screenX(_x + cellSize, 0))return false;
+    if (mouseY < screenY(0, _y)) return false;
+    if (mouseY > screenY(0, _y + cellSize)) return false;
+
+    return true;
   }
 }

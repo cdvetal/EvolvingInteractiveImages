@@ -44,7 +44,7 @@ int nAnimationFrames = 96;
 
 Operation[] operations;
 String[] templateShaderLines;
-int shaderChangeLineStart = 100; //3 lines need changing (r,g,b), first line is this (as shown in vscode)
+int shaderChangeLineStart = 113; //3 lines need changing (r,g,b), first line is this (as shown in vscode)
 
 Button pressedButton;
 
@@ -54,6 +54,8 @@ int border = 42; //border around screen
 int gap = 24; //gap between columns/items
 
 PVector[] columns; // [(startX, endX, columnWidth), ...]
+
+VariablesManager variablesManager;
 
 MainMenu mainMenu;
 LoadMenu loadMenu;
@@ -90,9 +92,11 @@ void setup() {
   run.startRun();
   population = new Population();
 
+  variablesManager = new VariablesManager(20);
+
   mainMenu = new MainMenu();
   loadMenu = new LoadMenu();
-  leftTab = new LeftTab();
+  leftTab = new LeftTab(variablesManager.nVariables);
   populationScreen = new PopulationScreen(population);
   individualScreen = new IndividualScreen(leftTab);
 }
@@ -143,19 +147,6 @@ float getExternalValue() {
   else toReturn = map(sin((float)millis()/1000), -1, 1, minExternal, maxExternal);
 
   return toReturn;
-}
-
-void drawIndividualFullScreen(Individual _indiv, float _external, float[] _audioSpectrum) {
-  float windowAspectRatio = width / height;
-  if (windowAspectRatio < aspectRatio) {
-    float h = width/aspectRatio;
-    float y = (height - h) / 2;
-    image(getPhenotype(width, h, _indiv.getShader(), _external, _audioSpectrum), 0, y, width, h);
-  } else {
-    float w = height * aspectRatio;
-    float x = (width - w) / 2;
-    image(getPhenotype(w, height, _indiv.getShader(), _external, _audioSpectrum), x, 0, w, height);
-  }
 }
 
 void mousePressed() {
