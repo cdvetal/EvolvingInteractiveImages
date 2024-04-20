@@ -8,6 +8,7 @@ class TreeVis {
 
   TreeVis(Individual _individual) {
     individual = _individual;
+    individual.identifyNodes();
     treeDimensions = individual.getVisDimensions();
 
     directory = sketchPath("shaders/tree/");

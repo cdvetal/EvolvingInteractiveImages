@@ -25,7 +25,7 @@ class LoadMenu {
   void update() {
     backButton.update();
     if (backButton.getSelected()) {
-      screen = 0;
+      screen = "mainmenu";
       backButton.resetSelected();
       return;
     }
@@ -34,7 +34,7 @@ class LoadMenu {
       runButtons[i].update();
       if (runButtons[i].getSelected()) {
         run.startRun(runsJSON[i]);
-        screen = 2;
+        screen = "population";
         runButtons[i].resetSelected();
         return;
       }

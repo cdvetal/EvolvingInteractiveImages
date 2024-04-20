@@ -110,9 +110,9 @@ float var(float x){
 }
 
 vec3 generateRGB(float x, float y){
-    float r = mod(mod(tan(max(pow((var(noi(var(y),var(0.47929573)))/x),0.8974879),x)),0.29457843),cos(mod(min(y,max(min(x,y),0.060567856)),((noi(sin(var(noi(x,y))),cos(noi(tan(x),tan(y))))/sin(0.45370603))/x))));
-    float g = mod(mod(tan(max(pow((var(noi(var(y),var(0.2901857)))/x),0.5031023),x)),x),cos(mod(min(x,max(min(y,x),x)),((noi(sin(var(noi(x,0.40628868))),cos(noi(tan(x),tan(0.84286004))))/sin(0.8380979))/0.34884506))));
-    float b = mod(mod(tan(max(pow((var(noi(var(y),var(x)))/x),0.4361878),x)),0.48889196),cos(mod(min(x,max(min(y,0.77699536),x)),((noi(sin(var(noi(0.5422189,y))),cos(noi(tan(x),tan(0.23163593))))/sin(0.5771316))/0.21989375))));
+    float r = noi(noi(mod(var(tan(0.28323412)),(min(var(noi(0.31484038,x)),cos(tan((y/cos(x)))))/x)),0.41698408),x);
+    float g = noi(noi(mod(var(tan(0.8324497)),(min(var(noi(0.285406,0.5295056)),cos(tan((0.16433519/cos(0.22022045)))))/y)),y),x);
+    float b = noi(noi(mod(var(tan(0.6993942)),(min(var(noi(y,0.90617126)),cos(tan((y/cos(y)))))/0.06976551)),x),y);
     return vec3(r,g,b);
 }
 

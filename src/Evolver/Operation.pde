@@ -24,9 +24,9 @@ class Operation{
 Operation[] setupOperations(){
   ArrayList<Operation> operationsToReturn = new ArrayList<Operation>();
   
-  //operationsToReturn.add(new Operation(0, "+"));
-  //operationsToReturn.add(new Operation(0, "-"));
-  //operationsToReturn.add(new Operation(0, "*"));
+  operationsToReturn.add(new Operation(0, "+"));
+  operationsToReturn.add(new Operation(0, "-"));
+  operationsToReturn.add(new Operation(0, "*"));
   operationsToReturn.add(new Operation(0, "/"));
   
   operationsToReturn.add(new Operation(1, "sin"));
@@ -39,8 +39,8 @@ Operation[] setupOperations(){
   operationsToReturn.add(new Operation(2, "noi"));
   operationsToReturn.add(new Operation(2, "mod"));
   operationsToReturn.add(new Operation(2, "pow"));
-  //operationsToReturn.add(new Operation(2, "aud"));
-  //operationsToReturn.add(new Operation(2, "bri"));
+  operationsToReturn.add(new Operation(2, "aud"));
+  operationsToReturn.add(new Operation(2, "bri"));
   
   Operation[] operationsToReturnList = new Operation[operationsToReturn.size()];
   

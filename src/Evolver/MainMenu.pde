@@ -16,14 +16,14 @@ class MainMenu {
   void update() {
     newRun.update();
     if (newRun.getSelected()) {
-      screen = 2;
+      screen = "setup";
       newRun.resetSelected();
       population.initialize();
       return;
     }
     loadRun.update();
     if (loadRun.getSelected()) {
-      screen = 1;
+      screen = "mainmenu";
       loadRun.resetSelected();
       return;
     }

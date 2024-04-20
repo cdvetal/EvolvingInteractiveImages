@@ -188,6 +188,7 @@ class ToggleButton extends Button {
       noFill();
       rect(x, y, w, w, 2);
     } else {
+      noStroke();
       fill(colors.get("primary"));
       rect(x, y, w, w, 2);
     }

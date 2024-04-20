@@ -20,7 +20,7 @@ class IndividualScreen {
     if(leftTab.getBack()){
       individual = null;
       treeVis = null;
-      screen = 2;
+      screen = "population";
       return;
     }
     

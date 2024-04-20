@@ -7,7 +7,7 @@ import processing.video.*;
 Capture cam;
 PImage inputImage;
 
-int populationSize = 20;
+int populationSize = 10;
 int eliteSize = 2;
 int tournamentSize = 3;
 float crossoverRate = .3;
@@ -19,8 +19,6 @@ int imageExportResolution = 1920;
 int animationExportResolution = 1440;
 
 boolean externalMode;
-float minExternal = 0.001;
-float maxExternal = 0.999;
 
 FFT fft;
 SoundFile[] soundFiles;
@@ -48,7 +46,7 @@ int shaderChangeLineStart = 113; //3 lines need changing (r,g,b), first line is 
 
 Button pressedButton;
 
-int screen = 0; //0 - main menu, 1 - load, 2 - population, 3 - individual
+String screen = "mainmenu"; //0 - main menu, 1 - load, 2 - population, 3 - individual
 
 int border = 42; //border around screen
 int gap = 24; //gap between columns/items
@@ -59,6 +57,7 @@ VariablesManager variablesManager;
 
 MainMenu mainMenu;
 LoadMenu loadMenu;
+SetupScreen setupScreen;
 LeftTab leftTab;
 PopulationScreen populationScreen;
 IndividualScreen individualScreen;
@@ -92,10 +91,11 @@ void setup() {
   run.startRun();
   population = new Population();
 
-  variablesManager = new VariablesManager(20);
+  variablesManager = new VariablesManager(5);
 
   mainMenu = new MainMenu();
   loadMenu = new LoadMenu();
+  setupScreen = new SetupScreen();
   leftTab = new LeftTab(variablesManager.nVariables);
   populationScreen = new PopulationScreen(population);
   individualScreen = new IndividualScreen(leftTab);
@@ -106,20 +106,24 @@ void draw() {
   background(colors.get("background"));
 
   switch(screen) {
-    case(0):
+    case("mainmenu"):
     mainMenu.run();
     break;
 
-    case(1):
+    case("loadmenu"):
     loadMenu.run();
     break;
+    
+    case("setup"):
+    setupScreen.show();
+    break;
 
-    case(2):
+    case("population"):
     populationScreen.show();
     leftTab.show();
     break;
 
-    case(3):
+    case("individual"):
     individualScreen.show();
     leftTab.show();
     break;
@@ -138,15 +142,6 @@ float[] getAudioSpectrum() {
   float[] spectrum = new float[nBands];
   fft.analyze(spectrum);
   return spectrum;
-}
-
-float getExternalValue() {
-  float toReturn;
-
-  if (externalMode) toReturn = map(mouseX, 0, width, minExternal, maxExternal);
-  else toReturn = map(sin((float)millis()/1000), -1, 1, minExternal, maxExternal);
-
-  return toReturn;
 }
 
 void mousePressed() {

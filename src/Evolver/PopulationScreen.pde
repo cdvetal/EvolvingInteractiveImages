@@ -23,14 +23,13 @@ class PopulationScreen {
 
   void show() {
     if(leftTab.getBack()){
-      screen = 0; 
+      screen = "setup"; 
       return;
     } else if(leftTab.getEvolve()){
        population.evolve(); 
     }
     
     setInputImage();
-    float externalValue = getExternalValue();
     float[] audioSpectrum = getAudioSpectrum();
     float[] variables = variablesManager.getShaderReadyVariables();
 
@@ -92,7 +91,7 @@ class PopulationScreen {
           
         } else if (individualHover.checkEye()) {
           individualScreen.setIndividual(pop.getIndividual(i));
-          screen = 3;
+          screen = "individual";
         }
 
         popMatrix();

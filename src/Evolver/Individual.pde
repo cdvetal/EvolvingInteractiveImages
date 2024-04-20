@@ -46,7 +46,7 @@ class Individual {
   void identifyNodes() {
     nChildNodes = 0;
     breadthTracker = new ArrayList<Integer>();
-    tree.identify(this);
+    tree.identify(this, 0);
   }
 
   void doShader(int _index) {

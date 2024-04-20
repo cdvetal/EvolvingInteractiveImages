@@ -110,9 +110,9 @@ float var(float x){
 }
 
 vec3 generateRGB(float x, float y){
-    float r = sin(var(tan(min(min(y,0.04886377),(y/x)))));
-    float g = sin(var(tan(min(min(0.060605943,x),(0.5753188/x)))));
-    float b = sin(var(tan(min(min(y,y),(y/x)))));
+    float r = pow((noi(sin(tan(x)),y)-aud(var(min(x,x)),((y+y)+x))),x);
+    float g = pow((noi(sin(tan(x)),y)-aud(var(min(y,x)),((y+y)+x))),y);
+    float b = pow((noi(sin(tan(0.057662487)),0.7718856)-aud(var(min(y,x)),((y+x)+0.58677274))),x);
     return vec3(r,g,b);
 }
 

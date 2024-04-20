@@ -51,7 +51,7 @@ class LeftTab {
     textAlign(LEFT, CENTER);
     textFont(fonts.get("medium"));
     textSize(14);
-    if (screen == 2) {
+    if (screen.equals("population")) {
       text("Generation: " + population.nGenerations, 0, 0);
       translate(0, gap);
       generationController.show();

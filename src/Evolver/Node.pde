@@ -61,16 +61,17 @@ class Node {
     }
   }
 
-  int identify(Individual _indiv) {
+  int identify(Individual _indiv, int _depth) {
+    depth = _depth;
     visX = 0;
 
     nodeIndex = _indiv.getIndex();
 
     breadth = _indiv.getBreadth(depth);
 
-    if (aNode != null) visX = aNode.identify(_indiv);
+    if (aNode != null) visX = aNode.identify(_indiv, _depth + 1);
     else visX = breadth;
-    if (bNode != null) bNode.identify(_indiv);
+    if (bNode != null) bNode.identify(_indiv, _depth + 1);
 
     return visX;
   }
