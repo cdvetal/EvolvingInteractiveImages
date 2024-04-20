@@ -16,7 +16,7 @@ class PopulationScreen {
     y = border;
     w = (width - border) - x;
     h = height - (border * 2);
-    individualsGrid = calculateGrid(pop.getSize(), 0, 0, w, h, 0, gap, gap, false);
+    individualsGrid = calculateGrid(populationSize, 0, 0, w, h, 0, gap, gap, false);
     individualHover = new IndividualHover(individualsGrid[0][0].z, aspectRatio);
   }
 

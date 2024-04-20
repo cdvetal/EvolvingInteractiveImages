@@ -110,9 +110,9 @@ float var(float x){
 }
 
 vec3 generateRGB(float x, float y){
-    float r = cos(sin(min(y,0.20104676)));
-    float g = cos(sin(min(x,0.77220494)));
-    float b = cos(sin(min(y,0.8069122)));
+    float r = (0.13453192-sin(mod(0.44451785,y)));
+    float g = (0.8823463-sin(mod(y,0.53125423)));
+    float b = (0.752601-sin(mod(y,0.071484625)));
     return vec3(r,g,b);
 }
 

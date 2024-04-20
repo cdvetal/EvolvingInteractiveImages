@@ -15,6 +15,7 @@ class Slider {
     w = _w - lineWeight;
   }
 
+
   void update() {
     if(!enabled) return;
     

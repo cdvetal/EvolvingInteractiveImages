@@ -3,6 +3,7 @@ class Population {
   Individual[] individuals;
   int nGenerations;
 
+
   Population() {
     individuals = new Individual[populationSize];
   }

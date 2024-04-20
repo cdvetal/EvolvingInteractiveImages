@@ -110,9 +110,9 @@ float var(float x){
 }
 
 vec3 generateRGB(float x, float y){
-    float r = x;
+    float r = 0.987113;
     float g = y;
-    float b = 0.73980814;
+    float b = x;
     return vec3(r,g,b);
 }
 

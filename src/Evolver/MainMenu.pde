@@ -18,7 +18,7 @@ class MainMenu {
     if (newRun.getSelected()) {
       screen = "setup";
       newRun.resetSelected();
-      population.initialize();
+      //population.initialize();
       return;
     }
     loadRun.update();

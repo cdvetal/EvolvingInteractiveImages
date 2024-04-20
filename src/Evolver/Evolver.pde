@@ -7,12 +7,6 @@ import processing.video.*;
 Capture cam;
 PImage inputImage;
 
-int populationSize = 10;
-int eliteSize = 2;
-int tournamentSize = 3;
-float crossoverRate = .3;
-float mutationRate = .9;
-
 int maxDepth = 10;
 int resolution = 150;
 int imageExportResolution = 1920;
@@ -33,6 +27,13 @@ HashMap<String, PFont> fonts;
 Run run;
 
 Population population;
+
+
+int populationSize = 10;
+int eliteSize = 2;
+int tournamentSize = 3;
+float crossoverRate = .3;
+float mutationRate = .9;
 
 float aspectRatio = 1; //width = height * aspectRatio
 Individual hoveredIndividual = null;
@@ -89,7 +90,6 @@ void setup() {
 
   run = new Run();
   run.startRun();
-  population = new Population();
 
   variablesManager = new VariablesManager(5);
 
@@ -97,7 +97,7 @@ void setup() {
   loadMenu = new LoadMenu();
   setupScreen = new SetupScreen();
   leftTab = new LeftTab(variablesManager.nVariables);
-  populationScreen = new PopulationScreen(population);
+  
   individualScreen = new IndividualScreen(leftTab);
 }
 
@@ -113,7 +113,7 @@ void draw() {
     case("loadmenu"):
     loadMenu.run();
     break;
-    
+
     case("setup"):
     setupScreen.show();
     break;
