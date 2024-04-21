@@ -3,6 +3,7 @@ class Individual {
   private Node tree;
   PShader shader;
   ArrayList<Integer> breadthTracker = new ArrayList<Integer>();
+  int nFullColumns = 0; //works with breadthTracker to force new column on identification
   int highestVisX = 0;
 
   int nChildNodes = 0;
@@ -46,17 +47,8 @@ class Individual {
   void identifyNodes() {
     nChildNodes = 0;
     breadthTracker = new ArrayList<Integer>();
+    nFullColumns = 0;
     tree.identify(this, 0);
-  }
-
-  void doShader(int _index) {
-    String [] shaderLines = getShaderTextLines(tree);
-
-    String shaderPath = sketchPath("shaders\\individuals\\shader" + _index + ".glsl");
-
-    saveStrings(shaderPath, shaderLines);
-
-    shader = loadShader(shaderPath);
   }
 
   int getBreadth(int _depth) {
@@ -70,10 +62,25 @@ class Individual {
 
     return breadthTracker.get(_depth);
   }
+  
+  void addBreadth(int _breadth){ //node is terminal. must add breadth
+    nFullColumns = _breadth;
+  }
 
   int getIndex() {
     nChildNodes ++;
     return nChildNodes - 1;
+  }
+  
+  
+  void doShader(int _index) {
+    String [] shaderLines = getShaderTextLines(tree);
+
+    String shaderPath = sketchPath("shaders\\individuals\\shader" + _index + ".glsl");
+
+    saveStrings(shaderPath, shaderLines);
+
+    shader = loadShader(shaderPath);
   }
 
   Individual crossover(Individual _partner) {
@@ -164,7 +171,9 @@ class Individual {
   }
   
   PVector getVisDimensions(){
-    return new PVector(breadthTracker.get(breadthTracker.size() - 1) + 1, breadthTracker.size());
+    int w = breadthTracker.get(breadthTracker.size() - 1) + 2;
+    int h = breadthTracker.size();
+    return new PVector(w, h);
   }
   
   Node getTreeCopy() {

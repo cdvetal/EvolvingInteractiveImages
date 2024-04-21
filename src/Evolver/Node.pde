@@ -1,6 +1,6 @@
 class Node {
 
-  int nMathTypes = operations.length;
+  int nMathTypes = enabledOperations.length;
   float mathType; //0-1
 
   int nodeIndex;
@@ -17,14 +17,17 @@ class Node {
   float[] scalar = new float[3]; //scalar terminal
 
   Node(int _depth) {
+    nMathTypes = enabledOperations.length;
     depth = _depth;
   }
 
   Node(boolean _toRandomize, boolean _tocreateChildren) {
+    nMathTypes = enabledOperations.length;
     if (_toRandomize) randomizeNode(_tocreateChildren);
   }
 
   Node(float _mathType, Node _aNode, Node _bNode, float [] _scalar) {
+    nMathTypes = enabledOperations.length;
     mathType = _mathType;
     aNode = _aNode;
     bNode = _bNode;
@@ -39,7 +42,7 @@ class Node {
 
   void randomizeNode(boolean _tocreateChildren) {
     mathType = random(1);
-    int requiredArguments =  operations[getMathType(mathType)].getNumberArgumentsNeeded();
+    int requiredArguments =  enabledOperations[getMathType(mathType)].getNumberArgumentsNeeded();
 
     for (int i = 0; i < 3; i++) {
       scalar[i] = random(1);
@@ -70,7 +73,10 @@ class Node {
     breadth = _indiv.getBreadth(depth);
 
     if (aNode != null) visX = aNode.identify(_indiv, _depth + 1);
-    else visX = breadth;
+    else {
+      visX = breadth;
+      _indiv.addBreadth(breadth);
+    }
     if (bNode != null) bNode.identify(_indiv, _depth + 1);
 
     return visX;
@@ -154,7 +160,7 @@ class Node {
       return finalString;
     }
 
-    Operation operation = operations[getMathType(mathType)];
+    Operation operation = enabledOperations[getMathType(mathType)];
 
     if (operation.type != 0) {
       finalString += operations[getMathType(mathType)].operator;
@@ -167,7 +173,7 @@ class Node {
     }
 
     if (operation.type == 0) {
-      finalString += operations[getMathType(mathType)].operator;
+      finalString += enabledOperations[getMathType(mathType)].operator;
     } else if (operation.type == 2) {
       finalString += ",";
     } else {
@@ -206,7 +212,7 @@ class Node {
       }
       toReturn += ")";
     } else {
-      toReturn += operations[getMathType(mathType)].operator;
+      toReturn += enabledOperations[getMathType(mathType)].operator;
     }
 
     return toReturn;
@@ -347,7 +353,7 @@ class Node {
    }*/
 
   void removeUnusedNodes() {
-    int requiredArguments =  operations[getMathType(mathType)].getNumberArgumentsNeeded();
+    int requiredArguments =  enabledOperations[getMathType(mathType)].getNumberArgumentsNeeded();
 
     if (requiredArguments == 0) {
       aNode = null;
@@ -372,8 +378,11 @@ class Node {
       int terminalSetIndex = constrain(floor(converter - 1), 0, terminalSet.length -1);
       return terminalSet[terminalSetIndex];
     } else { //else scalar is a value (0-1)
-      if(_cropped){ return nf(converter, 0, 2);}
-      else {return String.valueOf(converter);}
+      if (_cropped) {
+        return nf(converter, 0, 2);
+      } else {
+        return String.valueOf(converter);
+      }
     }
   }
 
@@ -384,7 +393,7 @@ class Node {
   }
 
   float mathTypeFromOperatorIndex(int _operatorIndex) {
-    return map(_operatorIndex, 0, operations.length, 0, 1 -0.001);
+    return map(_operatorIndex, 0, enabledOperations.length, 0, 1 -0.001);
   }
 
   String removeStartAndEndParenthesis(String _string) {
@@ -461,6 +470,10 @@ class Node {
 
     println("No acceptable simple operator at getMainSimpleOperatorIndex(" + _string + ")");
     return -1;
+  }
+  
+  boolean isTerminal(){
+    return (aNode == null && bNode == null);
   }
 
   PVector getVisLocation() {

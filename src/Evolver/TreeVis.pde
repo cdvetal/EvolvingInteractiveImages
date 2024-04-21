@@ -50,6 +50,51 @@ class TreeVis {
 
     boolean aCellIsHovered = false;
 
+    //lines
+    for (int i = 0; i < nodeGrid.length; i ++) { //x
+      for (int j = 0; j < nodeGrid[nodeGrid.length-1].length; j++) { //y
+        if (nodeGrid[i][j] != null) {
+          if (j > 0) {
+            int thisIndex = nodeGrid[i][j].nodeIndex;
+            float centerX = (i + 0.5) * cellSize;
+            float centerY = (j + 0.5) * cellSize;
+            float parentCenterX = centerX;
+            float parentCenterY = centerY;
+
+            //int parentJ = j - 1;
+          iLoop:
+            for (int parentI = i; parentI > -1; parentI--) {
+              for (int parentJ = j-1; parentJ > -1; parentJ--) {
+                if (nodeGrid[parentI][parentJ] == null) {//potential parent node
+                  continue;
+                }
+                int aIndex = -1, bIndex = -1;
+                if (nodeGrid[parentI][parentJ].aNode == null) { //check if potential parent has children
+                  continue;
+                }
+                aIndex = nodeGrid[parentI][parentJ].aNode.nodeIndex;
+                if (nodeGrid[parentI][parentJ].bNode != null) {
+                  bIndex =  nodeGrid[parentI][parentJ].bNode.nodeIndex;
+                }
+                if (aIndex == thisIndex || bIndex == thisIndex) { //check if children ID == this node ID
+                  parentCenterX = (parentI + 0.5) * cellSize;
+                  parentCenterY = (parentJ + 0.5) * cellSize;
+                  break iLoop;
+                }
+              }
+            }
+
+            stroke(colors.get("primary"));
+            strokeWeight(2);
+
+            line(centerX, centerY, parentCenterX, parentCenterY);
+          }
+        }
+      }
+    }
+
+
+    //cells
     for (int i = 0; i < nodeGrid.length; i ++) {
       for (int j = 0; j < nodeGrid[nodeGrid.length-1].length; j++) {
         if (nodeGrid[i][j] != null) {
@@ -67,36 +112,14 @@ class TreeVis {
             rect(x, y, side, side);
           }
 
-          if (!aCellIsHovered) {
-            if (detectHover(x, y)) {
+          if (true) { //!aCellIsHovered
+            if (true) { //detectHover(x, y)
               noStroke();
               fill(colors.get("surface"));
               rect(x, y+side-gap, side, gap);
               fill(colors.get("primary"));
               text(nodeGrid[i][j].getNodeText(), x + side/2, y + side - gap + gap/2);
             }
-          }
-
-          if (j > 0) {
-            float parentCenterX = 0;
-            float parentCenterY = 0;
-
-            int parentJ = j - 1;
-            for (int parentI = i; parentI > -1; parentI--) {
-              if (nodeGrid[parentI][parentJ] != null) {
-                parentCenterX = (parentI + 0.5) * cellSize;
-                parentCenterY = (parentJ + 0.5) * cellSize;
-                break;
-              }
-            }
-
-            float centerX = (i + 0.5) * cellSize;
-            float centerY = (j + 0.5) * cellSize;
-
-            stroke(colors.get("primary"));
-            strokeWeight(2);
-
-            line(centerX, centerY, parentCenterX, parentCenterY);
           }
         }
       }

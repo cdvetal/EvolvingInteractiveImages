@@ -5,12 +5,21 @@ class SetupScreen {
   AlgorithmController algorithmController = new AlgorithmController();
   StartController startController = new StartController();
 
+  Slider aspectRatioSlider;
+  Slider nVariablesSlider;
+
+  SetupScreen() {
+    float sliderW = columns[0].z * 2 - gap;
+    aspectRatioSlider = new Slider(sliderW);
+    nVariablesSlider = new Slider(sliderW);
+  }
+
   void show() {
     if (backController.back.getSelected()) {
       screen = "mainmenu";
       return;
     }
-    if (startController.start.getSelected()){
+    if (startController.start.getSelected()) {
       startEvolution();
       return;
     }
@@ -55,6 +64,38 @@ class SetupScreen {
 
     algorithmController.show();
     popMatrix();
+    
+    //Aspect Ratio & NVariables
+    pushMatrix();
+
+    translate(columns[3].x, border);
+    noStroke();
+    fill(colors.get("surface"));
+    rect(0, 0, columns[0].z*2 + gap, height - border - border);
+
+    translate(gap, gap);
+
+    fill(colors.get("primary"));
+    textAlign(LEFT, CENTER);
+    textFont(fonts.get("medium"));
+    textSize(14);
+    text("Aspect Ratio", 0, 0);
+    translate(0, gap);
+
+    aspectRatioSlider.show();
+    
+    translate(0, gap);
+
+    fill(colors.get("primary"));
+    textAlign(LEFT, CENTER);
+    textFont(fonts.get("medium"));
+    textSize(14);
+    text("Number of Variables: " + getNVariables(), 0, 0);
+    translate(0, gap);
+
+    nVariablesSlider.show();
+    
+    popMatrix();
 
     //Function Set
     pushMatrix();
@@ -76,7 +117,7 @@ class SetupScreen {
 
     operationController.show();
     popMatrix();
-    
+
     //Start
     pushMatrix();
 
@@ -98,20 +139,35 @@ class SetupScreen {
     startController.show();
     popMatrix();
   }
-  
-  void startEvolution(){
+
+  void startEvolution() {
+    aspectRatio = 0.5 + 1.5 * aspectRatioSlider.value;
+
+    variablesManager = new VariablesManager(getNVariables());
+    leftTab = new LeftTab(variablesManager.nVariables);
+
+    enabledOperations = operationController.getEnabledOperations();
+
     populationSize = round(algorithmController.getSliderValue(0));
     mutationRate = algorithmController.getSliderValue(1);
     crossoverRate = algorithmController.getSliderValue(2);
     tournamentSize = round(algorithmController.getSliderValue(3));
     eliteSize = round(algorithmController.getSliderValue(4));
-    
+
     population = new Population();
     population.initialize();
     populationScreen = new PopulationScreen(population);
     screen = "population";
   }
+
+  int getNVariables() {
+    return int(round(nVariablesSlider.value * 10));
+  }
 }
+
+
+
+
 
 class AlgorithmController {
   Slider[] algorithmSliders;
@@ -145,11 +201,10 @@ class AlgorithmController {
     }
     popMatrix();
   }
-  
-  float getSliderValue(int _sliderIndex){
+
+  float getSliderValue(int _sliderIndex) {
     return (limits[_sliderIndex].y - limits[_sliderIndex].x) * algorithmSliders[_sliderIndex].value + limits[_sliderIndex].x;
-  } 
-  
+  }
 }
 
 class OperationController {

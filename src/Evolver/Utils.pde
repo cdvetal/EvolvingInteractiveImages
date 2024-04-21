@@ -57,7 +57,7 @@ PImage getPhenotype(float _w, float _h, PShader _shader, float[] _variables, flo
     canvas.endDraw();
     
     return canvas;
-  }
+}
 
 
 

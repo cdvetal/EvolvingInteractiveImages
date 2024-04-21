@@ -5,10 +5,7 @@ class IndividualScreen {
   TreeVis treeVis;
   Individual individual;
   
-  LeftTab leftTab;
-  
-  IndividualScreen(LeftTab _leftTab){
-    leftTab = _leftTab;
+  IndividualScreen(){
     
     x = columns[2].x;
     y = border;

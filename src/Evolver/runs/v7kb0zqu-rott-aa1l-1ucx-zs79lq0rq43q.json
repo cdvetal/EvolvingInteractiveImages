@@ -1,0 +1,162 @@
+{
+  "id": "v7kb0zqu-rott-aa1l-1ucx-zs79lq0rq43q",
+  "parameters": {
+    "crossoverRate": 0.30000001192092896,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.8999999761581421,
+    "populationSize": 10
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "1z10f9eu-dowx-h1t9-iwrf-lp51t2mvju4q",
+    "individuals": [
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "pow((var(y)+x),0.16066432)",
+          "b": "pow((var(y)+0.9187803),y)",
+          "g": "pow((var(0.6311429)+x),x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "noi(cos(0.1795224),x)",
+          "b": "noi(cos(x),y)",
+          "g": "noi(cos(y),x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(pow(bri(0.9677108,x),x)+y)",
+          "b": "(pow(bri(y,x),y)+y)",
+          "g": "(pow(bri(y,y),y)+0.7928016)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(x-0.023506701)",
+          "b": "(x-y)",
+          "g": "(0.80552155-0.7433855)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "min(y,0.25332248)",
+          "b": "min(0.15219283,0.8280637)",
+          "g": "min(0.13839984,0.68691033)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "0.5786737",
+          "b": "0.33465582",
+          "g": "y"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "0.4710735",
+          "b": "0.2582268",
+          "g": "y"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "x",
+          "b": "y",
+          "g": "x"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "aud(cos(cos(0.12774396)),(aud(y,x)-var(y)))",
+          "b": "aud(cos(cos(0.9989489)),(aud(x,0.2749586)-var(y)))",
+          "g": "aud(cos(cos(0.53969014)),(aud(0.14862657,x)-var(x)))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(tan((0.42357677/x))*aud(0.7779116,y))",
+          "b": "(tan((y/x))*aud(x,0.3392231))",
+          "g": "(tan((0.7889827/x))*aud(0.20780414,x))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "sin((pow(x,0.7052851)+y))",
+          "b": "sin((pow(x,y)+x))",
+          "g": "sin((pow(0.06588274,0.11000866)+x))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(y*x)",
+          "b": "(y*0.0059528947)",
+          "g": "(0.8772869*0.69161224)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "aud((var(y)-noi(0.29626107,0.15496874)),bri(0.1901722,aud(0.9555661,y)))",
+          "b": "aud((var(0.640416)-noi(0.19740915,x)),bri(x,aud(x,x)))",
+          "g": "aud((var(0.28649998)-noi(x,y)),bri(y,aud(x,x)))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "mod((tan(0.7129973)/y),y)",
+          "b": "mod((tan(0.4369086)/y),x)",
+          "g": "mod((tan(0.89816755)/x),0.8398011)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(min(aud(y,y),(x+0.5710484))+x)",
+          "b": "(min(aud(0.88245106,y),(y+0.16669965))+y)",
+          "g": "(min(aud(0.06393206,x),(y+0.6718215))+x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "tan((0.3043236+x))",
+          "b": "tan((0.6562595+y))",
+          "g": "tan((x+y))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(min(min(y,0.78156245),y)+(aud(x,y)-var(x)))",
+          "b": "(min(min(y,y),y)+(aud(x,y)-var(0.32371312)))",
+          "g": "(min(min(0.18458694,x),x)+(aud(x,0.7211514)-var(y)))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "0.87335587",
+          "b": "0.6250974",
+          "g": "0.5117122"
+        }
+      }
+    ],
+    "timestamp": "21h:7m:58s"
+  }],
+  "timestamp": "2024-04-21-21-07-50"
+}

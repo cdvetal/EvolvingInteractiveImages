@@ -1,0 +1,162 @@
+{
+  "id": "31vilocw-5dec-p3j5-uexa-xa6d2677c1q7",
+  "parameters": {
+    "crossoverRate": 0.30000001192092896,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.8999999761581421,
+    "populationSize": 10
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "dohq5rnl-o71e-wwcr-yqzi-pc2shmnr5tjw",
+    "individuals": [
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "pow((min(x,0.979569)-0.115552604),sin(cos(0.5924265)))",
+          "b": "pow((min(x,y)-y),sin(cos(0.32970893)))",
+          "g": "pow((min(x,0.19374847)-x),sin(cos(x)))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "cos(x)",
+          "b": "cos(x)",
+          "g": "cos(0.94189113)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "var(tan(sin(0.8346253)))",
+          "b": "var(tan(sin(x)))",
+          "g": "var(tan(sin(0.6407225)))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "mod(0.9775216,bri((0.46868706/y),y))",
+          "b": "mod(0.065390825,bri((y/y),0.5912259))",
+          "g": "mod(0.7193214,bri((y/x),x))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "aud(x,y)",
+          "b": "aud(y,y)",
+          "g": "aud(0.65312773,y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "0.94946355",
+          "b": "0.16909987",
+          "g": "y"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "mod(min(y,min(0.63699156,x)),y)",
+          "b": "mod(min(x,min(0.44814616,x)),x)",
+          "g": "mod(min(y,min(x,0.09306157)),x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "tan(x)",
+          "b": "tan(y)",
+          "g": "tan(x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "aud(0.16021693,y)",
+          "b": "aud(y,x)",
+          "g": "aud(x,y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(mod(max(x,x),min(x,0.94599044))/x)",
+          "b": "(mod(max(0.10683435,x),min(x,x))/x)",
+          "g": "(mod(max(x,y),min(0.19625401,0.35927975))/y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "min((mod(y,y)-0.35044652),sin(0.03523475))",
+          "b": "min((mod(x,x)-0.92803717),sin(x))",
+          "g": "min((mod(x,0.061290443)-y),sin(y))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(var(0.16254741)/x)",
+          "b": "(var(x)/y)",
+          "g": "(var(y)/x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "aud(noi(x,0.6982044),y)",
+          "b": "aud(noi(0.43887842,x),y)",
+          "g": "aud(noi(0.17810011,y),0.9914185)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "x",
+          "b": "x",
+          "g": "y"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "y",
+          "b": "y",
+          "g": "0.9180034"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(max(max(y,0.50935274),cos(0.74719316))/x)",
+          "b": "(max(max(x,x),cos(y))/y)",
+          "g": "(max(max(0.5337535,y),cos(0.6598701))/0.23450679)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "noi(x,x)",
+          "b": "noi(y,x)",
+          "g": "noi(0.81332177,0.8296577)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "aud(pow((x+y),(y+y)),(x*(y/x)))",
+          "b": "aud(pow((y+y),(0.98321235+y)),(x*(0.42301494/x)))",
+          "g": "aud(pow((0.76642567+x),(x+x)),(y*(x/0.038428903)))"
+        }
+      }
+    ],
+    "timestamp": "21h:30m:6s"
+  }],
+  "timestamp": "2024-04-21-21-30-01"
+}

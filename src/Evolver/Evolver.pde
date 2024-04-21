@@ -7,7 +7,7 @@ import processing.video.*;
 Capture cam;
 PImage inputImage;
 
-int maxDepth = 10;
+int maxDepth = 4;
 int resolution = 150;
 int imageExportResolution = 1920;
 int animationExportResolution = 1440;
@@ -28,7 +28,6 @@ Run run;
 
 Population population;
 
-
 int populationSize = 10;
 int eliteSize = 2;
 int tournamentSize = 3;
@@ -42,6 +41,7 @@ boolean isExportingAnimation;
 int nAnimationFrames = 96;
 
 Operation[] operations;
+Operation[] enabledOperations;
 String[] templateShaderLines;
 int shaderChangeLineStart = 113; //3 lines need changing (r,g,b), first line is this (as shown in vscode)
 
@@ -91,14 +91,13 @@ void setup() {
   run = new Run();
   run.startRun();
 
-  variablesManager = new VariablesManager(5);
+  //variablesManager = new VariablesManager(5);
 
   mainMenu = new MainMenu();
   loadMenu = new LoadMenu();
   setupScreen = new SetupScreen();
-  leftTab = new LeftTab(variablesManager.nVariables);
   
-  individualScreen = new IndividualScreen(leftTab);
+  individualScreen = new IndividualScreen();
 }
 
 void draw() {
