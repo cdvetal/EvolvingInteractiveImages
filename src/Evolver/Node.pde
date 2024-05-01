@@ -355,6 +355,10 @@ class Node {
   void removeUnusedNodes() {
     int requiredArguments =  enabledOperations[getMathType(mathType)].getNumberArgumentsNeeded();
 
+    if (aNode == null) {
+      bNode = null;
+    }
+
     if (requiredArguments == 0) {
       aNode = null;
       bNode = null;
@@ -471,8 +475,8 @@ class Node {
     println("No acceptable simple operator at getMainSimpleOperatorIndex(" + _string + ")");
     return -1;
   }
-  
-  boolean isTerminal(){
+
+  boolean isTerminal() {
     return (aNode == null && bNode == null);
   }
 

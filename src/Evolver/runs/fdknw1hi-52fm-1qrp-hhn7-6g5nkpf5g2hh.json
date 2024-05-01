@@ -1,0 +1,2140 @@
+{
+  "id": "fdknw1hi-52fm-1qrp-hhn7-6g5nkpf5g2hh",
+  "parameters": {
+    "crossoverRate": 0.30000001192092896,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.8999999761581421,
+    "populationSize": 10
+  },
+  "populations": [
+    {
+      "generation": 0,
+      "id": "oril745z-x22e-ck1l-yioq-o8ad48ru2kpq",
+      "individuals": [
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,((y-x)+0.9440417))",
+            "b": "bri(0.2371484,((y-0.012280583)+0.30934274))",
+            "g": "bri(y,((x-0.18144214)+x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "y",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(bri((0.36857396+x),x))",
+            "b": "tan(bri((0.3092739+y),0.3319139))",
+            "g": "tan(bri((x+x),y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "max(bri(x,x),mod(mod(0.80456203,y),sin(0.322563)))",
+            "b": "max(bri(x,x),mod(mod(y,y),sin(x)))",
+            "g": "max(bri(y,0.93571043),mod(mod(y,y),sin(0.5318021)))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(0.11331707)",
+            "b": "tan(0.7928129)",
+            "g": "tan(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "x",
+            "b": "x",
+            "g": "y"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(y)",
+            "b": "sin(0.13980317)",
+            "g": "sin(x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,(y*max(0.8171396,x)))",
+            "b": "bri(x,(y*max(0.6067436,y)))",
+            "g": "bri(0.30299538,(x*max(0.3145135,0.34104288)))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,x)",
+            "b": "bri(y,0.15119612)",
+            "g": "bri(x,x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "(min(noi(x,y),x)/x)",
+            "b": "(min(noi(x,0.21129298),0.019351244)/y)",
+            "g": "(min(noi(x,y),y)/y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "min(max((y+x),max(y,y)),max(0.5512746,max(0.2853291,0.5530783)))",
+            "b": "min(max((0.78460693+0.12981105),max(y,x)),max(y,max(x,0.20481241)))",
+            "g": "min(max((x+y),max(x,x)),max(x,max(0.56344324,x)))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(bri(mod(y,0.41202396),y),tan(aud(y,0.26111466)))",
+            "b": "aud(bri(mod(x,y),x),tan(aud(y,x)))",
+            "g": "aud(bri(mod(x,x),x),tan(aud(x,0.049876034)))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(y)",
+            "b": "cos(x)",
+            "g": "cos(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "mod(0.22673643,mod(max(0.8044338,y),y))",
+            "b": "mod(x,mod(max(0.7466086,y),x))",
+            "g": "mod(x,mod(max(x,0.22652078),y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(0.6494576)",
+            "b": "cos(x)",
+            "g": "cos(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(x,sin(sin(y)))",
+            "b": "bri(y,sin(sin(y)))",
+            "g": "bri(0.7981478,sin(sin(y)))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "(tan(x)/y)",
+            "b": "(tan(0.4343716)/y)",
+            "g": "(tan(y)/0.5138844)"
+          }
+        }
+      ],
+      "timestamp": "22h:22m:22s"
+    },
+    {
+      "generation": 1,
+      "ascendantID": "oril745z-x22e-ck1l-yioq-o8ad48ru2kpq",
+      "id": "g13j33uu-zdp7-1jn0-fng9-5p0exq70cj3n",
+      "individuals": [
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,((y-x)+0.9440417))",
+            "b": "bri(0.2371484,((y-0.012280583)+0.30934274))",
+            "g": "bri(y,((x-0.18144214)+x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(y)",
+            "b": "sin(x)",
+            "g": "sin(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "mod(0.22673643,mod(max(0.5114119,y),y))",
+            "b": "mod(x,mod(max(0.7466086,y),x))",
+            "g": "mod(x,mod(max(x,0.22652078),y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(0.0)",
+            "b": "tan(0.5146086)",
+            "g": "tan(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "max(aud(max(noi(y,0.7007108),y),tan(aud(y,0.26111466))),(y-bri(0.75355196,x)))",
+            "b": "max(aud(max(noi(x,y),x),tan(aud(y,x))),(y-bri(0.4536167,y)))",
+            "g": "max(aud(max(noi(x,y),x),tan(aud(x,0.049876034))),(y-bri(0.3145135,0.6105777)))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(bri(mod(y,0.41202396),y),tan(0.6494576))",
+            "b": "aud(bri(mod(x,y),x),tan(x))",
+            "g": "aud(bri(mod(x,x),x),tan(y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "y",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "x",
+            "b": "x",
+            "g": "y"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,x)",
+            "b": "bri(y,0.15119612)",
+            "g": "bri(x,x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "x",
+            "b": "y",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(bri(pow(y,0.41202396),y),tan(0.28925622))",
+            "b": "aud(bri(pow(x,y),x),tan(x))",
+            "g": "aud(bri(pow(x,x),x),tan(0.97339565))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(bri(((y/max(noi(pow(0.5137566,y),noi(min(0.7924801,x),min(x,x))),x))+x),x))",
+            "b": "cos(bri(((y/max(noi(pow(0.20609629,0.47962958),noi(min(0.7791159,0.23620892),min(0.09153682,x))),y))+y),0.3319139))",
+            "g": "cos(bri(((y/max(noi(pow(0.18553787,x),noi(min(y,x),min(y,y))),0.34104288))+x),y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(max(mod(y,0.41202396),y),var(aud(y,0.26111466)))",
+            "b": "aud(max(mod(x,y),x),var(aud(x,x)))",
+            "g": "aud(max(mod(x,x),x),var(aud(x,0.049876034)))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "var(y)",
+            "b": "var(x)",
+            "g": "var(0.30299538)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(bri((0.36857396-x),x))",
+            "b": "tan(bri((0.3092739-y),0.62121534))",
+            "g": "tan(bri((x-x),y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "max(y,((max(min(bri(y,y),(y*x)),0.13910294)-x)+0.9440417))",
+            "b": "max(0.0,((max(min(bri(x,x),(y*0.12463206)),x)-0.012280583)+0.30934274))",
+            "g": "max(y,((max(min(bri(y,y),(x*y)),y)-0.18144214)+x))"
+          }
+        }
+      ],
+      "timestamp": "22h:22m:30s"
+    },
+    {
+      "generation": 2,
+      "ascendantID": "g13j33uu-zdp7-1jn0-fng9-5p0exq70cj3n",
+      "id": "86loz8xt-gk0l-0di7-th4w-eznn7k6eydl8",
+      "individuals": [
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,((y-x)+0.9440417))",
+            "b": "bri(0.2371484,((y-0.012280583)+0.30934274))",
+            "g": "bri(y,((x-0.18144214)+x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(bri(mod(y,0.41202396),y),tan(0.6494576))",
+            "b": "aud(bri(mod(x,y),x),tan(x))",
+            "g": "aud(bri(mod(x,x),x),tan(y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,((max(max(bri(y,y),(y*x)),0.13910294)+x)+0.9440417))",
+            "b": "bri(0.0,((max(max(bri(x,x),(y*0.12463206)),x)+0.012280583)+0.30934274))",
+            "g": "bri(y,((max(max(bri(y,y),(x*y)),y)+0.18144214)+x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "max(y,((y-x)+0.9440417))",
+            "b": "max(0.2371484,((y-0.042624705)+0.30934274))",
+            "g": "max(y,((x-0.18144214)+x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(bri(mod(y,0.41202396),y),tan(0.6494576))",
+            "b": "aud(bri(mod(x,y),x),tan(x))",
+            "g": "aud(bri(mod(x,x),x),tan(y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "max(aud(min(noi(y,0.7007108),y),tan(aud(y,0.13923156))),(y-aud(0.75355196,x)))",
+            "b": "max(aud(min(noi(x,y),x),tan(aud(y,y))),(y-aud(0.4536167,y)))",
+            "g": "max(aud(min(noi(x,y),x),tan(aud(x,y))),(y-aud(0.3145135,0.6105777)))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "0.9084364",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "x",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(y)",
+            "b": "sin(x)",
+            "g": "sin(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(var(((y/max(min(noi(0.5137566,y),noi(min(min(pow(0.5137566,y),mod(max(x,x),noi(x,x))),x),min(x,x))),x))+x)))",
+            "b": "cos(var(((x/max(min(noi(0.20609629,0.49575135),noi(min(min(pow(0.20609629,0.47962958),mod(max(x,0.23620892),noi(0.21351677,x))),0.23620892),min(0.09153682,x))),y))+y)))",
+            "g": "cos(var(((y/max(min(noi(0.18553787,x),noi(min(min(pow(0.18553787,x),mod(max(y,x),noi(y,y))),x),min(y,y))),0.30318594))+x)))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(max(0.35285372,x),x)",
+            "b": "aud(max(y,y),0.15119612)",
+            "g": "aud(max(x,0.34104288),x)"
+          }
+        }
+      ],
+      "timestamp": "22h:22m:31s"
+    },
+    {
+      "generation": 3,
+      "ascendantID": "86loz8xt-gk0l-0di7-th4w-eznn7k6eydl8",
+      "id": "aao683i6-imvu-z07d-tm64-een3dli91j1e",
+      "individuals": [
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,((y-x)+0.9440417))",
+            "b": "bri(0.2371484,((y-0.012280583)+0.30934274))",
+            "g": "bri(y,((x-0.18144214)+x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(max(noi(y,0.36544108),y),tan(0.6494576))",
+            "b": "aud(max(noi(x,y),x),tan(x))",
+            "g": "aud(max(noi(x,x),x),tan(y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud((aud((x+x),0.6241529)+0.9260169),tan(0.76179975))",
+            "b": "aud((aud((y+y),0.9075959)+y),tan(x))",
+            "g": "aud((aud((x+y),y)+0.70241404),tan(y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "x",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "x",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(var(((y*max(min(min(0.5137566,y),noi(min(min(pow(0.2811821,y),mod(max(x,x),noi(x,x))),x),min(x,0.91906965))),x))+x)))",
+            "b": "cos(var(((x*max(min(min(0.20609629,0.49575135),noi(min(min(pow(0.32441536,0.47962958),mod(max(x,0.23620892),noi(0.21351677,x))),0.23620892),min(0.09153682,x))),y))+y)))",
+            "g": "cos(var(((y*max(min(min(0.18553787,x),noi(min(min(pow(0.0,x),mod(max(y,x),noi(y,y))),x),min(y,y))),0.30318594))+x)))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(y)",
+            "b": "sin(x)",
+            "g": "sin(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(tan(((sin(0.3956403)/min(min(mod(0.39797747,y),min(min(min(mod(0.5137566,y),mod(max(x,x),min(x,x))),0.7590798),min(x,x))),x))+x)))",
+            "b": "cos(tan(((sin(y)/min(min(mod(0.28440174,0.49575135),min(min(min(mod(0.20609629,0.47962958),mod(max(0.99889576,0.23620892),min(0.21351677,x))),0.23620892),min(0.0,x))),y))+y)))",
+            "g": "cos(tan(((sin(0.30289096)/min(min(mod(0.18553787,x),min(min(min(mod(0.18553787,x),mod(max(y,x),min(y,y))),x),min(y,y))),0.30318594))+x)))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,((max(max(max(y,y),(y*x)),0.0)+x)-x))",
+            "b": "aud(0.0,((max(max(max(x,x),(y*0.12463206)),x)+0.012280583)-0.25441295))",
+            "g": "aud(y,((max(max(max(y,y),(x*y)),y)+0.18144214)-x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "0.9084364",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(noi(0.2517087,0.26204967),x)",
+            "b": "aud(noi(x,y),0.15119612)",
+            "g": "aud(noi(x,y),x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "var(min(pow(y,0.41202396),y))",
+            "b": "var(min(pow(x,y),x))",
+            "g": "var(min(pow(x,x),x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,((y*x)+0.9440417))",
+            "b": "aud(0.2371484,((y*0.0)+0.30934274))",
+            "g": "aud(y,((x*0.24640574)+x))"
+          }
+        }
+      ],
+      "timestamp": "22h:22m:31s"
+    },
+    {
+      "generation": 4,
+      "ascendantID": "aao683i6-imvu-z07d-tm64-een3dli91j1e",
+      "id": "v0wvvjkk-sj57-ui33-iq20-z85t51488up0",
+      "individuals": [
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,((y-x)+0.9440417))",
+            "b": "bri(0.2371484,((y-0.012280583)+0.30934274))",
+            "g": "bri(y,((x-0.18144214)+x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,((max(max(max(y,y),(y*x)),0.0)-x)+x))",
+            "b": "aud(0.09274996,((max(max(max(x,x),(x*0.12463206)),x)-0.012280583)+0.25441295))",
+            "g": "aud(y,((max(max(max(y,y),(x*y)),y)-0.18144214)+x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(tan(((y-min(min(min(0.7375443,y),noi(min(min(pow(0.2811821,y),mod(bri(x,x),noi(x,x))),x),min(x,0.91906965))),x))+aud(max(mod(y,0.36544108),y),aud(0.6494576,x)))))",
+            "b": "cos(tan(((x-min(min(min(0.47598588,0.49575135),noi(min(min(pow(0.32441536,0.47962958),mod(bri(x,0.23620892),noi(0.2813245,x))),0.23620892),min(0.09153682,x))),y))+aud(max(mod(x,y),x),aud(x,x)))))",
+            "g": "cos(tan(((y-min(min(min(0.0,x),noi(min(min(pow(0.0,x),mod(bri(y,x),noi(y,y))),x),min(y,y))),0.30318594))+aud(max(mod(x,x),x),aud(y,0.50311255)))))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "var(min(pow(y,0.41202396),y))",
+            "b": "var(min(pow(x,y),x))",
+            "g": "var(min(pow(x,x),x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,((max(max(min(mod(tan(y),noi(0.6618896,0.5067694)),0.27122873),(y-x)),0.0)-x)+x))",
+            "b": "aud(0.0,((max(max(min(mod(tan(x),noi(x,0.51761323)),0.23481596),(y-0.12463206)),x)-0.012280583)+0.25441295))",
+            "g": "aud(y,((max(max(min(mod(tan(0.7619825),noi(0.8321171,x)),0.27518803),(x-y)),y)-0.18144214)+x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "x",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "x",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "0.8822656",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(x,y)",
+            "b": "aud(0.2561515,0.6201925)",
+            "g": "aud(x,x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "0.9084364",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,(sin(bri(max(x,y),0.25465018))+0.9440417))",
+            "b": "aud(0.2371484,(sin(bri(max(x,y),0.16903424))+0.30934274))",
+            "g": "aud(y,(sin(bri(max(x,y),y))+x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "0.8961103",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        }
+      ],
+      "timestamp": "22h:22m:32s"
+    },
+    {
+      "generation": 5,
+      "ascendantID": "v0wvvjkk-sj57-ui33-iq20-z85t51488up0",
+      "id": "unyzir8d-cttr-4qyh-efxr-k1c1lpez0hm2",
+      "individuals": [
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,((y-x)+0.9440417))",
+            "b": "bri(0.2371484,((y-0.012280583)+0.30934274))",
+            "g": "bri(y,((x-0.18144214)+x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "0.8493982",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "x",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,((y+x)+0.20672317))",
+            "b": "bri(0.2371484,((y+0.012280583)+y))",
+            "g": "bri(y,((x+0.18144214)+y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,((y-x)+x))",
+            "b": "aud(0.0,((0.6615776-0.012280583)+0.25441295))",
+            "g": "aud(x,((x-0.18144214)+x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,((max(min(min(mod(0.64605474,max(0.6618896,0.5067694)),0.27122873),(y-x)),0.0424823)-x)+x))",
+            "b": "aud(0.0,((max(min(min(mod(x,max(x,0.51761323)),0.23481596),(y-0.12463206)),x)-0.04511869)+0.25441295))",
+            "g": "aud(y,((max(min(min(mod(0.13572425,max(0.8321171,x)),0.27518803),(x-y)),y)-0.18144214)+x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "x",
+            "b": "0.8045751",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,((bri(max(noi(noi(cos(y),noi(0.6282096,0.5067694)),0.27122873),(y-x)),0.0)*x)*x))",
+            "b": "aud(0.0,((bri(max(noi(noi(cos(x),noi(x,0.51761323)),0.009098522),(y-0.12463206)),x)*0.13344684)*0.25441295))",
+            "g": "aud(y,((bri(max(noi(noi(cos(0.7619825),noi(0.8321171,x)),0.27518803),(x-y)),y)*0.042499702)*x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "var(y)",
+            "b": "var(0.09274996)",
+            "g": "var(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,((max(min(min(noi(mod(bri(y,(0.45316744+0.7305615)),0.4503951),min(0.6618896,0.5540436)),0.27122873),(y-x)),0.0)+x)+x))",
+            "b": "aud(0.0,((max(min(min(noi(mod(bri(x,(y+y)),y),min(x,0.4009796)),0.23481596),(y-0.1325357)),x)+0.012280583)+0.25441295))",
+            "g": "aud(y,((max(min(min(noi(mod(bri(0.91255957,(x+y)),x),min(0.8321171,x)),0.27518803),(x-y)),y)+0.18144214)+x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(cos(((y+min(min(min(0.5847089,y),noi(min(noi(pow(0.2811821,y),mod(var(x),min(x,x))),0.72426736),max(x,0.8309051))),x))+(y+0.55957675))))",
+            "b": "cos(cos(((x+min(min(min(0.47598588,0.49575135),noi(min(noi(pow(0.32441536,0.76765585),mod(var(x),min(0.2813245,x))),0.23620892),max(0.09153682,x))),y))+(x+x))))",
+            "g": "cos(cos(((y+min(min(min(0.07598553,x),noi(min(noi(pow(0.0,x),mod(var(y),min(y,y))),x),max(y,y))),0.30318594))+(x+x))))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,0.75327337)",
+            "b": "aud(0.0,x)",
+            "g": "aud(y,0.67885476)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "0.8961103",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(x,y)",
+            "b": "aud(0.20530635,0.510205)",
+            "g": "aud(x,x)"
+          }
+        }
+      ],
+      "timestamp": "22h:22m:32s"
+    },
+    {
+      "generation": 6,
+      "ascendantID": "unyzir8d-cttr-4qyh-efxr-k1c1lpez0hm2",
+      "id": "pxulr4vs-hzn6-7udw-qr2k-kumjzaenlith",
+      "individuals": [
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,((y-x)+0.9440417))",
+            "b": "bri(0.2371484,((y-0.012280583)+0.30934274))",
+            "g": "bri(y,((x-0.18144214)+x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "0.8493982",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(cos(((y+min(min(min(0.5847089,y),mod(max(noi(pow(0.07775744,y),pow(var(x),min(x,x))),0.72426736),bri(y,cos(y)))),x))+(y+0.55957675))))",
+            "b": "cos(cos(((x+min(min(min(0.47598588,0.49575135),mod(max(noi(pow(0.49222708,0.76765585),pow(var(0.8986912),min(0.28192717,x))),0.11592947),bri(x,cos(0.3586269)))),y))+(x+x))))",
+            "g": "cos(cos(((y+min(min(min(0.07598553,x),mod(max(noi(pow(0.0,x),pow(var(y),min(y,y))),y),bri(y,cos(x)))),0.30318594))+(y+x))))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "0.8493982",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,y)",
+            "b": "aud(0.09274996,0.9413432)",
+            "g": "aud(y,y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,((bri(aud(noi(sin(y),mod(0.7186103,x)),var(tan(0.23509812))),0.0)*x)*x))",
+            "b": "aud(0.0,((bri(aud(noi(sin(x),mod(y,y)),var(tan(y))),x)*0.13344684)*0.46345684))",
+            "g": "aud(y,((bri(aud(noi(sin(0.08853525),mod(y,y)),var(tan(0.06460512))),y)*0.042499702)*x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,aud(y,0.75327337))",
+            "b": "bri(0.2371484,aud(0.0,x))",
+            "g": "bri(y,aud(y,0.67885476))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "var(y)",
+            "b": "var(0.0)",
+            "g": "var(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos((((y+min(min(min(0.7233139,y),noi(noi(noi(0.40969187,noi(var(x),max(x,x))),0.72426736),max(x,0.8309051))),x))+(y+0.55957675))/x))",
+            "b": "cos((((x+min(min(min(0.47598588,0.49575135),noi(noi(noi(x,noi(var(x),max(0.2813245,x))),0.23620892),max(0.09153682,x))),y))+(x+x))/0.15027414))",
+            "g": "cos((((y+min(min(min(0.07598553,x),noi(noi(noi(x,noi(var(y),max(y,y))),x),max(y,y))),0.06610662))+(x+x))/y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,((max(min(noi(noi(mod(bri(y,(0.45316744*0.68052566)),0.4503951),min(0.3664148,0.5540436)),0.5019756),(y-x)),0.0)*x)+x))",
+            "b": "aud(0.0,((max(min(noi(noi(mod(bri(x,(y*y)),y),min(x,0.4009796)),0.23481596),(y-0.1325357)),x)*0.012280583)+0.25441295))",
+            "g": "aud(y,((max(min(noi(noi(mod(bri(0.91255957,(x*y)),x),min(0.8321171,x)),0.3844504),(x-y)),y)*0.18144214)+x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(y)",
+            "b": "tan(0.0)",
+            "g": "tan(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,0.75327337)",
+            "b": "aud(y,x)",
+            "g": "aud(x,0.67885476)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,(min(sin(noi(x,0.12722361)),sin(pow(0.32225454,0.7607088)))+0.20672317))",
+            "b": "bri(0.2371484,(min(sin(noi(x,x)),sin(pow(0.3804245,y)))+y))",
+            "g": "bri(y,(min(sin(noi(x,x)),sin(pow(y,y)))+y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,0.75327337)",
+            "b": "aud(0.0,x)",
+            "g": "aud(y,0.78897035)"
+          }
+        }
+      ],
+      "timestamp": "22h:22m:32s"
+    },
+    {
+      "generation": 7,
+      "ascendantID": "pxulr4vs-hzn6-7udw-qr2k-kumjzaenlith",
+      "id": "z0kl9spb-0aju-qjsr-plme-xy808rudwpb1",
+      "individuals": [
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,((y-x)+0.9440417))",
+            "b": "bri(0.2371484,((y-0.012280583)+0.30934274))",
+            "g": "bri(y,((x-0.18144214)+x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(sin(((y+min(noi(min(0.7233139,y),noi(mod(mod(0.42493397,mod(var(x),bri(x,x))),0.72426736),max(x,0.8309051))),x))+(y+0.55957675))))",
+            "b": "cos(sin(((x+min(noi(min(0.47598588,0.49575135),noi(mod(mod(x,mod(var(x),bri(0.2813245,x))),0.23620892),max(0.120635524,x))),y))+(x+x))))",
+            "g": "cos(sin(((y+min(noi(min(0.07598553,x),noi(mod(mod(x,mod(var(y),bri(y,y))),x),max(y,y))),0.06610662))+(x+x))))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(y)",
+            "b": "tan(0.0)",
+            "g": "tan(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "(cos(((y-min(min(noi(0.5847089,y),mod(bri(noi(pow(0.07775744,y),pow(aud(x,0.88791084),min(x,x))),0.72426736),bri(y,cos(y)))),x))+(y-0.3065794)))/y)",
+            "b": "(cos(((x-min(min(noi(0.47598588,0.49575135),mod(bri(noi(pow(0.49222708,0.76765585),pow(aud(0.8986912,0.16879463),min(0.18680589,x))),0.11592947),bri(x,cos(0.3586269)))),y))+(x-x)))/y)",
+            "g": "(cos(((y-min(min(noi(0.07598553,x),mod(bri(noi(pow(0.0,y),pow(aud(y,x),min(y,y))),y),bri(y,cos(x)))),0.30318594))+(y-x)))/y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(y)",
+            "b": "tan(0.0)",
+            "g": "tan(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,y)",
+            "b": "bri(0.09274996,0.9147561)",
+            "g": "bri(y,y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,aud(y,x))",
+            "b": "aud(0.2371484,aud(0.0,y))",
+            "g": "aud(y,aud(y,x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,aud(y,0.75327337))",
+            "b": "bri(0.27348578,aud(0.0,x))",
+            "g": "bri(y,aud(y,0.78897035))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,y)",
+            "b": "aud(0.09274996,0.9413432)",
+            "g": "aud(y,y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,(noi(sin(noi(x,0.23010576)),sin(pow(0.5987756,0.7607088)))+0.20672317))",
+            "b": "aud(0.2371484,(noi(sin(noi(x,x)),sin(pow(0.16432369,y)))+y))",
+            "g": "aud(y,(noi(sin(noi(x,x)),sin(pow(y,y)))+y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(y)",
+            "b": "cos(0.0)",
+            "g": "cos(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "var(y)",
+            "b": "var(0.07712681)",
+            "g": "var(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,0.42192578)",
+            "b": "bri(0.2371484,y)",
+            "g": "bri(y,y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,(max(y,(0.6781617-y))*cos(y)))",
+            "b": "aud(0.0,(max(x,(x-y))*cos(0.37295204)))",
+            "g": "aud(y,(max(y,(0.354075-y))*cos(y)))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,0.75327337)",
+            "b": "aud(0.0,x)",
+            "g": "aud(y,0.78897035)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,aud(y,0.75327337))",
+            "b": "aud(0.2371484,aud(0.0,x))",
+            "g": "aud(y,aud(y,0.67885476))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        }
+      ],
+      "timestamp": "22h:22m:33s"
+    },
+    {
+      "generation": 8,
+      "ascendantID": "z0kl9spb-0aju-qjsr-plme-xy808rudwpb1",
+      "id": "bnr4el70-dl0l-660v-b2fs-mjrnktedpve4",
+      "individuals": [
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,((y-x)+0.9440417))",
+            "b": "bri(0.2371484,((y-0.012280583)+0.30934274))",
+            "g": "bri(y,((x-0.18144214)+x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,0.07103904)",
+            "b": "aud(0.39950064,x)",
+            "g": "aud(y,x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,bri(x,0.75327337))",
+            "b": "bri(0.27348578,bri(0.0,x))",
+            "g": "bri(y,bri(y,0.78897035))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,(min(y,(0.6781617+tan(0.07103904)))*cos(y)))",
+            "b": "aud(0.0,(min(x,(x+tan(x)))*cos(0.37295204)))",
+            "g": "aud(y,(min(y,(0.10286446+tan(x)))*cos(y)))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "y"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,((y-y)+0.9440417))",
+            "b": "bri(0.2371484,((y-y)+0.30934274))",
+            "g": "bri(y,((x-y)+x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(cos(((y-min(min(noi(0.5847089,y),mod(aud(min(pow(0.07775744,y),pow(aud(x,0.88791084),min(x,x))),0.72426736),bri(y,sin(0.3770374)))),x))+(y-0.3065794))))",
+            "b": "cos(cos(((y-min(min(noi(0.47598588,0.49575135),mod(aud(min(pow(0.49222708,0.76765585),pow(aud(0.8986912,0.16879463),min(0.18680589,x))),0.11592947),bri(x,sin(y)))),y))+(x-x))))",
+            "g": "cos(cos(((x-min(min(noi(0.07598553,x),mod(aud(min(pow(0.0,x),pow(aud(y,x),min(y,y))),y),bri(y,sin(y)))),0.30318594))+(y-x))))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(y)",
+            "b": "sin(0.020278886)",
+            "g": "sin(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(sin(((y+min(noi(max(0.7233139,y),noi(mod(mod(0.42493397,mod(var(0.4728636),min(x,x))),((sin(x)-(y/x))*var(0.70727223))),max(x,0.8309051))),x))+(y+0.55957675))))",
+            "b": "cos(sin(((x+min(noi(max(0.47598588,0.49575135),noi(mod(mod(x,mod(var(0.8681007),min(0.2813245,x))),((sin(0.849108)-(y/0.72813696))*var(y))),max(0.120635524,x))),y))+(x+x))))",
+            "g": "cos(sin(((y+min(noi(max(0.07598553,x),noi(mod(mod(x,mod(var(x),min(y,y))),((sin(x)-(y/x))*var(0.7758626))),max(y,y))),0.06610662))+(x+y))))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(y)",
+            "b": "tan(0.29417107)",
+            "g": "tan(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(y)",
+            "b": "tan(0.0)",
+            "g": "tan(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(max(bri(sin(y),cos(y)),noi((0.3025607-0.6064328),0.8377898)),0.75327337)",
+            "b": "aud(max(bri(sin(y),cos(x)),noi((y-0.14777881),y)),x)",
+            "g": "aud(max(bri(sin(y),cos(y)),noi((0.26269054-y),x)),0.78897035)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,(max(y,(y-y))*cos(var(y))))",
+            "b": "aud(0.2795233,(max(x,(y-y))*cos(var(0.09274996))))",
+            "g": "aud(y,(max(y,(y-y))*cos(var(y))))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(x,0.42192578)",
+            "b": "bri(0.20182616,y)",
+            "g": "bri(y,y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,(min(y,(0.6781617*x))*cos(y)))",
+            "b": "aud(0.09176161,(min(x,(x*x))*cos(0.402374)))",
+            "g": "aud(y,(min(x,(0.354075*0.36131823))*cos(y)))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,aud(y,0.75327337))",
+            "b": "aud(0.27348578,aud(0.0,x))",
+            "g": "aud(y,aud(y,0.78897035))"
+          }
+        }
+      ],
+      "timestamp": "22h:22m:33s"
+    },
+    {
+      "generation": 9,
+      "ascendantID": "bnr4el70-dl0l-660v-b2fs-mjrnktedpve4",
+      "id": "blc85z0n-gs08-18no-8frl-es5met0p0ks4",
+      "individuals": [
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,((y-x)+0.9440417))",
+            "b": "bri(0.2371484,((y-0.012280583)+0.30934274))",
+            "g": "bri(y,((x-0.18144214)+x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin((noi((x+y),tan(y))*min((x+0.44857317),x)))",
+            "b": "sin((noi((y+x),tan(x))*min((0.14430016+y),y)))",
+            "g": "sin((noi((0.067374766+x),tan(y))*min((x+y),x)))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "max(y,((y-y)*x))",
+            "b": "max(0.2371484,((y-y)*0.2826795))",
+            "g": "max(y,((x-y)*x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(y)",
+            "b": "tan(0.2795233)",
+            "g": "tan(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin((((y+min(noi(max(0.7233139,y),mod(var(0.25603312),0.2723574)),x))+(y+0.3727085))/x))",
+            "b": "sin((((x+min(noi(max(0.47598588,0.41808408),mod(var(y),x)),y))+(x+x))/0.16616398))",
+            "g": "sin((((y+min(noi(max(0.07598553,x),mod(var(0.35747302),0.021491468)),0.06610662))+(x+y))/x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(0.17242773,aud(y,0.4557219))",
+            "b": "aud(y,aud(0.0,x))",
+            "g": "aud(y,aud(y,0.78897035))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "y"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(y)",
+            "b": "tan(0.28194794)",
+            "g": "tan(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,(min(y,(0.6781617*aud(x,y)))*cos(y)))",
+            "b": "aud(0.022524275,(min(x,(x*aud(0.0,x)))*cos(0.402374)))",
+            "g": "aud(y,(min(x,(0.354075*aud(y,y)))*cos(y)))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,bri(x,0.75327337))",
+            "b": "bri(0.27348578,bri(0.0,x))",
+            "g": "bri(y,bri(y,0.78897035))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "var(y)",
+            "b": "var(0.005638607)",
+            "g": "var(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,(min(y,(0.4189058*x))*tan(y)))",
+            "b": "aud(0.09176161,(min(x,(x*x))*tan(0.402374)))",
+            "g": "aud(y,(min(x,(0.354075*0.53853625))*tan(y)))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,y)",
+            "b": "aud(0.29417107,0.82980627)",
+            "g": "aud(y,y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(cos(((y-min(max(noi(aud(y,0.1046148),y),mod(var(min(pow(0.07775744,y),pow(aud(x,0.88791084),min(x,x)))),aud(y,cos(0.3820529)))),x))*(y-0.3065794))))",
+            "b": "cos(cos(((y-min(max(noi(aud(0.19460389,x),0.49575135),mod(var(min(pow(0.3166513,0.76765585),pow(aud(0.8986912,0.16879463),min(0.39773038,x)))),aud(x,cos(y)))),y))*(x-x))))",
+            "g": "cos(cos(((x-min(max(noi(aud(y,x),x),mod(var(min(pow(0.0,x),pow(aud(y,x),min(y,y)))),aud(y,cos(y)))),0.30318594))*(y-x))))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(max(0.8616294,max(y,y)),0.75327337)",
+            "b": "bri(max(y,max(x,x)),x)",
+            "g": "bri(max(0.844901,max(0.9457276,y)),0.78897035)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,(max(y,(0.6781617*x))*tan(0.20047355)))",
+            "b": "aud(y,(max(x,(x*x))*tan(0.8681007)))",
+            "g": "aud(x,(max(x,(0.354075*0.36131823))*tan(0.99255)))"
+          }
+        }
+      ],
+      "timestamp": "22h:22m:33s"
+    },
+    {
+      "generation": 10,
+      "ascendantID": "blc85z0n-gs08-18no-8frl-es5met0p0ks4",
+      "id": "pvvslvad-0koo-9run-tnc8-mnhq2011drfp",
+      "individuals": [
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,((y-x)+0.9440417))",
+            "b": "bri(0.2371484,((y-0.012280583)+0.30934274))",
+            "g": "bri(y,((x-0.18144214)+x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,((y-x)-y))",
+            "b": "aud(0.2371484,((y-0.012280583)-0.2371484))",
+            "g": "aud(y,((x-0.18144214)-y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,(max(y,(0.7864879/x))*tan(aud(sin(mod(y,y)),aud(aud(y,y),var(y))))))",
+            "b": "aud(y,(max(x,(x/x))*tan(aud(sin(mod(y,0.49107438)),aud(aud(0.26845676,y),var(y))))))",
+            "g": "aud(x,(max(x,(0.354075/0.36131823))*tan(aud(sin(mod(x,x)),aud(aud(0.8853516,0.6144937),var(x))))))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,max(x,0.674971))",
+            "b": "aud(0.21052143,max(0.0,x))",
+            "g": "aud(y,max(y,0.78897035))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,y)",
+            "b": "aud(0.2395365,0.82980627)",
+            "g": "aud(y,y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "var(y)",
+            "b": "var(x)",
+            "g": "var(x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(y)",
+            "b": "tan(x)",
+            "g": "tan(x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,(max(y,(0.4189058/min(y,(0.4189058*x))))*cos(mod(min(0.80094105,0.8864295),x))))",
+            "b": "aud(0.09176161,(max(x,(x/min(x,(x*x))))*cos(mod(min(y,0.43708938),0.6034194))))",
+            "g": "aud(y,(max(x,(0.354075/min(x,(0.354075*0.53853625))))*cos(mod(min(x,x),y))))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(y)",
+            "b": "tan(0.3514322)",
+            "g": "tan(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,(min(y,(0.7207219-bri(x,y)))-y))",
+            "b": "aud(0.22449137,(min(x,(x-bri(0.0,x)))-0.85588133))",
+            "g": "aud(y,(min(x,(0.354075-bri(y,y)))-x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,((y+x)-x))",
+            "b": "bri(0.2371484,((y+0.0)-0.66809946))",
+            "g": "bri(y,((x+0.18144214)-y))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,bri(x,0.48336768))",
+            "b": "bri(y,bri(0.0,x))",
+            "g": "bri(x,bri(x,0.78897035))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(min(cos(var(bri(x,x))),max(y,y)),0.75327337)",
+            "b": "bri(min(cos(var(bri(x,y))),max(x,x)),x)",
+            "g": "bri(min(cos(var(bri(x,y))),max(0.9457276,y)),0.78897035)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin((mod((x+y),var(y))/min((y+0.7048067),x)))",
+            "b": "sin((mod((y+0.8365699),var(y))/min((0.14430016+y),y)))",
+            "g": "sin((mod((0.067374766+x),var(y))/min((x+y),x)))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        }
+      ],
+      "timestamp": "22h:22m:33s"
+    },
+    {
+      "generation": 11,
+      "ascendantID": "pvvslvad-0koo-9run-tnc8-mnhq2011drfp",
+      "id": "zhvp7wxy-ji7k-udnu-nte6-gsjfy2y3vwaj",
+      "individuals": [
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,((y-x)+0.9440417))",
+            "b": "bri(0.2371484,((y-0.012280583)+0.30934274))",
+            "g": "bri(y,((x-0.18144214)+x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin((mod((x+y),var(y))/min((y+mod(((x-y)+bri(y,0.34819722)),var(mod(0.427096,y)))),x)))",
+            "b": "sin((mod((y+0.8365699),var(y))/min((0.8365699+mod(((x-x)+bri(y,x)),var(mod(y,0.93407893)))),y)))",
+            "g": "sin((mod((0.067374766+x),var(y))/min((x+mod(((0.6170195-0.20127815)+bri(0.31637764,0.76171786)),var(mod(0.644287,0.27567744)))),x)))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,aud(x,0.48336768))",
+            "b": "bri(y,aud(0.0,x))",
+            "g": "bri(x,aud(x,0.78897035))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,max(x,0.704278))",
+            "b": "bri(y,max(0.0,x))",
+            "g": "bri(x,max(x,0.78897035))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,(bri(y,(0.4189058*min(y,(noi(var(x),(0.33293957-0.23569965))*x))))/cos(mod(max(0.9595897,0.8864295),x))))",
+            "b": "aud(0.09176161,(bri(x,(x*min(x,(noi(var(x),(0.7943727-y))*x))))/cos(mod(max(y,0.43708938),0.6034194))))",
+            "g": "aud(y,(bri(y,(0.354075*min(x,(noi(var(0.64980036),(x-y))*0.53853625))))/cos(mod(max(x,x),y))))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(y)",
+            "b": "cos(x)",
+            "g": "cos(x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,bri(y,0.48336768))",
+            "b": "bri(y,bri(0.0,x))",
+            "g": "bri(x,bri(x,0.78897035))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(min(tan(var(aud(x,x))),min(y,y)),max(y,y))",
+            "b": "bri(min(tan(var(aud(x,y))),min(x,x)),max(y,0.7722949))",
+            "g": "bri(min(tan(var(aud(x,y))),min(0.9457276,y)),max(y,0.27944058))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin((pow((cos(pow((0.086486936-0.5644959),min(0.10202837,x)))+y),var(y))/max((y+0.7048067),x)))",
+            "b": "sin((pow((cos(pow((0.6485862-y),min(0.6603586,x)))+0.8365699),var(y))/max((0.14430016+y),y)))",
+            "g": "sin((pow((cos(pow((y-x),min(y,x)))+x),var(y))/max((x+y),x)))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,max(x,0.674971))",
+            "b": "bri(0.21052143,max(0.0,x))",
+            "g": "bri(y,max(y,0.78897035))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "var(y)",
+            "b": "var(0.22449137)",
+            "g": "var(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(0.7831469,0.818915)",
+            "b": "bri(x,y)",
+            "g": "bri(x,0.96440816)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        }
+      ],
+      "timestamp": "22h:22m:34s"
+    },
+    {
+      "generation": 12,
+      "ascendantID": "zhvp7wxy-ji7k-udnu-nte6-gsjfy2y3vwaj",
+      "id": "uz5g6iw0-vfjc-ntpt-mxhw-2yduuuzan5ws",
+      "individuals": [
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,((y-x)+0.9440417))",
+            "b": "bri(0.2371484,((y-0.012280583)+0.30934274))",
+            "g": "bri(y,((x-0.18144214)+x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,aud(x,0.48336768))",
+            "b": "bri(y,aud(0.0,x))",
+            "g": "bri(x,aud(x,0.78897035))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin((mod((x+y),var(y))/min((y+mod(((x*y)+bri(y,0.34819722)),aud(mod(0.427096,y),y))),x)))",
+            "b": "sin((mod((y+0.8365699),var(y))/min((0.8365699+mod(((x*x)+bri(y,x)),aud(mod(y,0.93407893),x))),y)))",
+            "g": "sin((mod((0.067374766+x),var(y))/min((x+mod(((0.6170195*0.20127815)+bri(0.060322657,0.76171786)),aud(mod(0.644287,0.27567744),y))),x)))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "var(y)",
+            "b": "var(0.22449137)",
+            "g": "var(y)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "max(y,bri(x,0.48336768))",
+            "b": "max(y,bri(0.0,x))",
+            "g": "max(x,bri(x,0.78897035))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,bri(x,0.48336768))",
+            "b": "bri(y,bri(0.0,x))",
+            "g": "bri(x,bri(x,0.78897035))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,max(x,0.704278))",
+            "b": "aud(y,max(0.0,x))",
+            "g": "aud(x,max(x,0.78897035))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "max(y,max(x,0.674971))",
+            "b": "max(0.21478859,max(0.0,x))",
+            "g": "max(y,max(x,0.78897035))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "cos(y)",
+            "b": "cos(x)",
+            "g": "cos(x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "var(0.3156168)",
+            "b": "var(x)",
+            "g": "var(x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,aud(x,0.48336768))",
+            "b": "bri(y,aud(0.0,x))",
+            "g": "bri(x,aud(x,0.78897035))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "x",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(min(cos(var(aud(x,x))),min(y,y)),max(y,y))",
+            "b": "aud(min(cos(var(aud(x,y))),min(x,x)),max(y,0.7722949))",
+            "g": "aud(min(cos(var(aud(x,y))),min(0.9457276,x)),max(y,0.27944058))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        }
+      ],
+      "timestamp": "22h:22m:34s"
+    },
+    {
+      "generation": 13,
+      "ascendantID": "uz5g6iw0-vfjc-ntpt-mxhw-2yduuuzan5ws",
+      "id": "m9lmi0ym-y9y2-te6c-o9yv-zc1jzt7g4f0d",
+      "individuals": [
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,((y-x)+0.9440417))",
+            "b": "bri(0.2371484,((y-0.012280583)+0.30934274))",
+            "g": "bri(y,((x-0.18144214)+x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "max(y,aud(x,0.48336768))",
+            "b": "max(y,aud(0.0,x))",
+            "g": "max(x,aud(x,0.78897035))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "var(0.3156168)",
+            "b": "var(x)",
+            "g": "var(x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "tan(0.3156168)",
+            "b": "tan(x)",
+            "g": "tan(x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(y)",
+            "b": "sin(x)",
+            "g": "sin(x)"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "aud(y,tan(x))",
+            "b": "aud(y,tan(0.0))",
+            "g": "aud(x,tan(x))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "0.79923624",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "sin(min((bri(y,0.10958576)*x),min((0.9119092-0.5422697),pow(x,x))))",
+            "b": "sin(min((bri(x,x)*x),min((y-y),pow(y,x))))",
+            "g": "sin(min((bri(y,0.37858236)*y),min((x-y),pow(y,x))))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "bri(y,bri(x,0.48336768))",
+            "b": "bri(y,bri(0.0,x))",
+            "g": "bri(x,bri(x,0.78897035))"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "y",
+            "b": "x",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "x",
+            "b": "0.77810276",
+            "g": "x"
+          }
+        },
+        {
+          "fitness": 0,
+          "expressions": {
+            "r": "(0.4621355/y)",
+            "b": "(0.6139729/0.9912098)",
+            "g": "(0.739904/y)"
+          }
+        }
+      ],
+      "timestamp": "22h:22m:35s"
+    }
+  ],
+  "timestamp": "2024-04-29-22-22-19"
+}

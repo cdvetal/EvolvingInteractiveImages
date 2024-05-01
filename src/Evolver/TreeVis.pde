@@ -1,4 +1,4 @@
-class TreeVis {
+class TreeVis { //needs fixing
 
   Individual individual;
   PVector treeDimensions;
@@ -7,11 +7,14 @@ class TreeVis {
   String directory;
 
   TreeVis(Individual _individual) {
+    directory = sketchPath("shaders/tree/");
+
+    clearTreeShaderFiles();
+    
     individual = _individual;
-    individual.identifyNodes();
+    individual.cleanUp();
     treeDimensions = individual.getVisDimensions();
 
-    directory = sketchPath("shaders/tree/");
 
     println(treeDimensions.x + " _ " + treeDimensions.y);
     nodeGrid = new Node[int(treeDimensions.x)][int(treeDimensions.y)];
@@ -26,14 +29,14 @@ class TreeVis {
   }
 
   void setupNodes() {
-    for (int i = 0; i < individual.getNChildNodes(); i++) {
+    for (int i = 0; i < individual.getNChildNodes() + 1; i++) {
       Node node = individual.tree.getNode(i);
       if (node == null) continue;
       PVector nodeLocation = node.getVisLocation();
       int x = floor(nodeLocation.x), y = floor(nodeLocation.y);
 
       if (x >= nodeGrid.length) {//out of bounds temporary fix
-        println("TreeVis out of bounds");
+        println("TreeVis out of bounds x");
         break;
       }
 
@@ -153,5 +156,17 @@ class TreeVis {
     if (mouseY > screenY(0, _y + cellSize)) return false;
 
     return true;
+  }
+
+  void clearTreeShaderFiles() {
+    File files = dataFile(directory);
+    String[] fileNames = files.list();
+    
+    for(int i = 0; i < fileNames.length; i ++){
+       File f = new File(directory + fileNames[i]);
+       if(f.exists() && !fileNames[i].equals(".gitignore.txt")){
+        f.delete(); 
+       }
+    }
   }
 }

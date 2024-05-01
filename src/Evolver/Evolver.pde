@@ -189,15 +189,8 @@ void mouseReleased() {
   pressedButton = null;
 }
 
-
-String[] splitStringAtIndex(String _string, int _index) {
-  String[] toReturn = new String[2];
-
-  if (_index <= 0) println("index " + _index + " too small at splitStringAtIndex");
-  if (_index >= _string.length()) println("index " + _index + " too large at splitStringAtIndex with string: " + _string);
-
-  toReturn[0] = _string.substring(0, _index);
-  toReturn[1] = _string.substring(_index+1);
-
-  return toReturn;
+void stop(){
+  if(individualScreen.treeVis != null){
+    individualScreen.treeVis.clearTreeShaderFiles();
+  }
 }

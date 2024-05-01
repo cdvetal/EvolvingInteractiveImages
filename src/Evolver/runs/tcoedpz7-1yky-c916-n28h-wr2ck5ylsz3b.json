@@ -1,0 +1,162 @@
+{
+  "id": "tcoedpz7-1yky-c916-n28h-wr2ck5ylsz3b",
+  "parameters": {
+    "crossoverRate": 0.30000001192092896,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.8999999761581421,
+    "populationSize": 10
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "tpd4yzvg-umpf-xwnk-z7ag-dgpfv820vmay",
+    "individuals": [
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "0.6476138",
+          "b": "0.8244417",
+          "g": "0.7315065"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "x",
+          "b": "x",
+          "g": "0.20898896"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "sin(min(cos(x),x))",
+          "b": "sin(min(cos(x),0.18891835))",
+          "g": "sin(min(cos(0.9873562),x))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(pow(tan(0.972361),var(y))+y)",
+          "b": "(pow(tan(x),var(y))+x)",
+          "g": "(pow(tan(x),var(x))+x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "noi(0.31193662,x)",
+          "b": "noi(0.09931576,x)",
+          "g": "noi(0.69954425,x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "min(y,y)",
+          "b": "min(0.8471689,0.10963315)",
+          "g": "min(0.6591965,0.24133462)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "sin(max(noi(0.0134836435,y),0.18554235))",
+          "b": "sin(max(noi(0.7396352,0.049267888),y))",
+          "g": "sin(max(noi(y,0.56383485),x))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "sin(y)",
+          "b": "sin(0.9905802)",
+          "g": "sin(0.9652841)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "max(tan(noi(x,0.5443994)),x)",
+          "b": "max(tan(noi(x,x)),y)",
+          "g": "max(tan(noi(0.1567635,x)),x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "noi((0.6634512*0.6741278),aud(min(x,y),min(y,x)))",
+          "b": "noi((0.91988844*0.91056436),aud(min(y,y),min(0.6861411,y)))",
+          "g": "noi((x*0.61533237),aud(min(0.8880962,x),min(y,0.29899943)))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "pow(max(y,tan(x)),y)",
+          "b": "pow(max(0.9657397,tan(y)),y)",
+          "g": "pow(max(0.31376088,tan(x)),0.31792313)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "noi(tan(y),cos(aud(0.26517034,y)))",
+          "b": "noi(tan(0.8069388),cos(aud(y,y)))",
+          "g": "noi(tan(0.39766753),cos(aud(y,y)))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "x",
+          "b": "0.19861382",
+          "g": "x"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "y",
+          "b": "y",
+          "g": "x"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "((cos(y)/y)+0.6104543)",
+          "b": "((cos(x)/0.09372479)+y)",
+          "g": "((cos(x)/x)+x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "noi(0.38332862,x)",
+          "b": "noi(x,y)",
+          "g": "noi(0.5019352,0.31242728)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "cos((x/y))",
+          "b": "cos((y/0.9577841))",
+          "g": "cos((0.48536235/x))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "mod((bri(y,y)-y),(x+(x*y)))",
+          "b": "mod((bri(x,x)-y),(y+(x*x)))",
+          "g": "mod((bri(x,y)-0.40643406),(0.9716036+(x*x)))"
+        }
+      }
+    ],
+    "timestamp": "22h:6m:3s"
+  }],
+  "timestamp": "2024-04-29-22-06-00"
+}

@@ -1,0 +1,162 @@
+{
+  "id": "iey48lmh-dwxa-bayc-pmbh-ka6n8yvr07h3",
+  "parameters": {
+    "crossoverRate": 0.30000001192092896,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.8999999761581421,
+    "populationSize": 10
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "d10d6qvz-mz4s-23pi-g99p-y1uwo0t14yfz",
+    "individuals": [
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "cos(var(cos(y)))",
+          "b": "cos(var(cos(0.44565958)))",
+          "g": "cos(var(cos(x)))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "x",
+          "b": "y",
+          "g": "x"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "max(bri(x,x),tan(max(0.20784456,0.16190279)))",
+          "b": "max(bri(y,0.4322664),tan(max(y,0.43189663)))",
+          "g": "max(bri(y,x),tan(max(0.3002776,0.84514296)))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "bri((0.9435194-x),0.46548235)",
+          "b": "bri((y-x),x)",
+          "g": "bri((y-x),y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "0.64635676",
+          "b": "y",
+          "g": "x"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "y",
+          "b": "y",
+          "g": "0.78344697"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(sin(pow(y,x))+y)",
+          "b": "(sin(pow(y,y))+0.4718181)",
+          "g": "(sin(pow(x,y))+x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(((0.021007776-0.5542345)-x)/x)",
+          "b": "(((y-y)-x)/0.9768698)",
+          "g": "(((0.28541672-0.58950055)-0.8074488)/y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "((aud(x,y)/noi(0.15037268,0.5202368))+mod(mod(y,x),y))",
+          "b": "((aud(x,x)/noi(y,0.50764114))+mod(mod(0.7152981,0.7933917),y))",
+          "g": "((aud(y,y)/noi(x,x))+mod(mod(x,x),0.7205483))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "noi(bri(var(0.47691947),x),0.81919223)",
+          "b": "noi(bri(var(y),0.56994545),0.019865155)",
+          "g": "noi(bri(var(x),x),y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "cos(mod(0.5623582,x))",
+          "b": "cos(mod(0.309349,x))",
+          "g": "cos(mod(x,x))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "x",
+          "b": "y",
+          "g": "0.1357094"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "min((pow(x,y)*x),(y*(x-x)))",
+          "b": "min((pow(y,0.60297775)*x),(x*(x-y)))",
+          "g": "min((pow(0.24035454,x)*x),(x*(x-0.9541408)))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "pow(mod(pow(y,0.089231014),pow(y,y)),x)",
+          "b": "pow(mod(pow(y,0.012737632),pow(y,x)),x)",
+          "g": "pow(mod(pow(y,x),pow(y,0.8603913)),0.6382826)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "tan((noi(x,x)-y))",
+          "b": "tan((noi(y,x)-0.19495207))",
+          "g": "tan((noi(0.22748119,x)-y))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "max(var(0.04017216),cos(x))",
+          "b": "max(var(0.8259555),cos(y))",
+          "g": "max(var(y),cos(x))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(x*min(y,(y+x)))",
+          "b": "(0.14304632*min(y,(y+x)))",
+          "g": "(0.49350142*min(y,(y+y)))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "x",
+          "b": "x",
+          "g": "x"
+        }
+      }
+    ],
+    "timestamp": "17h:1m:4s"
+  }],
+  "timestamp": "2024-05-01-17-01-02"
+}

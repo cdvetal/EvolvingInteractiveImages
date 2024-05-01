@@ -2,7 +2,7 @@ class Individual {
 
   private Node tree;
   PShader shader;
-  ArrayList<Integer> breadthTracker = new ArrayList<Integer>();
+  int nodeHighestDepth;
   int nFullColumns = 0; //works with breadthTracker to force new column on identification
   int highestVisX = 0;
 
@@ -46,13 +46,20 @@ class Individual {
 
   void identifyNodes() {
     nChildNodes = 0;
-    breadthTracker = new ArrayList<Integer>();
+    nodeHighestDepth = 0;
     nFullColumns = 0;
     tree.identify(this, 0);
   }
 
   int getBreadth(int _depth) {
-    if(_depth < breadthTracker.size()){
+    
+    if(_depth > nodeHighestDepth){
+      nodeHighestDepth = _depth; 
+    }
+    
+    return nFullColumns;
+    
+    /*if(_depth < breadthTracker.size()){
        breadthTracker.set(_depth,breadthTracker.get(_depth) + 1);
     } else if (_depth == breadthTracker.size()){
       breadthTracker.add(0);
@@ -60,11 +67,11 @@ class Individual {
      print("ERROR"); 
     }
 
-    return breadthTracker.get(_depth);
+    return breadthTracker.get(_depth);*/
   }
   
   void addBreadth(int _breadth){ //node is terminal. must add breadth
-    nFullColumns = _breadth;
+    nFullColumns ++;
   }
 
   int getIndex() {
@@ -171,9 +178,9 @@ class Individual {
   }
   
   PVector getVisDimensions(){
-    int w = breadthTracker.get(breadthTracker.size() - 1) + 2;
-    int h = breadthTracker.size();
-    return new PVector(w, h);
+    //int w = breadthTracker.get(breadthTracker.size() - 1) + 2;
+    //int h = breadthTracker.size();
+    return new PVector(nFullColumns, nodeHighestDepth + 1);
   }
   
   Node getTreeCopy() {
