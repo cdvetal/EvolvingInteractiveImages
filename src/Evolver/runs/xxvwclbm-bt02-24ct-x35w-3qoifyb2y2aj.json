@@ -1,0 +1,162 @@
+{
+  "id": "xxvwclbm-bt02-24ct-x35w-3qoifyb2y2aj",
+  "parameters": {
+    "crossoverRate": 0.30000001192092896,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.8999999761581421,
+    "populationSize": 10
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "ozyhj1k7-tbdo-u6lg-l6cr-t10c81jlj9yz",
+    "individuals": [
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "0.75889474",
+          "b": "x",
+          "g": "0.17485875"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(cos((cos(((cos((x/(cos(cos(cos(cos(cos(y)))))/0.9510303)))/0.7286593)/(cos(cos((x/cos(cos(cos(((0.5996618/x)/y)))))))/cos((cos((y/cos(0.8987115)))/y)))))/x))/((x/cos(0.28865093))/cos(0.4973806)))",
+          "b": "(cos((cos(((cos((x/(cos(cos(cos(cos(cos(x)))))/y)))/x)/(cos(cos((0.55656534/cos(cos(cos(((x/x)/x)))))))/cos((cos((x/cos(y)))/0.54088765)))))/0.57682014))/((x/cos(0.8349293))/cos(x)))",
+          "g": "(cos((cos(((cos((y/(cos(cos(cos(cos(cos(y)))))/0.22792912)))/x)/(cos(cos((x/cos(cos(cos(((0.91913456/x)/y)))))))/cos((cos((x/cos(y)))/x)))))/y))/((x/cos(0.99082696))/cos(y)))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "y",
+          "b": "x",
+          "g": "x"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "y",
+          "b": "y",
+          "g": "x"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "cos((x/x))",
+          "b": "cos((y/y))",
+          "g": "cos((y/x))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "0.71559834",
+          "b": "y",
+          "g": "y"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "0.85953766",
+          "b": "x",
+          "g": "x"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "0.19374454",
+          "b": "0.049671113",
+          "g": "0.40085918"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "cos((x/((cos(cos(y))/y)/cos(((x/(cos(cos(((cos((x/0.80576634))/0.5333183)/cos((((0.017741203/x)/y)/y)))))/((y/cos(cos(cos(y))))/(y/(cos(x)/0.9912976)))))/((y/0.20617855)/0.6270422))))))",
+          "b": "cos((0.38391817/((cos(cos(0.9592974))/y)/cos(((y/(cos(cos(((cos((y/0.045524776))/y)/cos((((x/x)/x)/y)))))/((x/cos(cos(cos(y))))/(x/(cos(0.6084346)/x)))))/((y/0.15160668)/0.4831506))))))",
+          "g": "cos((y/((cos(cos(0.866307))/x)/cos(((y/(cos(cos(((cos((x/y))/y)/cos((((0.82197976/x)/y)/y)))))/((x/cos(cos(cos(x))))/(x/(cos(x)/y)))))/((x/0.21135163)/x))))))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "y",
+          "b": "x",
+          "g": "0.70514166"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "((0.801517/cos(cos(x)))/x)",
+          "b": "((x/cos(cos(0.5784577)))/y)",
+          "g": "((0.099723816/cos(cos(y)))/x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "y",
+          "b": "x",
+          "g": "x"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(0.78559434/(cos((y/(x/(y/y))))/x))",
+          "b": "(0.9788888/(cos((0.053930998/(y/(0.14575356/x))))/y))",
+          "g": "(x/(cos((x/(y/(x/y))))/x))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "cos(cos(cos(0.9925237)))",
+          "b": "cos(cos(cos(x)))",
+          "g": "cos(cos(cos(x)))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "((0.73778343/y)/y)",
+          "b": "((y/y)/y)",
+          "g": "((y/y)/y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "0.6155176",
+          "b": "0.8509038",
+          "g": "0.9783563"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "cos((cos(x)/x))",
+          "b": "cos((cos(x)/0.5471726))",
+          "g": "cos((cos(x)/y))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "cos(cos(cos(0.8641015)))",
+          "b": "cos(cos(cos(0.09964782)))",
+          "g": "cos(cos(cos(x)))"
+        }
+      }
+    ],
+    "timestamp": "19h:54m:22s"
+  }],
+  "timestamp": "2024-05-04-19-54-12"
+}

@@ -110,9 +110,9 @@ float var(float x){
 }
 
 vec3 generateRGB(float x, float y){
-    float r = bri(bri(pow(y,0.5222479),0.44553602),y);
-    float g = bri(bri(pow(y,0.83371943),x),y);
-    float b = bri(bri(pow(x,y),y),x);
+    float r = (0.17828393-(max(x,y)+x));
+    float g = (0.2696169-(max(0.39617908,0.45150393)+x));
+    float b = (x-(max(x,0.32697272)+0.49839967));
     return vec3(r,g,b);
 }
 

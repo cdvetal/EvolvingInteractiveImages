@@ -5,9 +5,18 @@ class PopulationScreen {
   Population pop;
 
   IndividualHover individualHover;
+  
+  PShape musicIcon, videoIcon, dataIcon;
 
   PopulationScreen(Population _population) {
     setPopulation(_population);
+    
+    musicIcon = icons.get("music");
+    musicIcon.disableStyle();
+    videoIcon = icons.get("video");
+    videoIcon.disableStyle();
+    dataIcon = icons.get("data");
+    dataIcon.disableStyle();
   }
 
   void setPopulation(Population _population) {
@@ -22,13 +31,13 @@ class PopulationScreen {
 
 
   void show() {
-    if(leftTab.getBack()){
-      screen = "setup"; 
+    if (leftTab.getBack()) {
+      screen = "setup";
       return;
-    } else if(leftTab.getEvolve()){
-       population.evolve(); 
+    } else if (leftTab.getEvolve()) {
+      population.evolve();
     }
-    
+
     setInputImage();
     float[] audioSpectrum = getAudioSpectrum();
     float[] variables = variablesManager.getShaderReadyVariables();
@@ -36,14 +45,16 @@ class PopulationScreen {
     int row = 0, col = 0;
 
     float gridD = individualsGrid[0][0].z, gridH = individualsGrid[0][0].z, gridW = individualsGrid[0][0].z;
-    float shift;
+    float shiftY = 0, shiftX = 0;
 
     if (aspectRatio > 1) {
+      gridW = gridD;
       gridH = gridD/aspectRatio;
-      shift = (gridD-gridH) / 2;
+      shiftY = (gridD-gridH) / 2;
     } else {
       gridW = gridD*aspectRatio;
-      shift = (gridD-gridW) / 2;
+      gridH = gridD;
+      shiftX = (gridD-gridW) / 2;
     }
 
     pushMatrix();
@@ -54,41 +65,31 @@ class PopulationScreen {
       float gridX = individualsGrid[row][col].x;
       float gridY = individualsGrid[row][col].y;
 
-      if (aspectRatio >= 1) {
-        image(getPhenotype(gridD,gridH,pop.getIndividual(i).getShader(),variables,audioSpectrum), gridX, gridY + shift, gridD, gridH);
+      image(getPhenotype(gridW, gridH, pop.getIndividual(i).getShader(), variables, audioSpectrum), gridX + shiftX, gridY + shiftY, gridW, gridH);
 
-        stroke(colors.get("primary"));
-        strokeWeight(4);
-        line(gridX, gridY + gap/2 + gridH + shift, gridX + (gridD * pop.getIndividual(i).getFitness()), gridY + gap/2 + gridH + shift);
-      } else {
-        image(getPhenotype(gridW,gridD,pop.getIndividual(i).getShader(),variables,audioSpectrum), gridX + shift, gridY, gridW, gridD);
-
-        stroke(colors.get("primary"));
-        strokeWeight(4);
-        line(gridX, gridY + gap/2 + gridD, gridX + (gridD * pop.getIndividual(i).getFitness()), gridY + gap/2 + gridD);
-      }
+      stroke(colors.get("primary"));
+      strokeWeight(4);
+      line(gridX, gridY + gap/2 + gridH + shiftY, gridX + (gridW * pop.getIndividual(i).getFitness()), gridY + gap/2 + gridH + shiftY);
+      
+      pushMatrix();
+      translate(gridX + shiftX, gridY + shiftY);
+      //showInteractiveNodeInfo(pop.getIndividual(i).operationStats);
+      popMatrix();
 
       if (mouseX > screenX(gridX, 0) && mouseX < screenX(gridX + gridD, 0) && mouseY > screenY(0, gridY) && mouseY < screenY(0, gridY + gridD)) {
         pushMatrix();
 
-        if (aspectRatio > 1) {
-          translate(gridX, gridY + gridH + shift - individualHover.h);
-        } else {
-          translate(gridX + shift, gridY + gridD - individualHover.h);
-        }
+        translate(gridX + shiftX, gridY + shiftY);
 
         individualHover.show();
 
         if (individualHover.checkMinus()) {
           pop.getIndividual(i).removeFitness();
-          
         } else if (individualHover.checkPlus()) {
           pop.getIndividual(i).giveFitness();
-          
         } else if (individualHover.checkDownload()) {
           exportShader(pop.getIndividual(i));
           exportImage(pop.getIndividual(i));
-          
         } else if (individualHover.checkEye()) {
           individualScreen.setIndividual(pop.getIndividual(i));
           screen = "individual";
@@ -106,21 +107,42 @@ class PopulationScreen {
 
     popMatrix();
   }
+  
+  void showInteractiveNodeInfo(HashMap <String, Integer> nodeInfo){
+    int iconSize = 14;
+    int currentX = iconSize;
+    fill(colors.get("primary"));
+    noStroke();
+    
+    if(nodeInfo.containsKey("aud")){
+      shape(musicIcon, currentX, iconSize, iconSize, iconSize);
+      currentX += iconSize;
+    }
+    if(nodeInfo.containsKey("bri")){
+      shape(videoIcon, currentX, iconSize, iconSize, iconSize);
+      currentX += iconSize;
+    }
+    if(nodeInfo.containsKey("var")){
+      shape(dataIcon, currentX, iconSize, iconSize, iconSize);
+      currentX += iconSize;
+    }
+  }
 }
 
 class IndividualHover {
 
   float w, h;
+  float indivW, indivH;
   IconButton eye, download, minus, plus;
 
   IndividualHover(float _indivSide, float _aspectRatio) {
 
-    float indivW, shift;
-
     if (_aspectRatio > 1) {
+      indivH = _indivSide/aspectRatio;
       indivW = _indivSide;
     } else {
       indivW = _indivSide*aspectRatio;
+      indivH = _indivSide;
     }
 
     w = indivW;
@@ -138,6 +160,8 @@ class IndividualHover {
   }
 
   void show() {
+    pushMatrix();
+    translate(0, indivH - h);
     noStroke();
     fill(colors.get("surface"));
     rect(0, 0, w, h);
@@ -146,7 +170,27 @@ class IndividualHover {
     download.show();
     minus.show();
     plus.show();
+    
+    popMatrix();
   }
+  
+  void showTypeIcons(){
+    fill(colors.get("surface"));
+    noStroke();
+    
+    int iconSize = 12;
+    
+    //circle(indivW - iconSize * 2, iconSize, iconSize*2);
+    //circle(indivW - iconSize * 4, iconSize, iconSize*2);
+    //circle(indivW - iconSize * 6, iconSize, iconSize*2);
+    
+    fill(colors.get("primary"));
+    
+    shape(icons.get("music"), indivW - iconSize * 2, iconSize/2, iconSize, iconSize);
+    shape(icons.get("video"), indivW - iconSize * 4.5, iconSize/2, iconSize, iconSize);
+    shape(icons.get("data"), indivW - iconSize * 6.5, iconSize/2, iconSize, iconSize);
+  }
+
 
   boolean checkEye() {
     return eye.getSelected();

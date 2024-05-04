@@ -5,7 +5,7 @@ class Node {
 
   int nodeIndex;
   int depth;
-  int breadth;
+  int breadth; 
 
   int visX; //location of node in tree visualization horizontally. vertical is depth
 
@@ -71,13 +71,17 @@ class Node {
     nodeIndex = _indiv.getIndex();
 
     breadth = _indiv.getBreadth(depth);
+    int childDepth = _depth + 1;
 
-    if (aNode != null) visX = aNode.identify(_indiv, _depth + 1);
+    if (aNode != null){
+      visX = aNode.identify(_indiv, childDepth);
+      _indiv.addOperation(enabledOperations[getMathType(mathType)].operator);
+    }
     else {
       visX = breadth;
-      _indiv.addBreadth(breadth);
+      _indiv.addBreadth();
     }
-    if (bNode != null) bNode.identify(_indiv, _depth + 1);
+    if (bNode != null) bNode.identify(_indiv, childDepth);
 
     return visX;
   }
@@ -163,7 +167,7 @@ class Node {
     Operation operation = enabledOperations[getMathType(mathType)];
 
     if (operation.type != 0) {
-      finalString += operations[getMathType(mathType)].operator;
+      finalString += enabledOperations[getMathType(mathType)].operator;
     }
 
     finalString += "(";

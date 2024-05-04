@@ -51,7 +51,7 @@ class IndividualScreen {
       translate(columns[6].x,y);
     }
     
-    treeVis.showTree();
+    treeVis.showTree(leftTab.getTreeButtonHover());
     
     popMatrix();
   }

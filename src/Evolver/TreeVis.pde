@@ -15,7 +15,6 @@ class TreeVis { //needs fixing
     individual.cleanUp();
     treeDimensions = individual.getVisDimensions();
 
-
     println(treeDimensions.x + " _ " + treeDimensions.y);
     nodeGrid = new Node[int(treeDimensions.x)][int(treeDimensions.y)];
 
@@ -46,12 +45,10 @@ class TreeVis { //needs fixing
     }
   }
 
-  void showTree() {
+  void showTree(boolean _showOperation) {
     textAlign(CENTER, CENTER);
     textFont(fonts.get("light"));
     textSize(12);
-
-    boolean aCellIsHovered = false;
 
     //lines
     for (int i = 0; i < nodeGrid.length; i ++) { //x
@@ -115,14 +112,12 @@ class TreeVis { //needs fixing
             rect(x, y, side, side);
           }
 
-          if (true) { //!aCellIsHovered
-            if (true) { //detectHover(x, y)
+          if (_showOperation) {
               noStroke();
               fill(colors.get("surface"));
               rect(x, y+side-gap, side, gap);
               fill(colors.get("primary"));
               text(nodeGrid[i][j].getNodeText(), x + side/2, y + side - gap + gap/2);
-            }
           }
         }
       }

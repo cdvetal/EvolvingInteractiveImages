@@ -11,7 +11,9 @@ class SetupScreen {
   SetupScreen() {
     float sliderW = columns[0].z * 2 - gap;
     aspectRatioSlider = new Slider(sliderW);
+    aspectRatioSlider.value = 0.66;
     nVariablesSlider = new Slider(sliderW);
+    nVariablesSlider.value = 0.3;
   }
 
   void show() {
@@ -143,10 +145,15 @@ class SetupScreen {
   void startEvolution() {
     aspectRatio = 0.5 + 1.5 * aspectRatioSlider.value;
 
-    variablesManager = new VariablesManager(getNVariables());
-    leftTab = new LeftTab(variablesManager.nVariables);
-
     enabledOperations = operationController.getEnabledOperations();
+
+    boolean varEnabled = checkVarEnabled(enabledOperations);
+    int nVariables = varEnabled ? getNVariables() : 0; //if outside variables is disabled, then 0 variables to manage
+    
+    variablesManager = new VariablesManager(nVariables);
+    
+    leftTab = new LeftTab(nVariables);
+
 
     populationSize = round(algorithmController.getSliderValue(0));
     mutationRate = algorithmController.getSliderValue(1);
@@ -163,6 +170,13 @@ class SetupScreen {
   int getNVariables() {
     return int(round(nVariablesSlider.value * 10));
   }
+  
+  boolean checkVarEnabled(Operation[] _enabledOperations){
+    for(Operation op: _enabledOperations){
+      if(op.operator == "var") return true;
+    }
+    return false;
+  }
 }
 
 
@@ -172,15 +186,16 @@ class SetupScreen {
 class AlgorithmController {
   Slider[] algorithmSliders;
   String[] labels = {"Population Size", "Mutation Rate", "Crossover Rate", "Tournament Size", "Elite Size"};
+  Float[] defaultValues = {0.5, 0.2, 0.3, 0.5, 0.33};
   PVector[] limits ={new PVector(6, 30), new PVector(0, 1), new PVector(0, 1), new PVector(1, 5), new PVector(0, 3)};
   boolean[] isInt = {true, false, false, true, true};
-  //HashMap <String,PVector> settings = new HashMap <String,PVector>();
 
   AlgorithmController() {
     algorithmSliders = new Slider[labels.length];
 
     for (int i = 0; i < algorithmSliders.length; i++) {
       algorithmSliders[i] = new Slider(columns[0].z * 2 - gap);
+      algorithmSliders[i].value = defaultValues[i];
     }
   }
 
@@ -216,7 +231,7 @@ class OperationController {
 
     for (int i = 0; i < operationToggles.length; i++) {
       operationToggles[i] = new ToggleButton(0, i * gap * 2);
-      operationToggles[i].toggled = true;
+      operationToggles[i].toggled = operations[i].defaultToggle;
     }
   }
 

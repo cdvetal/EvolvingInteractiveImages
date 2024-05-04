@@ -8,7 +8,7 @@ class LoadMenu {
 
   LoadMenu() {
     backButton = new TextButton(width/2 - 50, height - 250, 100, 50, "Back");
-    initialize();
+    //initialize();
   }
 
   void initialize() {

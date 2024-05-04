@@ -7,7 +7,7 @@ import processing.video.*;
 Capture cam;
 PImage inputImage;
 
-int maxDepth = 4;
+int maxDepth = 8;
 int resolution = 150;
 int imageExportResolution = 1920;
 int animationExportResolution = 1440;
@@ -187,10 +187,4 @@ void mouseReleased() {
   if (pressedButton == null) return;
   pressedButton.selected();
   pressedButton = null;
-}
-
-void stop(){
-  if(individualScreen.treeVis != null){
-    individualScreen.treeVis.clearTreeShaderFiles();
-  }
 }

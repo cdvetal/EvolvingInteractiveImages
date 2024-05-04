@@ -10,6 +10,7 @@ class Operation{
     int type;
     String operator;
     String explanation;
+    boolean defaultToggle = true;
     
     Operation(int _type, String _operator){
       type = _type;
@@ -22,6 +23,19 @@ class Operation{
       explanation = _explanation;
     }
     
+    Operation(int _type, String _operator, boolean _toggle){
+      type = _type;
+      operator = _operator;
+      defaultToggle = _toggle;
+    }
+    
+    Operation(int _type, String _operator, boolean _toggle, String _explanation){
+      type = _type;
+      operator = _operator;
+      defaultToggle = _toggle;
+      explanation = _explanation;
+    }
+    
     int getNumberArgumentsNeeded(){
       if(type == 0 || type == 2) return 2;
       else return 1;
@@ -31,23 +45,23 @@ class Operation{
 Operation[] setupOperations(){
   ArrayList<Operation> operationsToReturn = new ArrayList<Operation>();
   
-  operationsToReturn.add(new Operation(0, "+"));
-  operationsToReturn.add(new Operation(0, "-"));
-  operationsToReturn.add(new Operation(0, "*"));
-  operationsToReturn.add(new Operation(0, "/"));
+  operationsToReturn.add(new Operation(0, "+", true));
+  operationsToReturn.add(new Operation(0, "-", true));
+  operationsToReturn.add(new Operation(0, "*", true));
+  operationsToReturn.add(new Operation(0, "/", true));
   
-  operationsToReturn.add(new Operation(1, "sin"));
-  operationsToReturn.add(new Operation(1, "cos"));
-  operationsToReturn.add(new Operation(1, "tan"));
-  operationsToReturn.add(new Operation(1, "var", "variables"));
+  operationsToReturn.add(new Operation(1, "sin", true));
+  operationsToReturn.add(new Operation(1, "cos", true));
+  operationsToReturn.add(new Operation(1, "tan", true));
+  operationsToReturn.add(new Operation(1, "var", true, "variables"));
   
-  operationsToReturn.add(new Operation(2, "aud", "sound"));
-  operationsToReturn.add(new Operation(2, "bri", "camera"));
-  operationsToReturn.add(new Operation(2, "max"));
-  operationsToReturn.add(new Operation(2, "min"));
-  operationsToReturn.add(new Operation(2, "noi", "perlin noise"));
-  operationsToReturn.add(new Operation(2, "mod"));
-  operationsToReturn.add(new Operation(2, "pow"));  
+  operationsToReturn.add(new Operation(2, "aud", false, "sound"));
+  operationsToReturn.add(new Operation(2, "bri", false, "camera"));
+  operationsToReturn.add(new Operation(2, "max", true));
+  operationsToReturn.add(new Operation(2, "min", true));
+  operationsToReturn.add(new Operation(2, "noi", false, "perlin noise"));
+  operationsToReturn.add(new Operation(2, "mod", false));
+  operationsToReturn.add(new Operation(2, "pow", true));  
   
   Operation[] operationsToReturnList = new Operation[operationsToReturn.size()];
   

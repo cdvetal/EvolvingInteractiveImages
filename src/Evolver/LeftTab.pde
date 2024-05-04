@@ -31,13 +31,17 @@ class LeftTab {
 
     translate(0, gap + backController.totalHeight);
     fill(colors.get("primary"));
-    textAlign(LEFT, CENTER);
-    textFont(fonts.get("medium"));
-    textSize(14);
-    text("Variables", 0, 0);
-    variablesController.show();
 
-    translate(0, gap + variablesController.totalHeight);
+    if (variablesController.nVariables > 0) {
+      textAlign(LEFT, CENTER);
+      textFont(fonts.get("medium"));
+      textSize(14);
+      text("Variables", 0, 0);
+      variablesController.show();
+
+
+      translate(0, gap + variablesController.totalHeight);
+    }
     fill(colors.get("primary"));
     textAlign(LEFT, CENTER);
     textFont(fonts.get("medium"));
@@ -59,6 +63,17 @@ class LeftTab {
       text("Layout", 0, 0);
       translate(0, gap);
       layoutController.show();
+
+      /*translate(0, gap + musicController.totalHeight);
+      fill(colors.get("primary"));
+      textAlign(LEFT, CENTER);
+      textFont(fonts.get("medium"));
+      textSize(14);
+      text("Operation Types", 0, 0);
+      textSize(12);
+      textFont(fonts.get("light"));
+      translate(0, gap);
+      text(individualScreen.individual.operationStats, 0, 0, columns[columnWidth-1].z, 200);*/
     }
   }
 
@@ -77,6 +92,10 @@ class LeftTab {
 
   Boolean getEvolve() {
     return generationController.evolve.getSelected();
+  }
+
+  Boolean getTreeButtonHover() {
+    return layoutController.tree.hovered;
   }
 }
 
@@ -105,6 +124,8 @@ class VariablesController {
 
   VariablesController(int _nVariables) {
     nVariables = _nVariables;
+
+    if (nVariables < 1) return;
 
     icons = new Icon[nTypes];
     String[] iconNames = {"mouse_horizontal", "mouse_vertical", "wave", "perlin"};
@@ -136,6 +157,8 @@ class VariablesController {
   }
 
   void show() {
+    if (nVariables < 1) return;
+
     for (int i = 0; i < sliders.length; i++) {
       if (!sliders[i].enabled) {
         sliders[i].setValue(variablesManager.getVariable(i));
@@ -164,6 +187,8 @@ class VariablesController {
   }
 
   void untoggleToggles(int _row, int _column) {
+    if (nVariables < 1) return;
+
     for (int i = 0; i < toggles[_row].length; i++) {
       if (i != _column) {
         toggles[_row][i].toggled = false;
@@ -172,6 +197,8 @@ class VariablesController {
   }
 
   float getSliderValue(int _sliderIndex) {
+    if (nVariables < 1) return 0;
+
     return sliders[_sliderIndex].value;
   }
 }
@@ -268,6 +295,7 @@ class LayoutController {
 
     image = new IconButton(0, 0, buttonW, "image");
     tree = new IconButton(buttonW + buttonGap, 0, buttonW, "tree");
+    tree.toggled = false;
   }
 
   void show() {

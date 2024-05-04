@@ -15,15 +15,14 @@ class Individual{
 
     canvas.beginDraw();
 
-    render(canvas, w, h, _external, _audioSpectrum, _inputImage);
+    render(canvas, _external, _audioSpectrum, _inputImage);
 
     canvas.endDraw();
 
     return canvas;
   }
 
-  void render(PGraphics _canvas, int _w, int _h, float _external, float[] _audioSpectrum, PImage _inputImage) {
-    PImage image = new PImage(_w, _h, RGB);
+  void render(PGraphics _canvas, float _external, float[] _audioSpectrum, PImage _inputImage) {
 
     //shader.set("resolution", _w, _h); //doesnt matter
     shader.set("externalVal", _external);
@@ -31,7 +30,9 @@ class Individual{
     shader.set("image", _inputImage);
     
     _canvas.shader(shader);
-    _canvas.image(image, 0, 0);
+    _canvas.noStroke();
+    
+    _canvas.rect(0,0,_canvas.width, _canvas.height);
   }
   
 }

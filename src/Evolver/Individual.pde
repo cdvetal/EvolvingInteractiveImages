@@ -4,13 +4,14 @@ class Individual {
   PShader shader;
   int nodeHighestDepth;
   int nFullColumns = 0; //works with breadthTracker to force new column on identification
-  int highestVisX = 0;
 
   int nChildNodes = 0;
 
   int individualID;
 
   private float fitness;
+  
+  HashMap <String, Integer> operationStats = new HashMap <String, Integer>(); //stores the number of operations in tree
 
   Individual() {
     fitness = 0;
@@ -48,6 +49,7 @@ class Individual {
     nChildNodes = 0;
     nodeHighestDepth = 0;
     nFullColumns = 0;
+    operationStats = new HashMap <String, Integer>();
     tree.identify(this, 0);
   }
 
@@ -58,19 +60,14 @@ class Individual {
     }
     
     return nFullColumns;
-    
-    /*if(_depth < breadthTracker.size()){
-       breadthTracker.set(_depth,breadthTracker.get(_depth) + 1);
-    } else if (_depth == breadthTracker.size()){
-      breadthTracker.add(0);
-    } else {
-     print("ERROR"); 
-    }
-
-    return breadthTracker.get(_depth);*/
   }
   
-  void addBreadth(int _breadth){ //node is terminal. must add breadth
+  void addOperation(String _operator){
+    //if does not exist, create with value 1. if it exists add 1 to value of key
+    operationStats.merge(_operator, 1, Integer::sum);
+  }
+  
+  void addBreadth(){ //node is terminal. must add breadth
     nFullColumns ++;
   }
 
