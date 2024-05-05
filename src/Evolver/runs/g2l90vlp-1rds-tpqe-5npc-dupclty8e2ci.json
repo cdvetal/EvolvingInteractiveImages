@@ -1,0 +1,162 @@
+{
+  "id": "g2l90vlp-1rds-tpqe-5npc-dupclty8e2ci",
+  "parameters": {
+    "crossoverRate": 0.30000001192092896,
+    "eliteSize": 2,
+    "tournamentSize": 3,
+    "mutationRate": 0.8999999761581421,
+    "populationSize": 10
+  },
+  "populations": [{
+    "generation": 0,
+    "id": "meky583z-mif0-8ql8-j6k1-iro8kxp42dnk",
+    "individuals": [
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(sin(max(y,0.043439984))-sin((x+y)))",
+          "b": "(sin(max(x,0.7537063))-sin((x+0.67592955)))",
+          "g": "(sin(max(0.6756833,0.49247646))-sin((x+x)))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "cos((0.16199398-y))",
+          "b": "cos((y-y))",
+          "g": "cos((y-y))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "cos((x*(var(min(pow((0.28176892-y),0.8940271),var(x)))+y)))",
+          "b": "cos((0.093688846*(var(min(pow((x-0.9627453),x),var(0.1492492)))+x)))",
+          "g": "cos((y*(var(min(pow((0.8903189-0.98273134),y),var(y)))+0.59178185)))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "y",
+          "b": "0.32895094",
+          "g": "x"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(pow(y,cos(0.076747835))/tan(y))",
+          "b": "(pow(0.21524781,cos(0.6005573))/tan(y))",
+          "g": "(pow(x,cos(0.8819434))/tan(x))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(var(x)*0.47404665)",
+          "b": "(var(0.10518837)*0.115727305)",
+          "g": "(var(y)*x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "tan(y)",
+          "b": "tan(0.48122835)",
+          "g": "tan(x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "0.60541",
+          "b": "0.6358779",
+          "g": "x"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "sin(x)",
+          "b": "sin(y)",
+          "g": "sin(y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "sin((x/y))",
+          "b": "sin((y/x))",
+          "g": "sin((y/0.9781231))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "var(max(sin(tan(((x/pow(x,0.60783505))+0.41835576))),0.7024727))",
+          "b": "var(max(sin(tan(((x/pow(0.75089085,0.44088113))+0.9185504))),x))",
+          "g": "var(max(sin(tan(((0.052565753/pow(y,x))+y))),y))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(x+y)",
+          "b": "(y+0.6079883)",
+          "g": "(y+y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "min(var(sin(tan(max((pow(y,0.14536285)+x),pow(0.27425784,max(y,x)))))),0.34624046)",
+          "b": "min(var(sin(tan(max((pow(x,y)+y),pow(y,max(x,y)))))),0.5196115)",
+          "g": "min(var(sin(tan(max((pow(y,0.6302964)+y),pow(y,max(0.09917486,y)))))),y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(0.16464472/y)",
+          "b": "(y/x)",
+          "g": "(x/x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "pow(cos(y),(((max(y,x)/x)*x)-y))",
+          "b": "pow(cos(x),(((max(y,y)/0.34050483)*y)-x))",
+          "g": "pow(cos(y),(((max(0.6937321,y)/y)*0.65276456)-y))"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "var(x)",
+          "b": "var(0.060483813)",
+          "g": "var(y)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "((x+0.15941513)-y)",
+          "b": "((x+x)-x)",
+          "g": "((x+y)-x)"
+        }
+      },
+      {
+        "fitness": 0,
+        "expressions": {
+          "r": "(x-y)",
+          "b": "(y-0.32475525)",
+          "g": "(y-x)"
+        }
+      }
+    ],
+    "timestamp": "21h:59m:54s"
+  }],
+  "timestamp": "2024-05-05-21-59-45"
+}

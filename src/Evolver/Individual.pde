@@ -72,8 +72,9 @@ class Individual {
   }
 
   int getIndex() {
+    int toReturn = nChildNodes;
     nChildNodes ++;
-    return nChildNodes - 1;
+    return toReturn;
   }
   
   

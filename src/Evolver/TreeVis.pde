@@ -10,7 +10,7 @@ class TreeVis { //needs fixing
     directory = sketchPath("shaders/tree/");
 
     clearTreeShaderFiles();
-    
+
     individual = _individual;
     individual.cleanUp();
     treeDimensions = individual.getVisDimensions();
@@ -61,10 +61,10 @@ class TreeVis { //needs fixing
             float parentCenterX = centerX;
             float parentCenterY = centerY;
 
-            //int parentJ = j - 1;
+            //look for parent to connect
           iLoop:
-            for (int parentI = i; parentI > -1; parentI--) {
-              for (int parentJ = j-1; parentJ > -1; parentJ--) {
+            for (int parentI = 0; parentI < nodeGrid.length; parentI ++) {
+              for (int parentJ = 0; parentJ < nodeGrid[nodeGrid.length-1].length; parentJ++) {
                 if (nodeGrid[parentI][parentJ] == null) {//potential parent node
                   continue;
                 }
@@ -113,11 +113,12 @@ class TreeVis { //needs fixing
           }
 
           if (_showOperation) {
-              noStroke();
-              fill(colors.get("surface"));
-              rect(x, y+side-gap, side, gap);
-              fill(colors.get("primary"));
-              text(nodeGrid[i][j].getNodeText(), x + side/2, y + side - gap + gap/2);
+            noStroke();
+            fill(colors.get("surface"));
+            rect(x, y+side-gap, side, gap);
+            fill(colors.get("primary"));
+            text(nodeGrid[i][j].getNodeText(), x + side/2, y + side - gap + gap/2);
+            //text("i: " + i + "_ j: " + j, x + side/2, y + side - gap + gap/2);
           }
         }
       }
@@ -156,12 +157,12 @@ class TreeVis { //needs fixing
   void clearTreeShaderFiles() {
     File files = dataFile(directory);
     String[] fileNames = files.list();
-    
-    for(int i = 0; i < fileNames.length; i ++){
-       File f = new File(directory + fileNames[i]);
-       if(f.exists() && !fileNames[i].equals(".gitignore.txt")){
-        f.delete(); 
-       }
+
+    for (int i = 0; i < fileNames.length; i ++) {
+      File f = new File(directory + fileNames[i]);
+      if (f.exists() && !fileNames[i].equals(".gitignore.txt")) {
+        f.delete();
+      }
     }
   }
 }
