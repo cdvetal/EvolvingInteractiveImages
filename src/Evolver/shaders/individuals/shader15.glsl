@@ -154,9 +154,9 @@ float var(float x){
 }
 
 vec3 generateRGB(float x, float y){
-    float r = y;
-    float g = y;
-    float b = x;
+    float r = (min(aud(y,y),y)-(((sin(sin((y-y)))/(y+(aud(max(((x/0.14921772)-x),x),y)+x)))/auh((aud((aul(min((0.064677/x),(x-x)),aud(y,0.20518541))-0.7374231),y)/y),max(pow(min((0.33603984*((var(var(sin(auh(auh(cos(cos(x)),(aul((x*x),pow(0.40183765,var(y)))*aul(((y*y)-cos(y)),cos(var(y))))),pow(sin((0.598158-(var(x)*(0.928-y)))),max(auh(y,x),pow((0.12517047+0.62654597),(min(0.77779716,x)*(y/y)))))))))*y)*aul(x,x))),x),y),0.11006588)))+x));
+    float g = (min(aud(0.9726439,0.27629972),x)-(((sin(sin((y-0.61586183)))/(x+(aud(max(((x/0.73878264)-x),y),0.9948583)+x)))/auh((aud((aul(min((y/x),(0.38564354-0.54751664)),aud(0.47165787,x))-y),x)/y),max(pow(min((x*((var(var(sin(auh(auh(cos(cos(x)),(aul((x*x),pow(x,var(0.44890273)))*aul(((0.71149224*0.67052686)-cos(0.90868217)),cos(var(x))))),pow(sin((0.037255883-(var(y)*(0.57520884-x)))),max(auh(0.40659302,x),pow((y+y),(min(x,y)*(x/x)))))))))*0.72684807)*aul(x,0.56292075))),x),0.0),0.58645594)))+0.90873975));
+    float b = (min(aud(y,0.8609231),0.9221606)-(((sin(sin((0.0-y)))/(0.56616414+(aud(max(((0.65105885/y)-x),0.95340395),y)+x)))/auh((aud((aul(min((x/0.20315123),(y-x)),aud(0.82264763,0.8254518))-0.7136947),x)/0.7025558),max(pow(min((y*((var(var(sin(auh(auh(cos(cos(y)),(aul((x*0.7548078),pow(y,var(x)))*aul(((x*y)-cos(x)),cos(var(x))))),pow(sin((0.88309443-(var(y)*(x-y)))),max(auh(0.006800294,x),pow((y+x),(min(y,0.5714854)*(0.20883429/x)))))))))*y)*aul(0.68108153,y))),y),0.5926312),0.87228906)))+y));
     return vec3(r,g,b);
 }
 

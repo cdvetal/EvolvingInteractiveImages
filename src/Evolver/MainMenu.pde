@@ -21,7 +21,7 @@ class MainMenu {
       //population.initialize();
       return;
     }
-    loadRun.update();
+    //loadRun.update();
     if (loadRun.getSelected()) {
       screen = "mainmenu";
       loadRun.resetSelected();
@@ -31,6 +31,6 @@ class MainMenu {
 
   void show() {
     newRun.show();
-    loadRun.show();
+    //loadRun.show();
   }
 }

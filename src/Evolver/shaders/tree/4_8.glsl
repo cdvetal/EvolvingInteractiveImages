@@ -3,6 +3,8 @@ in vec4 gl_FragCoord;
 uniform vec2 resolution;
 uniform sampler2D image;
 uniform float externalVal;
+uniform int nVariables;
+uniform float variables[10];
 uniform float audioSpectrum[512];
 
 const float EPSILON = 1e-10;
@@ -43,14 +45,14 @@ float hash(float p) { p = fract(p * 0.011); p *= p + 7.5; p *= p + p; return fra
 float hash(vec2 p) {vec3 p3 = fract(vec3(p.xyx) * 0.13); p3 += dot(p3, p3.yzx + 3.333); return fract((p3.x + p3.y) * p3.z); }
 
 //noise from https://www.shadertoy.com/view/4dS3Wd
-float noise(float x) {
+float noi(float x) {
     float i = floor(x);
     float f = fract(x);
     float u = f * f * (3.0 - 2.0 * f);
     return mix(hash(i), hash(i + 1.0), u);
 }
 
-float noise(float x, float y) {
+float noi(float x, float y) {
     vec2 inVec = vec2(x,y);
     vec2 i = floor(inVec);
     vec2 f = fract(inVec);
@@ -64,7 +66,8 @@ float noise(float x, float y) {
 	return mix(a, b, u.x) + (c - a) * u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
 }
 
-float audio(float x, float y){
+//audio
+float aud(float x, float y){
     float center = x * audioSpectrum.length;
     float radius = (y * audioSpectrum.length) / 2;
     int minIndex = int(max(center - radius, 0));
@@ -76,7 +79,41 @@ float audio(float x, float y){
         sum += audioSpectrum[i];
     }
 
-    return sum/(radius * 2);
+    return sum/(radius/2); //sum/(radius * 2)
+}
+
+//like aud but low sounds - first half of spectrum used
+float aul(float x, float y){
+    float usedLength = audioSpectrum.length / 2;
+    float center = x * usedLength;
+    float radius = (y * usedLength) / 2;
+    int minIndex = int(max(center - radius, 0));
+    int maxIndex = int(min(center + radius, usedLength));
+
+    float sum = 0;
+
+    for(int i = minIndex; i < maxIndex; i++){
+        sum += audioSpectrum[i];
+    }
+
+    return sum/(radius/2);
+}
+
+//like aud but high sounds - second half of spectrum used
+float auh(float x, float y){
+    float usedLength = audioSpectrum.length / 2;
+    float center = x * usedLength + usedLength;
+    float radius = (y * usedLength) / 2 + usedLength;
+    int minIndex = int(max(center - radius, usedLength));
+    int maxIndex = int(min(center + radius, audioSpectrum.length));
+
+    float sum = 0;
+
+    for(int i = minIndex; i < maxIndex; i++){
+        sum += audioSpectrum[i];
+    }
+
+    return sum/(radius/2);
 }
 
 float bri(float x, float y){ //brightness https://stackoverflow.com/questions/596216/formula-to-determine-perceived-brightness-of-rgb-color
@@ -96,10 +133,30 @@ float bri(float x, float y){ //brightness https://stackoverflow.com/questions/59
     return brightness;
 }
 
+float var(float x){
+    int varIndexFloor = int(floor(x * nVariables));
+    int varIndexCeil = int(ceil(x * nVariables));
+
+    if(varIndexFloor >= nVariables){
+        varIndexFloor = nVariables - 1;
+    }
+    if(varIndexCeil >= nVariables){
+        varIndexCeil = nVariables - 1;
+    }
+
+    float ratioValue = x - varIndexFloor;
+
+    float valueFloor = (1 - ratioValue) * variables[varIndexFloor];
+    float valueCeil = (ratioValue) * variables[varIndexCeil];
+    float value = valueFloor + valueCeil;
+
+    return value;
+}
+
 vec3 generateRGB(float x, float y){
-    float r = cos(cos(audio(x,audio(audio(max(noise(noise(tan(sin(max(x,y))),(0.3408839/noise(min((max(externalVal,0.2808709)/y),mod(noise(mod(sin(sin(externalVal)),x),pow((mod((x*0.16397452),externalVal)*externalVal),x)),externalVal)),0.5040218))),externalVal),x),0.6204113),audio(noise(y,y),x)))));
-    float g = cos(cos(audio(0.6106662,audio(audio(max(noise(noise(tan(sin(max(x,externalVal))),(x/noise(min((max(externalVal,y)/0.43625003),mod(noise(mod(sin(sin(externalVal)),x),pow((mod((x*externalVal),y)*y),externalVal)),0.23298553)),x))),y),0.0),externalVal),audio(noise(y,externalVal),x)))));
-    float b = cos(cos(audio(x,audio(audio(max(noise(noise(tan(sin(max(0.6984535,externalVal))),(externalVal/noise(min((max(0.0,externalVal)/externalVal),mod(noise(mod(sin(sin(externalVal)),externalVal),pow((mod((y*0.11645126),x)*0.86785257),0.0)),y)),y))),y),x),0.99900794),audio(noise(externalVal,y),externalVal)))));
+    float r = (x+aud(0.224081,x));
+    float g = (x+aud(y,y));
+    float b = (x+aud(0.213032,0.733924));
     return vec3(r,g,b);
 }
 

@@ -154,9 +154,9 @@ float var(float x){
 }
 
 vec3 generateRGB(float x, float y){
-    float r = y;
-    float g = y;
-    float b = x;
+    float r = (min(aud(y,y),y)-(((sin(sin((y-y)))*(y+(aud(aul(((0.9377777/0.14921772)*x),x),y)+x)))/max((aud((auh(min((0.064677/x),(x+x)),aud(y,0.20518541))*0.7374231),y)/y),max(min(pow((0.33603984*((y*y)*aul(x,x))),x),y),0.11006588)))+x));
+    float g = (min(aud(x,0.27629972),x)-(((sin(sin((y-0.61586183)))*(x+(aud(aul(((x/x)*x),y),x)+x)))/max((aud((auh(min((y/x),(0.5784189+0.54751664)),aud(0.47165787,x))*y),x)/y),max(min(pow((x*((y*0.72684807)*aul(x,0.56292075))),x),0.24362755),0.58645594)))+0.90873975));
+    float b = (min(aud(y,0.8609231),0.8638106)-(((sin(sin((0.07021069-y)))*(0.61184734+(aud(aul(((0.65105885/y)*x),x),y)+x)))/max((aud((auh(min((x/0.20315123),(y+x)),aud(0.82264763,0.8254518))*0.4421659),x)/0.7025558),max(min(pow((y*((0.4800555*y)*aul(0.68108153,y))),y),0.3056901),0.87228906)))+y));
     return vec3(r,g,b);
 }
 

@@ -154,9 +154,9 @@ float var(float x){
 }
 
 vec3 generateRGB(float x, float y){
-    float r = (sin(sin(sin(max(cos(cos(y)),x))))+y);
-    float g = (sin(sin(sin(max(cos(cos(x)),y))))+x);
-    float b = (sin(sin(sin(max(cos(cos(0.5973669)),y))))+0.3332802);
+    float r = (y-(sin(x)+y));
+    float g = (y-(sin(y)+x));
+    float b = (y-(sin(y)+y));
     return vec3(r,g,b);
 }
 

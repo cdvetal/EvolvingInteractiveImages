@@ -154,9 +154,9 @@ float var(float x){
 }
 
 vec3 generateRGB(float x, float y){
-    float r = var(min(x,(x+((tan(0.7857383)/var((cos(0.5472216)/((min(tan(0.57921606),(y+x))*var((x+x)))+cos(y)))))-y))));
-    float g = var(min(0.3632226,(x+((tan(x)/var((cos(y)/((min(tan(x),(x+y))*var((x+x)))+cos(0.59822506)))))-y))));
-    float b = var(min(y,(y+((tan(0.9736846)/var((cos(y)/((min(tan(y),(y+x))*var((y+0.6202587)))+cos(x)))))-x))));
+    float r = (y+auh(pow(pow(min(0.7388368,x),pow(y,pow(cos(tan(var((y-0.090759695)))),auh(var(x),x)))),min(x,0.58012444)),x));
+    float g = (y+auh(pow(pow(min(0.016562104,x),pow(y,pow(cos(tan(var((x-y)))),auh(var(0.38868016),0.04113829)))),min(x,y)),0.05087793));
+    float b = (y+auh(pow(pow(min(x,0.52102304),pow(0.04074973,pow(cos(tan(var((x-0.0019644499)))),auh(var(x),x)))),min(x,0.49893934)),x));
     return vec3(r,g,b);
 }
 

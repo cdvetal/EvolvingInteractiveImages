@@ -154,9 +154,9 @@ float var(float x){
 }
 
 vec3 generateRGB(float x, float y){
-    float r = 0.59802836;
-    float g = 0.65148586;
-    float b = 0.5282334;
+    float r = (tan(min(auh((min(0.0,aud(sin(y),y))-min(min(y,0.8013998),auh(sin(0.9847547),y))),x),sin((aud(x,auh(y,sin((auh(y,x)*x))))+y))))+(tan(y)-0.0));
+    float g = (tan(min(auh((min(0.9914974,aud(sin(y),y))-min(min(y,y),auh(sin(x),0.33560228))),y),sin((aud(y,auh(x,sin((auh(y,x)*x))))+x))))+(tan(0.8876964)-x));
+    float b = (tan(min(auh((min(x,aud(sin(x),0.5946009))-min(min(y,0.82990265),auh(sin(y),x))),y),sin((aud(y,auh(y,sin((auh(0.5942546,y)*y))))+0.4041227))))+(tan(x)-x));
     return vec3(r,g,b);
 }
 

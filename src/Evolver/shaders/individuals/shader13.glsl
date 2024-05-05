@@ -154,9 +154,9 @@ float var(float x){
 }
 
 vec3 generateRGB(float x, float y){
-    float r = (cos(var((y+var(tan((y+x))))))+y);
-    float g = (cos(var((y+var(tan((0.93989307+x))))))+x);
-    float b = (cos(var((0.9516717+var(tan((x+y))))))+0.3332802);
+    float r = (y-((x/sin(aud(((pow(tan(0.0),y)-x)+x),y)))+x));
+    float g = (y-((y/sin(aud(((pow(tan(x),x)-y)+y),y)))+x));
+    float b = (y-((y/sin(aud(((pow(tan(y),y)-x)+0.5681478),x)))+y));
     return vec3(r,g,b);
 }
 

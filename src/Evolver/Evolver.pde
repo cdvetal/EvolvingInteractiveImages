@@ -64,8 +64,8 @@ PopulationScreen populationScreen;
 IndividualScreen individualScreen;
 
 void setup() {
-  size(1920, 1080, P2D);
-  //fullScreen(P2D);
+  //size(1920, 1080, P2D);
+  fullScreen(P2D);
   colorMode(RGB, 1);
 
   String[] cameras = Capture.list();
