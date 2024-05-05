@@ -79,7 +79,41 @@ float aud(float x, float y){
         sum += audioSpectrum[i];
     }
 
-    return sum/(radius * 2);
+    return sum/(radius/2); //sum/(radius * 2)
+}
+
+//like aud but low sounds - first third of spectrum used
+float aul(float x, float y){
+    float usedLength = audioSpectrum.length / 2;
+    float center = x * usedLength;
+    float radius = (y * usedLength) / 2;
+    int minIndex = int(max(center - radius, 0));
+    int maxIndex = int(min(center + radius, usedLength));
+
+    float sum = 0;
+
+    for(int i = minIndex; i < maxIndex; i++){
+        sum += audioSpectrum[i];
+    }
+
+    return sum/(radius/2);
+}
+
+//like aud but high sounds - last third of spectrum used
+float auh(float x, float y){
+    float usedLength = audioSpectrum.length / 2;
+    float center = x * usedLength + usedLength;
+    float radius = (y * usedLength) / 2 + usedLength;
+    int minIndex = int(max(center - radius, usedLength));
+    int maxIndex = int(min(center + radius, audioSpectrum.length));
+
+    float sum = 0;
+
+    for(int i = minIndex; i < maxIndex; i++){
+        sum += audioSpectrum[i];
+    }
+
+    return sum/(radius/2);
 }
 
 float bri(float x, float y){ //brightness https://stackoverflow.com/questions/596216/formula-to-determine-perceived-brightness-of-rgb-color
@@ -110,9 +144,9 @@ float var(float x){
 }
 
 vec3 generateRGB(float x, float y){
-    float r = (tan(pow(pow((0.71789217*y),(max(y,var(x))+x)),y))*(((cos((y/(0.94326586*x)))/tan((var(x)*max(y,x))))*cos(x))+(var((min((x*x),min(x,y))-sin(tan(x))))/(pow((max(y,x)-var(y)),x)/0.80034596))));
-    float g = (tan(pow(pow((x*x),(max(0.5391163,var(y))+x)),x))*(((cos((y/(0.95533204*x)))/tan((var(y)*max(0.27853543,0.09035236))))*cos(0.6273524))+(var((min((x*x),min(y,y))-sin(tan(0.8950213))))/(pow((max(x,y)-var(y)),0.5717969)/0.6177648))));
-    float b = (tan(pow(pow((0.7930566*0.75154585),(max(x,var(0.1233834))+x)),x))*(((cos((0.4236973/(0.5111357*x)))/tan((var(x)*max(x,y))))*cos(y))+(var((min((0.011934578*0.19622397),min(x,0.537659))-sin(tan(0.73621505))))/(pow((max(0.61185676,y)-var(y)),x)/y))));
+    float r = ((y*0.44771665)/0.22956137);
+    float g = ((0.16721016*y)/x);
+    float b = ((0.97585434*0.8134686)/0.75673753);
     return vec3(r,g,b);
 }
 

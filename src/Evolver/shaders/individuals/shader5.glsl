@@ -79,7 +79,41 @@ float aud(float x, float y){
         sum += audioSpectrum[i];
     }
 
-    return sum/(radius * 2);
+    return sum/(radius/2); //sum/(radius * 2)
+}
+
+//like aud but low sounds - first third of spectrum used
+float aul(float x, float y){
+    float usedLength = audioSpectrum.length / 2;
+    float center = x * usedLength;
+    float radius = (y * usedLength) / 2;
+    int minIndex = int(max(center - radius, 0));
+    int maxIndex = int(min(center + radius, usedLength));
+
+    float sum = 0;
+
+    for(int i = minIndex; i < maxIndex; i++){
+        sum += audioSpectrum[i];
+    }
+
+    return sum/(radius/2);
+}
+
+//like aud but high sounds - last third of spectrum used
+float auh(float x, float y){
+    float usedLength = audioSpectrum.length / 2;
+    float center = x * usedLength + usedLength;
+    float radius = (y * usedLength) / 2 + usedLength;
+    int minIndex = int(max(center - radius, usedLength));
+    int maxIndex = int(min(center + radius, audioSpectrum.length));
+
+    float sum = 0;
+
+    for(int i = minIndex; i < maxIndex; i++){
+        sum += audioSpectrum[i];
+    }
+
+    return sum/(radius/2);
 }
 
 float bri(float x, float y){ //brightness https://stackoverflow.com/questions/596216/formula-to-determine-perceived-brightness-of-rgb-color
@@ -110,9 +144,9 @@ float var(float x){
 }
 
 vec3 generateRGB(float x, float y){
-    float r = pow(min(y,(x-(sin((var(y)+sin(x)))*(cos(y)-sin((0.7294995-x)))))),x);
-    float g = pow(min(y,(x-(sin((var(0.107754886)+sin(0.25853223)))*(cos(x)-sin((0.9910771-0.49127108)))))),x);
-    float b = pow(min(x,(x-(sin((var(y)+sin(x)))*(cos(y)-sin((x-0.6019555)))))),y);
+    float r = (aul(sin(0.28046036),(cos(min(max(cos(sin(cos(0.6716865))),x),cos(y)))*aul((aul(x,x)-(min((pow(y,y)+x),auh(auh(y,0.78620887),y))/y)),((0.68258226-tan(x))+y))))/0.22956137);
+    float g = (aul(sin(y),(cos(min(max(cos(sin(cos(0.057425916))),x),cos(x)))*aul((aul(y,0.13798559)-(min((pow(y,0.70993155)+x),auh(auh(x,y),x))/0.13591133)),((0.085976444-tan(0.9544607))+0.62548304))))/0.8588521);
+    float b = (aul(sin(x),(cos(min(max(cos(sin(cos(0.88187546))),x),cos(0.64109826)))*aul((aul(y,x)-(min((pow(x,x)+x),auh(auh(y,0.43803674),0.31286696))/x)),((y-tan(x))+x))))/0.88818777);
     return vec3(r,g,b);
 }
 

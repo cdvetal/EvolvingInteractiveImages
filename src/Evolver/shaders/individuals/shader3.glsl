@@ -79,7 +79,41 @@ float aud(float x, float y){
         sum += audioSpectrum[i];
     }
 
-    return sum/(radius * 2);
+    return sum/(radius/2); //sum/(radius * 2)
+}
+
+//like aud but low sounds - first third of spectrum used
+float aul(float x, float y){
+    float usedLength = audioSpectrum.length / 2;
+    float center = x * usedLength;
+    float radius = (y * usedLength) / 2;
+    int minIndex = int(max(center - radius, 0));
+    int maxIndex = int(min(center + radius, usedLength));
+
+    float sum = 0;
+
+    for(int i = minIndex; i < maxIndex; i++){
+        sum += audioSpectrum[i];
+    }
+
+    return sum/(radius/2);
+}
+
+//like aud but high sounds - last third of spectrum used
+float auh(float x, float y){
+    float usedLength = audioSpectrum.length / 2;
+    float center = x * usedLength + usedLength;
+    float radius = (y * usedLength) / 2 + usedLength;
+    int minIndex = int(max(center - radius, usedLength));
+    int maxIndex = int(min(center + radius, audioSpectrum.length));
+
+    float sum = 0;
+
+    for(int i = minIndex; i < maxIndex; i++){
+        sum += audioSpectrum[i];
+    }
+
+    return sum/(radius/2);
 }
 
 float bri(float x, float y){ //brightness https://stackoverflow.com/questions/596216/formula-to-determine-perceived-brightness-of-rgb-color
@@ -110,9 +144,9 @@ float var(float x){
 }
 
 vec3 generateRGB(float x, float y){
-    float r = x;
-    float g = x;
-    float b = x;
+    float r = sin(aul(aul(x,x),cos(sin(auh(min(cos((cos(0.5479887)*y)),0.37749937),sin(y))))));
+    float g = sin(aul(aul(0.9223615,x),cos(sin(auh(min(cos((cos(0.0)*y)),x),sin(x))))));
+    float b = sin(aul(aul(y,y),cos(sin(auh(min(cos((cos(0.82998294)*x)),y),sin(0.45824128))))));
     return vec3(r,g,b);
 }
 

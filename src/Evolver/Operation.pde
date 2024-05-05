@@ -55,7 +55,9 @@ Operation[] setupOperations(){
   operationsToReturn.add(new Operation(1, "tan", true));
   operationsToReturn.add(new Operation(1, "var", true, "variables"));
   
-  operationsToReturn.add(new Operation(2, "aud", false, "sound"));
+  operationsToReturn.add(new Operation(2, "aud", true, "sound"));
+  operationsToReturn.add(new Operation(2, "aul", true, "sound - lows"));
+  operationsToReturn.add(new Operation(2, "auh", true, "sound - highs"));
   operationsToReturn.add(new Operation(2, "bri", false, "camera"));
   operationsToReturn.add(new Operation(2, "max", true));
   operationsToReturn.add(new Operation(2, "min", true));

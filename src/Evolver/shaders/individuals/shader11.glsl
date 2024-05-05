@@ -79,7 +79,41 @@ float aud(float x, float y){
         sum += audioSpectrum[i];
     }
 
-    return sum/(radius * 2);
+    return sum/(radius/2); //sum/(radius * 2)
+}
+
+//like aud but low sounds - first third of spectrum used
+float aul(float x, float y){
+    float usedLength = audioSpectrum.length / 2;
+    float center = x * usedLength;
+    float radius = (y * usedLength) / 2;
+    int minIndex = int(max(center - radius, 0));
+    int maxIndex = int(min(center + radius, usedLength));
+
+    float sum = 0;
+
+    for(int i = minIndex; i < maxIndex; i++){
+        sum += audioSpectrum[i];
+    }
+
+    return sum/(radius/2);
+}
+
+//like aud but high sounds - last third of spectrum used
+float auh(float x, float y){
+    float usedLength = audioSpectrum.length / 2;
+    float center = x * usedLength + usedLength;
+    float radius = (y * usedLength) / 2 + usedLength;
+    int minIndex = int(max(center - radius, usedLength));
+    int maxIndex = int(min(center + radius, audioSpectrum.length));
+
+    float sum = 0;
+
+    for(int i = minIndex; i < maxIndex; i++){
+        sum += audioSpectrum[i];
+    }
+
+    return sum/(radius/2);
 }
 
 float bri(float x, float y){ //brightness https://stackoverflow.com/questions/596216/formula-to-determine-perceived-brightness-of-rgb-color
@@ -110,9 +144,9 @@ float var(float x){
 }
 
 vec3 generateRGB(float x, float y){
-    float r = pow((sin(0.65457934)/x),y);
-    float g = pow((sin(y)/y),x);
-    float b = pow((sin(x)/0.06126988),0.3275419);
+    float r = (auh((0.28046036*0.5671948),(cos(pow(auh(var((tan(0.6716865)/y)),x),cos(y)))/aul((0.68233883+(min((pow(y,y)+x),max(auh(y,0.8450033),y))+y)),((x-cos(x))-y))))/0.22956137);
+    float g = (auh((y*x),(cos(pow(auh(var((tan(0.057425916)/y)),x),cos(x)))/aul((x+(min((pow(y,0.73775995)+x),max(auh(0.8333838,y),x))+0.19121848)),((0.6057528-cos(0.9544607))-0.1957078))))/0.8588521);
+    float b = (auh((x*y),(cos(pow(auh(var((tan(0.64940983)/x)),x),cos(0.51935285)))/aul((y+(min((pow(x,x)+x),max(auh(y,0.6457839),0.31286696))+0.9904944)),((y-cos(x))-x))))/0.88818777);
     return vec3(r,g,b);
 }
 

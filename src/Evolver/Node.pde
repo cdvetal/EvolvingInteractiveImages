@@ -72,7 +72,6 @@ class Node {
     visX = 0;
 
     nodeIndex = _indiv.getIndex();
-    println(nodeIndex);
 
     breadth = _indiv.getBreadth(depth);
     int childDepth = _depth + 1;
@@ -105,7 +104,7 @@ class Node {
     Node aNodeCopy = aNode == null ? null : aNode.getCopy();
     Node bNodeCopy = bNode == null ? null : bNode.getCopy();
 
-    return new Node(mathType, aNodeCopy, bNodeCopy, scalar.clone(), nodeIndex, depth, breadth);
+    return new Node(mathType, aNodeCopy, bNodeCopy, scalar.clone(), nodeIndex, depth, breadth); 
   }
 
   Node getNode(int _index) {

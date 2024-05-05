@@ -7,7 +7,7 @@ import processing.video.*;
 Capture cam;
 PImage inputImage;
 
-int maxDepth = 8;
+int maxDepth = 10;
 int resolution = 150;
 int imageExportResolution = 1920;
 int animationExportResolution = 1440;
@@ -43,7 +43,7 @@ int nAnimationFrames = 96;
 Operation[] operations;
 Operation[] enabledOperations;
 String[] templateShaderLines;
-int shaderChangeLineStart = 113; //3 lines need changing (r,g,b), first line is this (as shown in vscode)
+int shaderChangeLineStart = 147; //3 lines need changing (r,g,b), first line is this (as shown in vscode)
 
 Button pressedButton;
 

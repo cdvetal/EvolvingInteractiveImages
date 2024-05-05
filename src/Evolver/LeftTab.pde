@@ -3,12 +3,14 @@ class LeftTab {
   boolean state = false; //false - population, true - individual
   boolean hidden = false;
   int columnWidth = 2;
+  String nodeInfoString;
 
   BackController backController = new BackController();
   VariablesController variablesController;
   MusicController musicController = new MusicController();
   GenerationController generationController = new GenerationController();
   LayoutController layoutController = new LayoutController();
+  IndividualController individualController = new IndividualController();
 
   LeftTab(int _nVariables) {
     variablesController = new VariablesController(_nVariables);
@@ -64,16 +66,29 @@ class LeftTab {
       translate(0, gap);
       layoutController.show();
 
-      /*translate(0, gap + musicController.totalHeight);
+
+      translate(0, gap + musicController.totalHeight);
+      fill(colors.get("primary"));
+      textAlign(LEFT, CENTER);
+      textFont(fonts.get("medium"));
+      textSize(14);
+      if(individualScreen.individual!= null) text("Individual: " + nf(individualScreen.individual.getFitness(), 0, 1)  + " fitness", 0, 0);
+      else text("Individual", 0, 0);
+      translate(0, gap);
+      individualController.show();
+
+
+      translate(0, gap + musicController.totalHeight);
       fill(colors.get("primary"));
       textAlign(LEFT, CENTER);
       textFont(fonts.get("medium"));
       textSize(14);
       text("Operation Types", 0, 0);
-      textSize(12);
       textFont(fonts.get("light"));
+      textSize(12);
+      textAlign(LEFT, TOP);
       translate(0, gap);
-      text(individualScreen.individual.operationStats, 0, 0, columns[columnWidth-1].z, 200);*/
+      text(individualScreen.nodeInfoString, 0, 0, columns[columnWidth-1].z * 2 - border - gap, 200);
     }
   }
 
@@ -308,6 +323,39 @@ class LayoutController {
     } else if (tree.getSelected()) {
       tree.toggle();
       if (!image.toggled && !tree.toggled) image.toggle();
+    }
+  }
+}
+
+class IndividualController {
+
+  IconButton download;
+  IconButton plus;
+  IconButton minus;
+
+  int totalHeight = 40;
+
+  IndividualController() {
+    int buttonW = 40;
+    float buttonGap = (columns[0].z - buttonW * 3) / 2;
+
+    download = new IconButton(0, 0, buttonW, "download");
+    minus = new IconButton(buttonW + buttonGap, 0, buttonW, "minus");
+    plus = new IconButton(buttonW * 2 + buttonGap * 2, 0, buttonW, "plus");
+  }
+
+  void show() {
+    download.show();
+    minus.show();
+    plus.show();
+
+    if (download.getSelected()) {
+      exportShader(individualScreen.individual);
+      exportImage(individualScreen.individual);
+    } else if (minus.getSelected()) {
+      individualScreen.individual.removeFitness();
+    } else if (plus.getSelected()) {
+      individualScreen.individual.giveFitness();
     }
   }
 }

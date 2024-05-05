@@ -186,7 +186,7 @@ class SetupScreen {
 class AlgorithmController {
   Slider[] algorithmSliders;
   String[] labels = {"Population Size", "Mutation Rate", "Crossover Rate", "Tournament Size", "Elite Size"};
-  Float[] defaultValues = {0.5, 0.2, 0.3, 0.5, 0.33};
+  Float[] defaultValues = {0.5, 0.4, 0.3, 0.5, 0.33};
   PVector[] limits ={new PVector(6, 30), new PVector(0, 1), new PVector(0, 1), new PVector(1, 5), new PVector(0, 3)};
   boolean[] isInt = {true, false, false, true, true};
 

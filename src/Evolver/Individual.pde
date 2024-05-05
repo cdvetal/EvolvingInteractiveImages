@@ -10,7 +10,7 @@ class Individual {
   int individualID;
 
   private float fitness;
-  
+
   HashMap <String, Integer> operationStats = new HashMap <String, Integer>(); //stores the number of operations in tree
 
   Individual() {
@@ -19,7 +19,7 @@ class Individual {
     tree = new Node(0);
     tree.randomizeNode(true);
     cleanUp();
-    
+
     generateID();
   }
 
@@ -29,20 +29,20 @@ class Individual {
     cleanUp();
     generateID();
   }
-  
+
   /*
   //under maintnance
-  Individual(String[] _expressions, float _fitness){
-    for (int i = 0; i < nodes.length; i++) {
-      nodes[i] = new Node(_expressions[i]);
-    }
-    
-    fitness = _fitness;
-  }*/
-  
-  void cleanUp(){
-     tree.removeUnusedNodes();
-     identifyNodes(); 
+   Individual(String[] _expressions, float _fitness){
+   for (int i = 0; i < nodes.length; i++) {
+   nodes[i] = new Node(_expressions[i]);
+   }
+   
+   fitness = _fitness;
+   }*/
+
+  void cleanUp() {
+    tree.removeUnusedNodes();
+    identifyNodes();
   }
 
   void identifyNodes() {
@@ -54,20 +54,20 @@ class Individual {
   }
 
   int getBreadth(int _depth) {
-    
-    if(_depth > nodeHighestDepth){
-      nodeHighestDepth = _depth; 
+
+    if (_depth > nodeHighestDepth) {
+      nodeHighestDepth = _depth;
     }
-    
+
     return nFullColumns;
   }
-  
-  void addOperation(String _operator){
+
+  void addOperation(String _operator) {
     //if does not exist, create with value 1. if it exists add 1 to value of key
     operationStats.merge(_operator, 1, Integer::sum);
   }
-  
-  void addBreadth(){ //node is terminal. must add breadth
+
+  void addBreadth() { //node is terminal. must add breadth
     nFullColumns ++;
   }
 
@@ -76,8 +76,8 @@ class Individual {
     nChildNodes ++;
     return toReturn;
   }
-  
-  
+
+
   void doShader(int _index) {
     String [] shaderLines = getShaderTextLines(tree);
 
@@ -90,9 +90,9 @@ class Individual {
 
   Individual crossover(Individual _partner) {
     Individual child = getCopy();
-    
+
     Node partnerNodeCopy = _partner.getRandomNode(true);
-    
+
     child.replaceRandomNode(partnerNodeCopy);
 
     return child;
@@ -103,14 +103,14 @@ class Individual {
     for (int i = 0; i < nChildNodes; i++) {
       if (random(1) > mutationRate) continue;
       Node toMutate = tree.getNode(i);
-      if(toMutate == null) continue;
+      if (toMutate == null) continue;
       toMutate.mutate();
     }
-    
+
     identifyNodes();
-    
+
     if (random(1) < mutationRate) replaceRandomNode(createRandomNode());
-    
+
     generateID();
   }
 
@@ -122,13 +122,12 @@ class Individual {
 
     return _isCopy ? randomNode.getCopy() : randomNode;
   }
-  
+
   Node createRandomNode() {
     Node randomNode = new Node(0);
     randomNode.randomizeNode(true);
-    
+
     return randomNode;
-    
   }
 
   void replaceRandomNode(Node _newNode) {
@@ -144,11 +143,11 @@ class Individual {
   float getFitness() {
     return fitness;
   }
-  
+
   void removeFitness() {
-     if(fitness <= 0) return;
-     fitness -= .2;
-     if(fitness < 0) fitness = 0;
+    if (fitness <= 0) return;
+    fitness -= .1;
+    if (fitness < 0) fitness = 0;
   }
 
   void giveFitness() {
@@ -164,23 +163,23 @@ class Individual {
 
   void render(PGraphics _canvas, int _w, int _h) {
     PImage image = new PImage(_w, _h, RGB);
-    
+
     _canvas.shader(shader);
     _canvas.image(image, 0, 0);
   }
 
-  
+
 
   int getNChildNodes() {
     return nChildNodes;
   }
-  
-  PVector getVisDimensions(){
+
+  PVector getVisDimensions() {
     //int w = breadthTracker.get(breadthTracker.size() - 1) + 2;
     //int h = breadthTracker.size();
     return new PVector(nFullColumns, nodeHighestDepth + 1);
   }
-  
+
   Node getTreeCopy() {
     return tree.getCopy();
   }
@@ -192,8 +191,12 @@ class Individual {
   int getID() {
     return individualID;
   }
-  
-  PShader getShader(){
-  return shader;
+
+  PShader getShader() {
+    return shader;
+  }
+
+  HashMap <String, Integer> getOperationStats() {
+    return operationStats;
   }
 }

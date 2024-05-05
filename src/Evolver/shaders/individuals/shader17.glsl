@@ -79,7 +79,41 @@ float aud(float x, float y){
         sum += audioSpectrum[i];
     }
 
-    return sum/(radius * 2);
+    return sum/(radius/2); //sum/(radius * 2)
+}
+
+//like aud but low sounds - first third of spectrum used
+float aul(float x, float y){
+    float usedLength = audioSpectrum.length / 2;
+    float center = x * usedLength;
+    float radius = (y * usedLength) / 2;
+    int minIndex = int(max(center - radius, 0));
+    int maxIndex = int(min(center + radius, usedLength));
+
+    float sum = 0;
+
+    for(int i = minIndex; i < maxIndex; i++){
+        sum += audioSpectrum[i];
+    }
+
+    return sum/(radius/2);
+}
+
+//like aud but high sounds - last third of spectrum used
+float auh(float x, float y){
+    float usedLength = audioSpectrum.length / 2;
+    float center = x * usedLength + usedLength;
+    float radius = (y * usedLength) / 2 + usedLength;
+    int minIndex = int(max(center - radius, usedLength));
+    int maxIndex = int(min(center + radius, audioSpectrum.length));
+
+    float sum = 0;
+
+    for(int i = minIndex; i < maxIndex; i++){
+        sum += audioSpectrum[i];
+    }
+
+    return sum/(radius/2);
 }
 
 float bri(float x, float y){ //brightness https://stackoverflow.com/questions/596216/formula-to-determine-perceived-brightness-of-rgb-color
@@ -110,9 +144,9 @@ float var(float x){
 }
 
 vec3 generateRGB(float x, float y){
-    float r = pow(tan(tan(min(x,min((pow(y,0.46475405)-(y*x)),(sin(0.5506144)+var(y)))))),sin(min((x-0.8593197),0.82701105)));
-    float g = pow(tan(tan(min(y,min((pow(y,0.13735521)-(x*y)),(sin(y)+var(y)))))),sin(min((y-y),x)));
-    float b = pow(tan(tan(min(y,min((pow(y,0.4179334)-(x*x)),(sin(0.53054166)+var(y)))))),sin(min((0.48850965-x),0.4302671)));
+    float r = sin(aul(max(x,x),sin(cos(min(auh(tan((cos(0.6107465)/y)),x),cos(y))))));
+    float g = sin(aul(max(0.80397964,x),sin(cos(min(auh(tan((cos(0.072989345)/y)),0.9959905),cos(x))))));
+    float b = sin(aul(max(y,y),sin(cos(min(auh(tan((cos(0.88187546)/x)),x),cos(0.74808365))))));
     return vec3(r,g,b);
 }
 
