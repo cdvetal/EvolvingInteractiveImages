@@ -82,7 +82,7 @@ float aud(float x, float y){
     return sum/(radius/2); //sum/(radius * 2)
 }
 
-//like aud but low sounds - first half of spectrum used
+//like aud but low sounds - first third of spectrum used
 float aul(float x, float y){
     float usedLength = audioSpectrum.length / 2;
     float center = x * usedLength;
@@ -99,7 +99,7 @@ float aul(float x, float y){
     return sum/(radius/2);
 }
 
-//like aud but high sounds - second half of spectrum used
+//like aud but high sounds - last third of spectrum used
 float auh(float x, float y){
     float usedLength = audioSpectrum.length / 2;
     float center = x * usedLength + usedLength;
@@ -134,29 +134,19 @@ float bri(float x, float y){ //brightness https://stackoverflow.com/questions/59
 }
 
 float var(float x){
-    int varIndexFloor = int(floor(x * nVariables));
-    int varIndexCeil = int(ceil(x * nVariables));
+    int varIndex = int(floor(x * nVariables));
 
-    if(varIndexFloor >= nVariables){
-        varIndexFloor = nVariables - 1;
-    }
-    if(varIndexCeil >= nVariables){
-        varIndexCeil = nVariables - 1;
+    if(varIndex >= nVariables){
+        varIndex = nVariables - 1;
     }
 
-    float ratioValue = x - varIndexFloor;
-
-    float valueFloor = (1 - ratioValue) * variables[varIndexFloor];
-    float valueCeil = (ratioValue) * variables[varIndexCeil];
-    float value = valueFloor + valueCeil;
-
-    return value;
+    return variables[varIndex];
 }
 
 vec3 generateRGB(float x, float y){
-    float r = 1.0;
-    float g = 1.0;
-    float b = 1.0;
+    float r = (sin(max((sin(var(y))+min((auh(x,x)*(x-0.8787115)),y)),0.8119079))-aul(((x+y)-(((cos(x)-max(pow((x-x),sin(x)),y))*(cos((aul(0.6099094,0.036922686)/sin(y)))/x))/x)),sin(aul(tan(y),0.8353806))));
+    float g = (sin(max((sin(var(0.718761))+min((auh(x,y)*(0.64612937-y)),x)),y))-aul(((0.70445824+x)-(((cos(y)-max(pow((x-y),sin(0.4355886)),y))*(cos((aul(y,x)/sin(x)))/x))/x)),sin(aul(tan(x),0.4100655))));
+    float b = (sin(max((sin(var(x))+min((auh(y,x)*(x-0.0)),0.21965057)),0.5373119))-aul(((y+x)-(((cos(x)-max(pow((0.56435895-y),sin(x)),0.7333036))*(cos((aul(y,x)/sin(y)))/y))/x)),sin(aul(tan(y),y))));
     return vec3(r,g,b);
 }
 

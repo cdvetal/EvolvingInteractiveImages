@@ -16,7 +16,7 @@ boolean externalMode;
 
 FFT fft;
 SoundFile[] soundFiles;
-boolean muted = true;
+boolean muted = false;
 int nBands = 512;
 int soundIndex = 0;
 
@@ -43,7 +43,7 @@ int nAnimationFrames = 96;
 Operation[] operations;
 Operation[] enabledOperations;
 String[] templateShaderLines;
-int shaderChangeLineStart = 147; //3 lines need changing (r,g,b), first line is this (as shown in vscode)
+int shaderChangeLineStart = 157; //3 lines need changing (r,g,b), first line is this (as shown in vscode)
 
 Button pressedButton;
 
@@ -167,7 +167,6 @@ void keyPressed() {
   }
 
   if (key == 'A' || key == 'a') {
-    muted =! muted;
     muteSong();
   }
 

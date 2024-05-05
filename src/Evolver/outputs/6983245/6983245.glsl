@@ -82,7 +82,7 @@ float aud(float x, float y){
     return sum/(radius/2); //sum/(radius * 2)
 }
 
-//like aud but low sounds - first half of spectrum used
+//like aud but low sounds - first third of spectrum used
 float aul(float x, float y){
     float usedLength = audioSpectrum.length / 2;
     float center = x * usedLength;
@@ -99,7 +99,7 @@ float aul(float x, float y){
     return sum/(radius/2);
 }
 
-//like aud but high sounds - second half of spectrum used
+//like aud but high sounds - last third of spectrum used
 float auh(float x, float y){
     float usedLength = audioSpectrum.length / 2;
     float center = x * usedLength + usedLength;
@@ -134,29 +134,19 @@ float bri(float x, float y){ //brightness https://stackoverflow.com/questions/59
 }
 
 float var(float x){
-    int varIndexFloor = int(floor(x * nVariables));
-    int varIndexCeil = int(ceil(x * nVariables));
+    int varIndex = int(floor(x * nVariables));
 
-    if(varIndexFloor >= nVariables){
-        varIndexFloor = nVariables - 1;
-    }
-    if(varIndexCeil >= nVariables){
-        varIndexCeil = nVariables - 1;
+    if(varIndex >= nVariables){
+        varIndex = nVariables - 1;
     }
 
-    float ratioValue = x - varIndexFloor;
-
-    float valueFloor = (1 - ratioValue) * variables[varIndexFloor];
-    float valueCeil = (ratioValue) * variables[varIndexCeil];
-    float value = valueFloor + valueCeil;
-
-    return value;
+    return variables[varIndex];
 }
 
 vec3 generateRGB(float x, float y){
-    float r = 1.0;
-    float g = 1.0;
-    float b = 1.0;
+    float r = ((min(((tan(y)/x)-auh((aul(x,x)/(x-x)),y)),0.6997616)/0.08702588)*aud(((x-y)-(sin((cos(x)-tan(y)))*x)),sin(aul(sin(y),0.727704))));
+    float g = ((min(((tan(0.4729996)/x)-auh((aul(x,y)/(0.37306112-y)),x)),y)/0.6493535)*aud(((0.67361367-x)-(sin((cos(y)-tan(x)))*y)),sin(aul(sin(x),0.100090675))));
+    float b = ((min(((tan(x)/x)-auh((aul(y,x)/(0.9557793-0.09351647)),0.0)),0.5373119)/x)*aud(((y-x)-(sin((cos(x)-tan(y)))*x)),sin(aul(sin(y),y))));
     return vec3(r,g,b);
 }
 

@@ -95,6 +95,7 @@ void changeSong() {
 }
 
 void muteSong() {
+  muted =! muted;
   soundFiles[soundIndex].amp(muted ? 0 : 1);
 }
 

@@ -82,7 +82,7 @@ float aud(float x, float y){
     return sum/(radius/2); //sum/(radius * 2)
 }
 
-//like aud but low sounds - first third of spectrum used
+//like aud but low sounds - first half of spectrum used
 float aul(float x, float y){
     float usedLength = audioSpectrum.length / 2;
     float center = x * usedLength;
@@ -99,7 +99,7 @@ float aul(float x, float y){
     return sum/(radius/2);
 }
 
-//like aud but high sounds - last third of spectrum used
+//like aud but high sounds - second half of spectrum used
 float auh(float x, float y){
     float usedLength = audioSpectrum.length / 2;
     float center = x * usedLength + usedLength;
@@ -134,19 +134,29 @@ float bri(float x, float y){ //brightness https://stackoverflow.com/questions/59
 }
 
 float var(float x){
-    int varIndex = int(floor(x * nVariables));
+    int varIndexFloor = int(floor(x * nVariables));
+    int varIndexCeil = int(ceil(x * nVariables));
 
-    if(varIndex >= nVariables){
-        varIndex = nVariables - 1;
+    if(varIndexFloor >= nVariables){
+        varIndexFloor = nVariables - 1;
+    }
+    if(varIndexCeil >= nVariables){
+        varIndexCeil = nVariables - 1;
     }
 
-    return variables[varIndex];
+    float ratioValue = x - varIndexFloor;
+
+    float valueFloor = (1 - ratioValue) * variables[varIndexFloor];
+    float valueCeil = (ratioValue) * variables[varIndexCeil];
+    float value = valueFloor + valueCeil;
+
+    return value;
 }
 
 vec3 generateRGB(float x, float y){
-    float r = (tan(auh(y,x))*0.0);
-    float g = (tan(auh(0.80397964,x))*x);
-    float b = (tan(auh(y,y))*0.80332804);
+    float r = y;
+    float g = y;
+    float b = x;
     return vec3(r,g,b);
 }
 

@@ -82,7 +82,7 @@ float aud(float x, float y){
     return sum/(radius/2); //sum/(radius * 2)
 }
 
-//like aud but low sounds - first third of spectrum used
+//like aud but low sounds - first half of spectrum used
 float aul(float x, float y){
     float usedLength = audioSpectrum.length / 2;
     float center = x * usedLength;
@@ -99,7 +99,7 @@ float aul(float x, float y){
     return sum/(radius/2);
 }
 
-//like aud but high sounds - last third of spectrum used
+//like aud but high sounds - second half of spectrum used
 float auh(float x, float y){
     float usedLength = audioSpectrum.length / 2;
     float center = x * usedLength + usedLength;
@@ -134,19 +134,29 @@ float bri(float x, float y){ //brightness https://stackoverflow.com/questions/59
 }
 
 float var(float x){
-    int varIndex = int(floor(x * nVariables));
+    int varIndexFloor = int(floor(x * nVariables));
+    int varIndexCeil = int(ceil(x * nVariables));
 
-    if(varIndex >= nVariables){
-        varIndex = nVariables - 1;
+    if(varIndexFloor >= nVariables){
+        varIndexFloor = nVariables - 1;
+    }
+    if(varIndexCeil >= nVariables){
+        varIndexCeil = nVariables - 1;
     }
 
-    return variables[varIndex];
+    float ratioValue = x - varIndexFloor;
+
+    float valueFloor = (1 - ratioValue) * variables[varIndexFloor];
+    float valueCeil = (ratioValue) * variables[varIndexCeil];
+    float value = valueFloor + valueCeil;
+
+    return value;
 }
 
 vec3 generateRGB(float x, float y){
-    float r = (aul((0.28046036/0.31274235),(sin(min(auh(tan(cos(tan(0.6716865))),x),cos(y)))*aul((aul(x,x)+(pow((pow(y,y)+x),max(max(y,0.8450033),y))*y)),((0.97297776+tan(x))+y))))/0.22956137);
-    float g = (aul((y/x),(sin(min(auh(tan(cos(tan(0.057425916))),x),cos(x)))*aul((aul(y,0.13798559)+(pow((pow(y,0.631997)+x),max(max(x,y),x))*0.13591133)),((0.33604333+tan(0.9544607))+0.62548304))))/0.8588521);
-    float b = (aul((x/y),(sin(min(auh(tan(cos(tan(0.88187546))),x),cos(0.51935285)))*aul((aul(y,x)+(pow((pow(x,x)+x),max(max(y,0.6457839),0.31286696))*x)),((y+tan(x))+x))))/0.88818777);
+    float r = (cos(0.44317836)+y);
+    float g = (cos(0.6203272)+x);
+    float b = (cos(y)+0.3332802);
     return vec3(r,g,b);
 }
 

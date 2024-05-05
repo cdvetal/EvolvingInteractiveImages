@@ -82,7 +82,7 @@ float aud(float x, float y){
     return sum/(radius/2); //sum/(radius * 2)
 }
 
-//like aud but low sounds - first third of spectrum used
+//like aud but low sounds - first half of spectrum used
 float aul(float x, float y){
     float usedLength = audioSpectrum.length / 2;
     float center = x * usedLength;
@@ -99,7 +99,7 @@ float aul(float x, float y){
     return sum/(radius/2);
 }
 
-//like aud but high sounds - last third of spectrum used
+//like aud but high sounds - second half of spectrum used
 float auh(float x, float y){
     float usedLength = audioSpectrum.length / 2;
     float center = x * usedLength + usedLength;
@@ -134,19 +134,29 @@ float bri(float x, float y){ //brightness https://stackoverflow.com/questions/59
 }
 
 float var(float x){
-    int varIndex = int(floor(x * nVariables));
+    int varIndexFloor = int(floor(x * nVariables));
+    int varIndexCeil = int(ceil(x * nVariables));
 
-    if(varIndex >= nVariables){
-        varIndex = nVariables - 1;
+    if(varIndexFloor >= nVariables){
+        varIndexFloor = nVariables - 1;
+    }
+    if(varIndexCeil >= nVariables){
+        varIndexCeil = nVariables - 1;
     }
 
-    return variables[varIndex];
+    float ratioValue = x - varIndexFloor;
+
+    float valueFloor = (1 - ratioValue) * variables[varIndexFloor];
+    float valueCeil = (ratioValue) * variables[varIndexCeil];
+    float value = valueFloor + valueCeil;
+
+    return value;
 }
 
 vec3 generateRGB(float x, float y){
-    float r = sin(aud(auh(x,x),((min(max(tan((cos(0.863934)*y)),x),var(y))*0.65879667)-aud((var(x)+(max(sin(pow(y,y)),min(auh(x,0.8028401),y))+y)),(cos(aud(aul(var(var(((y+x)+var(aud(x,cos(0.8357275)))))),aul(y,(x/auh(0.29075187,(tan((min(tan(y),sin(tan(0.6509799)))/x))+x))))),x))+y)))));
-    float g = sin(aud(auh(0.80397964,x),((min(max(tan((cos(0.057425916)*y)),x),var(x))*y)-aud((var(y)+(max(sin(pow(y,0.39168933)),min(auh(y,y),x))+0.10175141)),(cos(aud(aul(var(var(((y+x)+var(aud(x,cos(x)))))),aul(0.31279123,(0.0/auh(y,(tan((min(tan(x),sin(tan(0.6347953)))/x))+x))))),0.16648297))+0.641128)))));
-    float b = sin(aud(auh(y,y),((min(max(tan((cos(0.88187546)*x)),x),var(0.67530525))*0.6209169)-aud((var(y)+(max(sin(pow(x,x)),min(auh(0.6978973,0.32058504),0.09382007))+x)),(cos(aud(aul(var(var(((y+0.87789434)+var(aud(y,cos(y)))))),aul(x,(y/auh(y,(tan((min(tan(0.2751934),sin(tan(y)))/0.9621154))+x))))),y))+x)))));
+    float r = (cos(var((y+var(tan((y+x))))))+y);
+    float g = (cos(var((y+var(tan((0.93989307+x))))))+x);
+    float b = (cos(var((0.9516717+var(tan((x+y))))))+0.3332802);
     return vec3(r,g,b);
 }
 

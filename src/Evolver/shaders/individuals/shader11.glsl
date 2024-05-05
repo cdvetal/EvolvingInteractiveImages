@@ -82,7 +82,7 @@ float aud(float x, float y){
     return sum/(radius/2); //sum/(radius * 2)
 }
 
-//like aud but low sounds - first third of spectrum used
+//like aud but low sounds - first half of spectrum used
 float aul(float x, float y){
     float usedLength = audioSpectrum.length / 2;
     float center = x * usedLength;
@@ -99,7 +99,7 @@ float aul(float x, float y){
     return sum/(radius/2);
 }
 
-//like aud but high sounds - last third of spectrum used
+//like aud but high sounds - second half of spectrum used
 float auh(float x, float y){
     float usedLength = audioSpectrum.length / 2;
     float center = x * usedLength + usedLength;
@@ -134,19 +134,29 @@ float bri(float x, float y){ //brightness https://stackoverflow.com/questions/59
 }
 
 float var(float x){
-    int varIndex = int(floor(x * nVariables));
+    int varIndexFloor = int(floor(x * nVariables));
+    int varIndexCeil = int(ceil(x * nVariables));
 
-    if(varIndex >= nVariables){
-        varIndex = nVariables - 1;
+    if(varIndexFloor >= nVariables){
+        varIndexFloor = nVariables - 1;
+    }
+    if(varIndexCeil >= nVariables){
+        varIndexCeil = nVariables - 1;
     }
 
-    return variables[varIndex];
+    float ratioValue = x - varIndexFloor;
+
+    float valueFloor = (1 - ratioValue) * variables[varIndexFloor];
+    float valueCeil = (ratioValue) * variables[varIndexCeil];
+    float value = valueFloor + valueCeil;
+
+    return value;
 }
 
 vec3 generateRGB(float x, float y){
-    float r = (auh((0.28046036*0.5671948),(cos(pow(auh(var((tan(0.6716865)/y)),x),cos(y)))/aul((0.68233883+(min((pow(y,y)+x),max(auh(y,0.8450033),y))+y)),((x-cos(x))-y))))/0.22956137);
-    float g = (auh((y*x),(cos(pow(auh(var((tan(0.057425916)/y)),x),cos(x)))/aul((x+(min((pow(y,0.73775995)+x),max(auh(0.8333838,y),x))+0.19121848)),((0.6057528-cos(0.9544607))-0.1957078))))/0.8588521);
-    float b = (auh((x*y),(cos(pow(auh(var((tan(0.64940983)/x)),x),cos(0.51935285)))/aul((y+(min((pow(x,x)+x),max(auh(y,0.6457839),0.31286696))+0.9904944)),((y-cos(x))-x))))/0.88818777);
+    float r = (sin(sin(sin(min(cos(cos(x)),y))))+y);
+    float g = (sin(sin(sin(min(cos(cos(0.49012068)),y))))+0.9050147);
+    float b = (sin(sin(sin(min(cos(cos(x)),y))))+0.3332802);
     return vec3(r,g,b);
 }
 

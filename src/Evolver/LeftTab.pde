@@ -67,28 +67,29 @@ class LeftTab {
       layoutController.show();
 
 
-      translate(0, gap + musicController.totalHeight);
+      translate(0, gap + layoutController.totalHeight);
       fill(colors.get("primary"));
       textAlign(LEFT, CENTER);
       textFont(fonts.get("medium"));
       textSize(14);
-      if(individualScreen.individual!= null) text("Individual: " + nf(individualScreen.individual.getFitness(), 0, 1)  + " fitness", 0, 0);
+      if (individualScreen.individual!= null) text("Individual: " + nf(individualScreen.individual.getFitness(), 0, 1)  + " fitness", 0, 0);
       else text("Individual", 0, 0);
       translate(0, gap);
       individualController.show();
 
-
-      translate(0, gap + musicController.totalHeight);
-      fill(colors.get("primary"));
-      textAlign(LEFT, CENTER);
-      textFont(fonts.get("medium"));
-      textSize(14);
-      text("Operation Types", 0, 0);
-      textFont(fonts.get("light"));
-      textSize(12);
-      textAlign(LEFT, TOP);
-      translate(0, gap);
-      text(individualScreen.nodeInfoString, 0, 0, columns[columnWidth-1].z * 2 - border - gap, 200);
+      if (individualScreen.individual!= null) {
+        translate(0, gap + individualController.totalHeight);
+        fill(colors.get("primary"));
+        textAlign(LEFT, CENTER);
+        textFont(fonts.get("medium"));
+        textSize(14);
+        text("Operation Types", 0, 0);
+        textFont(fonts.get("light"));
+        textSize(12);
+        textAlign(LEFT, TOP);
+        translate(0, gap);
+        text(individualScreen.nodeInfoString, 0, 0, columns[columnWidth-1].z * 2 - border - gap, 200);
+      }
     }
   }
 
@@ -242,8 +243,12 @@ class MusicController {
   void show() {
     previous.show();
     play.show();
+    next.show();
+
     if (play.getSelected()) {
       //play/pause music
+      play.toggle();
+      muteSong();
 
       if (play.toggled) {
         play.setIcon("play");
@@ -251,7 +256,12 @@ class MusicController {
         play.setIcon("pause");
       }
     }
-    next.show();
+
+    if (previous.getSelected() || next.getSelected())
+    {
+      changeSong();
+    }
+
 
     pushMatrix();
     translate(columns[0].z + gap, 20);
