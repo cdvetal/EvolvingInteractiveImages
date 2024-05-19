@@ -21,6 +21,8 @@ IndividualScreen individualScreen;
 VariablesManager variablesManager;
 SettingsScreen settingsScreen;
 
+int gap = 24;
+
 void setup() {
   frameRate(100);
   fullScreen(P2D);
