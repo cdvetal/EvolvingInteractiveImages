@@ -43,6 +43,8 @@ class Individual {
   void cleanUp() {
     tree.removeUnusedNodes();
     identifyNodes();
+    tree.removeTooDeep();
+    identifyNodes();
   }
 
   void identifyNodes() {

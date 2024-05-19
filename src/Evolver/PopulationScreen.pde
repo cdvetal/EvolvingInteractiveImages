@@ -73,7 +73,7 @@ class PopulationScreen {
       
       pushMatrix();
       translate(gridX + shiftX, gridY + shiftY);
-      //showInteractiveNodeInfo(pop.getIndividual(i).operationStats);
+      showInteractiveNodeInfo(pop.getIndividual(i).operationStats);
       popMatrix();
 
       if (mouseX > screenX(gridX, 0) && mouseX < screenX(gridX + gridD, 0) && mouseY > screenY(0, gridY) && mouseY < screenY(0, gridY + gridD)) {
@@ -116,15 +116,15 @@ class PopulationScreen {
     
     if(nodeInfo.containsKey("aud")){
       shape(musicIcon, currentX, iconSize, iconSize, iconSize);
-      currentX += iconSize;
+      currentX += iconSize * 1.5;
     }
     if(nodeInfo.containsKey("bri")){
       shape(videoIcon, currentX, iconSize, iconSize, iconSize);
-      currentX += iconSize;
+      currentX += iconSize * 1.5;
     }
     if(nodeInfo.containsKey("var")){
       shape(dataIcon, currentX, iconSize, iconSize, iconSize);
-      currentX += iconSize;
+      currentX += iconSize * 1.5;
     }
   }
 }

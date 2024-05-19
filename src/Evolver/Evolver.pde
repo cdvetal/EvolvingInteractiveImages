@@ -7,12 +7,10 @@ import processing.video.*;
 Capture cam;
 PImage inputImage;
 
-int maxDepth = 10;
+int maxDepth = 15;
 int resolution = 150;
 int imageExportResolution = 1920;
 int animationExportResolution = 1440;
-
-boolean externalMode;
 
 FFT fft;
 SoundFile[] soundFiles;
@@ -160,10 +158,6 @@ void keyPressed() {
 
   if (key == ' ') {
     population.evolve();
-  }
-
-  if (key == 'E' || key == 'e') {
-    externalMode = !externalMode;
   }
 
   if (key == 'A' || key == 'a') {

@@ -5,7 +5,7 @@ class Node {
 
   int nodeIndex;
   int depth;
-  int breadth; 
+  int breadth;
 
   int visX; //location of node in tree visualization horizontally. vertical is depth
 
@@ -76,11 +76,10 @@ class Node {
     breadth = _indiv.getBreadth(depth);
     int childDepth = _depth + 1;
 
-    if (aNode != null){
+    if (aNode != null) {
       visX = aNode.identify(_indiv, childDepth);
       _indiv.addOperation(enabledOperations[getMathType(mathType)].operator);
-    }
-    else {
+    } else {
       visX = breadth;
       _indiv.addBreadth();
     }
@@ -104,7 +103,7 @@ class Node {
     Node aNodeCopy = aNode == null ? null : aNode.getCopy();
     Node bNodeCopy = bNode == null ? null : bNode.getCopy();
 
-    return new Node(mathType, aNodeCopy, bNodeCopy, scalar.clone(), nodeIndex, depth, breadth); 
+    return new Node(mathType, aNodeCopy, bNodeCopy, scalar.clone(), nodeIndex, depth, breadth);
   }
 
   Node getNode(int _index) {
@@ -363,19 +362,43 @@ class Node {
     int requiredArguments =  enabledOperations[getMathType(mathType)].getNumberArgumentsNeeded();
 
     if (aNode == null) {
-      bNode = null;
+      nullifyChildren(false);
     }
 
     if (requiredArguments == 0) {
-      aNode = null;
-      bNode = null;
+      nullifyChildren(true);
       return;
     }
 
     if (requiredArguments == 1) {
-      bNode = null;
+      nullifyChildren(false);
       return;
     }
+  }
+
+  void removeTooDeep() {
+    if (depth == maxDepth) {
+      nullifyChildren(true);
+    } else {
+     if(aNode != null){
+      aNode.removeTooDeep(); 
+     }
+     if(bNode != null){
+      bNode.removeTooDeep(); 
+     }
+    }
+  }
+
+  void nullifyChildren(boolean _both) {
+    if (aNode != null && _both) {
+      aNode.nullifyChildren(true);
+    }
+    if (bNode != null) {
+      bNode.nullifyChildren(true);
+    }
+
+    aNode = null;
+    bNode = null;
   }
 
   String getScalarValueString(int _scalarIndex, boolean _cropped) { //retrieves string from normalized scalar values, from terminal set or value 0-1

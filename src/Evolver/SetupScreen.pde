@@ -7,6 +7,7 @@ class SetupScreen {
 
   Slider aspectRatioSlider;
   Slider nVariablesSlider;
+  Slider maxDepthSlider;
 
   SetupScreen() {
     float sliderW = columns[0].z * 2 - gap;
@@ -14,6 +15,8 @@ class SetupScreen {
     aspectRatioSlider.value = 0.66;
     nVariablesSlider = new Slider(sliderW);
     nVariablesSlider.value = 0.3;
+    maxDepthSlider = new Slider(sliderW);
+    maxDepthSlider.value = 0;
   }
 
   void show() {
@@ -67,7 +70,7 @@ class SetupScreen {
     algorithmController.show();
     popMatrix();
     
-    //Aspect Ratio & NVariables
+    //Aspect Ratio & NVariables & MaxDepth
     pushMatrix();
 
     translate(columns[3].x, border);
@@ -96,6 +99,17 @@ class SetupScreen {
     translate(0, gap);
 
     nVariablesSlider.show();
+    
+    translate(0, gap);
+
+    fill(colors.get("primary"));
+    textAlign(LEFT, CENTER);
+    textFont(fonts.get("medium"));
+    textSize(14);
+    text("Max Depth: " + getMaxDepth(), 0, 0);
+    translate(0, gap);
+
+    maxDepthSlider.show();
     
     popMatrix();
 
@@ -154,6 +168,7 @@ class SetupScreen {
     
     leftTab = new LeftTab(nVariables);
 
+    maxDepth = getMaxDepth();
 
     populationSize = round(algorithmController.getSliderValue(0));
     mutationRate = algorithmController.getSliderValue(1);
@@ -169,6 +184,10 @@ class SetupScreen {
 
   int getNVariables() {
     return int(round(nVariablesSlider.value * 10));
+  }
+  
+  int getMaxDepth() {
+    return int(4 + round(maxDepthSlider.value * 20));
   }
   
   boolean checkVarEnabled(Operation[] _enabledOperations){
