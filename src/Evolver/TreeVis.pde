@@ -157,6 +157,8 @@ class TreeVis { //needs fixing
   void clearTreeShaderFiles() {
     File files = dataFile(directory);
     String[] fileNames = files.list();
+    
+    if(fileNames ==  null) return;
 
     for (int i = 0; i < fileNames.length; i ++) {
       File f = new File(directory + fileNames[i]);

@@ -116,15 +116,15 @@ class PopulationScreen {
     
     if(nodeInfo.containsKey("aud")){
       shape(musicIcon, currentX, iconSize, iconSize, iconSize);
-      currentX += iconSize * 1.5;
+      currentX += iconSize * 2;
     }
     if(nodeInfo.containsKey("bri")){
       shape(videoIcon, currentX, iconSize, iconSize, iconSize);
-      currentX += iconSize * 1.5;
+      currentX += iconSize * 2;
     }
     if(nodeInfo.containsKey("var")){
       shape(dataIcon, currentX, iconSize, iconSize, iconSize);
-      currentX += iconSize * 1.5;
+      currentX += iconSize * 2;
     }
   }
 }
