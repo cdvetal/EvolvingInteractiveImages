@@ -114,7 +114,7 @@ class PopulationScreen {
     fill(colors.get("primary"));
     noStroke();
     
-    if(nodeInfo.containsKey("aud")){
+    if(nodeInfo.containsKey("aud") || nodeInfo.containsKey("auh") || nodeInfo.containsKey("aul")){
       shape(musicIcon, currentX, iconSize, iconSize, iconSize);
       currentX += iconSize * 2;
     }
