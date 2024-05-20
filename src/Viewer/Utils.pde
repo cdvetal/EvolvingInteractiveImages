@@ -1,15 +1,15 @@
 //gets
 
-PImage getPhenotype(float _w, float _h, PShader _shader, float[] _variables, float[] _audioSpectrum, PImage _inputImage) {
+PImage getPhenotype(float _w, float _h, PShader _shader) {
   int w = floor(_w);
   int h = floor(_h);
   PGraphics canvas = createGraphics(w, h, P2D);
-
+  
   _shader.set("resolution", _w, _h);
   _shader.set("nVariables", variablesManager.nVariables);
-  _shader.set("variables", _variables);
-  _shader.set("audioSpectrum", _audioSpectrum);
-  _shader.set("image", _inputImage);
+  _shader.set("variables", variablesManager.getShaderReadyVariables());
+  _shader.set("audioSpectrum", getAudioSpectrum());
+  _shader.set("image", inputImage);
 
   canvas.beginDraw();
 
@@ -24,13 +24,12 @@ PImage getPhenotype(float _w, float _h, PShader _shader, float[] _variables, flo
   return canvas;
 }
 
-PImage getImageInput(){
-  if (cam != null && cam.available() == true) {
-    cam.read();
-    return cam;
-  }
+void setInputImage() {
+  if (cam == null) return;
+  if (cam.available() != true) return;
 
-  return exampleImage;
+  cam.read();
+  inputImage = cam;
 }
 
 float[] getAudioSpectrum() {
@@ -42,8 +41,8 @@ float[] getAudioSpectrum() {
 //changes
 
 void changeSong() {
-  if(!songPlaying) return;
-  
+  if (!songPlaying) return;
+
   soundFiles[soundIndex].stop();
   soundIndex ++;
 
@@ -54,9 +53,9 @@ void changeSong() {
 }
 
 void muteSong() {
-  if(songPlaying) soundFiles[soundIndex].stop();
+  if (songPlaying) soundFiles[soundIndex].stop();
   else soundFiles[soundIndex].loop();
-  
+
   songPlaying =! songPlaying;
 }
 

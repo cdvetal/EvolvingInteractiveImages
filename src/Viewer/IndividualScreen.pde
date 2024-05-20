@@ -14,15 +14,11 @@ class IndividualScreen {
   }
 
   void show() {
-    float[] variables = variablesManager.getShaderReadyVariables();
-    float[] audioSpectrum = getAudioSpectrum();
-    PImage imageInput = getImageInput();
-
     background(255, 0, 0);
 
-    if (transitionTimeLeft <= 0) {
+    if (transitionTimeLeft <= 0) { //transitionTimeLeft <= 0
       noTint();
-      PImage shaderImage = getPhenotype(width, height, individuals[individualIndex].getShader(), variables, audioSpectrum, imageInput);
+      PImage shaderImage = getPhenotype(width, height, individuals[individualIndex].getShader());
       image(shaderImage, 0, 0);
     } else {
       int timePassed = millis() - lastFrameMillis;
@@ -33,11 +29,11 @@ class IndividualScreen {
       float transparencyRatio = transitionRatio * 255;
 
       tint(255, 255 - transparencyRatio);
-      PImage shaderImageNext = getPhenotype(width, height, individuals[getNextIndex(transitionDirection)].getShader(), variables, audioSpectrum, imageInput);
+      PImage shaderImageNext = getPhenotype(width, height, individuals[getNextIndex(transitionDirection)].getShader());
       image(shaderImageNext, 0, 0);
 
       tint(255, transparencyRatio);
-      PImage shaderImageCurrent = getPhenotype(width, height, individuals[individualIndex].getShader(), variables, audioSpectrum, imageInput);
+      PImage shaderImageCurrent = getPhenotype(width, height, individuals[individualIndex].getShader());
       image(shaderImageCurrent, 0, 0);
 
       if (transitionTimeLeft <= 0) {

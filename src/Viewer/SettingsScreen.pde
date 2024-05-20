@@ -33,6 +33,11 @@ class SettingsScreen {
 
   void show() {
     background(10);
+    
+    fill(230);
+    textAlign(LEFT, CENTER);
+    textSize(12);
+    text(individualScreen.getCurrentIndividualName(), gap, gap);
 
     int currentNVariables = getNVariables();
     checkNVariablesChange(currentNVariables);

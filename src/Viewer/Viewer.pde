@@ -3,7 +3,7 @@ import processing.sound.*;
 import processing.video.*;
 
 Capture cam;
-PImage exampleImage;
+PImage inputImage;
 
 PImage shaderImage;
 
@@ -15,7 +15,7 @@ int nBands = 512;
 int soundIndex = 0;
 boolean songPlaying = true;
 
-boolean showingSettings = false;
+boolean showingSettings = true;
 
 IndividualScreen individualScreen;
 VariablesManager variablesManager;
@@ -24,7 +24,7 @@ SettingsScreen settingsScreen;
 int gap = 24;
 
 void setup() {
-  frameRate(100);s
+  frameRate(100);
   fullScreen(P2D);
   //size(1080, 1080, P2D);
   
@@ -42,10 +42,9 @@ void draw() {
     muteSong();
 
     String[] cameras = Capture.list();
-    if (cameras.length == 0) {
-      exampleImage = loadImage("image.jpg");
+    if (cameras.length >= 0) { //camera is crashing - quick "fix" to use example image
+      inputImage = loadImage("exampleImage.jpg");
     } else {
-      println(cameras.length);
       cam = new Capture(this, 1280, 720);
       cam.start();
     }
