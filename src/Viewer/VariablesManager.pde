@@ -6,12 +6,16 @@ class VariablesManager { //Manages all the external info
   int variableTypes[]; //controls the type of each variable. //-1  manual; 0  mouseX; 1  mouseY; 2  sine wave; 3 perlin
 
   VariablesManager(int _nVariables) {
+    setNVariables(_nVariables);
+  }
+  
+  void setNVariables(int _nVariables){
     if(_nVariables > shaderVariablesArraySize) _nVariables = shaderVariablesArraySize;
     nVariables = _nVariables;
 
     variableTypes = new int[nVariables];
-    for(int i = 0; i < nVariables; i++){
-      variableTypes[i] = 3;
+    for(int i = 0; i < variableTypes.length; i++){
+      variableTypes[i] = 10;
     }
   }
 
