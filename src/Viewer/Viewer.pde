@@ -24,7 +24,7 @@ SettingsScreen settingsScreen;
 int gap = 24;
 
 void setup() {
-  frameRate(100);
+  frameRate(100);s
   fullScreen(P2D);
   //size(1080, 1080, P2D);
   
@@ -43,7 +43,7 @@ void draw() {
 
     String[] cameras = Capture.list();
     if (cameras.length == 0) {
-      exampleImage = loadImage("shells.jpg");
+      exampleImage = loadImage("image.jpg");
     } else {
       println(cameras.length);
       cam = new Capture(this, 1280, 720);
