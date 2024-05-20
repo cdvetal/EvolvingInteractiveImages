@@ -56,8 +56,12 @@ Viewer is the program where you can visualize evolved imagery.
 ## Contributors
 
 Author:
+
 João Maria Santos
 
+
 Supervisers:
+
 Tiago Martins
+
 Penousal Machado
