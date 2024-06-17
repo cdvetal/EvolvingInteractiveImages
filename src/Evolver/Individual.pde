@@ -41,7 +41,7 @@ class Individual {
    }*/
 
   void cleanUp() {
-    tree.removeUnusedNodes();
+    tree.checkNecessaryChildrenNodes();
     identifyNodes();
     tree.removeTooDeep();
     identifyNodes();
@@ -177,8 +177,6 @@ class Individual {
   }
 
   PVector getVisDimensions() {
-    //int w = breadthTracker.get(breadthTracker.size() - 1) + 2;
-    //int h = breadthTracker.size();
     return new PVector(nFullColumns, nodeHighestDepth + 1);
   }
 

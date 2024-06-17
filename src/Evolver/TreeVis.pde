@@ -65,21 +65,20 @@ class TreeVis { //needs fixing
           iLoop:
             for (int parentI = 0; parentI < nodeGrid.length; parentI ++) {
               for (int parentJ = 0; parentJ < nodeGrid[nodeGrid.length-1].length; parentJ++) {
-                if (nodeGrid[parentI][parentJ] == null) {//potential parent node
+                if (nodeGrid[parentI][parentJ] == null) { //potential parent node exists
                   continue;
                 }
-                int aIndex = -1, bIndex = -1;
-                if (nodeGrid[parentI][parentJ].aNode == null) { //check if potential parent has children
+ 
+                if (nodeGrid[parentI][parentJ].isTerminal()) { //potential parent has children
                   continue;
                 }
-                aIndex = nodeGrid[parentI][parentJ].aNode.nodeIndex;
-                if (nodeGrid[parentI][parentJ].bNode != null) {
-                  bIndex =  nodeGrid[parentI][parentJ].bNode.nodeIndex;
-                }
-                if (aIndex == thisIndex || bIndex == thisIndex) { //check if children ID == this node ID
-                  parentCenterX = (parentI + 0.5) * cellSize;
-                  parentCenterY = (parentJ + 0.5) * cellSize;
-                  break iLoop;
+
+                for (int k = 0; k < nodeGrid[parentI][parentJ].childrenNodes.length; k ++) {//check if children ID == this node ID
+                  if (nodeGrid[parentI][parentJ].childrenNodes[k].nodeIndex == thisIndex) {
+                    parentCenterX = (parentI + 0.5) * cellSize;
+                    parentCenterY = (parentJ + 0.5) * cellSize;
+                    break iLoop;
+                  }
                 }
               }
             }
@@ -157,8 +156,8 @@ class TreeVis { //needs fixing
   void clearTreeShaderFiles() {
     File files = dataFile(directory);
     String[] fileNames = files.list();
-    
-    if(fileNames ==  null) return;
+
+    if (fileNames ==  null) return;
 
     for (int i = 0; i < fileNames.length; i ++) {
       File f = new File(directory + fileNames[i]);

@@ -24,7 +24,7 @@ SettingsScreen settingsScreen;
 int gap = 24;
 
 void setup() {
-  frameRate(100);s
+  frameRate(100);
   fullScreen(P2D);
   //size(1080, 1080, P2D);
   

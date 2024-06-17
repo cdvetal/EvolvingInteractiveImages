@@ -159,21 +159,6 @@ void keyPressed() {
   if (key == ' ') {
     population.evolve();
   }
-
-  if (key == 'A' || key == 'a') {
-    muteSong();
-  }
-
-  if (key == 'M' || key == 'm') {
-    changeSong();
-  }
-
-  if (hoveredIndividual == null) return;
-
-  if (key == 'S' || key == 's') {
-    //exportShader(hoveredIndividual);
-    //exportImage(hoveredIndividual);
-  }
 }
 
 void mouseReleased() {
