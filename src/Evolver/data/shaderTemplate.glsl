@@ -161,14 +161,9 @@ vec3 generateRGB(float x, float y){
 }
 
 void main() {
-    vec2 coord = gl_FragCoord.xy;
-    
-    vec2 uv = coord / resolution.y;
+    vec2 uv = gl_FragCoord.xy / resolution;
 
-    float x = uv.x;
-    float y = uv.y;
-
-    vec3 RGB = generateRGB(x, y);
+    vec3 RGB = generateRGB(uv.x, uv.y);
 
     gl_FragColor = vec4(RGB.x, RGB.y, RGB.z, 1.0);
 }

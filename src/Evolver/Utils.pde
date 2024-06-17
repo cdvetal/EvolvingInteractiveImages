@@ -1,7 +1,8 @@
 void exportImage(Individual _individualToExport) {
+  
   String outputPath = sketchPath("outputs/" + _individualToExport.getID() + "/");
 
-  PImage image = getPhenotype(imageExportResolution, imageExportResolution, _individualToExport.shader, variablesManager.getShaderReadyVariables(), getAudioSpectrum());
+  PImage image = getPhenotype(imageExportResolution, imageExportResolution, _individualToExport.getShader(), variablesManager.getShaderReadyVariables(), getAudioSpectrum());
   image.save(outputPath + "img.png");
 
   println("exported image to:" + outputPath);
@@ -38,9 +39,7 @@ PImage getPhenotype(float _w, float _h, PShader _shader, float[] _variables, flo
     int w = floor(_w);
     int h = floor(_h);
     PGraphics canvas = createGraphics(w, h, P2D);
-    
-    _shader.set("resolution", _w, _h); //needed?
-    //_shader.set("externalVal", _external);
+
     _shader.set("nVariables", variablesManager.nVariables);
     _shader.set("variables", _variables);
     _shader.set("audioSpectrum", _audioSpectrum);
@@ -49,8 +48,6 @@ PImage getPhenotype(float _w, float _h, PShader _shader, float[] _variables, flo
     canvas.beginDraw();
     
     canvas.shader(_shader);
-    
-    canvas.noStroke();
     
     canvas.rect(0,0,canvas.width, canvas.height);
 

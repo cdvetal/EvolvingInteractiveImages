@@ -35,10 +35,10 @@ class IndividualScreen {
     float[] audioSpectrum = getAudioSpectrum();
 
     if (_full) {
-      image(getPhenotype(w, h, individual.getShader(), variables, audioSpectrum), x, y, w, h);
+      image(getPhenotype(w, h, individual.getShader(), variables, audioSpectrum), x, y);
     } else {
       float imageW = columns[5].y - x;
-      image(getPhenotype(imageW, h, individual.getShader(), variables, audioSpectrum), x, y, imageW, h);
+      image(getPhenotype(imageW, h, individual.getShader(), variables, audioSpectrum), x, y);
     }
   }
 

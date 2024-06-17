@@ -10,7 +10,6 @@ PImage inputImage;
 int maxDepth = 15;
 int resolution = 150;
 int imageExportResolution = 1920;
-int animationExportResolution = 1440;
 
 FFT fft;
 SoundFile[] soundFiles;
