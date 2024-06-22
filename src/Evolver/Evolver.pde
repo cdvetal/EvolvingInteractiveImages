@@ -10,7 +10,6 @@ PImage inputImage;
 int maxDepth = 15;
 int resolution = 150;
 int imageExportResolution = 1920;
-int animationExportResolution = 1440;
 
 FFT fft;
 SoundFile[] soundFiles;
@@ -158,21 +157,6 @@ void keyPressed() {
 
   if (key == ' ') {
     population.evolve();
-  }
-
-  if (key == 'A' || key == 'a') {
-    muteSong();
-  }
-
-  if (key == 'M' || key == 'm') {
-    changeSong();
-  }
-
-  if (hoveredIndividual == null) return;
-
-  if (key == 'S' || key == 's') {
-    //exportShader(hoveredIndividual);
-    //exportImage(hoveredIndividual);
   }
 }
 

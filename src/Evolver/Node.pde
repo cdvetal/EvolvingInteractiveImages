@@ -1,6 +1,5 @@
 class Node {
 
-  int nMathTypes = enabledOperations.length;
   float mathType; //0-1
 
   int nodeIndex;
@@ -9,28 +8,30 @@ class Node {
 
   int visX; //location of node in tree visualization horizontally. vertical is depth
 
-  Node aNode = null;
-  Node bNode = null;
+  Node[] childrenNodes;
+
+  //Node aNode = null;
+  //Node bNode = null;
 
   String[] terminalSet = {"x", "y"};
 
   float[] scalar = new float[3]; //scalar terminal
 
+  Node() {
+    randomizeNode(false);
+  }
+
   Node(int _depth) {
-    nMathTypes = enabledOperations.length;
     depth = _depth;
   }
 
   Node(boolean _toRandomize, boolean _tocreateChildren) {
-    nMathTypes = enabledOperations.length;
     if (_toRandomize) randomizeNode(_tocreateChildren);
   }
 
-  Node(float _mathType, Node _aNode, Node _bNode, float [] _scalar, int _nodeIndex, int _depth, int _breadth) {
-    nMathTypes = enabledOperations.length;
+  Node(float _mathType, Node[] _childrenNodes, float [] _scalar, int _nodeIndex, int _depth, int _breadth) {
     mathType = _mathType;
-    aNode = _aNode;
-    bNode = _bNode;
+    childrenNodes = _childrenNodes;
     scalar = _scalar;
     nodeIndex = _nodeIndex;
     depth = _depth;
@@ -45,25 +46,24 @@ class Node {
 
   void randomizeNode(boolean _tocreateChildren) {
     mathType = random(1);
-    int requiredArguments =  enabledOperations[getMathType(mathType)].getNumberArgumentsNeeded();
 
-    for (int i = 0; i < 3; i++) {
-      scalar[i] = random(1);
-    }
-
-    if (!_tocreateChildren || requiredArguments == 0) {
-      aNode = null;
-      bNode = null;
+    //decide if node will have children or not
+    if (random(1) > .45 && depth < maxDepth - 1 && _tocreateChildren) {
+      mathType = random(1);
+    } else {
+      mathType = -1;
+      childrenNodes = new Node[0];
+      scalar = getRandomScalar();
       return;
     }
 
-    if (random(1) > .3 && depth < maxDepth - 1) {
-      aNode = new Node(depth + 1);
-      aNode.randomizeNode(true);
-    }
-    if (random(1) > .3 && depth < maxDepth - 1  && requiredArguments == 2) {
-      bNode = new Node(depth + 1);
-      bNode.randomizeNode(true);
+    int requiredArguments =  getOperation().getNumberArgumentsNeeded();
+
+    childrenNodes = new Node[requiredArguments];
+
+    for (int i = 0; i < requiredArguments; i ++) {
+      childrenNodes[i] = new Node(depth + 1);
+      childrenNodes[i].randomizeNode(true);
     }
   }
 
@@ -76,14 +76,17 @@ class Node {
     breadth = _indiv.getBreadth(depth);
     int childDepth = _depth + 1;
 
-    if (aNode != null) {
-      visX = aNode.identify(_indiv, childDepth);
-      _indiv.addOperation(enabledOperations[getMathType(mathType)].operator);
+    if (childrenNodes.length > 0) {
+      _indiv.addOperation(getOperator());
     } else {
       visX = breadth;
       _indiv.addBreadth();
     }
-    if (bNode != null) bNode.identify(_indiv, childDepth);
+
+    for (int i = 0; i < childrenNodes.length; i++) {
+      if (i == 0) visX = childrenNodes[i].identify(_indiv, childDepth);
+      else childrenNodes[i].identify(_indiv, childDepth);
+    }
 
     return visX;
   }
@@ -97,26 +100,26 @@ class Node {
       toAdd = random(-.1, .1);
       scalar[i] = constrain(scalar[i] + toAdd, 0, 1);
     }
+
+    checkNecessaryChildrenNodes();
   }
 
   Node getCopy() {
-    Node aNodeCopy = aNode == null ? null : aNode.getCopy();
-    Node bNodeCopy = bNode == null ? null : bNode.getCopy();
+    Node[] childrenNodesCopy = new Node[childrenNodes.length];
 
-    return new Node(mathType, aNodeCopy, bNodeCopy, scalar.clone(), nodeIndex, depth, breadth);
+    for (int i = 0; i < childrenNodes.length; i++) {
+      childrenNodesCopy[i] = childrenNodes[i].getCopy();
+    }
+
+    return new Node(mathType, childrenNodesCopy, scalar.clone(), nodeIndex, depth, breadth);
   }
 
   Node getNode(int _index) {
     if (nodeIndex == _index) return this;
 
-    if (aNode != null) {
-      Node potencialNode = aNode.getNode(_index);
-      if (potencialNode != null) return potencialNode;
-    }
-
-    if (bNode != null) {
-      Node potencialNode = bNode.getNode(_index);
-      if (potencialNode != null) return potencialNode;
+    for (int i = 0; i < childrenNodes.length; i++) {
+      Node potentialNode = childrenNodes[i].getNode(_index);
+      if (potentialNode != null) return potentialNode;
     }
 
     return null;
@@ -127,78 +130,100 @@ class Node {
 
     if (depth == int(_visLocation.y) && visX == int(_visLocation.x)) return this;
 
-    if (aNode != null) {
-      Node potencialNode = aNode.getNodeVis(_visLocation);
-      if (potencialNode != null) return potencialNode;
-    }
-
-    if (bNode != null) {
-      Node potencialNode = bNode.getNodeVis(_visLocation);
-      if (potencialNode != null) return potencialNode;
+    for (int i = 0; i < childrenNodes.length; i ++) {
+      Node potentialNode = childrenNodes[i].getNodeVis(_visLocation);
+      if (potentialNode != null) return potentialNode;
     }
 
     return null;
   }
 
-  void replaceNode(int _index, Node _newNode) {
-    if (aNode != null && aNode.nodeIndex == _index) {
-      aNode = _newNode;
-      return;
-    } else if (bNode != null && bNode.nodeIndex == _index) {
-      bNode = _newNode;
-      return;
+  boolean replaceNode(int _index, Node _newNode) {
+
+    for (int i = 0; i < childrenNodes.length; i ++) {
+      if (childrenNodes[i].nodeIndex == _index) {
+        childrenNodes[i] = _newNode;
+        return true;
+      }
     }
 
-    if (aNode != null) {
-      aNode.replaceNode(_index, _newNode);
+    for (int i = 0; i < childrenNodes.length; i ++) {
+      if (childrenNodes[i].replaceNode(_index, _newNode)) return true;
     }
 
-    if (bNode != null) {
-      bNode.replaceNode(_index, _newNode);
-    }
+    return false;
   }
 
+  //scalar index is related to selected expression string (0-R, 1-G, 2-B);
   String getFunctionString(int _scalarIndex) {
     String finalString = "";
 
-    if (aNode == null) {
+
+    if (childrenNodes.length < 1) {
       finalString += getScalarValueString(_scalarIndex, false);
       return finalString;
     }
 
-    Operation operation = enabledOperations[getMathType(mathType)];
+    Operation operation = getOperation();
 
+    //if operation if of type opt(xxxxxx)
     if (operation.type != 0) {
       finalString += enabledOperations[getMathType(mathType)].operator;
     }
 
     finalString += "(";
 
-    if (aNode != null) {
-      finalString += aNode.getFunctionString(_scalarIndex);
-    }
+    for (int i = 0; i < childrenNodes.length; i ++) {
+      finalString += childrenNodes[i].getFunctionString(_scalarIndex);
 
-    if (operation.type == 0) {
-      finalString += enabledOperations[getMathType(mathType)].operator;
-    } else if (operation.type == 2) {
-      finalString += ",";
-    } else {
-      finalString += ")";
-      return finalString;
-    }
-
-    if (bNode != null) {
-      finalString += bNode.getFunctionString(_scalarIndex);
-    } else {
-      finalString += getScalarValueString(_scalarIndex, false);
+      if (i < childrenNodes.length - 1) {
+        //if operation of type x + y
+        if (operation.type == 0) finalString += operation.operator;
+        else finalString += ",";
+      }
     }
 
     finalString += ")";
     return finalString;
+
+    ///// REDOING CHILDREN LOGIC
+    /*
+    if (aNode == null) {
+     finalString += getScalarValueString(_scalarIndex, false);
+     return finalString;
+     }
+     //
+     if (operation.type != 0) {
+     finalString += enabledOperations[getMathType(mathType)].operator;
+     }
+     //
+     finalString += "(";
+     
+     if (aNode != null) {
+     finalString += aNode.getFunctionString(_scalarIndex);
+     }
+     
+     if (operation.type == 0) {
+     finalString += enabledOperations[getMathType(mathType)].operator;
+     } else if (operation.type == 2) {
+     finalString += ",";
+     } else {
+     finalString += ")";
+     return finalString;
+     }
+     
+     if (bNode != null) {
+     finalString += bNode.getFunctionString(_scalarIndex);
+     } else {
+     finalString += getScalarValueString(_scalarIndex, false);
+     }
+     
+     finalString += ")";
+     return finalString;*/
   }
 
 
-  String[] getExpressions() {
+  String[] getExpressions() {//get 3 expressions (R, G and B)
     String[] expressions = new String[3];
 
     for (int i = 0; i < expressions.length; i++) {
@@ -210,7 +235,9 @@ class Node {
 
   String getNodeText() {//for tree visualization
     String toReturn = "";
-    if (aNode == null) {
+
+
+    if (childrenNodes.length < 1) {
       toReturn += "(";
       for (int i = 0; i < scalar.length; i++) {
         toReturn += getScalarValueString(i, true);
@@ -218,9 +245,8 @@ class Node {
       }
       toReturn += ")";
     } else {
-      toReturn += enabledOperations[getMathType(mathType)].operator;
+      toReturn += getOperator();
     }
-
     return toReturn;
   }
 
@@ -358,47 +384,43 @@ class Node {
    
    }*/
 
-  void removeUnusedNodes() {
+  void checkNecessaryChildrenNodes() {
     int requiredArguments =  enabledOperations[getMathType(mathType)].getNumberArgumentsNeeded();
 
-    if (aNode == null) {
-      nullifyChildren(false);
-    }
+    if (requiredArguments == childrenNodes.length) return;
 
-    if (requiredArguments == 0) {
-      nullifyChildren(true);
+    if (requiredArguments < childrenNodes.length) {
+      Node[] correctChildrenNodes = new Node[requiredArguments];
+      for (int i = 0; i < requiredArguments; i ++) {
+        correctChildrenNodes[i] = childrenNodes[i].getCopy();
+      }
+      childrenNodes = correctChildrenNodes;
       return;
     }
 
-    if (requiredArguments == 1) {
-      nullifyChildren(false);
-      return;
+    if (requiredArguments > childrenNodes.length) {
+      Node[] correctChildrenNodes = new Node[requiredArguments];
+
+      for (int i = 0; i < childrenNodes.length; i ++) {
+        correctChildrenNodes[i] = childrenNodes[i].getCopy();
+      }
+
+      for (int i = childrenNodes.length; i < requiredArguments; i++) {
+        correctChildrenNodes[i] = new Node();
+      }
+      childrenNodes = correctChildrenNodes;
     }
   }
 
   void removeTooDeep() {
     if (depth == maxDepth) {
-      nullifyChildren(true);
+      childrenNodes = new Node[0];
+      mathType = -1;
     } else {
-     if(aNode != null){
-      aNode.removeTooDeep(); 
-     }
-     if(bNode != null){
-      bNode.removeTooDeep(); 
-     }
+      for (int i = 0; i < childrenNodes.length; i++) {
+        childrenNodes[i].removeTooDeep();
+      }
     }
-  }
-
-  void nullifyChildren(boolean _both) {
-    if (aNode != null && _both) {
-      aNode.nullifyChildren(true);
-    }
-    if (bNode != null) {
-      bNode.nullifyChildren(true);
-    }
-
-    aNode = null;
-    bNode = null;
   }
 
   String getScalarValueString(int _scalarIndex, boolean _cropped) { //retrieves string from normalized scalar values, from terminal set or value 0-1
@@ -421,8 +443,8 @@ class Node {
   }
 
   int getMathType(float _type) {
-    int value = floor(map(_type, 0, 1, 0, nMathTypes));
-    value = constrain(value, 0, nMathTypes - 1);
+    int value = floor(map(_type, 0, 1, 0, enabledOperations.length));
+    value = constrain(value, 0, enabledOperations.length - 1);
     return value;
   }
 
@@ -507,10 +529,26 @@ class Node {
   }
 
   boolean isTerminal() {
-    return (aNode == null && bNode == null);
+    return (childrenNodes.length == 0);
   }
 
   PVector getVisLocation() {
     return new PVector(visX, depth);
+  }
+
+  float[] getRandomScalar() {
+    float[] toReturn = new float[3];
+    for (int i = 0; i < 3; i++) {
+      toReturn[i] = random(1);
+    }
+    return toReturn;
+  }
+
+  Operation getOperation() {
+    return enabledOperations[getMathType(mathType)];
+  }
+
+  String getOperator() {
+    return getOperation().operator;
   }
 }
