@@ -78,7 +78,7 @@ void draw() {
 
   float timeLeftRatio;
 
-  if (currentMinutes < selectionMinutes || millis() < 100000) { //or if program running for less than 30 seconds
+  if (currentMinutes < selectionMinutes || millis() < 10000) { //or if program running for less than 30 seconds
     isSelecting = true;
     doSelection();
     int timeLeft = selectionMinutes - minute();
@@ -87,7 +87,7 @@ void draw() {
   } else {
     if (isSelecting) {
       population.evolve();
-      exportImage(population.getIndividual(0));
+      //exportImage(population.getIndividual(0));
       isSelecting = false;
     }
     doBest();
