@@ -3,6 +3,8 @@ import gab.opencv.*;
 import processing.video.*;
 import java.awt.Rectangle;
 
+boolean debugging = false;
+
 Capture cam;
 OpenCV openCV;
 PImage inputImage;
@@ -35,8 +37,8 @@ int shaderChangeLineStart = 157; //3 lines need changing (r,g,b), first line is 
 VariablesManager variablesManager;
 
 void settings() {
-  fnpSize(1749, 346, P2D);
-  //fnpSize(1749, 900, P2D);
+  //fnpSize(1749, 346, P2D);
+  fnpSize(1749, 900, P2D);
 
   //fnpFullScreen(P2D);
 }
@@ -76,14 +78,16 @@ void draw() {
 
   float timeLeftRatio;
 
-  if (currentMinutes < selectionMinutes || millis() < 1000000) { //or if program running for less than 30 seconds
+  if (currentMinutes < selectionMinutes || millis() < 100000) { //or if program running for less than 30 seconds
     isSelecting = true;
-    doSelection(getVotes());
+    doSelection();
     int timeLeft = selectionMinutes - minute();
     timeLeftRatio = timeLeft / selectionMinutes * 1.0;
+    openCV.loadImage(inputImage);
   } else {
     if (isSelecting) {
       population.evolve();
+      exportImage(population.getIndividual(0));
       isSelecting = false;
     }
     doBest();
@@ -94,10 +98,12 @@ void draw() {
   drawTimeLine(timeLeftRatio);
 }
 
-void doSelection(int[] votes) {
+void doSelection() {
+  int[] votes = getVotes();
+  
   int imageH = - border * 2 + height;
   for (int i = 0; i < populationSize; i ++) {
-    if (votes[i] > 0) {
+    if (votes[populationSize - i - 1] > 0) { //flipping here easier than reversing image
       noFill();
       stroke(255);
       strokeWeight(8);
@@ -117,17 +123,19 @@ void doSelection(int[] votes) {
     fill(255);
     rect(columns[i].x, border, columns[i].z, imageH);
     resetShader();
-    text(nf(population.getIndividual(i).fitness, 0, 3), columns[i].x, border/2);
+    
+    if(debugging) text(nf(population.getIndividual(i).fitness, 0, 3), columns[i].x, border/2);
   }
-
-  image(inputImage, 0, 0);
+  
+  if(!debugging) return;
   openCV.loadImage(inputImage);
-  Rectangle[] bodies = openCV.detect();
-  for (int i = 0; i < bodies.length; i++) {
+  Rectangle[] detections = openCV.detect();
+  image(inputImage, 0, 0);
+  for (int i = 0; i < detections.length; i++) {
     noFill();
     stroke(255);
     strokeWeight(10);
-    rect(bodies[i].x, bodies[i].y, bodies[i].width, bodies[i].height);
+    rect(detections[i].x, detections[i].y, detections[i].width, detections[i].height);
   }
   line(detectionBoundary, 0, detectionBoundary, inputImage.height);
   line(inputImage.width - detectionBoundary, 0, inputImage.width - detectionBoundary, inputImage.height);
@@ -147,8 +155,8 @@ void doBest() {
 
 int[] getVotes() {
   openCV.loadImage(inputImage);
-  Rectangle[] bodies = openCV.detect();
-  PVector[] bodyCenters = rectangleToCenters(bodies);
+  Rectangle[] detections = openCV.detect();
+  PVector[] bodyCenters = rectangleToCenters(detections);
 
   int[] toReturn = new int[populationSize];
 
@@ -173,7 +181,6 @@ int[] getVotes() {
 }
 
 void drawTimeLine(float ratio) {
-  stroke(255);
   strokeWeight(gap);
   stroke(0);
   line(0, height, width, height);
