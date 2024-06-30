@@ -7,6 +7,9 @@ Capture cam;
 OpenCV openCV;
 PImage inputImage;
 
+//boundaries to avoid detection on either side of camera feed, fine tune
+int detectionBoundary = 100;
+
 int nMonitors = 9;
 int selectionMinutes = 10;
 boolean isSelecting = false;
@@ -32,8 +35,8 @@ int shaderChangeLineStart = 157; //3 lines need changing (r,g,b), first line is 
 VariablesManager variablesManager;
 
 void settings() {
-  //fnpSize(1749, 346, P2D);
-  fnpSize(1749, 900, P2D);
+  fnpSize(1749, 346, P2D);
+  //fnpSize(1749, 900, P2D);
 
   //fnpFullScreen(P2D);
 }
@@ -60,7 +63,8 @@ void setup() {
 void draw() {
   if (frameCount == 1) {
     openCV = new OpenCV(this, 1280, 720);
-    openCV.loadCascade("haarcascade_upperbody.xml");
+    //haar cascade from https://github.com/opencv/opencv/tree/master/data/haarcascades
+    openCV.loadCascade("haarcascade_profileface.xml");
     cam.start();
   }
 
@@ -108,7 +112,6 @@ void doSelection(int[] votes) {
     currentShader.set("variables", variablesManager.getShaderReadyVariables());
     currentShader.set("image", inputImage);
 
-
     noStroke();
     shader(currentShader);
     fill(255);
@@ -126,6 +129,8 @@ void doSelection(int[] votes) {
     strokeWeight(10);
     rect(bodies[i].x, bodies[i].y, bodies[i].width, bodies[i].height);
   }
+  line(detectionBoundary, 0, detectionBoundary, inputImage.height);
+  line(inputImage.width - detectionBoundary, 0, inputImage.width - detectionBoundary, inputImage.height);
 }
 
 void doBest() {
@@ -147,10 +152,13 @@ int[] getVotes() {
 
   int[] toReturn = new int[populationSize];
 
-  float w = inputImage.width / populationSize;
+  float w = (inputImage.width - detectionBoundary*2) / populationSize;
 
   for (int i = 0; i < populationSize; i ++) {
     for (int j = 0; j < bodyCenters.length; j++) {
+      if (bodyCenters[j].x < detectionBoundary || bodyCenters[j].x > inputImage.width - detectionBoundary) {
+        continue;
+      }
       if (bodyCenters[j].x > w * i && bodyCenters[j].x < w * (i + 1)) {
         toReturn[i]++;
       }
