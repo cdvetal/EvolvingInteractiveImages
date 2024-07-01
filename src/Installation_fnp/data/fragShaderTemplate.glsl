@@ -1,6 +1,6 @@
 in vec4 gl_FragCoord;
 
-uniform vec2 resolution;
+in vec2 uv;
 uniform sampler2D image;
 uniform float externalVal;
 uniform int nVariables;
@@ -161,8 +161,6 @@ vec3 generateRGB(float x, float y){
 }
 
 void main() {
-    vec2 uv = gl_FragCoord.xy / resolution;
-
     vec3 RGB = generateRGB(uv.x, uv.y);
 
     gl_FragColor = vec4(RGB.x, RGB.y, RGB.z, 1.0);

@@ -36,9 +36,14 @@ int shaderChangeLineStart = 157; //3 lines need changing (r,g,b), first line is 
 
 VariablesManager variablesManager;
 
+float[] scales = new float[nMonitors];
+float minScale = 0.9;
+float maxScale = 1;
+float easing = 0.05;
+
 void settings() {
-  //fnpSize(1749, 346, P2D);
-  fnpSize(1749, 900, P2D);
+  fnpSize(1749, 346, P2D);
+  //fnpSize(1749, 900, P2D);
 
   //fnpFullScreen(P2D);
 }
@@ -60,6 +65,10 @@ void setup() {
 
   population = new Population();
   population.initialize();
+  
+  for(int i = 0; i < scales.length; i++){
+    scales[i] = minScale; 
+  }
 }
 
 void draw() {
@@ -78,11 +87,11 @@ void draw() {
 
   float timeLeftRatio;
 
-  if (currentMinutes < selectionMinutes || millis() < 10000) { //or if program running for less than 30 seconds
+  if (currentMinutes < selectionMinutes || millis() < 100000) { //or if program running for less than 30 seconds
     isSelecting = true;
     doSelection();
-    int timeLeft = selectionMinutes - minute();
-    timeLeftRatio = timeLeft / selectionMinutes * 1.0;
+    int timeLeft = selectionMinutes - currentMinutes;
+    timeLeftRatio = timeLeft * 1.0 / selectionMinutes * 1.0;
     openCV.loadImage(inputImage);
   } else {
     if (isSelecting) {
@@ -91,7 +100,7 @@ void draw() {
       isSelecting = false;
     }
     doBest();
-    int timeLeft = 60 - minute();
+    int timeLeft = 60 - currentMinutes;
     timeLeftRatio = timeLeft / (60.0 - selectionMinutes);
   }
 
@@ -99,29 +108,46 @@ void draw() {
 }
 
 void doSelection() {
-  int[] votes = getVotes();
+  int[] votes = reverse(getVotes()); //flipping because image is mirrored
   
   int imageH = - border * 2 + height;
+  
+  int highestVotes = 0;
+  
+  for(int i = 0; i < votes.length; i++){
+    if(votes[i] > highestVotes) highestVotes = votes[i]; 
+  }
+  
+  rectMode(CENTER);
+  
   for (int i = 0; i < populationSize; i ++) {
-    if (votes[populationSize - i - 1] > 0) { //flipping here easier than reversing image
-      noFill();
+    float targetScale = minScale;
+    
+    if (votes[i] > 0) { 
+      /*noFill();
       stroke(255);
       strokeWeight(8);
       rect(columns[i].x, border, columns[i].z, imageH);
+      */
       for (int j = 0; j < votes[i]; j++) {
         population.getIndividual(i).giveFitness();
       }
+      targetScale = map(votes[i], 0, highestVotes, minScale, maxScale);
     }
+    
+    float scaleDiff = targetScale - scales[i];
+    scales[i] += scaleDiff * easing;
 
     PShader currentShader = population.getIndividual(i).getShader();
     currentShader.set("nVariables", variablesManager.nVariables);
     currentShader.set("variables", variablesManager.getShaderReadyVariables());
     currentShader.set("image", inputImage);
-
+    
     noStroke();
     shader(currentShader);
     fill(255);
-    rect(columns[i].x, border, columns[i].z, imageH);
+    //rect(columns[i].x , border, columns[i].z * scales[i], imageH * scales[i]);
+    rect(columns[i].x + columns[i].z * 0.5, border + imageH * 0.5, columns[i].z * scales[i], imageH * scales[i]);
     resetShader();
     
     if(debugging) text(nf(population.getIndividual(i).fitness, 0, 3), columns[i].x, border/2);
@@ -130,7 +156,7 @@ void doSelection() {
   if(!debugging) return;
   openCV.loadImage(inputImage);
   Rectangle[] detections = openCV.detect();
-  image(inputImage, 0, 0);
+  //image(inputImage, 0, 0);
   for (int i = 0; i < detections.length; i++) {
     noFill();
     stroke(255);
@@ -142,7 +168,10 @@ void doSelection() {
 }
 
 void doBest() {
+  rectMode(CORNER);
+  
   fill(255);
+  noStroke();
   PShader currentShader = population.getIndividual(0).getShader();
   currentShader.set("nVariables", variablesManager.nVariables);
   currentShader.set("variables", variablesManager.getShaderReadyVariables());
@@ -181,9 +210,11 @@ int[] getVotes() {
 }
 
 void drawTimeLine(float ratio) {
-  strokeWeight(gap);
+  rectMode(CENTER);
+  
+  strokeWeight(2);
   stroke(0);
-  line(0, height, width, height);
-  stroke(255);
-  line(0, height, ratio * width, height);
+  fill(255);
+  //rect(-10, height - 16, ratio * width + 10, 8);
+  rect(width/2, height - 16, ratio * width + 10, 8);
 }
