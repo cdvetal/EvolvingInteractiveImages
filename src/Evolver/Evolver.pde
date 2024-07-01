@@ -7,7 +7,6 @@ import processing.video.*;
 Capture cam;
 PImage inputImage;
 
-int maxDepth = 15;
 int resolution = 150;
 int imageExportResolution = 1920;
 
@@ -25,6 +24,7 @@ Run run;
 
 Population population;
 
+int maxDepth = 15;
 int populationSize = 10;
 int eliteSize = 2;
 int tournamentSize = 3;
@@ -39,7 +39,7 @@ int nAnimationFrames = 96;
 
 Operation[] operations;
 Operation[] enabledOperations;
-String[] templateShaderLines;
+String[] fragShaderTemplateLines;
 int shaderChangeLineStart = 157; //3 lines need changing (r,g,b), first line is this (as shown in vscode)
 
 Button pressedButton;
@@ -83,7 +83,7 @@ void setup() {
   columns = setupColumns(10);
 
   operations = setupOperations();
-  templateShaderLines = loadStrings("shaderTemplate.glsl");
+  fragShaderTemplateLines = loadStrings("fragShaderTemplate.glsl");
 
   run = new Run();
   run.startRun();

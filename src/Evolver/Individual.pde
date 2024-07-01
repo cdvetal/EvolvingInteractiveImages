@@ -87,7 +87,7 @@ class Individual {
 
     saveStrings(shaderPath, shaderLines);
 
-    shader = loadShader(shaderPath);
+    shader = loadShader(shaderPath, "vertShaderTemplate.glsl");
   }
 
   Individual crossover(Individual _partner) {
