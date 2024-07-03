@@ -45,7 +45,7 @@ void exportTreeShader(Node _node, String _name) {
 }
 
 String[] getShaderTextLines(Node _node) {
-  String[] shaderLines = templateShaderLines.clone();
+  String[] shaderLines = fragShaderTemplateLines.clone();
 
   String[] expressions = _node.getExpressions();
 
@@ -61,10 +61,10 @@ PImage getPhenotype(float _w, float _h, PShader _shader, float[] _variables, flo
   int h = floor(_h);
   PGraphics canvas = createGraphics(w, h, P2D);
 
-  _shader.set("nVariables", variablesManager.nVariables);
-  _shader.set("variables", _variables);
-  _shader.set("audioSpectrum", _audioSpectrum);
-  _shader.set("image", inputImage);
+    _shader.set("nVariables", _variables.length);
+    _shader.set("variables", _variables);
+    _shader.set("audioSpectrum", _audioSpectrum);
+    _shader.set("image", inputImage);
 
   canvas.beginDraw();
 
@@ -77,7 +77,20 @@ PImage getPhenotype(float _w, float _h, PShader _shader, float[] _variables, flo
   return canvas;
 }
 
+void drawPhenotype(float _x, float _y, float _w, float _h, PShader _shader, float[] _variables, float[] _audioSpectrum) {
+    int w = floor(_w);
+    int h = floor(_h);
 
+    _shader.set("nVariables", _variables.length);
+    _shader.set("variables", _variables);
+    _shader.set("audioSpectrum", _audioSpectrum);
+    _shader.set("image", inputImage);
+
+    shader(_shader);
+    noStroke();
+    rect(_x, _y, w, h);
+    resetShader();
+}
 
 
 

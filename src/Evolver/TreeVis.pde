@@ -15,7 +15,6 @@ class TreeVis { //needs fixing
     individual.cleanUp();
     treeDimensions = individual.getVisDimensions();
 
-    println(treeDimensions.x + " _ " + treeDimensions.y);
     nodeGrid = new Node[int(treeDimensions.x)][int(treeDimensions.y)];
 
     cellSize = floor(min(width/treeDimensions.x, height/treeDimensions.y));
@@ -63,12 +62,12 @@ class TreeVis { //needs fixing
 
             //look for parent to connect
           iLoop:
-            for (int parentI = 0; parentI < nodeGrid.length; parentI ++) {
-              for (int parentJ = 0; parentJ < nodeGrid[nodeGrid.length-1].length; parentJ++) {
+            for (int parentI = i; parentI > 0; parentI --) {
+              for (int parentJ = j; parentJ > 0; parentJ --) {
                 if (nodeGrid[parentI][parentJ] == null) { //potential parent node exists
                   continue;
                 }
- 
+
                 if (nodeGrid[parentI][parentJ].isTerminal()) { //potential parent has children
                   continue;
                 }
@@ -92,6 +91,8 @@ class TreeVis { //needs fixing
       }
     }
 
+    float[] variables = variablesManager.getShaderReadyVariables();
+    float[] audioSpectrum = getAudioSpectrum();
 
     //cells
     for (int i = 0; i < nodeGrid.length; i ++) {
@@ -101,15 +102,24 @@ class TreeVis { //needs fixing
           float y = (j + 0.1) * cellSize;
           float side = cellSize * 0.8;
 
-          PImage img = getCellImage(i, j, side, side);
+          PShader currentShader = getCellShader(i, j);
 
-          if (img != null) {
-            image(img, x, y, side, side);
+          if (currentShader != null) {
+            drawPhenotype(x, y, side, side, currentShader, variables, audioSpectrum);
           } else {
             fill(colors.get("surface"));
             noStroke();
             rect(x, y, side, side);
           }
+          /*PImage img = getCellImage(i, j, side, side);
+           
+           if (img != null) {
+           image(img, x, y, side, side);
+           } else {
+           fill(colors.get("surface"));
+           noStroke();
+           rect(x, y, side, side);
+           }*/
 
           if (_showOperation) {
             noStroke();
@@ -128,6 +138,21 @@ class TreeVis { //needs fixing
     return _a + "_" + _b;
   }
 
+  PShader getCellShader(int _a, int _b) {
+    String shaderName = doShaderName(_a, _b);
+    String shaderPath = directory + shaderName + ".glsl";
+
+    File shaderFile = dataFile(shaderPath);
+    if (shaderFile.exists()) {
+
+      PShader shader = loadShader(shaderPath, "vertShaderTemplate.glsl");
+
+      return shader;
+    }
+
+    return null;
+  }
+
   PImage getCellImage(int _a, int _b, float _w, float _h) {
 
     String shaderName = doShaderName(_a, _b);
@@ -136,7 +161,7 @@ class TreeVis { //needs fixing
     File shaderFile = dataFile(shaderPath);
     if (shaderFile.exists()) {
 
-      PShader shader = loadShader(shaderPath);
+      PShader shader = loadShader(shaderPath, "vertShaderTemplate.glsl");
 
       return getPhenotype(_w, _h, shader, variablesManager.getShaderReadyVariables(), getAudioSpectrum());
     } else {
