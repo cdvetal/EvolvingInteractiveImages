@@ -1,9 +1,30 @@
 void exportImage(Individual _individualToExport) {
-  
+
   String outputPath = sketchPath("outputs/" + _individualToExport.getID() + "/");
 
-  PImage image = getPhenotype(imageExportResolution, imageExportResolution, _individualToExport.getShader(), variablesManager.getShaderReadyVariables(), getAudioSpectrum());
-  image.save(outputPath + "img.png");
+  PShader exportShader = _individualToExport.getShader();
+
+  //exportShader.set("nVariables", variablesManager.nVariables);
+  //exportShader.set("variables", variablesManager.getShaderReadyVariables());
+  //exportShader.set("audioSpectrum", getAudioSpectrum());
+  //exportShader.set("image", inputImage);
+
+  exportCanvas.beginDraw();
+
+  exportCanvas.clear();
+  
+  exportCanvas.shader(exportShader);
+
+  exportCanvas.rect(0, 0, exportCanvas.width, exportCanvas.height);
+
+  exportCanvas.endDraw();
+  
+  PImage exportImage = exportCanvas.copy();
+
+  //PImage image = getPhenotype(imageExportResolution, imageExportResolution, _individualToExport.getShader(), variablesManager.getShaderReadyVariables(), getAudioSpectrum());
+  //image.save(outputPath + "img.png");
+  
+  exportImage.save(outputPath + "img.png");
 
   println("exported image to:" + outputPath);
 }
@@ -12,13 +33,13 @@ void exportShader(Individual _individualToExport) {
   exportShader(_individualToExport.tree, "" + _individualToExport.getID());
 }
 
-void exportShader(Node _node, String _name){
+void exportShader(Node _node, String _name) {
   String outputPath = sketchPath("outputs/" + _name + "/");
   saveStrings(outputPath + _name + ".glsl", getShaderTextLines(_node));
   println("exported shader to :" + outputPath);
 }
 
-void exportTreeShader(Node _node, String _name){
+void exportTreeShader(Node _node, String _name) {
   String outputPath = sketchPath("shaders/tree/");
   saveStrings(outputPath + _name + ".glsl", getShaderTextLines(_node));
 }
@@ -36,24 +57,24 @@ String[] getShaderTextLines(Node _node) {
 }
 
 PImage getPhenotype(float _w, float _h, PShader _shader, float[] _variables, float[] _audioSpectrum) {
-    int w = floor(_w);
-    int h = floor(_h);
-    PGraphics canvas = createGraphics(w, h, P2D);
+  int w = floor(_w);
+  int h = floor(_h);
+  PGraphics canvas = createGraphics(w, h, P2D);
 
-    _shader.set("nVariables", variablesManager.nVariables);
-    _shader.set("variables", _variables);
-    _shader.set("audioSpectrum", _audioSpectrum);
-    _shader.set("image", inputImage);
+  _shader.set("nVariables", variablesManager.nVariables);
+  _shader.set("variables", _variables);
+  _shader.set("audioSpectrum", _audioSpectrum);
+  _shader.set("image", inputImage);
 
-    canvas.beginDraw();
-    
-    canvas.shader(_shader);
-    
-    canvas.rect(0,0,canvas.width, canvas.height);
+  canvas.beginDraw();
 
-    canvas.endDraw();
-    
-    return canvas;
+  canvas.shader(_shader);
+
+  canvas.rect(0, 0, canvas.width, canvas.height);
+
+  canvas.endDraw();
+
+  return canvas;
 }
 
 

@@ -10,6 +10,7 @@ PImage inputImage;
 int maxDepth = 15;
 int resolution = 150;
 int imageExportResolution = 1920;
+PGraphics exportCanvas;
 
 FFT fft;
 SoundFile[] soundFiles;
@@ -64,6 +65,10 @@ void setup() {
   //size(1920, 1080, P2D);
   fullScreen(P2D);
   colorMode(RGB, 1);
+  
+  exportCanvas = createGraphics(imageExportResolution, imageExportResolution, P2D);
+  exportCanvas.beginDraw(); //needed because first export is empty
+  exportCanvas.endDraw();
 
   String[] cameras = Capture.list();
   if (cameras.length == 0) {

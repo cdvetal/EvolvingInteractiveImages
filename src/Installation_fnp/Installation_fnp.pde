@@ -54,8 +54,6 @@ void setup() {
   strokeCap(SQUARE);
 
   cam = new Capture(this, 1280, 720);
-  //openCV = new OpenCV(this, 1280, 720);
-  //cam.start();
 
   fragTemplateShaderLines = loadStrings("fragShaderTemplate.glsl");
 
@@ -87,7 +85,7 @@ void draw() {
 
   float timeLeftRatio;
 
-  if (currentMinutes < selectionMinutes || millis() < 100000) { //or if program running for less than 30 seconds
+  if (currentMinutes < selectionMinutes || millis() < 300000) { //or if program running for less than 30 seconds
     isSelecting = true;
     doSelection();
     int timeLeft = selectionMinutes - currentMinutes;
@@ -124,11 +122,6 @@ void doSelection() {
     float targetScale = minScale;
     
     if (votes[i] > 0) { 
-      /*noFill();
-      stroke(255);
-      strokeWeight(8);
-      rect(columns[i].x, border, columns[i].z, imageH);
-      */
       for (int j = 0; j < votes[i]; j++) {
         population.getIndividual(i).giveFitness();
       }
@@ -156,7 +149,7 @@ void doSelection() {
   if(!debugging) return;
   openCV.loadImage(inputImage);
   Rectangle[] detections = openCV.detect();
-  //image(inputImage, 0, 0);
+  image(inputImage, 0, 0);
   for (int i = 0; i < detections.length; i++) {
     noFill();
     stroke(255);
