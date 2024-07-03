@@ -65,8 +65,8 @@ class PopulationScreen {
       float gridX = individualsGrid[row][col].x;
       float gridY = individualsGrid[row][col].y;
 
-      drawPhenotype(gridX + shiftX, gridY + shiftY, gridW, gridH, pop.getIndividual(i).getShader(), variables, audioSpectrum);
-      //image(getPhenotype(gridW, gridH, pop.getIndividual(i).getShader(), variables, audioSpectrum), gridX + shiftX, gridY + shiftY, gridW, gridH);
+      //drawPhenotype(gridX + shiftX, gridY + shiftY, gridW, gridH, pop.getIndividual(i).getShader(), variables, audioSpectrum);
+      image(getPhenotype(gridW, gridH, pop.getIndividual(i).getShader(), variables, audioSpectrum), gridX + shiftX, gridY + shiftY, gridW, gridH);
 
       stroke(colors.get("primary"));
       strokeWeight(4);

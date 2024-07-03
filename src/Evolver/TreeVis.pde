@@ -62,8 +62,8 @@ class TreeVis { //needs fixing
 
             //look for parent to connect
           iLoop:
-            for (int parentI = i; parentI > 0; parentI --) {
-              for (int parentJ = j; parentJ > 0; parentJ --) {
+            for (int parentI = i; parentI > -1; parentI --) {
+              for (int parentJ = j; parentJ > -1; parentJ --) {
                 if (nodeGrid[parentI][parentJ] == null) { //potential parent node exists
                   continue;
                 }
