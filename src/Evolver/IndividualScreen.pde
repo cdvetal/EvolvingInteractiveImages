@@ -21,12 +21,20 @@ class IndividualScreen {
       treeVis = null;
       screen = "population";
       return;
+    } else if (leftTab.getFullscreen()){
+      showFullscreen();
+      return; 
     }
 
     Boolean[] layout = leftTab.getLayout();
 
     if (layout[0]) showImage(!(layout[0] == layout[1]));
     if (layout[1]) showTree(!(layout[0] == layout[1]));
+  }
+  
+  void showFullscreen(){
+    background(0);
+    image(getPhenotype(width, height, individual.getShader(), variablesManager.getShaderReadyVariables(), getAudioSpectrum()), 0, 0);
   }
 
   void showImage(boolean _full) {

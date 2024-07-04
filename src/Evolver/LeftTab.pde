@@ -1,11 +1,13 @@
 class LeftTab {
 
+  boolean enabled = true;
   boolean state = false; //false - population, true - individual
   boolean hidden = false;
   int columnWidth = 2;
   String nodeInfoString;
 
   BackController backController = new BackController();
+  AspectRatioController aspectRatioController = new AspectRatioController();
   VariablesController variablesController;
   MusicController musicController = new MusicController();
   GenerationController generationController = new GenerationController();
@@ -17,6 +19,10 @@ class LeftTab {
   }
 
   void show() {
+    if (getFullscreen()) {
+
+      return;
+    }
     noStroke();
     fill(colors.get("surface"));
     rect(0, 0, columns[columnWidth-1].y, height);
@@ -41,9 +47,19 @@ class LeftTab {
       text("Variables", 0, 0);
       variablesController.show();
 
-
       translate(0, gap + variablesController.totalHeight);
     }
+
+    fill(colors.get("primary"));
+    textAlign(LEFT, CENTER);
+    textFont(fonts.get("medium"));
+    textSize(14);
+    text("Aspect Ratio: " + nf(aspectRatio,0,2), 0, 0);
+    translate(0, gap);
+    aspectRatioController.show();
+    aspectRatio = 0.5 + 1.5 * aspectRatioController.aspectRatio.value;
+
+    translate(0, gap + aspectRatioController.totalHeight);
     fill(colors.get("primary"));
     textAlign(LEFT, CENTER);
     textFont(fonts.get("medium"));
@@ -112,6 +128,11 @@ class LeftTab {
 
   Boolean getTreeButtonHover() {
     return layoutController.tree.hovered;
+  }
+
+  Boolean getFullscreen() {
+    if (!mousePressed) return false;
+    return individualController.fullscreen.hovered == mousePressed;
   }
 }
 
@@ -216,6 +237,24 @@ class VariablesController {
     if (nVariables < 1) return 0;
 
     return sliders[_sliderIndex].value;
+  }
+}
+
+class AspectRatioController {
+  Slider aspectRatio;
+
+  int totalHeight = 40;
+
+  AspectRatioController() {
+    aspectRatio = new Slider(columns[0].z - gap);
+    aspectRatio.value = 0.66;
+  }
+
+  void show() {
+    pushMatrix();
+    translate(0, 20);
+    aspectRatio.show();
+    popMatrix();
   }
 }
 
@@ -339,6 +378,7 @@ class LayoutController {
 
 class IndividualController {
 
+  IconButton fullscreen;
   IconButton download;
   IconButton plus;
   IconButton minus;
@@ -349,12 +389,14 @@ class IndividualController {
     int buttonW = 40;
     float buttonGap = (columns[0].z - buttonW * 3) / 2;
 
-    download = new IconButton(0, 0, buttonW, "download");
-    minus = new IconButton(buttonW + buttonGap, 0, buttonW, "minus");
-    plus = new IconButton(buttonW * 2 + buttonGap * 2, 0, buttonW, "plus");
+    fullscreen = new IconButton(0, 0, buttonW, "fullscreen");
+    download = new IconButton(buttonW + buttonGap, 0, buttonW, "download");
+    minus = new IconButton(buttonW * 2 + buttonGap * 2, 0, buttonW, "minus");
+    plus = new IconButton(buttonW * 3 + buttonGap * 3, 0, buttonW, "plus");
   }
 
   void show() {
+    fullscreen.show();
     download.show();
     minus.show();
     plus.show();

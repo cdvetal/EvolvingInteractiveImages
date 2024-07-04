@@ -3,26 +3,46 @@ import processing.pdf.*;
 import processing.sound.*;
 import processing.video.*;
 
-
+//Camera
 Capture cam;
 PImage inputImage;
 
-int resolution = 150;
+//Export
 int imageExportResolution = 1920;
 PGraphics exportCanvas;
+boolean isExportingAnimation;
+int nAnimationFrames = 96;
 
+//Sound
 FFT fft;
 SoundFile[] soundFiles;
 boolean muted = false;
 int nBands = 512;
 int soundIndex = 0;
 
+//assets
 HashMap<String, PShape> icons;
 HashMap<String, Integer> colors;
 HashMap<String, PFont> fonts;
 
-Run run;
+//GUI
+String screen = "mainmenu"; //0 - main menu, 1 - load, 2 - population, 3 - individual
+int border = 42; //border around screen
+int gap = 24; //gap between columns/items
+PVector[] columns; // [(startX, endX, columnWidth), ...]
+Button pressedButton;
+float aspectRatio = 1; //width = height * aspectRatio
+Individual hoveredIndividual = null;
 
+MainMenu mainMenu;
+LoadMenu loadMenu;
+SetupScreen setupScreen;
+LeftTab leftTab;
+PopulationScreen populationScreen;
+IndividualScreen individualScreen;
+
+//GP
+Run run;
 Population population;
 
 int maxDepth = 15;
@@ -32,34 +52,13 @@ int tournamentSize = 3;
 float crossoverRate = .3;
 float mutationRate = .9;
 
-float aspectRatio = 1; //width = height * aspectRatio
-Individual hoveredIndividual = null;
-
-boolean isExportingAnimation;
-int nAnimationFrames = 96;
-
 Operation[] operations;
 Operation[] enabledOperations;
+
+//Shaders
 String[] fragShaderTemplateLines;
 int shaderChangeLineStart = 157; //3 lines need changing (r,g,b), first line is this (as shown in vscode)
-
-Button pressedButton;
-
-String screen = "mainmenu"; //0 - main menu, 1 - load, 2 - population, 3 - individual
-
-int border = 42; //border around screen
-int gap = 24; //gap between columns/items
-
-PVector[] columns; // [(startX, endX, columnWidth), ...]
-
 VariablesManager variablesManager;
-
-MainMenu mainMenu;
-LoadMenu loadMenu;
-SetupScreen setupScreen;
-LeftTab leftTab;
-PopulationScreen populationScreen;
-IndividualScreen individualScreen;
 
 void setup() {
   //size(1920, 1080, P2D);
@@ -67,7 +66,7 @@ void setup() {
   colorMode(RGB, 1);
   
   exportCanvas = createGraphics(imageExportResolution, imageExportResolution, P2D);
-  exportCanvas.beginDraw(); //needed because first export is empty
+  exportCanvas.beginDraw(); //needed because bug - first export is empty
   exportCanvas.endDraw();
 
   String[] cameras = Capture.list();
@@ -92,8 +91,6 @@ void setup() {
 
   run = new Run();
   run.startRun();
-
-  //variablesManager = new VariablesManager(5);
 
   mainMenu = new MainMenu();
   loadMenu = new LoadMenu();
@@ -127,6 +124,7 @@ void draw() {
     case("individual"):
     individualScreen.show();
     leftTab.show();
+
     break;
   }
 }

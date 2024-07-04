@@ -40,9 +40,16 @@ class Button {
   void resetSelected() {
     selected = false;
   }
-  
-  void toggle(){
-    toggled = !toggled; 
+
+  void toggle() {
+    toggled = !toggled;
+  }
+
+  void setValues(float _x, float _y, float _w, float _h) {
+    x = _x;
+    y = _y;
+    w = _w;
+    h = _h;
   }
 }
 
@@ -126,39 +133,39 @@ class IconButton extends Button {
     update();
 
     noStroke();
-    
-    if(hovered && toggled){
+
+    if (hovered && toggled) {
       fill(colors.get("secondary"));
-    } else if (hovered && !toggled){
+    } else if (hovered && !toggled) {
       fill(colors.get("opacity"));
-    }  else if (!toggled){
+    } else if (!toggled) {
       fill(colors.get("surfacevariant"));
     } else {
       fill(colors.get("primary"));
     }
 
-    if(!disabled) circle(x + w/2, y + w/2, w);
+    if (!disabled) circle(x + w/2, y + w/2, w);
 
     if (icon == null) return;
 
     icon.disableStyle();
-    if(toggled) fill(colors.get("onprimary"));
+    if (toggled) fill(colors.get("onprimary"));
     else if (!disabled) fill(colors.get("primary"));
     else fill(colors.get("opacity"));
-    
+
     strokeWeight(1);
     stroke(0, 0, 0, 0); //invisible stroke, fixes svg bug with bounding box
 
     shapeMode(CENTER);
     shape(icon, x + w/2, y + w/2, w*0.6, w*0.6);
   }
-  
-  void setIcon(String _iconName){
+
+  void setIcon(String _iconName) {
     if (icons.containsKey(_iconName)) {
       icon = icons.get(_iconName);
     }
   }
-  
+
   boolean detectHover() {
     if (mouseX < screenX(x, 0))return false; //screenX and screenY because of matrix transformations
     if (mouseX > screenX(x + w, 0))return false;
@@ -171,7 +178,7 @@ class IconButton extends Button {
 
 class ToggleButton extends Button {
   float w = 18;
-    
+
   ToggleButton (float _x, float _y) {
     x = _x;
     y = _y;
@@ -181,7 +188,7 @@ class ToggleButton extends Button {
   void show() {
     hovered = detectHover();
     update();
-    
+
     if (!toggled) {
       strokeWeight(2);
       stroke(colors.get("surfacevariant"));
@@ -193,7 +200,7 @@ class ToggleButton extends Button {
       rect(x, y, w, w, 2);
     }
   }
-  
+
   boolean detectHover() {
     if (mouseX < screenX(x, 0))return false; //screenX and screenY because of matrix transformations
     if (mouseX > screenX(x + w, 0))return false;

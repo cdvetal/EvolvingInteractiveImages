@@ -60,6 +60,8 @@ class PopulationScreen {
     pushMatrix();
     translate(x, y);
     noFill();
+    
+    individualHover.setValues(gridW, gridH, shiftX, shiftY);
 
     for (int i = 0; i < population.getSize(); i++) {
       float gridX = individualsGrid[row][col].x;
@@ -80,7 +82,7 @@ class PopulationScreen {
       if (mouseX > screenX(gridX, 0) && mouseX < screenX(gridX + gridD, 0) && mouseY > screenY(0, gridY) && mouseY < screenY(0, gridY + gridD)) {
         pushMatrix();
 
-        translate(gridX + shiftX, gridY + shiftY);
+        translate(gridX + shiftX + gridW/2, gridY + shiftY);
 
         individualHover.show();
 
@@ -133,39 +135,38 @@ class PopulationScreen {
 class IndividualHover {
 
   float w, h;
-  float indivW, indivH;
+  float gridW, gridH, shiftX, shiftY;
   IconButton eye, download, minus, plus;
 
   IndividualHover(float _indivSide, float _aspectRatio) {
 
     if (_aspectRatio > 1) {
-      indivH = _indivSide/aspectRatio;
-      indivW = _indivSide;
+      gridH = _indivSide/aspectRatio;
+      gridW = _indivSide;
     } else {
-      indivW = _indivSide*aspectRatio;
-      indivH = _indivSide;
+      gridW = _indivSide*aspectRatio;
+      gridH = _indivSide;
     }
 
-    w = indivW;
+    w = gridW;
 
     int buttonW = 40;
     float buttonGap = (w - (buttonW * 4)) / 5;
 
-
-    eye = new IconButton(buttonGap, gap/2, buttonW, "eye");
-    download = new IconButton(buttonGap*2 + buttonW, gap/2, buttonW, "download");
-    minus = new IconButton(buttonGap*3 + buttonW*2, gap/2, buttonW, "minus");
-    plus = new IconButton(buttonGap*4 + buttonW*3, gap/2, buttonW, "plus");
+    eye = new IconButton(buttonGap - w/2, gap/2, buttonW, "eye");
+    download = new IconButton(buttonGap*2 + buttonW - w/2, gap/2, buttonW, "download");
+    minus = new IconButton(buttonGap*3 + buttonW*2 - w/2, gap/2, buttonW, "minus");
+    plus = new IconButton(buttonGap*4 + buttonW*3 - w/2, gap/2, buttonW, "plus");
 
     h = buttonW + gap;
   }
 
   void show() {
     pushMatrix();
-    translate(0, indivH - h);
+    translate(0, gridH - h);
     noStroke();
     fill(colors.get("surface"));
-    rect(0, 0, w, h);
+    rect(-w/2, 0, w, h);
 
     eye.show();
     download.show();
@@ -181,15 +182,18 @@ class IndividualHover {
     
     int iconSize = 12;
     
-    //circle(indivW - iconSize * 2, iconSize, iconSize*2);
-    //circle(indivW - iconSize * 4, iconSize, iconSize*2);
-    //circle(indivW - iconSize * 6, iconSize, iconSize*2);
-    
     fill(colors.get("primary"));
     
-    shape(icons.get("music"), indivW - iconSize * 2, iconSize/2, iconSize, iconSize);
-    shape(icons.get("video"), indivW - iconSize * 4.5, iconSize/2, iconSize, iconSize);
-    shape(icons.get("data"), indivW - iconSize * 6.5, iconSize/2, iconSize, iconSize);
+    shape(icons.get("music"), gridW - iconSize * 2, iconSize/2, iconSize, iconSize);
+    shape(icons.get("video"), gridW - iconSize * 4.5, iconSize/2, iconSize, iconSize);
+    shape(icons.get("data"), gridW - iconSize * 6.5, iconSize/2, iconSize, iconSize);
+  }
+  
+  void setValues(float _gridW, float _gridH, float _shiftX, float _shiftY){
+    gridW = _gridW;
+    gridH = _gridH;
+    shiftX = _shiftX;
+    shiftY = _shiftY;
   }
 
 

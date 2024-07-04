@@ -5,14 +5,14 @@ class SetupScreen {
   AlgorithmController algorithmController = new AlgorithmController();
   StartController startController = new StartController();
 
-  Slider aspectRatioSlider;
+  //Slider aspectRatioSlider;
   Slider nVariablesSlider;
   Slider maxDepthSlider;
 
   SetupScreen() {
     float sliderW = columns[0].z * 2 - gap;
-    aspectRatioSlider = new Slider(sliderW);
-    aspectRatioSlider.value = 0.66;
+    //aspectRatioSlider = new Slider(sliderW);
+    //aspectRatioSlider.value = 0.66;
     nVariablesSlider = new Slider(sliderW);
     nVariablesSlider.value = 0.3;
     maxDepthSlider = new Slider(sliderW);
@@ -70,7 +70,7 @@ class SetupScreen {
     algorithmController.show();
     popMatrix();
     
-    //Aspect Ratio & NVariables & MaxDepth
+    //NVariables & MaxDepth
     pushMatrix();
 
     translate(columns[3].x, border);
@@ -79,17 +79,6 @@ class SetupScreen {
     rect(0, 0, columns[0].z*2 + gap, height - border - border);
 
     translate(gap, gap);
-
-    fill(colors.get("primary"));
-    textAlign(LEFT, CENTER);
-    textFont(fonts.get("medium"));
-    textSize(14);
-    text("Aspect Ratio", 0, 0);
-    translate(0, gap);
-
-    aspectRatioSlider.show();
-    
-    translate(0, gap);
 
     fill(colors.get("primary"));
     textAlign(LEFT, CENTER);
@@ -106,7 +95,7 @@ class SetupScreen {
     textAlign(LEFT, CENTER);
     textFont(fonts.get("medium"));
     textSize(14);
-    text("Max Depth: " + getMaxDepth(), 0, 0);
+    text("Max Tree Depth: " + getMaxDepth(), 0, 0);
     translate(0, gap);
 
     maxDepthSlider.show();
@@ -157,7 +146,7 @@ class SetupScreen {
   }
 
   void startEvolution() {
-    aspectRatio = 0.5 + 1.5 * aspectRatioSlider.value;
+    //aspectRatio = 0.5 + 1.5 * aspectRatioSlider.value;
 
     enabledOperations = operationController.getEnabledOperations();
 
