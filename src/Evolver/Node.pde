@@ -93,15 +93,18 @@ class Node {
 
   void mutate() {
     float toAdd = random(-.1, .1);
-    mathType = constrain(mathType + toAdd, 0, 1);
 
-    for (int i = 0; i < scalar.length; i++) {
-      if (random(1) > mutationRate) continue;
-      toAdd = random(-.1, .1);
-      scalar[i] = constrain(scalar[i] + toAdd, 0, 1);
+    if (isTerminal()) {
+      for (int i = 0; i < scalar.length; i++) {
+        if (random(1) > mutationRate) continue;
+        toAdd = random(-.1, .1);
+        scalar[i] = constrain(scalar[i] + toAdd, 0, 1);
+      }
+    } else {
+      mathType = constrain(mathType + toAdd, 0, 1);
+
+      checkNecessaryChildrenNodes();
     }
-
-    checkNecessaryChildrenNodes();
   }
 
   Node getCopy() {

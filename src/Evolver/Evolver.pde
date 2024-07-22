@@ -88,6 +88,7 @@ void setup() {
 
   operations = setupOperations();
   fragShaderTemplateLines = loadStrings("fragShaderTemplate.glsl");
+  shaderChangeLineStart = calculateLineToChangeInShader(fragShaderTemplateLines);
 
   run = new Run();
   run.startRun();

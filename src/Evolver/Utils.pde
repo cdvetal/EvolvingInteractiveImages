@@ -12,18 +12,18 @@ void exportImage(Individual _individualToExport) {
   exportCanvas.beginDraw();
 
   exportCanvas.clear();
-  
+
   exportCanvas.shader(exportShader);
 
   exportCanvas.rect(0, 0, exportCanvas.width, exportCanvas.height);
 
   exportCanvas.endDraw();
-  
+
   PImage exportImage = exportCanvas.copy();
 
   //PImage image = getPhenotype(imageExportResolution, imageExportResolution, _individualToExport.getShader(), variablesManager.getShaderReadyVariables(), getAudioSpectrum());
   //image.save(outputPath + "img.png");
-  
+
   exportImage.save(outputPath + "img.png");
 
   println("exported image to:" + outputPath);
@@ -49,9 +49,9 @@ String[] getShaderTextLines(Node _node) {
 
   String[] expressions = _node.getExpressions();
 
-  shaderLines[shaderChangeLineStart - 1] = "    float r = " + expressions[0] + ";";
-  shaderLines[shaderChangeLineStart    ] = "    float g = " + expressions[1] + ";";
-  shaderLines[shaderChangeLineStart + 1] = "    float b = " + expressions[2] + ";";
+  shaderLines[shaderChangeLineStart] =     "    float r = " + expressions[0] + ";";
+  shaderLines[shaderChangeLineStart + 1] = "    float g = " + expressions[1] + ";";
+  shaderLines[shaderChangeLineStart + 2] = "    float b = " + expressions[2] + ";";
 
   return shaderLines;
 }
@@ -61,10 +61,10 @@ PImage getPhenotype(float _w, float _h, PShader _shader, float[] _variables, flo
   int h = floor(_h);
   PGraphics canvas = createGraphics(w, h, P2D);
 
-    _shader.set("nVariables", _variables.length);
-    _shader.set("variables", _variables);
-    _shader.set("audioSpectrum", _audioSpectrum);
-    _shader.set("image", inputImage);
+  _shader.set("nVariables", _variables.length);
+  _shader.set("variables", _variables);
+  _shader.set("audioSpectrum", _audioSpectrum);
+  _shader.set("image", inputImage);
 
   canvas.beginDraw();
 
@@ -78,18 +78,18 @@ PImage getPhenotype(float _w, float _h, PShader _shader, float[] _variables, flo
 }
 
 void drawPhenotype(float _x, float _y, float _w, float _h, PShader _shader, float[] _variables, float[] _audioSpectrum) {
-    int w = floor(_w);
-    int h = floor(_h);
+  int w = floor(_w);
+  int h = floor(_h);
 
-    _shader.set("nVariables", _variables.length);
-    _shader.set("variables", _variables);
-    _shader.set("audioSpectrum", _audioSpectrum);
-    _shader.set("image", inputImage);
+  _shader.set("nVariables", _variables.length);
+  _shader.set("variables", _variables);
+  _shader.set("audioSpectrum", _audioSpectrum);
+  _shader.set("image", inputImage);
 
-    shader(_shader);
-    noStroke();
-    rect(_x, _y, w, h);
-    resetShader();
+  shader(_shader);
+  noStroke();
+  rect(_x, _y, w, h);
+  resetShader();
 }
 
 
@@ -111,6 +111,18 @@ String generateUUID() {
   }
 
   return String.join("-", sequences);
+}
+
+int calculateLineToChangeInShader(String[] _shaderTemplateStrings) {
+  String lineStartString = "float r = ";
+  
+  for (int i = 0; i < _shaderTemplateStrings.length; i ++) {
+    if (_shaderTemplateStrings[i].indexOf(lineStartString) >= 0) {
+      println("line: "+ i);
+      return i;
+    }
+  }
+  return 0;
 }
 
 void changeSong() {
