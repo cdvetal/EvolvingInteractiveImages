@@ -1,10 +1,10 @@
 /* ############################
 Evolved using software @ https://github.com/cdvetal/EvolvingInteractiveImages
 
+// 2024 - 7 - 23
 
-
-
-
+// Generation: 0
+// Population Size: 18; Elite Size: 1; Mutation Rate: 0.4; Crossover Rate: 0.3; Tournament Size: 3
 ############################ */
 
 in vec4 gl_FragCoord;
@@ -163,9 +163,9 @@ float var(float x){
 }
 
 vec3 generateRGB(float x, float y){
-    float r = 1.0;
-    float g = 1.0;
-    float b = 1.0;
+    float r = tan(var(min(x,0.45979697)));
+    float g = tan(var(min(0.8500008,x)));
+    float b = tan(var(min(0.48609298,y)));
     return vec3(r,g,b);
 }
 

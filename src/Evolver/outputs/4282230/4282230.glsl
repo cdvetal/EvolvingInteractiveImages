@@ -1,12 +1,3 @@
-/* ############################
-Evolved using software @ https://github.com/cdvetal/EvolvingInteractiveImages
-
-
-
-
-
-############################ */
-
 in vec4 gl_FragCoord;
 
 in vec2 uv;
@@ -163,9 +154,9 @@ float var(float x){
 }
 
 vec3 generateRGB(float x, float y){
-    float r = 1.0;
-    float g = 1.0;
-    float b = 1.0;
+    float r = ((tan(y)-cos(0.37875777))+(0.42192972/noi(min(0.21104246,pow(x,y)),(x+x))));
+    float g = ((tan(0.10875034)-cos(x))+(0.36900598/noi(min(0.42667508,pow(x,y)),(x+y))));
+    float b = ((tan(x)-cos(0.68643737))+(y/noi(min(y,pow(y,y)),(y+x))));
     return vec3(r,g,b);
 }
 

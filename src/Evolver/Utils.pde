@@ -35,7 +35,19 @@ void exportShader(Individual _individualToExport) {
 
 void exportShader(Node _node, String _name) {
   String outputPath = sketchPath("outputs/" + _name + "/");
-  saveStrings(outputPath + _name + ".glsl", getShaderTextLines(_node));
+  String[] shaderStrings = getShaderTextLines(_node);
+  
+  String dateComment = "// ";
+  dateComment += year() + " - " + month() + " - " + day();
+  
+  String algorithmComment = "// ";
+  algorithmComment += "Population Size: " + populationSize + "; Elite Size: " + eliteSize + "; Mutation Rate: " + mutationRate + "; Crossover Rate: " + crossoverRate + "; Tournament Size: " + tournamentSize;
+  
+  shaderStrings[3] = dateComment;
+  shaderStrings[5] = "// Generation: " + population.nGenerations;
+  shaderStrings[6] = algorithmComment;
+  
+  saveStrings(outputPath + _name + ".glsl", shaderStrings);
   println("exported shader to :" + outputPath);
 }
 
