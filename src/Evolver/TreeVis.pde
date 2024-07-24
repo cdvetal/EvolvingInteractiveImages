@@ -111,15 +111,6 @@ class TreeVis { //needs fixing
             noStroke();
             rect(x, y, side, side);
           }
-          /*PImage img = getCellImage(i, j, side, side);
-           
-           if (img != null) {
-           image(img, x, y, side, side);
-           } else {
-           fill(colors.get("surface"));
-           noStroke();
-           rect(x, y, side, side);
-           }*/
 
           if (_showOperation) {
             noStroke();

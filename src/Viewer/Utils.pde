@@ -4,7 +4,7 @@ PImage getPhenotype(float _w, float _h, PShader _shader) {
   int w = floor(_w);
   int h = floor(_h);
   PGraphics canvas = createGraphics(w, h, P2D);
-  
+
   _shader.set("resolution", _w, _h);
   _shader.set("nVariables", variablesManager.nVariables);
   _shader.set("variables", variablesManager.getShaderReadyVariables());
@@ -83,6 +83,12 @@ Individual[] loadIndividuals() {
 
   File f = dataFile(directory);
   String[] names = f.list();
+
+  if (names.length < 1) {
+    println("No evolved shaders found");
+    println("Place the evolved shaders inside data/shaders folder");
+    exit();
+  }
   //Collections.shuffle(Arrays.asList(names));
 
   Individual[] individualsToReturn = new Individual[names.length];

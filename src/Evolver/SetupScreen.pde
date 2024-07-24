@@ -5,9 +5,10 @@ class SetupScreen {
   AlgorithmController algorithmController = new AlgorithmController();
   StartController startController = new StartController();
 
-  //Slider aspectRatioSlider;
   Slider nVariablesSlider;
+  int maxVariables = 10;
   Slider maxDepthSlider;
+  int minDepth = 4, maxDepth = 30;
 
   SetupScreen() {
     float sliderW = columns[0].z * 2 - gap;
@@ -15,8 +16,10 @@ class SetupScreen {
     //aspectRatioSlider.value = 0.66;
     nVariablesSlider = new Slider(sliderW);
     nVariablesSlider.value = 0.3;
+    nVariablesSlider.setNTicks(maxVariables);
     maxDepthSlider = new Slider(sliderW);
-    maxDepthSlider.value = 0;
+    maxDepthSlider.value = 0.2;
+    maxDepthSlider.setNTicks(maxDepth - minDepth);
   }
 
   void show() {
@@ -69,7 +72,7 @@ class SetupScreen {
 
     algorithmController.show();
     popMatrix();
-    
+
     //NVariables & MaxDepth
     pushMatrix();
 
@@ -88,7 +91,7 @@ class SetupScreen {
     translate(0, gap);
 
     nVariablesSlider.show();
-    
+
     translate(0, gap);
 
     fill(colors.get("primary"));
@@ -99,7 +102,7 @@ class SetupScreen {
     translate(0, gap);
 
     maxDepthSlider.show();
-    
+
     popMatrix();
 
     //Function Set
@@ -152,9 +155,9 @@ class SetupScreen {
 
     boolean varEnabled = checkVarEnabled(enabledOperations);
     int nVariables = varEnabled ? getNVariables() : 0; //if outside variables is disabled, then 0 variables to manage
-    
+
     variablesManager = new VariablesManager(nVariables);
-    
+
     leftTab = new LeftTab(nVariables);
 
     maxDepth = getMaxDepth();
@@ -172,16 +175,16 @@ class SetupScreen {
   }
 
   int getNVariables() {
-    return int(round(nVariablesSlider.value * 10));
+    return int(round(nVariablesSlider.value * maxVariables));
   }
-  
+
   int getMaxDepth() {
-    return int(4 + round(maxDepthSlider.value * 20));
+    return int(minDepth + round(maxDepthSlider.value * maxDepth));
   }
-  
-  boolean checkVarEnabled(Operation[] _enabledOperations){
-    for(Operation op: _enabledOperations){
-      if(op.operator == "var") return true;
+
+  boolean checkVarEnabled(Operation[] _enabledOperations) {
+    for (Operation op : _enabledOperations) {
+      if (op.operator == "var") return true;
     }
     return false;
   }
@@ -204,6 +207,7 @@ class AlgorithmController {
     for (int i = 0; i < algorithmSliders.length; i++) {
       algorithmSliders[i] = new Slider(columns[0].z * 2 - gap);
       algorithmSliders[i].value = defaultValues[i];
+      algorithmSliders[i].setNTicks(int(limits[i].y - limits[i].x));
     }
   }
 

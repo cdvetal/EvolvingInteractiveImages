@@ -48,7 +48,6 @@ void exportShader(Node _node, String _name) {
   shaderStrings[6] = algorithmComment;
   
   saveStrings(outputPath + _name + ".glsl", shaderStrings);
-  println("exported shader to :" + outputPath);
 }
 
 void exportTreeShader(Node _node, String _name) {
