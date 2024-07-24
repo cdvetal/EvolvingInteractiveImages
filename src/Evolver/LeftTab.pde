@@ -165,7 +165,7 @@ class VariablesController {
     if (nVariables < 1) return;
 
     icons = new Icon[nTypes];
-    String[] iconNames = {"mouse_horizontal", "mouse_vertical", "wave", "perlin"};
+    String[] iconNames = {"horizontal", "vertical", "wave", "perlin"};
     sliders = new Slider[_nVariables];
     toggles = new ToggleButton[_nVariables][nTypes]; // [horizontal] / [vertical]
 

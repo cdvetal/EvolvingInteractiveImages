@@ -15,7 +15,7 @@ class PopulationScreen {
     musicIcon.disableStyle();
     videoIcon = icons.get("video");
     videoIcon.disableStyle();
-    dataIcon = icons.get("data");
+    dataIcon = icons.get("sliders");
     dataIcon.disableStyle();
   }
 
@@ -118,17 +118,22 @@ class PopulationScreen {
     noStroke();
     
     if(nodeInfo.containsKey("aud") || nodeInfo.containsKey("auh") || nodeInfo.containsKey("aul")){
-      shape(musicIcon, currentX, iconSize, iconSize, iconSize);
+      showInteractiveIcon(musicIcon, currentX, iconSize, iconSize);
       currentX += iconSize * 2;
     }
     if(nodeInfo.containsKey("bri")){
-      shape(videoIcon, currentX, iconSize, iconSize, iconSize);
+      showInteractiveIcon(videoIcon, currentX, iconSize, iconSize);
       currentX += iconSize * 2;
     }
     if(nodeInfo.containsKey("var")){
-      shape(dataIcon, currentX, iconSize, iconSize, iconSize);
+      showInteractiveIcon(dataIcon, currentX, iconSize, iconSize);
       currentX += iconSize * 2;
     }
+  }
+  
+  void showInteractiveIcon(PShape _icon, float _x, float _y, float _s){
+    fill(colors.get("primary"));
+    shape(_icon, _x, _y, _s, _s);
   }
 }
 
