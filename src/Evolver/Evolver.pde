@@ -33,6 +33,7 @@ PVector[] columns; // [(startX, endX, columnWidth), ...]
 Button pressedButton;
 float aspectRatio = 1; //width = height * aspectRatio
 Individual hoveredIndividual = null;
+Popup popup;
 
 MainMenu mainMenu;
 LoadMenu loadMenu;
@@ -85,6 +86,7 @@ void setup() {
   colors = loadColors();
   fonts = loadFonts();
   columns = setupColumns(10);
+  popup = new Popup();
 
   operations = setupOperations();
   fragShaderTemplateLines = loadStrings("fragShaderTemplate.glsl");
@@ -128,6 +130,8 @@ void draw() {
 
     break;
   }
+  
+  popup.show();
 }
 
 void setInputImage() {

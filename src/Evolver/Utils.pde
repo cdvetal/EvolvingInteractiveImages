@@ -26,7 +26,7 @@ void exportImage(Individual _individualToExport) {
 
   exportImage.save(outputPath + "img.png");
 
-  println("exported image to:" + outputPath);
+  popup.setPopup("Exported");
 }
 
 void exportShader(Individual _individualToExport) {

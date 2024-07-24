@@ -26,6 +26,8 @@ class LeftTab {
     noStroke();
     fill(colors.get("surface"));
     rect(0, 0, columns[columnWidth-1].y, height);
+    
+    pushMatrix();
 
     translate(border, border);
 
@@ -107,6 +109,8 @@ class LeftTab {
         text(individualScreen.nodeInfoString, 0, 0, columns[columnWidth-1].z * 2 - border - gap, 200);
       }
     }
+    
+    popMatrix();
   }
 
   float getSliderValue(int _sliderIndex) {

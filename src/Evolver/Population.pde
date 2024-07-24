@@ -66,6 +66,8 @@ class Population {
     println("GENERATION: " + nGenerations);
     nGenerations++;
     run.evolved(nGenerations, individuals);
+    
+    popup.setPopup("Evolved to Generation " + (nGenerations));
   }
 
   Individual tournamentSelection() {
