@@ -45,16 +45,23 @@ class Operation{
 Operation[] setupOperations(){
   ArrayList<Operation> operationsToReturn = new ArrayList<Operation>();
   
+  /* DEPRECATED
   operationsToReturn.add(new Operation(0, "+", true));
   operationsToReturn.add(new Operation(0, "-", true));
   operationsToReturn.add(new Operation(0, "*", true));
   operationsToReturn.add(new Operation(0, "/", true));
+  */
+  
+  operationsToReturn.add(new Operation(2, "add", true, "+"));
+  operationsToReturn.add(new Operation(2, "sub", true, "-"));
+  operationsToReturn.add(new Operation(2, "mul", true, "*"));
+  operationsToReturn.add(new Operation(2, "div", true, "/"));
   
   operationsToReturn.add(new Operation(1, "sin", true));
   operationsToReturn.add(new Operation(1, "cos", true));
   operationsToReturn.add(new Operation(1, "tan", true));
   operationsToReturn.add(new Operation(1, "var", true, "variables"));
-  
+
   operationsToReturn.add(new Operation(2, "aud", true, "sound"));
   operationsToReturn.add(new Operation(2, "aul", true, "sound - lows"));
   operationsToReturn.add(new Operation(2, "auh", true, "sound - highs"));
