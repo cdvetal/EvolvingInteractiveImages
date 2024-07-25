@@ -218,10 +218,6 @@ class Node {
     return toReturn;
   }
 
-  void setupNodeFromExpression(String _expression) {
-    
-  }
-
   void checkNecessaryChildrenNodes() {
     int requiredArguments =  enabledOperations[getMathType(mathType)].getNumberArgumentsNeeded();
 
@@ -288,6 +284,35 @@ class Node {
 
   float mathTypeFromOperatorIndex(int _operatorIndex) {
     return map(_operatorIndex, 0, enabledOperations.length, 0, 1 -0.001);
+  }
+  
+  void setupNodeFromExpression(String[] _expressions) {
+    
+    int firstParenthesisPos = _expressions[0].indexOf('(');
+    int lastParenthesisPos = _expressions[0].lastIndexOf(')');
+    
+    if(firstParenthesisPos < 0 || lastParenthesisPos < 0){ //means it's scalar
+      
+      return;
+    }
+    
+    //substring(0,10)
+    String functionString = _expressions[0].substring(0,firstParenthesisPos);
+    
+    mathType = getMathTypeValueFromString(functionString);
+    
+    
+    
+    String inParenthesis = _expressions[0].substring(firstParenthesisPos + 1, lastParenthesisPos);
+    
+    
+  }
+  
+  float getMathTypeValueFromString(String _functionString){
+    for(int i = 0; i < operations.length; i ++){
+      if(operations[i].operator == _functionString) return (1 / operations.length * i);
+    }
+    return 0;
   }
 
   String removeStartAndEndParenthesis(String _string) {

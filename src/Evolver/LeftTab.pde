@@ -305,11 +305,12 @@ class MusicController {
       changeSong();
     }
 
-
+    /* 
     pushMatrix();
     translate(columns[0].z + gap, 20);
     volume.show();
     popMatrix();
+    */
   }
 }
 
