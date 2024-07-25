@@ -8,7 +8,7 @@ class SetupScreen {
   Slider nVariablesSlider;
   int maxVariables = 10;
   Slider maxDepthSlider;
-  int minDepth = 4, maxDepth = 30;
+  int minDepth = 5, maxDepth = 30;
 
   SetupScreen() {
     float sliderW = columns[0].z * 2 - gap;
@@ -18,7 +18,7 @@ class SetupScreen {
     nVariablesSlider.value = 0.3;
     nVariablesSlider.setNTicks(maxVariables);
     maxDepthSlider = new Slider(sliderW);
-    maxDepthSlider.value = 0.2;
+    maxDepthSlider.value = 0.3;
     maxDepthSlider.setNTicks(maxDepth - minDepth);
   }
 
@@ -179,7 +179,7 @@ class SetupScreen {
   }
 
   int getMaxDepth() {
-    return int(minDepth + round(maxDepthSlider.value * maxDepth));
+    return int(floor(minDepth + maxDepthSlider.value * (maxDepth - minDepth)));
   }
 
   boolean checkVarEnabled(Operation[] _enabledOperations) {

@@ -109,7 +109,7 @@ class Slider {
   }
   
   void setNTicks(int _nTicks){
-    if(_nTicks <1) return;
+    if(_nTicks <=1) return;
     nTicks = _nTicks - 1;
     lockAtTick();
   }
