@@ -1,10 +1,10 @@
 /* ############################
 Evolved using software @ https://github.com/cdvetal/EvolvingInteractiveImages
 
+// 2024 - 7 - 25
 
-
-
-
+// Generation: 5
+// Population Size: 18; Elite Size: 1; Mutation Rate: 0.4; Crossover Rate: 0.3; Tournament Size: 3
 ############################ */
 
 in vec4 gl_FragCoord;
@@ -169,9 +169,9 @@ float div(float a, float b){
 }
 
 vec3 generateRGB(float x, float y){
-    float r = 1.0;
-    float g = 1.0;
-    float b = 1.0;
+    float r = add(y,aud(cos(aud(mul(pow(cos(y),y),x),div(sin(tan(cos(min(x,div(cos(0.9711797),pow(y,pow(x,min(0.9654591,y)))))))),pow(sub(add(min(0.6663513,cos(tan(y))),x),add(aul(add(aud(sub(sub(x,mul(y,0.50396395)),mul(y,add(cos(x),aud(x,x)))),y),x),div(0.1709845,0.7190933)),pow(y,max(cos(cos(cos(x))),y)))),0.119140625)))),sub(auh(0.48338938,y),add(sub(var(sin(sub(x,y))),0.12968731),max(aud(aul(y,x),auh(var(auh(x,cos(aul(min(max(x,aud(aud(y,0.6811824),aul(y,y))),add(min(x,y),mul(sub(y,0.81571674),sin(x)))),sub(y,y))))),x)),pow(aud(y,0.85561013),tan(0.68790007)))))));
+    float g = add(y,aud(cos(aud(mul(pow(cos(y),0.7618742),0.45095325),div(sin(tan(cos(min(y,div(cos(0.97989154),pow(y,pow(y,min(y,x)))))))),pow(sub(add(min(x,cos(tan(y))),0.59772825),add(aul(add(aud(sub(sub(x,mul(x,0.7706981)),mul(y,add(cos(0.811748),aud(0.2975304,y)))),0.6203754),0.8474183),div(x,x)),pow(y,max(cos(cos(cos(0.80651236))),x)))),y)))),sub(auh(x,x),add(sub(var(sin(sub(x,x))),y),max(aud(aul(x,0.10228753),auh(var(auh(x,cos(aul(min(max(x,aud(aud(0.07221103,x),aul(y,y))),add(min(y,y),mul(sub(x,y),sin(y)))),sub(0.9126463,x))))),0.63980913)),pow(aud(x,x),tan(0.16162777)))))));
+    float b = add(0.15658426,aud(cos(aud(mul(pow(cos(0.92779803),y),y),div(sin(tan(cos(min(0.5521176,div(cos(y),pow(0.6049266,pow(0.50286627,min(x,0.82717896)))))))),pow(sub(add(min(y,cos(tan(x))),x),add(aul(add(aud(sub(sub(0.03392887,mul(y,y)),mul(0.94456863,add(cos(0.5493355),aud(x,y)))),y),x),div(0.6367965,x)),pow(x,max(cos(cos(cos(y))),y)))),y)))),sub(auh(0.69600916,0.47520256),add(sub(var(sin(sub(0.8840163,y))),0.9477477),max(aud(aul(0.7445643,x),auh(var(auh(x,cos(aul(min(max(x,aud(aud(x,0.57265425),aul(x,y))),add(min(x,y),mul(sub(x,y),sin(x)))),sub(y,0.7604599))))),x)),pow(aud(x,x),tan(0.8688388)))))));
     return vec3(r,g,b);
 }
 
