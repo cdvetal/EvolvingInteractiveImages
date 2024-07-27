@@ -10,13 +10,11 @@ PImage inputImage;
 //Export
 int imageExportResolution = 1920;
 PGraphics exportCanvas;
-boolean isExportingAnimation;
-int nAnimationFrames = 96;
 
 //Sound
 FFT fft;
 SoundFile[] soundFiles;
-boolean muted = false;
+boolean muted = true;
 int nBands = 512;
 int soundIndex = 0;
 
@@ -46,19 +44,19 @@ IndividualScreen individualScreen;
 Run run;
 Population population;
 
-int maxDepth = 15;
-int populationSize = 10;
-int eliteSize = 2;
-int tournamentSize = 3;
-float crossoverRate = .3;
-float mutationRate = .9;
+int maxDepth;
+int populationSize;
+int eliteSize;
+int tournamentSize;
+float crossoverRate;
+float mutationRate;
 
 Operation[] operations;
 Operation[] enabledOperations;
 
 //Shaders
 String[] fragShaderTemplateLines;
-int shaderChangeLineStart = 157; //3 lines need changing (r,g,b), first line is this (as shown in vscode)
+int shaderChangeLineStart; //3 lines need changing (r,g,b)
 VariablesManager variablesManager;
 
 void setup() {
@@ -72,25 +70,27 @@ void setup() {
 
   String[] cameras = Capture.list();
   if (cameras.length == 0) {
-    inputImage = loadImage("shells.jpg");
+    inputImage = loadImage("placeholder.jpg");
   } else {
     cam = new Capture(this, 1280, 720);
     cam.start();
   }
+  
+  popup = new Popup();
 
   fft = new FFT(this, nBands);
   soundFiles = loadSongs();
-  changeSong();
+  changeSong(true);
+  muteSong();
 
   icons = loadIcons();
   colors = loadColors();
   fonts = loadFonts();
   columns = setupColumns(10);
-  popup = new Popup();
 
   operations = setupOperations();
   fragShaderTemplateLines = loadStrings("fragShaderTemplate.glsl");
-  shaderChangeLineStart = calculateLineToChangeInShader(fragShaderTemplateLines);
+  shaderChangeLineStart = findLineToChangeInShader(fragShaderTemplateLines);
 
   run = new Run();
   run.startRun();
@@ -140,32 +140,6 @@ void setInputImage() {
 
   cam.read();
   inputImage = cam;
-}
-
-float[] getAudioSpectrum() {
-  float[] spectrum = new float[nBands];
-  fft.analyze(spectrum);
-  return spectrum;
-}
-
-void mousePressed() {
-  if (isExportingAnimation) return;
-
-  if (hoveredIndividual == null) return;
-  if (mouseButton == LEFT) hoveredIndividual.giveFitness();
-  if (mouseButton == RIGHT) hoveredIndividual.setFitness(0);
-}
-
-void keyPressed() {
-  /*if (key==27) {
-   key=0;
-   }*/
-
-  if (isExportingAnimation) return;
-
-  if (key == ' ') {
-    population.evolve();
-  }
 }
 
 void mouseReleased() {

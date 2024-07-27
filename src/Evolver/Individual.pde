@@ -1,9 +1,22 @@
+/*
+
+Handles the representation and manipulation of individuals.
+It includes:
+- Initialization of individuals
+- Writting and applying shaders
+- Assignment of fitness
+- Mutation
+- Crossover
+
+*/
+
 class Individual {
 
   private Node tree;
   PShader shader;
+
   int nodeHighestDepth;
-  int nFullColumns = 0; //works with breadthTracker to force new column on identification
+  int nFullColumns = 0;
 
   int nChildNodes = 0;
 
@@ -30,8 +43,8 @@ class Individual {
     generateID();
   }
 
-  /*
-  //under maintnance
+   /*
+   //under maintenance
    Individual(String[] _expressions, float _fitness){
    for (int i = 0; i < nodes.length; i++) {
    nodes[i] = new Node(_expressions[i]);
@@ -46,7 +59,7 @@ class Individual {
     tree.removeTooDeep();
     identifyNodes();
   }
-
+  
   void identifyNodes() {
     nChildNodes = 0;
     nodeHighestDepth = 0;
@@ -68,8 +81,9 @@ class Individual {
     //if does not exist, create with value 1. if it exists add 1 to value of key
     operationStats.merge(_operator, 1, Integer::sum);
   }
-
-  void addBreadth() { //node is terminal. must add breadth
+  
+  //node is terminal. must add breadth
+  void addBreadth() {
     nFullColumns ++;
   }
 
@@ -79,7 +93,7 @@ class Individual {
     return toReturn;
   }
 
-
+  //creates and reads shader file
   void doShader(int _index) {
     String [] shaderLines = getShaderTextLines(tree);
 
@@ -101,7 +115,6 @@ class Individual {
   }
 
   void mutate() {
-
     for (int i = 0; i < nChildNodes; i++) {
       if (random(1) > mutationRate) continue;
       Node toMutate = tree.getNode(i);
@@ -117,7 +130,6 @@ class Individual {
   }
 
   Node getRandomNode(boolean _isCopy) {
-
     int randomNodeIndex = floor(random(nChildNodes));
 
     Node randomNode = tree.getNode(randomNodeIndex);
@@ -162,15 +174,6 @@ class Individual {
 
     return new Individual(copiedTree, fitness);
   }
-
-  void render(PGraphics _canvas, int _w, int _h) {
-    PImage image = new PImage(_w, _h, RGB);
-
-    _canvas.shader(shader);
-    _canvas.image(image, 0, 0);
-  }
-
-
 
   int getNChildNodes() {
     return nChildNodes;

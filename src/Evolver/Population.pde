@@ -1,3 +1,9 @@
+/*
+
+Handles the group of individuals in the evolution.
+
+*/
+
 class Population {
 
   Individual[] individuals;
@@ -35,11 +41,13 @@ class Population {
     Individual[] newGeneration = new Individual[individuals.length];
 
     sortIndividualsByFitness();
-
+    
+    //add elite to new population
     for (int i = 0; i < eliteSize; i++) {
       newGeneration[i] = individuals[i].getCopy();
     }
 
+    //do crossover
     for (int i = eliteSize; i < newGeneration.length; i++) {
       if (random(1) <= crossoverRate) {//crossoverRate
         Individual parent1 = tournamentSelection();
@@ -51,11 +59,13 @@ class Population {
       }
     }
 
+    //do mutation
     for (int i = eliteSize; i < individuals.length; i++) {
       newGeneration[i].identifyNodes();
       newGeneration[i].mutate();
     }
 
+    //finish new population
     for (int i = 0; i < individuals.length; i++) {
       individuals[i] = newGeneration[i];
       individuals[i].setFitness(0);
@@ -63,7 +73,6 @@ class Population {
       individuals[i].doShader(i);
     }
 
-    println("GENERATION: " + nGenerations);
     nGenerations++;
     run.evolved(nGenerations, individuals);
     

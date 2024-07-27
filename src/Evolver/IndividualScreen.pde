@@ -1,3 +1,12 @@
+/*
+
+Handles the area that shows a single individual.
+It includes:
+- Showing phenotype
+- Showing tree
+
+*/
+
 class IndividualScreen {
 
   float x, y, w, h;

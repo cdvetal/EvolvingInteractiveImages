@@ -1,3 +1,15 @@
+/*
+
+Handles the different variables being used as input to create interaction.
+Variables can be of 5 types:
+- Manual input (slider)
+- Cursor positon vertically
+- Cursor position horizontally
+- Sine wave
+- Perlin noise
+
+*/
+
 class VariablesManager { //Manages all the external info
 
   int shaderVariablesArraySize = 10;
@@ -56,7 +68,7 @@ class VariablesManager { //Manages all the external info
       break;
       
       case(3):
-      toReturn = noise(millis() * 0.0001 + 10000 * _variableIndex);
+      toReturn = noise(millis() * 0.001 + 10000 * _variableIndex);
     }
 
     return toReturn;

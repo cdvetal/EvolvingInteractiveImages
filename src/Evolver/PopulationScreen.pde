@@ -1,3 +1,10 @@
+/*
+
+Shows all the individuals in a population.
+By hovering each individual you can export, analyse, add or remove fitness.
+
+*/
+
 class PopulationScreen {
 
   float x, y, w, h;
@@ -64,6 +71,7 @@ class PopulationScreen {
     
     individualHover.setValues(gridW, gridH, shiftX, shiftY);
 
+    //show phenotypes
     for (int i = 0; i < population.getSize(); i++) {
       float gridX = individualsGrid[row][col].x;
       float gridY = individualsGrid[row][col].y;
@@ -112,6 +120,7 @@ class PopulationScreen {
     popMatrix();
   }
   
+  //icons showing interactive features of individual
   void showInteractiveNodeInfo(HashMap <String, Integer> nodeInfo){
     int iconSize = 14;
     int currentX = iconSize;
@@ -138,6 +147,7 @@ class PopulationScreen {
   }
 }
 
+//buttons on hovering individual
 class IndividualHover {
 
   float w, h;

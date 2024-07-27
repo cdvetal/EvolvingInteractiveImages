@@ -1,3 +1,9 @@
+/*
+
+Handles the visualization of the trees.
+
+*/
+
 class TreeVis { //needs fixing
 
   Individual individual;

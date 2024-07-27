@@ -1,3 +1,12 @@
+/*
+
+Handles various Button UI elements, including:
+- TextButton: A button that displays text
+- IconButton: A button that displays an icon
+- ToggleButton: A button that can switch between two states (on/off)
+
+*/
+
 class Button {
 
   //add tooltip?
@@ -56,7 +65,7 @@ class Button {
 class TextButton extends Button {
   String text;
   float fontSize = 14;
-  String weight = null;
+  String fontWeight = null;
 
   int alignHorizontal = CENTER;
   int alignVertical = CENTER;
@@ -80,8 +89,8 @@ class TextButton extends Button {
     text = _text;
   }
 
-  void setWeight(String _weight) {
-    weight = _weight;
+  void setFontWeight(String _weight) {
+    fontWeight = _weight;
   }
 
   void show() {
@@ -94,7 +103,7 @@ class TextButton extends Button {
       rect(x, y, w, h, w);
     }
 
-    if (weight != null) textFont(fonts.get(weight));
+    if (fontWeight != null) textFont(fonts.get(fontWeight));
     else textFont(fonts.get("medium"));
 
     textSize(fontSize);

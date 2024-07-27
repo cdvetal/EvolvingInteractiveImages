@@ -1,3 +1,9 @@
+/*
+
+Assorted functions.
+
+*/
+
 void exportImage(Individual _individualToExport) {
 
   String outputPath = sketchPath("outputs/" + _individualToExport.getID() + "/");
@@ -36,17 +42,17 @@ void exportShader(Individual _individualToExport) {
 void exportShader(Node _node, String _name) {
   String outputPath = sketchPath("outputs/" + _name + "/");
   String[] shaderStrings = getShaderTextLines(_node);
-  
+
   String dateComment = "// ";
   dateComment += year() + " - " + month() + " - " + day();
-  
+
   String algorithmComment = "// ";
   algorithmComment += "Population Size: " + populationSize + "; Elite Size: " + eliteSize + "; Mutation Rate: " + mutationRate + "; Crossover Rate: " + crossoverRate + "; Tournament Size: " + tournamentSize;
-  
+
   shaderStrings[3] = dateComment;
   shaderStrings[5] = "// Generation: " + population.nGenerations;
   shaderStrings[6] = algorithmComment;
-  
+
   saveStrings(outputPath + _name + ".glsl", shaderStrings);
 }
 
@@ -124,32 +130,67 @@ String generateUUID() {
   return String.join("-", sequences);
 }
 
-int calculateLineToChangeInShader(String[] _shaderTemplateStrings) {
+int findLineToChangeInShader(String[] _shaderTemplateStrings) {
   String lineStartString = "float r = ";
-  
+
   for (int i = 0; i < _shaderTemplateStrings.length; i ++) {
     if (_shaderTemplateStrings[i].indexOf(lineStartString) >= 0) {
-      println("line: "+ i);
       return i;
     }
   }
   return 0;
 }
 
-void changeSong() {
-  soundFiles[soundIndex].stop();
-  soundIndex ++;
+void changeSong(boolean _next) {
+  if (!checkSongsExist()) {
+    popup.setPopup("No songs found in data/music");
+    return;
+  } else if(soundFiles.length == 1){
+    popup.setPopup("Only one song in data/music");
+    return;
+  }
+  
+  if(soundFiles[soundIndex].isPlaying()) soundFiles[soundIndex].stop();
+  
+  if(_next) soundIndex ++;
+  else soundIndex --;
 
   if (soundIndex >= soundFiles.length) soundIndex = 0;
+  else if(soundIndex < 0) soundIndex = soundFiles.length - 1;
 
+  muted = false;
+  soundFiles[soundIndex].amp(muted ? 0 : 1);
   soundFiles[soundIndex].loop();
-  muteSong();
   fft.input(soundFiles[soundIndex]);
 }
 
-void muteSong() {
+void toggleMuteSong() {
+  if (!checkSongsExist()) {
+    popup.setPopup("No songs found in data/music");
+    return;
+  }
   muted =! muted;
   soundFiles[soundIndex].amp(muted ? 0 : 1);
+}
+
+void muteSong() {
+  if (!checkSongsExist()) {
+    popup.setPopup("No songs found in data/music");
+    return;
+  }
+  muted = true;
+  soundFiles[soundIndex].amp(muted ? 0 : 1);
+}
+
+float[] getAudioSpectrum() {
+  float[] spectrum = new float[nBands];
+  fft.analyze(spectrum);
+  return spectrum;
+}
+
+boolean checkSongsExist() {
+  if (soundFiles.length <1) return false;
+  return true;
 }
 
 SoundFile[] loadSongs() {
@@ -162,6 +203,7 @@ SoundFile[] loadSongs() {
 
   for (int i = 0; i < toReturn.length; i++)
   {
+    if(!names[i].contains(".mp3")) continue;
     toReturn[i] = new SoundFile(this, directory + names[i]);
   }
 

@@ -1,3 +1,12 @@
+/*
+
+Handles the nodes that make up a Genetic Programming Tree.
+Nodes can be of a function or terminal.
+Nodes can have children.
+
+*/
+
+
 class Node {
 
   float mathType; //0-1
@@ -9,9 +18,6 @@ class Node {
   int visX; //location of node in tree visualization horizontally. vertical is depth
 
   Node[] childrenNodes;
-
-  //Node aNode = null;
-  //Node bNode = null;
 
   String[] terminalSet = {"x", "y"};
 
@@ -128,7 +134,8 @@ class Node {
     return null;
   }
 
-  Node getNodeVis(PVector _visLocation) { //gets node based on depth and visX
+  //gets node based on depth and visX
+  Node getNodeVis(PVector _visLocation) {
     if (depth > _visLocation.y || visX > _visLocation.x) return null;
 
     if (depth == int(_visLocation.y) && visX == int(_visLocation.x)) return this;
@@ -142,7 +149,6 @@ class Node {
   }
 
   boolean replaceNode(int _index, Node _newNode) {
-
     for (int i = 0; i < childrenNodes.length; i ++) {
       if (childrenNodes[i].nodeIndex == _index) {
         childrenNodes[i] = _newNode;
@@ -190,8 +196,8 @@ class Node {
     return finalString;
   }
 
-
-  String[] getExpressions() {//get 3 expressions (R, G and B)
+  //get 3 expressions (R, G and B)
+  String[] getExpressions() {
     String[] expressions = new String[3];
 
     for (int i = 0; i < expressions.length; i++) {
@@ -200,10 +206,10 @@ class Node {
 
     return expressions;
   }
-
-  String getNodeText() {//for tree visualization
+  
+  //for tree visualization
+  String getNodeText() {
     String toReturn = "";
-
 
     if (childrenNodes.length < 1) {
       toReturn += "(";
@@ -218,6 +224,7 @@ class Node {
     return toReturn;
   }
 
+  //number of necessary children depends on function
   void checkNecessaryChildrenNodes() {
     int requiredArguments =  enabledOperations[getMathType(mathType)].getNumberArgumentsNeeded();
 
@@ -257,7 +264,8 @@ class Node {
     }
   }
 
-  String getScalarValueString(int _scalarIndex, boolean _cropped) { //retrieves string from normalized scalar values, from terminal set or value 0-1
+  //retrieves string from normalized scalar values, from terminal set or value 0-1
+  String getScalarValueString(int _scalarIndex, boolean _cropped) {
     float scalarValue = scalar[_scalarIndex];
 
     int nOptions = terminalSet.length + 1;
@@ -277,19 +285,6 @@ class Node {
     } else {
       return String.valueOf(val);
     }
-
-
-    /*
-    if (converter > 1) { //if > 1 then we choose from terminal set
-     int terminalSetIndex = constrain(floor(converter - 1), 0, terminalSet.length -1);
-     return terminalSet[terminalSetIndex];
-     } else { //else scalar is a value (0-1)
-     if (_cropped) {
-     return nf(converter, 0, 2);
-     } else {
-     return String.valueOf(converter);
-     }
-     }*/
   }
 
   int getMathType(float _type) {

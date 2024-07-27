@@ -1,3 +1,11 @@
+/*
+
+Handles the 2 buttons in main menu:
+- New Run
+- Load Run
+
+*/
+
 class MainMenu {
 
   TextButton newRun;

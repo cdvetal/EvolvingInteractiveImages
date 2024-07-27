@@ -1,3 +1,9 @@
+/*
+
+Handles Sliders UI elements.
+
+*/
+
 class Slider {
 
   float x, y, w;

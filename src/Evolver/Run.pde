@@ -1,3 +1,10 @@
+/*
+
+Handles the information of each evolutionary run.
+Information is stored in a json.
+
+*/
+
 class Run {
 
   String UUID;

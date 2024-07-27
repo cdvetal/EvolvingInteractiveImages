@@ -1,3 +1,9 @@
+/*
+
+Operations (or Functions) that make up the function set.
+
+*/
+
 class Operation{
   
     /*

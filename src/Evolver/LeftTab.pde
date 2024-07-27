@@ -1,3 +1,21 @@
+/*
+
+ Handles the UI tab on the left of the screen.
+ 
+ When in population screen it includes:
+ - Variables (if enabled)
+ - Aspect ratio
+ - Song controls
+ - Generation controller
+ 
+ When in population screen it includes:
+ - Variables (if enabled)
+ - Song controls
+ - Layout Controller (toggle tree & image)
+ - Individual related actions (fullscreen, export, more fitness, less fitness)
+ - List of functions used in individual
+ */
+
 class LeftTab {
 
   boolean enabled = true;
@@ -26,7 +44,7 @@ class LeftTab {
     noStroke();
     fill(colors.get("surface"));
     rect(0, 0, columns[columnWidth-1].y, height);
-    
+
     pushMatrix();
 
     translate(border, border);
@@ -56,12 +74,15 @@ class LeftTab {
     textAlign(LEFT, CENTER);
     textFont(fonts.get("medium"));
     textSize(14);
-    text("Aspect Ratio: " + nf(aspectRatio,0,2), 0, 0);
-    translate(0, gap);
-    aspectRatioController.show();
-    aspectRatio = 0.5 + 1.5 * aspectRatioController.aspectRatio.value;
 
-    translate(0, gap + aspectRatioController.totalHeight);
+    if (screen.equals("population")) {
+      text("Aspect Ratio: " + nf(aspectRatio, 0, 2), 0, 0);
+      translate(0, gap);
+      aspectRatioController.show();
+      aspectRatio = 0.5 + 1.5 * aspectRatioController.aspectRatio.value;
+      translate(0, gap + aspectRatioController.totalHeight);
+    }
+
     fill(colors.get("primary"));
     textAlign(LEFT, CENTER);
     textFont(fonts.get("medium"));
@@ -109,7 +130,7 @@ class LeftTab {
         text(individualScreen.nodeInfoString, 0, 0, columns[columnWidth-1].z * 2 - border - gap, 200);
       }
     }
-    
+
     popMatrix();
   }
 
@@ -291,7 +312,7 @@ class MusicController {
     if (play.getSelected()) {
       //play/pause music
       play.toggle();
-      muteSong();
+      toggleMuteSong();
 
       if (play.toggled) {
         play.setIcon("play");
@@ -300,17 +321,17 @@ class MusicController {
       }
     }
 
-    if (previous.getSelected() || next.getSelected())
+    if (previous.getSelected())
     {
-      changeSong();
+      changeSong(false);
+      play.setIcon("pause");
+      play.toggled = false;
+    } else if (next.getSelected())
+    {
+      changeSong(true);
+      play.setIcon("pause");
+      play.toggled = false;
     }
-
-    /* 
-    pushMatrix();
-    translate(columns[0].z + gap, 20);
-    volume.show();
-    popMatrix();
-    */
   }
 }
 

@@ -1,3 +1,10 @@
+/*
+
+Handles Icon UI elements.
+
+*/
+
+
 class Icon{
  
   float x,y,w;

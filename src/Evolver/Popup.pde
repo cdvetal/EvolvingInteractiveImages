@@ -1,3 +1,9 @@
+/*
+
+Simple UI popup to show feedback on certian actions.
+
+*/
+
 class Popup {
 
   float x = width/2, y = height * 0.9;

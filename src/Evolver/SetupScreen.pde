@@ -1,3 +1,13 @@
+/*
+
+Handles screen where users can choose settings for the evolutionary run, such as:
+- Genetic Algorithm values
+- Number of Variables
+- Max Tree Depth
+- Function Set
+
+*/
+
 class SetupScreen {
 
   OperationController operationController = new OperationController();
@@ -189,9 +199,6 @@ class SetupScreen {
     return false;
   }
 }
-
-
-
 
 
 class AlgorithmController {
