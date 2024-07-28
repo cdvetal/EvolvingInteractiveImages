@@ -24,6 +24,27 @@ PImage getPhenotype(float _w, float _h, PShader _shader) {
   return canvas;
 }
 
+void exportImage(Individual _individualToExport) {
+
+  String outputPath = sketchPath("outputs/" + _individualToExport.file + "/");
+
+  PShader exportShader = _individualToExport.getShader();
+
+  exportCanvas.beginDraw();
+
+  exportCanvas.clear();
+
+  exportCanvas.shader(exportShader);
+
+  exportCanvas.rect(0, 0, exportCanvas.width, exportCanvas.height);
+
+  exportCanvas.endDraw();
+
+  PImage exportImage = exportCanvas.copy();
+
+  exportImage.save(outputPath + "img.png");
+}
+
 void setInputImage() {
   if (cam == null) return;
   if (cam.available() != true) return;

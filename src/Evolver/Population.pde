@@ -26,6 +26,8 @@ class Population {
   }
 
   void initialize() {
+    println(maxTreeDepth);
+    
     for (int i = 0; i < individuals.length; i++) {
       individuals[i] = new Individual();
       individuals[i].setFitness(0);

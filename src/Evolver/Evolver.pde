@@ -44,7 +44,7 @@ IndividualScreen individualScreen;
 Run run;
 Population population;
 
-int maxDepth;
+int maxTreeDepth;
 int populationSize;
 int eliteSize;
 int tournamentSize;

@@ -54,7 +54,7 @@ class Node {
     mathType = random(1);
 
     //decide if node will have children or not
-    if (random(1) > .45 && depth < maxDepth - 1 && _tocreateChildren) {
+    if (random(1) > .45 && depth < maxTreeDepth - 1 && _tocreateChildren) {
       mathType = random(1);
     } else {
       mathType = -1;
@@ -254,7 +254,7 @@ class Node {
   }
 
   void removeTooDeep() {
-    if (depth == maxDepth) {
+    if (depth == maxTreeDepth) {
       childrenNodes = new Node[0];
       mathType = -1;
     } else {

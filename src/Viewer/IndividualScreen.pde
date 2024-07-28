@@ -41,6 +41,10 @@ class IndividualScreen {
       }
     }
   }
+  
+  void exportIndividual(){
+    exportImage(individuals[individualIndex]);
+  }
 
   void startTransition(boolean _next) {
     transitionDirection = _next;

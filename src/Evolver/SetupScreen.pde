@@ -18,7 +18,7 @@ class SetupScreen {
   Slider nVariablesSlider;
   int maxVariables = 10;
   Slider maxDepthSlider;
-  int minDepth = 5, maxDepth = 30;
+  int minDepth = 1, maxDepth = 30;
 
   SetupScreen() {
     float sliderW = columns[0].z * 2 - gap;
@@ -131,7 +131,7 @@ class SetupScreen {
     textFont(fonts.get("medium"));
     textSize(14);
     text("Function Set", 0, 0);
-    translate(0, gap);
+    translate(0, gap * 2);
 
     operationController.show();
     popMatrix();
@@ -170,7 +170,7 @@ class SetupScreen {
 
     leftTab = new LeftTab(nVariables);
 
-    maxDepth = getMaxDepth();
+    maxTreeDepth = getMaxDepth();
 
     populationSize = round(algorithmController.getSliderValue(0));
     mutationRate = algorithmController.getSliderValue(1);

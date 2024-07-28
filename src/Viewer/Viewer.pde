@@ -9,6 +9,11 @@ PImage shaderImage;
 
 boolean externalEnabled = true;
 
+//Export
+int imageExportResolution = 1920;
+PGraphics exportCanvas;
+
+//Sound
 FFT fft;
 SoundFile[] soundFiles;
 int nBands = 512;
@@ -27,6 +32,10 @@ void setup() {
   frameRate(100);
   fullScreen(P2D);
   //size(1080, 1080, P2D);
+  
+  exportCanvas = createGraphics(imageExportResolution, imageExportResolution, P2D);
+  exportCanvas.beginDraw(); //needed because bug - first export is empty
+  exportCanvas.endDraw();
   
   variablesManager = new VariablesManager(5);
   individualScreen = new IndividualScreen();
@@ -70,7 +79,7 @@ void draw() {
 void keyPressed() {
   if (key == 'm' || key == 'M') changeSong();
   if (key == 'a' || key == 'A') muteSong();
-  //if (key == 'e' || key == 'E') exportImage();
+  if (key == 'e' || key == 'E') individualScreen.exportIndividual();
   if (key == ' ') externalEnabled = !externalEnabled;
 
   if (keyCode == RIGHT) individualScreen.startTransition(true);
