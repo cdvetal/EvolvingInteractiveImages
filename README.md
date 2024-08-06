@@ -8,7 +8,14 @@ This repository is a work in progress. Bugs may happen.
 
 ## Prerequisites
 
-Lastest version of [Processing](https://processing.org/download) installed.
+**[Processing 4.2](https://github.com/benfry/processing4/releases/tag/processing-1292-4.2) installed**
+
+**Processing's Audio and Video Libraries:**
+- Open Processing 4.2
+- Go to Tools > Manage Tools
+- Select Libraries Tab
+- Search and install "Video Library for Processing 4" by the Processing Foundation
+- Search "Sound" by the Processing Foundation
 
 ## Usage
 
