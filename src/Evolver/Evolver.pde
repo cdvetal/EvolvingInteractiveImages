@@ -10,6 +10,7 @@ PImage inputImage;
 //Export
 int imageExportResolution = 1920;
 PGraphics exportCanvas;
+PGraphics showCanvas;
 
 //Sound
 FFT fft;
@@ -64,6 +65,7 @@ void setup() {
   fullScreen(P2D);
   colorMode(RGB, 1);
   
+  showCanvas = createGraphics(1,1);
   exportCanvas = createGraphics(imageExportResolution, imageExportResolution, P2D);
   exportCanvas.beginDraw(); //needed because bug - first export is empty
   exportCanvas.endDraw();

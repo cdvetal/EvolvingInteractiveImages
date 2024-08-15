@@ -76,22 +76,22 @@ String[] getShaderTextLines(Node _node) {
 PImage getPhenotype(float _w, float _h, PShader _shader, float[] _variables, float[] _audioSpectrum) {
   int w = floor(_w);
   int h = floor(_h);
-  PGraphics canvas = createGraphics(w, h, P2D);
+  if(showCanvas.width != w || showCanvas.height != h) showCanvas = createGraphics(w, h, P2D);
 
   _shader.set("nVariables", _variables.length);
   _shader.set("variables", _variables);
   _shader.set("audioSpectrum", _audioSpectrum);
   _shader.set("image", inputImage);
 
-  canvas.beginDraw();
+  showCanvas.beginDraw();
 
-  canvas.shader(_shader);
+  showCanvas.shader(_shader);
 
-  canvas.rect(0, 0, canvas.width, canvas.height);
+  showCanvas.rect(0, 0, w, h);
 
-  canvas.endDraw();
+  showCanvas.endDraw();
 
-  return canvas;
+  return showCanvas;
 }
 
 void drawPhenotype(float _x, float _y, float _w, float _h, PShader _shader, float[] _variables, float[] _audioSpectrum) {

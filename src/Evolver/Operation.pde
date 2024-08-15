@@ -69,13 +69,13 @@ Operation[] setupOperations(){
   operationsToReturn.add(new Operation(1, "var", true, "Variables"));
 
   operationsToReturn.add(new Operation(2, "aud", true, "Sound"));
-  operationsToReturn.add(new Operation(2, "aul", true, "Sound - lows"));
-  operationsToReturn.add(new Operation(2, "auh", true, "Sound - highs"));
+  operationsToReturn.add(new Operation(2, "aul", false, "Sound - lows"));
+  operationsToReturn.add(new Operation(2, "auh", false, "Sound - highs"));
   operationsToReturn.add(new Operation(2, "bri", false, "Camera"));
   operationsToReturn.add(new Operation(2, "max", true, "Maximum"));
   operationsToReturn.add(new Operation(2, "min", true, "Minimum"));
-  operationsToReturn.add(new Operation(2, "noi", false, "Perlin noise"));
-  operationsToReturn.add(new Operation(2, "mod", false, "Modulo"));
+  operationsToReturn.add(new Operation(2, "noi", true, "Perlin noise"));
+  operationsToReturn.add(new Operation(2, "mod", true, "Modulo"));
   operationsToReturn.add(new Operation(2, "pow", true, "Power"));  
   
   Operation[] operationsToReturnList = new Operation[operationsToReturn.size()];
