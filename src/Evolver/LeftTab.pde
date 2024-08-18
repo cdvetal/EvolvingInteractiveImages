@@ -26,6 +26,7 @@ class LeftTab {
 
   BackController backController = new BackController();
   AspectRatioController aspectRatioController = new AspectRatioController();
+  DimensionsController dimensionsController = new DimensionsController();
   VariablesController variablesController;
   MusicController musicController = new MusicController();
   GenerationController generationController = new GenerationController();
@@ -82,6 +83,19 @@ class LeftTab {
       aspectRatio = 0.5 + 1.5 * aspectRatioController.aspectRatio.value;
       translate(0, gap + aspectRatioController.totalHeight);
     }
+    
+    fill(colors.get("primary"));
+    textAlign(LEFT, CENTER);
+    textFont(fonts.get("medium"));
+    textSize(14);
+    text("Output Dimensions", 0, 0);
+    translate(0, gap);
+    dimensionsController.show();
+    //println(1.0* dimensionsController.getWidth()/dimensionsController.getHeight());
+    aspectRatio = 1.0* dimensionsController.getWidth()/dimensionsController.getHeight();
+    imageExportWidth = dimensionsController.getWidth();
+    imageExportHeight = dimensionsController.getHeight();
+    translate(0, gap + dimensionsController.totalHeight);
 
     fill(colors.get("primary"));
     textAlign(LEFT, CENTER);
@@ -161,6 +175,7 @@ class LeftTab {
   }
 }
 
+//controls back button
 class BackController {
   IconButton back;
   int totalHeight = 40;
@@ -175,6 +190,7 @@ class BackController {
   }
 }
 
+//controls interactive variables
 class VariablesController {
   int nVariables;
   int nTypes = 4;
@@ -265,6 +281,7 @@ class VariablesController {
   }
 }
 
+//controls aspect ratio, deprecated
 class AspectRatioController {
   Slider aspectRatio;
 
@@ -283,6 +300,56 @@ class AspectRatioController {
   }
 }
 
+//controls output dimensions in pixels
+class DimensionsController {
+   Slider widthSlider;
+   Slider heightSlider;
+  
+  int totalHeight = 60;
+  
+  DimensionsController(){
+    float sliderValue = (1920 - minExportResolution * 1.0) / (maxExportResolution - minExportResolution * 1.0);
+    widthSlider = new Slider(columns[0].z - gap);
+    widthSlider.value = sliderValue;
+    heightSlider = new Slider(columns[1].z - gap);
+    heightSlider.value = sliderValue;
+    
+    println(sliderValue);
+  }
+  
+  void show(){
+    fill(colors.get("primary"));
+    textAlign(LEFT, CENTER);
+    textFont(fonts.get("light"));
+    textSize(14);
+    
+    pushMatrix();
+    translate(0, 20);
+    text("Width: " + getWidth() + "px", 0,0); 
+    translate(columns[0].z, 0);
+    text("Height: " + getHeight() + "px", 0,0); 
+    popMatrix();
+    
+    pushMatrix();
+    translate(0, 40);
+    widthSlider.show();
+    translate(columns[0].z, 0);
+    heightSlider.show();
+    popMatrix();
+  }
+  
+  int getWidth(){
+    float value = widthSlider.value * (maxExportResolution - minExportResolution) + minExportResolution;
+    return round(value / 10) * 10;
+  }
+  
+  int getHeight(){
+    float value = heightSlider.value * (maxExportResolution - minExportResolution) + minExportResolution;
+    return round(value / 10) * 10;
+  }
+}
+
+//controls music playback, skip, pause, volume
 class MusicController {
 
   IconButton previous;
@@ -319,7 +386,7 @@ class MusicController {
       //play/pause music
       play.toggle();
       //toggleMuteSong();
-      pauseSong();
+      togglePauseSong();
       
       if (play.toggled) {
         play.setIcon("play");
@@ -342,6 +409,7 @@ class MusicController {
   }
 }
 
+//evolve button
 class GenerationController {
 
   IconButton left;

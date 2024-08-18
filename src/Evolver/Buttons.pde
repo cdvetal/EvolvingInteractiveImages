@@ -101,6 +101,11 @@ class TextButton extends Button {
       noStroke();
       fill(colors.get("opacity"));
       rect(x, y, w, h, w);
+    } else if (!disabled) {
+      stroke(colors.get("primary"));
+      strokeWeight(1);
+      noFill();
+      rect(x, y, w, h, w);
     }
 
     if (fontWeight != null) textFont(fonts.get(fontWeight));

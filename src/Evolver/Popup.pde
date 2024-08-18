@@ -28,6 +28,7 @@ class Popup {
   
   void show(){
     if(millis() - duration > startMS) return;
+    noStroke();
     
     fill(colors.get("surface"));
     rect(x - w/2, y - h/2, w, h);

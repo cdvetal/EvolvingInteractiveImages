@@ -8,6 +8,10 @@ Capture cam;
 PImage inputImage;
 
 //Export
+int minExportResolution = 240;
+int maxExportResolution = 3840;
+int imageExportWidth;
+int imageExportHeight;
 int imageExportResolution = 1920;
 PGraphics exportCanvas;
 PGraphics showCanvas;
