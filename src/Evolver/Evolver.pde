@@ -15,10 +15,10 @@ PGraphics showCanvas;
 //Sound
 FFT fft;
 SoundFile[] soundFiles;
-boolean muted = true;
+boolean muted = false;
 int nBands = 512;
 int soundIndex = 0;
-float volume = 0.7;
+float soundVolume = 0.5;
 
 //assets
 HashMap<String, PShape> icons;

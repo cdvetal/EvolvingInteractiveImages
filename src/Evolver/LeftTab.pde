@@ -295,7 +295,7 @@ class MusicController {
 
   MusicController() {
     int buttonW = 40;
-    float buttonGap = (columns[0].z - buttonW * 3) / 2;
+    float buttonGap = (columns[0].z - buttonW * 3 - gap) / 2;
 
     previous = new IconButton(0, 0, buttonW, "previous");
     play = new IconButton(buttonGap + buttonW, 0, buttonW, "play");
@@ -308,6 +308,12 @@ class MusicController {
     previous.show();
     play.show();
     next.show();
+    
+    pushMatrix();
+    translate(columns[0].z, 20);
+    volume.show();
+    setSoundVolume(volume.value);
+    popMatrix();
 
     if (play.getSelected()) {
       //play/pause music

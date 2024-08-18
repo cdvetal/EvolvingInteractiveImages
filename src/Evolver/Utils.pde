@@ -164,13 +164,18 @@ void changeSong(boolean _next) {
   fft.input(soundFiles[soundIndex]);
 }
 
+void setSoundVolume(float _value){
+  soundVolume = _value;
+  soundFiles[soundIndex].amp(muted ? 0 : soundVolume);
+}
+
 void toggleMuteSong() {
   if (!checkSongsExist()) {
     popup.setPopup("No songs found in data/music");
     return;
   }
   muted =! muted;
-  soundFiles[soundIndex].amp(muted ? 0 : 1);
+  soundFiles[soundIndex].amp(muted ? 0 : soundVolume);
 }
 
 void muteSong() {
