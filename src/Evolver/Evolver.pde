@@ -18,6 +18,7 @@ SoundFile[] soundFiles;
 boolean muted = true;
 int nBands = 512;
 int soundIndex = 0;
+float volume = 0.7;
 
 //assets
 HashMap<String, PShape> icons;
@@ -83,7 +84,7 @@ void setup() {
   fft = new FFT(this, nBands);
   soundFiles = loadSongs();
   changeSong(true);
-  muteSong();
+  pauseSong();
 
   icons = loadIcons();
   colors = loadColors();

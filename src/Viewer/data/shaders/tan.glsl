@@ -80,8 +80,8 @@ float audio(float x, float y){
 
 vec3 generateRGB(float x, float y){
     float r = tan(x);
-    float g = tan(y);
-    float b = tan(1);
+    float g = r;
+    float b = r;
     return vec3(r,g,b);
 }
 

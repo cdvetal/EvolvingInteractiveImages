@@ -158,8 +158,8 @@ void changeSong(boolean _next) {
   if (soundIndex >= soundFiles.length) soundIndex = 0;
   else if(soundIndex < 0) soundIndex = soundFiles.length - 1;
 
-  muted = false;
-  soundFiles[soundIndex].amp(muted ? 0 : 1);
+  //muted = false;
+  //soundFiles[soundIndex].amp(muted ? 0 : 1);
   soundFiles[soundIndex].loop();
   fft.input(soundFiles[soundIndex]);
 }
@@ -180,6 +180,14 @@ void muteSong() {
   }
   muted = true;
   soundFiles[soundIndex].amp(muted ? 0 : 1);
+}
+
+void pauseSong(){
+  if (soundFiles[soundIndex].isPlaying()) {
+    soundFiles[soundIndex].pause();
+  } else {
+    soundFiles[soundIndex].play();
+  }
 }
 
 float[] getAudioSpectrum() {

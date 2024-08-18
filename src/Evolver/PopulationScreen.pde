@@ -40,7 +40,7 @@ class PopulationScreen {
   void show() {
     if (leftTab.getBack()) {
       screen = "setup";
-      muteSong();
+      pauseSong();
       return;
     } else if (leftTab.getEvolve()) {
       population.evolve();

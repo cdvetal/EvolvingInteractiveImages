@@ -147,12 +147,12 @@ class SetupScreen {
 
     translate(gap, gap);
 
-    fill(colors.get("primary"));
+    /*fill(colors.get("primary"));
     textAlign(LEFT, CENTER);
     textFont(fonts.get("medium"));
     textSize(14);
     text("Start", 0, 0);
-    translate(0, gap);
+    translate(0, gap);*/
 
     startController.show();
     popMatrix();

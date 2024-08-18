@@ -312,8 +312,9 @@ class MusicController {
     if (play.getSelected()) {
       //play/pause music
       play.toggle();
-      toggleMuteSong();
-
+      //toggleMuteSong();
+      pauseSong();
+      
       if (play.toggled) {
         play.setIcon("play");
       } else {
@@ -346,29 +347,31 @@ class GenerationController {
   int totalHeight = 40;
 
   GenerationController() {
-    int buttonW = 40;
-    float buttonGap = (columns[0].z - buttonW * 3) / 2;
+    //int buttonW = 40;
+    //float buttonGap = (columns[0].z - buttonW * 3) / 2;
 
-    left = new IconButton(0, 0, buttonW, "left");
-    tree = new IconButton(buttonGap + buttonW, 0, buttonW, "tree");
-    right = new IconButton((buttonGap + buttonW) * 2, 0, buttonW, "right");
+    //left = new IconButton(0, 0, buttonW, "left");
+    //tree = new IconButton(buttonGap + buttonW, 0, buttonW, "tree");
+    //right = new IconButton((buttonGap + buttonW) * 2, 0, buttonW, "right");
 
-    left.disabled = true;
-    right.disabled = true;
+    //left.disabled = true;
+    //right.disabled = true;
 
-    evolve = new TextButton(columns[0].z + gap, 0, 0, 0, "Evolve");
+    //evolve = new TextButton(columns[0].z + gap, 0, 0, 0, "Evolve");
+    evolve = new TextButton(0, 0, 0, 0, "Evolve");
+
   }
 
   void show() {
-    left.show();
-    tree.show();
-    right.show();
+    //left.show();
+    //tree.show();
+    //right.show();
 
-    pushMatrix();
-    float evolveGapLeft = (columns[0].z - evolve.w - gap) / 2;
-    translate(evolveGapLeft, 0);
+    //pushMatrix();
+    //float evolveGapLeft = (columns[0].z - evolve.w - gap) / 2;
+    //translate(evolveGapLeft, 0);
     evolve.show();
-    popMatrix();
+    //popMatrix();
   }
 }
 
