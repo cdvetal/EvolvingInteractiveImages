@@ -38,6 +38,7 @@ Button pressedButton;
 float aspectRatio = 1; //width = height * aspectRatio
 Individual hoveredIndividual = null;
 Popup popup;
+Tooltip tooltip;
 
 MainMenu mainMenu;
 LoadMenu loadMenu;
@@ -84,6 +85,7 @@ void setup() {
   }
   
   popup = new Popup();
+  tooltip = new Tooltip();
 
   fft = new FFT(this, nBands);
   soundFiles = loadSongs();
@@ -139,6 +141,7 @@ void draw() {
   }
   
   popup.show();
+  tooltip.show();
 }
 
 void setInputImage() {

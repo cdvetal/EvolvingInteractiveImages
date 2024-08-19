@@ -1,6 +1,7 @@
 /*
 
-Simple UI popup to show feedback on certian actions.
+Simple UI popup to show feedback on certain actions.
+Simple UI Tooltip to show feedback on hovering certain items.
 
 */
 
@@ -12,13 +13,9 @@ class Popup {
   
   int duration = 4000; //in ms
   int startMS;
-  float currentOpacity;
-  
-  
   
   void setPopup(String _msg){
     startMS = millis();
-    currentOpacity = 1;
     
     message = _msg;
     
@@ -28,11 +25,52 @@ class Popup {
   
   void show(){
     if(millis() - duration > startMS) return;
-    noStroke();
+    stroke(colors.get("primary"));
+    strokeWeight(1);
     
     fill(colors.get("surface"));
     rect(x - w/2, y - h/2, w, h);
     
+    textFont(fonts.get("light"));
+    textAlign(CENTER, CENTER);
+    textSize(14);
+
+    
+    fill(colors.get("primary"));
+    text(message, x, y);
+  }
+}
+
+
+
+class Tooltip{
+  float x, y, w, h = gap * 2;
+  String message;
+  
+  int duration = 100; //in ms
+  int startMS;
+  
+  void setTooltip(String _msg){
+    startMS = millis();
+    
+    message = _msg;
+    
+    textSize(14);
+    w = textWidth(message) + gap * 2;
+    
+    x = mouseX;
+    y = mouseY - h;
+  }
+  
+  void show(){
+    if(millis() - duration > startMS) return;
+    stroke(colors.get("primary"));
+    strokeWeight(1);
+    
+    fill(colors.get("surface"));
+    rect(x - w/2, y - h/2, w, h);
+    
+    textFont(fonts.get("light"));
     textAlign(CENTER, CENTER);
     textSize(14);
     

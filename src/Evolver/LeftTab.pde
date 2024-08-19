@@ -207,6 +207,7 @@ class VariablesController {
 
     icons = new Icon[nTypes];
     String[] iconNames = {"horizontal", "vertical", "wave", "perlin"};
+    String[] iconTooltips = {"horizontal mouse movement", "vertical mouse movement", "sine wave", "perlin noise"};
     sliders = new Slider[_nVariables];
     toggles = new ToggleButton[_nVariables][nTypes]; // [horizontal] / [vertical]
 
@@ -224,6 +225,7 @@ class VariablesController {
 
       for (int j = 0; j < toggles[0].length; j++) {
         icons[j] = new Icon(currentX, 0, gap, iconNames[j]);
+        icons[j].setTooltipText(iconTooltips[j]);
         toggles[i][j] = new ToggleButton(currentX, currentY);
         currentX += toggleW + togglesGapH;
       }
@@ -324,14 +326,14 @@ class DimensionsController {
     textSize(14);
     
     pushMatrix();
-    translate(0, 20);
+    translate(0, 14);
     text("Width: " + getWidth() + "px", 0,0); 
     translate(columns[0].z, 0);
     text("Height: " + getHeight() + "px", 0,0); 
     popMatrix();
     
     pushMatrix();
-    translate(0, 40);
+    translate(0, 50);
     widthSlider.show();
     translate(columns[0].z, 0);
     heightSlider.show();

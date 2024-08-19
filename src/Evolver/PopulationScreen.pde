@@ -13,17 +13,18 @@ class PopulationScreen {
 
   IndividualHover individualHover;
   
-  PShape musicIcon, videoIcon, dataIcon;
+  int iconSize = 32;
+  Icon musicIcon, videoIcon, dataIcon;
 
   PopulationScreen(Population _population) {
     setPopulation(_population);
     
-    musicIcon = icons.get("music");
-    musicIcon.disableStyle();
-    videoIcon = icons.get("video");
-    videoIcon.disableStyle();
-    dataIcon = icons.get("sliders");
-    dataIcon.disableStyle();
+    musicIcon = new Icon(iconSize, "music");
+    musicIcon.setTooltipText("This individual reacts to music");
+    videoIcon = new Icon(iconSize, "video");
+    videoIcon.setTooltipText("This individual reacts to the camera");
+    dataIcon = new Icon(iconSize, "sliders");
+    dataIcon.setTooltipText("This individual reacts to the Variables");
   }
 
   void setPopulation(Population _population) {
@@ -122,28 +123,30 @@ class PopulationScreen {
   
   //icons showing interactive features of individual
   void showInteractiveNodeInfo(HashMap <String, Integer> nodeInfo){
-    int iconSize = 14;
-    int currentX = iconSize;
+    int currentX = iconSize/2;
     fill(colors.get("primary"));
     noStroke();
     
     if(nodeInfo.containsKey("aud") || nodeInfo.containsKey("auh") || nodeInfo.containsKey("aul")){
-      showInteractiveIcon(musicIcon, currentX, iconSize, iconSize);
-      currentX += iconSize * 2;
+      showInteractiveIcon(musicIcon, currentX, iconSize/2);
+      currentX += iconSize*1.2;
     }
     if(nodeInfo.containsKey("bri")){
-      showInteractiveIcon(videoIcon, currentX, iconSize, iconSize);
-      currentX += iconSize * 2;
+      showInteractiveIcon(videoIcon, currentX, iconSize/2);
+      currentX += iconSize*1.2;
     }
     if(nodeInfo.containsKey("var")){
-      showInteractiveIcon(dataIcon, currentX, iconSize, iconSize);
-      currentX += iconSize * 2;
+      showInteractiveIcon(dataIcon, currentX, iconSize/2);
+      currentX += iconSize*1.4;
     }
   }
   
-  void showInteractiveIcon(PShape _icon, float _x, float _y, float _s){
-    fill(colors.get("primary"));
-    shape(_icon, _x, _y, _s, _s);
+  void showInteractiveIcon(Icon _icon, float _x, float _y){
+    fill(colors.get("surface"));
+    noStroke();
+    circle(_x + iconSize/2, _y + iconSize/2, iconSize);
+    _icon.setCoordinates(_x,_y);
+    _icon.show();
   }
 }
 
@@ -170,9 +173,13 @@ class IndividualHover {
     float buttonGap = (w - (buttonW * 4)) / 5;
 
     eye = new IconButton(buttonGap - w/2, gap/2, buttonW, "eye");
+    //eye.setTooltip("Analyse Individual");
     download = new IconButton(buttonGap*2 + buttonW - w/2, gap/2, buttonW, "download");
+    //download.setTooltip("Export Individual");
     minus = new IconButton(buttonGap*3 + buttonW*2 - w/2, gap/2, buttonW, "minus");
+    //minus.setTooltip("Decrease fitness evaluation of Individual");
     plus = new IconButton(buttonGap*4 + buttonW*3 - w/2, gap/2, buttonW, "plus");
+    //plus.setTooltip("Increase fitness evaluation of Individual");
 
     h = buttonW + gap;
   }

@@ -9,6 +9,7 @@ class Icon{
  
   float x,y,w;
   PShape icon = null;
+  String tooltipText = "";
   
   Icon(float _w, String _iconName){
     w = _w;
@@ -31,6 +32,10 @@ class Icon{
     y = _y;
   }
   
+  void setTooltipText(String _text){
+    tooltipText = _text;
+  }
+  
   void show(){
     if(icon == null) return;
     
@@ -41,6 +46,21 @@ class Icon{
 
     shapeMode(CENTER);
     shape(icon, x + w/2, y + w/2, w*0.6, w*0.6);
+    
+    if(tooltipText.equals("")) return;
+      
+    if(!detectHover()) return;
+    
+    tooltip.setTooltip(tooltipText);
+  }
+  
+  boolean detectHover() {
+    if (mouseX < screenX(x, 0))return false; //screenX and screenY because of matrix transformations
+    if (mouseX > screenX(x + w, 0))return false;
+    if (mouseY < screenY(0, y)) return false;
+    if (mouseY > screenY(0, y + w)) return false;
+
+    return true;
   }
   
 }

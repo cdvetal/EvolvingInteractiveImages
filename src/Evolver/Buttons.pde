@@ -9,7 +9,7 @@ Handles various Button UI elements, including:
 
 class Button {
 
-  //add tooltip?
+  String tooltipMessage = "";
 
   boolean selected = false;
   float x, y, w, h;
@@ -20,8 +20,11 @@ class Button {
 
   void update() {
     if (hovered && mousePressed) {
-      pressedButton = this; //
+      pressedButton = this;
     }
+    if (tooltipMessage.equals(""))return;
+    if (!hovered) return;
+    tooltip.setTooltip(tooltipMessage);
   }
 
   void selected() {
@@ -59,6 +62,10 @@ class Button {
     y = _y;
     w = _w;
     h = _h;
+  }
+  
+  void setTooltip(String _text){
+    tooltipMessage = _text;
   }
 }
 
@@ -203,16 +210,20 @@ class ToggleButton extends Button {
     hovered = detectHover();
     update();
 
-    if (!toggled) {
+    if (!toggled && !detectHover()) {
       strokeWeight(2);
       stroke(colors.get("surfacevariant"));
       noFill();
-      rect(x, y, w, w, 2);
-    } else {
+    } else if(!toggled && detectHover()){
+      strokeWeight(2);
+      stroke(colors.get("surfacevariant"));
+      fill(colors.get("surfacevariant"));
+    } else{
       noStroke();
       fill(colors.get("primary"));
-      rect(x, y, w, w, 2);
     }
+    
+    rect(x, y, w, w, 2);
   }
 
   boolean detectHover() {
