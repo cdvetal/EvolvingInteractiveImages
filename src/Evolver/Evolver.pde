@@ -30,7 +30,7 @@ HashMap<String, Integer> colors;
 HashMap<String, PFont> fonts;
 
 //GUI
-String screen = "mainmenu"; //0 - main menu, 1 - load, 2 - population, 3 - individual
+String screen = "mainmenu"; //0 - mainmenu, 1 - loadmenu, 2 - population, 3 - individual
 int border = 42; //border around screen
 int gap = 24; //gap between columns/items
 PVector[] columns; // [(startX, endX, columnWidth), ...]
@@ -102,7 +102,7 @@ void setup() {
   shaderChangeLineStart = findLineToChangeInShader(fragShaderTemplateLines);
 
   run = new Run();
-  run.startRun();
+  //run.startRun();
 
   mainMenu = new MainMenu();
   loadMenu = new LoadMenu();

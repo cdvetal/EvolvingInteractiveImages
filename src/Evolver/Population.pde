@@ -20,8 +20,8 @@ class Population {
       individuals[i].doShader(i);
       individuals[i].identifyNodes();
     }
-    nGenerations = _nGenerations-1;
-    sortIndividualsByFitness();
+    nGenerations = _nGenerations;
+    //sortIndividualsByFitness();
     println("LOADED POPULATION AT GENERATION: " + nGenerations);
   }
 
@@ -36,10 +36,12 @@ class Population {
     }
 
     nGenerations = 0;
-    run.evolved(nGenerations, individuals);
+    run.evolved(nGenerations, individuals, true);
   }
 
   void evolve() {
+    run.evolved(nGenerations, individuals, false);
+        
     Individual[] newGeneration = new Individual[individuals.length];
 
     sortIndividualsByFitness();
@@ -76,8 +78,7 @@ class Population {
     }
 
     nGenerations++;
-    run.evolved(nGenerations, individuals);
-    
+    run.evolved(nGenerations, individuals, true);
     popup.setPopup("Evolved to Generation " + (nGenerations));
   }
 

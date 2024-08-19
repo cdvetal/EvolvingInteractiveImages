@@ -1,9 +1,9 @@
 /*
 
-Handles the information of each evolutionary run.
-Information is stored in a json.
-
-*/
+ Handles the information of each evolutionary run.
+ Information is stored in a json.
+ 
+ */
 
 class Run {
 
@@ -11,6 +11,7 @@ class Run {
   JSONObject json;
   JSONArray populationsJSON;
 
+  String previousPopulationID;
   String currentPopulationID;
 
   void startRun() {
@@ -20,7 +21,7 @@ class Run {
     json = new JSONObject();
 
     json.setString("id", UUID);
-    json.setString("timestamp", year() + "-" + nf(month(),2) + "-" + nf(day(),2) + "-" + nf(hour(),2) + "-" + nf(minute(),2) + "-" + nf(second(),2));
+    json.setString("timestamp", year() + "-" + nf(month(), 2) + "-" + nf(day(), 2) + "-" + nf(hour(), 2) + "-" + nf(minute(), 2) + "-" + nf(second(), 2));
 
     json.setJSONObject("parameters", getParameters());
   }
@@ -37,6 +38,7 @@ class Run {
     int highestGeneration = 0;
     JSONObject highestGenPopulation = populations.getJSONObject(0);
 
+
     for (int i = 1; i < populations.size(); i++) {
       JSONObject population = populations.getJSONObject(i);
       int generation = population.getInt("generation");
@@ -46,10 +48,7 @@ class Run {
       }
     }
     
-    currentPopulationID = highestGenPopulation.getString("id");
-    Individual[] individuals = loadIndividuals(highestGenPopulation.getJSONArray("individuals"));
-    
-    population = new Population(individuals, highestGeneration);
+    loadPopulation(highestGenPopulation, true);
   }
 
   void updateRunJSON() {
@@ -60,11 +59,14 @@ class Run {
     saveJSONObject(toExportJSON, getRunPath() + UUID+ ".json");
   }
 
-  void evolved(int _generation, Individual[] _individuals) {
+  //evolved is ran at the beginning of evolution process and at the end @ population.evolve(). At the beginning it replaces population (false), at the end it creates new one (true)
+  void evolved(int _generation, Individual[] _individuals, boolean _newPopulation) {
     JSONObject populationJSON = new JSONObject();
 
-    String previousPopulationID = currentPopulationID;
-    currentPopulationID = generateUUID();
+    if (_newPopulation) {
+      previousPopulationID = currentPopulationID;
+      currentPopulationID = generateUUID();
+    }
 
     populationJSON.setString("timestamp", hour() + "h:" + minute() + "m:" + second() + "s");
     populationJSON.setInt("generation", _generation);
@@ -76,14 +78,9 @@ class Run {
     for (int i = 0; i < _individuals.length; i++) {
       JSONObject individualJSON = new JSONObject();
 
-      String[] individualExpressions = _individuals[i].tree.getExpressions();
-      JSONObject expressionsJSON = new JSONObject();
+      String individualExpression = _individuals[i].tree.getFunctionString();
 
-      expressionsJSON.setString("r", individualExpressions[0]);
-      expressionsJSON.setString("b", individualExpressions[1]);
-      expressionsJSON.setString("g", individualExpressions[2]);
-
-      individualJSON.setJSONObject("expressions", expressionsJSON);
+      individualJSON.setString("expression", individualExpression);
 
       individualJSON.setFloat("fitness", _individuals[i].fitness);
 
@@ -91,18 +88,74 @@ class Run {
     }
 
     populationJSON.setJSONArray("individuals", individualsJSON);
-    populationsJSON.setJSONObject(populationsJSON.size(), populationJSON);
+
+    //replace existing population
+    if (!_newPopulation) {
+      for (int i = 0; i < populationsJSON.size(); i++) {
+        JSONObject currentPopulation = populationsJSON.getJSONObject(i);
+        if (currentPopulation.getString("id").equals(currentPopulationID)) {
+          populationsJSON.setJSONObject(i, populationJSON);
+        }
+      }
+      //add population
+    } else {
+      populationsJSON.setJSONObject(populationsJSON.size(), populationJSON);
+    }
 
     updateRunJSON();
   }
 
   void loadPrevious() {
     //find population with currentPopulationID
+    int currentGeneration = population.nGenerations;
+
+    //already in first generation
+    if (currentGeneration == 0) {
+      popup.setPopup("There are no previous Generations");
+      return;
+    }
+
+    String ascendantID = "";
+
+    for (int i = 0; i < populationsJSON.size(); i++) {
+      JSONObject population = populationsJSON.getJSONObject(i);
+
+      if (population.getString("id") == currentPopulationID) {
+        ascendantID = population.getString("ascendantID");
+      }
+    }
+
+    //previous generation not found
+    if (ascendantID == "") {
+      popup.setPopup("Previous Generation not found");
+      return;
+    }
+
     //load its ascendantPopulation
+    for (int i = 0; i < populationsJSON.size(); i++) {
+      JSONObject population = populationsJSON.getJSONObject(i);
+
+      if (population.getString("id").equals(ascendantID)) {
+        loadPopulation(population, false);
+        return;
+      }
+    }
   }
 
   void loadNext() {
     //find latest with ascendant = currentPopulationID
+    for (int i = 0; i < populationsJSON.size(); i++) {
+      JSONObject population = populationsJSON.getJSONObject(i);
+
+      if (population.getString("ascendantID") == currentPopulationID) {
+        loadPopulation(population, false);
+        return;
+      }
+    }
+    
+    //not found
+    popup.setPopup("Next Generation not found");
+    
   }
 
   JSONObject getParameters() {
@@ -129,27 +182,39 @@ class Run {
     mutationRate = _parameters.getFloat("mutationRate");
   }
   
-  Individual[] loadIndividuals(JSONArray _individuals){
-    Individual[] individualsToReturn = new Individual[_individuals.size()];
+  void loadPopulation(JSONObject _population, Boolean _allOperations){
     
-    for(int i = 0; i < individualsToReturn.length; i++){
-      JSONObject individualJSON = _individuals.getJSONObject(i);
-      
-      JSONObject expressionsJSON = individualJSON.getJSONObject("expressions");
-      String[] expressions = new String[3];
-      expressions[0] = expressionsJSON.getString("r");
-      expressions[1] = expressionsJSON.getString("g");
-      expressions[2] = expressionsJSON.getString("b");
-      
-      float fitness = individualJSON.getFloat("fitness");
-      
-      //individualsToReturn[i] = new Individual(expressions, fitness);
+    currentPopulationID = _population.getString("id");
+    if(_population.hasKey("ascendantID")){
+      previousPopulationID = _population.getString("ascendantID");
+    } else {
+      previousPopulationID = "";
     }
     
+    Individual[] individuals = loadIndividuals(_population.getJSONArray("individuals"), _allOperations);
+
+    population = new Population(individuals, _population.getInt("generation"));
+    
+    populationScreen.setPopulation(population);
+  }
+
+  Individual[] loadIndividuals(JSONArray _individuals, Boolean _allOperations) {
+    Individual[] individualsToReturn = new Individual[_individuals.size()];
+
+    for (int i = 0; i < individualsToReturn.length; i++) {
+      JSONObject individualJSON = _individuals.getJSONObject(i);
+
+      String expression = individualJSON.getString("expression");
+
+      float fitness = individualJSON.getFloat("fitness");
+
+      individualsToReturn[i] = new Individual(expression, fitness, _allOperations);
+    }
+
     return individualsToReturn;
   }
-  
-  int getHighestGenerationInRun(JSONObject _run){
+
+  int getHighestGenerationInRun(JSONObject _run) {
     JSONArray populations = _run.getJSONArray("populations");
 
     int highestGeneration = 0;
@@ -161,7 +226,7 @@ class Run {
         highestGeneration = generation;
       }
     }
-    
+
     return highestGeneration;
   }
 }

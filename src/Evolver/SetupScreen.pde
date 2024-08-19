@@ -178,6 +178,7 @@ class SetupScreen {
     tournamentSize = round(algorithmController.getSliderValue(3));
     eliteSize = round(algorithmController.getSliderValue(4));
 
+    run.startRun();
     population = new Population();
     population.initialize();
     populationScreen = new PopulationScreen(population);

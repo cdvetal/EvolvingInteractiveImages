@@ -157,7 +157,6 @@ void changeSong(boolean _next) {
   }
 
   if (soundFiles[soundIndex].isPlaying()) soundFiles[soundIndex].stop();
-
   if (_next) soundIndex ++;
   else soundIndex --;
 
@@ -190,7 +189,7 @@ void muteSong() {
     return;
   }
   muted = true;
-  soundFiles[soundIndex].amp(muted ? 0 : 1);
+  soundFiles[soundIndex].amp(muted ? 0 : soundVolume);
 }
 
 void togglePauseSong() {

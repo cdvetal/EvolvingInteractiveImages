@@ -1,10 +1,10 @@
 /*
 
-Handles the nodes that make up a Genetic Programming Tree.
-Nodes can be of a function or terminal.
-Nodes can have children.
-
-*/
+ Handles the nodes that make up a Genetic Programming Tree.
+ Nodes can be of a function or terminal.
+ Nodes can have children.
+ 
+ */
 
 
 class Node {
@@ -25,6 +25,10 @@ class Node {
 
   Node() {
     randomizeNode(false);
+  }
+
+  Node(String _expression, Boolean _allOperations) {
+    setupNodeFromExpression(_expression, _allOperations);
   }
 
   Node(int _depth) {
@@ -163,10 +167,10 @@ class Node {
     return false;
   }
 
+  //function strings for R,G,B
   //scalar index is related to selected expression string (0-R, 1-G, 2-B);
   String getFunctionString(int _scalarIndex) {
     String finalString = "";
-
 
     if (childrenNodes.length < 1) {
       finalString += getScalarValueString(_scalarIndex, false);
@@ -186,15 +190,55 @@ class Node {
       finalString += childrenNodes[i].getFunctionString(_scalarIndex);
 
       if (i < childrenNodes.length - 1) {
-        //if operation of type x + y
-        if (operation.type == 0) finalString += operation.operator;
-        else finalString += ",";
+        finalString += ",";
       }
     }
 
     finalString += ")";
     return finalString;
   }
+
+  //function string for saving runs
+  //scalar is sca()
+  String getFunctionString() {
+    String finalString = "";
+
+    //adds scalar as sca(#,#,#)
+    if (childrenNodes.length < 1) {
+      finalString += "sca(";
+      for (int i = 0; i < scalar.length; i++) {
+        finalString += getScalarValueString(i, false);
+
+        if (i < scalar.length -1) {
+          finalString += ",";
+        }
+      }
+      finalString += ")";
+
+      return finalString;
+    }
+
+    Operation operation = getOperation();
+
+    //if operation if of type opt(xxxxxx)
+    if (operation.type != 0) {
+      finalString += enabledOperations[getMathType(mathType)].operator;
+    }
+
+    finalString += "(";
+
+    for (int i = 0; i < childrenNodes.length; i ++) {
+      finalString += childrenNodes[i].getFunctionString();
+
+      if (i < childrenNodes.length - 1) {
+        finalString += ",";
+      }
+    }
+
+    finalString += ")";
+    return finalString;
+  }
+
 
   //get 3 expressions (R, G and B)
   String[] getExpressions() {
@@ -206,7 +250,7 @@ class Node {
 
     return expressions;
   }
-  
+
   //for tree visualization
   String getNodeText() {
     String toReturn = "";
@@ -287,6 +331,23 @@ class Node {
     }
   }
 
+  float getScalarValueFromString(String _value) {
+    _value = _value.trim();
+
+    int nOptions = terminalSet.length + 1;
+
+    for (int i = 0; i < terminalSet.length; i++) {
+      if (terminalSet[i].equals(_value)) {
+        float value = ((float)i/nOptions);
+        return value;
+      }
+    }
+
+    float parsedValue = Float.parseFloat(_value);
+
+    return (parsedValue + terminalSet.length) / nOptions * 1.0;
+  }
+
   int getMathType(float _type) {
     int value = floor(map(_type, 0, 1, 0, enabledOperations.length));
     value = constrain(value, 0, enabledOperations.length - 1);
@@ -297,107 +358,106 @@ class Node {
     return map(_operatorIndex, 0, enabledOperations.length, 0, 1 -0.001);
   }
 
-  void setupNodeFromExpression(String[] _expressions) {
+  //allOperations is used to differenciate between loads in a run (previous/next) and a fresh load. This is because in a run enabledOperations are used and not all operations.
+  void setupNodeFromExpression(String _expression, Boolean _allOperations) {
+    _expression.trim();
+    childrenNodes = new Node[0];
 
-    int firstParenthesisPos = _expressions[0].indexOf('(');
-    int lastParenthesisPos = _expressions[0].lastIndexOf(')');
+    //get main parenthesis
+    int firstParenthesisPos = _expression.indexOf('(');
+    int lastParenthesisPos = _expression.lastIndexOf(')');
 
-    if (firstParenthesisPos < 0 || lastParenthesisPos < 0) { //means it's scalar
+    //substring(0,10)
+    String functionString = _expression.substring(0, firstParenthesisPos).trim();
 
+    String inParenthesis = _expression.substring(firstParenthesisPos + 1, lastParenthesisPos).trim();
+
+    if (functionString.equals("sca")) {
+      scalar = getScalarFromString(inParenthesis);
       return;
     }
 
-    //substring(0,10)
-    String functionString = _expressions[0].substring(0, firstParenthesisPos);
+    mathType = getMathTypeValueFromString(functionString, _allOperations);
 
-    mathType = getMathTypeValueFromString(functionString);
+    int requiredArguments =  enabledOperations[getMathType(mathType)].getNumberArgumentsNeeded();
 
+    String[] nodeExpressions = splitExpressionAtMainComma(inParenthesis);
 
+    childrenNodes = new Node[requiredArguments];
 
-    String inParenthesis = _expressions[0].substring(firstParenthesisPos + 1, lastParenthesisPos);
+    for (int i = 0; i < childrenNodes.length; i++) {
+      if (i < nodeExpressions.length) {
+        childrenNodes[i] = new Node(nodeExpressions[i], _allOperations);
+      } else {
+        childrenNodes[i] = new Node();
+      }
+    }
   }
 
-  float getMathTypeValueFromString(String _functionString) {
-    for (int i = 0; i < operations.length; i ++) {
-      if (operations[i].operator == _functionString) return (1 / operations.length * i);
+
+  //split expression at main comma
+  //Example: sin(0.5),aud(x,y) becomes ["sin(0.5)", "aud(x,y)"]
+  String[] splitExpressionAtMainComma(String _string) {
+    int parenthesisValue = 0;
+    int mainCommaIndex = -1;
+
+    for (int i = 0; i < _string.length(); i++) {
+
+      char currentCharacter = _string.charAt(i);
+
+      if (currentCharacter == '(') {
+        parenthesisValue ++;
+      } else if (currentCharacter == ')') {
+        parenthesisValue --;
+      } else if (currentCharacter == ',' && parenthesisValue == 0) {
+        mainCommaIndex = i;
+      }
     }
+
+    if (mainCommaIndex != -1) {
+      String leftPart = _string.substring(0, mainCommaIndex);
+      String rightPart = _string.substring(mainCommaIndex + 1);
+      return new String[] { leftPart.trim(), rightPart.trim() };
+    } else {
+      // If no main comma is found, return the original expression as a single part.
+      return new String[] { _string };
+    }
+  }
+
+  float getMathTypeValueFromString(String _functionString, boolean _allOperations) {
+    //int value = floor(map(_type, 0, 1, 0, enabledOperations.length));
+    //value = constrain(value, 0, enabledOperations.length - 1);
+
+    if (_allOperations) {
+      for (int i = 0; i < operations.length; i++) {
+        if (operations[i].operator .equals(_functionString)) {
+          float value = map(i, 0, operations.length, 0, 1);
+          value += 0.0001;
+          return value;
+        }
+      }
+    } else {
+      for (int i = 0; i < enabledOperations.length; i++) {
+        if (enabledOperations[i].operator .equals(_functionString)) {
+          float value = map(i, 0, enabledOperations.length, 0, 1);
+          value += 0.0001;
+          return value;
+        }
+      }
+    }
+
     return 0;
   }
 
-  String removeStartAndEndParenthesis(String _string) {
-    if (_string.length() <= 0) {
-      println("string at removeStartAndEndParenthesis is too short " + _string);
-      return _string;
-    }
-    if (!_string.contains("(")) return _string;
+  float[] getScalarFromString(String _string) {
+    String[] scalarValuesString = _string.split(",");
+    float[] scalarValues = new float[scalar.length];
 
-    int openedParenthesis = 0;
-    int openedAtIndex = -1; //to check if first parenthesis closes before finish
-    for (int i = 0; i < _string.length(); i++) {
-      char c = _string.charAt(i);
-      if (c == '(') {
-        openedParenthesis += 1;
-        if (openedParenthesis == 1) openedAtIndex = i;
-      } else if (c == ')') {
-        openedParenthesis -= 1;
-      }
+    for (int i = 0; i < scalarValues.length; i++) {
+      scalarValues[i] =  getScalarValueFromString(scalarValuesString[i]);
     }
 
-    if (_string.charAt(0) == '(' && _string.charAt(_string.length() - 1) == ')' && openedAtIndex == 0) {
-      _string = _string.substring(1, _string.length() - 1);
-    }
-
-    return _string;
-  }
-
-  int getMainCommaIndex(String _string) { // (((,),))','(,)(,) returns highlighted comma index
-    int openedParenthesis = 0;
-
-    if (!_string.contains(",")) {
-      println("No commas found at getMainCommaIndex(" + _string + ")");
-      return 0;
-    }
-
-    for (int i = 0; i < _string.length(); i++) {
-      char c = _string.charAt(i);
-      if (c == '(') openedParenthesis += 1;
-      else if (c == ')') openedParenthesis -= 1;
-      else if (c == ',' && openedParenthesis == 0) return i;
-
-      if (openedParenthesis < 0) {
-        println("Negative openedParenthesis at getMainCommaIndex(" + _string + ")");
-        return 0;
-      }
-    }
-
-    println("No acceptable comma at getMainCommaIndex(" + _string + ")");
-    return -1;
-  }
-
-  int getMainSimpleOperatorIndex(String _string) { // (((,),))'*'(,)(,) returns highlighted operator index
-    int openedParenthesis = 0;
-
-    String allSimpleOperators = "";
-
-    for (Operation o : operations) {
-      if (o.type != 0) continue;
-      allSimpleOperators += o.operator;
-    }
-
-    for (int i = 0; i < _string.length(); i++) {
-      char c = _string.charAt(i);
-      if (c == '(') openedParenthesis += 1;
-      else if (c == ')') openedParenthesis -= 1;
-      else if (allSimpleOperators.contains(String.valueOf(c)) && openedParenthesis == 0) return i;
-
-      if (openedParenthesis < 0) {
-        println("Negative openedParenthesis at getMainSimpleOperatorIndex(" + _string + ")");
-        return 0;
-      }
-    }
-
-    println("No acceptable simple operator at getMainSimpleOperatorIndex(" + _string + ")");
-    return -1;
+    return scalarValues;
   }
 
   boolean isTerminal() {
@@ -409,8 +469,8 @@ class Node {
   }
 
   float[] getRandomScalar() {
-    float[] toReturn = new float[3];
-    for (int i = 0; i < 3; i++) {
+    float[] toReturn = new float[scalar.length];
+    for (int i = 0; i < scalar.length; i++) {
       toReturn[i] = random(1);
     }
     return toReturn;

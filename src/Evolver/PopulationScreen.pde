@@ -45,6 +45,10 @@ class PopulationScreen {
       return;
     } else if (leftTab.getEvolve()) {
       population.evolve();
+    } else if (leftTab.getLoadPreviousGeneration()){
+      run.loadPrevious();
+    } else if (leftTab.getLoadNextGeneration()){
+      run.loadNext();
     }
 
     setInputImage();

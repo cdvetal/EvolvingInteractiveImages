@@ -43,15 +43,12 @@ class Individual {
     generateID();
   }
 
-   /*
-   //under maintenance
-   Individual(String[] _expressions, float _fitness){
-   for (int i = 0; i < nodes.length; i++) {
-   nodes[i] = new Node(_expressions[i]);
-   }
+   
+   Individual(String _expression, float _fitness, Boolean _allOperations){
+   tree = new Node(_expression, _allOperations);
    
    fitness = _fitness;
-   }*/
+   }
 
   void cleanUp() {
     tree.checkNecessaryChildrenNodes();
