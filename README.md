@@ -51,6 +51,15 @@ Viewer is the program where you can visualize evolved imagery.
 │   │   ├── Viewer.pde
 </pre>
 
+## Known Errors
+
+**Visual Bugs**  
+May happen when using latest Processing Version (4.3 at the time of writing). For that reason we recommend using [Processing 4.2](https://github.com/benfry/processing4/releases/tag/processing-1292-4.2)
+
+**Could not run the sketch (Target VM failed to initialize)**  
+Program crash with the mentioned error. It is a known bug in the Processing comunity. To fix this error you must change the dedicated graphics card when running Processing programs.  
+To do so on Windows follow [this guide](https://pureinfotech.com/set-gpu-app-windows-10/). Apply the highest performance setting on the file *java.exe* found at *processing\processing-4.2-windows-x64\processing-4.2\java\bin\java.exe* in your machine.
+
 ## Examples of static outputs
 
 <img src="GitMedia/img (1).png" width="432" height="432">
