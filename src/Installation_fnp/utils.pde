@@ -15,7 +15,20 @@ void exportShader(Individual _individualToExport) {
 }
 
 void exportShader(Node _node, String _name) {
-  String outputPath = sketchPath("outputs/" + _name + "/");
+  String outputPath = sketchPath("outputs/" + _name + "_" + month() + "_" + day() + "/");
+
+  String[] shaderStrings = getShaderTextLines(_node);
+
+  String dateComment = "// ";
+  dateComment += year() + " - " + month() + " - " + day();
+
+  String algorithmComment = "// ";
+  algorithmComment += "Population Size: " + populationSize + "; Elite Size: " + eliteSize + "; Mutation Rate: " + mutationRate + "; Crossover Rate: " + crossoverRate + "; Tournament Size: " + tournamentSize;
+
+  shaderStrings[3] = dateComment;
+  shaderStrings[5] = "// Generation: " + population.nGenerations;
+  shaderStrings[6] = algorithmComment;
+  
   saveStrings(outputPath + _name + ".glsl", getShaderTextLines(_node));
   println("exported shader to :" + outputPath);
 }
@@ -216,4 +229,15 @@ PVector[] rectangleToCenters(Rectangle[] _rectangles){
   }
   
   return toReturn;
+}
+
+int findLineToChangeInShader(String[] _shaderTemplateStrings) {
+  String lineStartString = "float r = ";
+
+  for (int i = 0; i < _shaderTemplateStrings.length; i ++) {
+    if (_shaderTemplateStrings[i].indexOf(lineStartString) >= 0) {
+      return i;
+    }
+  }
+  return 0;
 }

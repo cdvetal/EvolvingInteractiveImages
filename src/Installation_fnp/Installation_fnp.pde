@@ -1,3 +1,9 @@
+//data
+//Average Distance from fnp
+//Average Position from left to right
+//Right most person
+//Left most person
+
 import java.util.*;
 import gab.opencv.*;
 import processing.video.*;
@@ -9,12 +15,18 @@ Capture cam;
 OpenCV openCV;
 PImage inputImage;
 
+PImage qrCode;
+PFont light, medium;
+String infoText = "The installation shifts every 10 minutes between voting and displaying the top-voted result.\n\nTo vote, stand in front of the outputs you prefer.\n\nYou can also interact with certain outputs by moving around.";
+
 //boundaries to avoid detection on either side of camera feed, fine tune
 int detectionBoundary = 100;
 
 int nMonitors = 9;
+int lastChangeMinutes;
 int selectionMinutes = 10;
-boolean isSelecting = false;
+boolean isSelecting = true;
+boolean wasSelecting = true;
 int imageExportResolution = 1920;
 
 int gap = 24, border = 42;
@@ -22,22 +34,22 @@ PVector[] columns;
 
 Population population;
 
-int populationSize = nMonitors;
+int populationSize = nMonitors - 1;
 int eliteSize = 1;
-float crossoverRate = 0.3;
-float mutationRate = 0.3;
+float crossoverRate = 0.4;
+float mutationRate = 0.5;
 int tournamentSize = 2;
 
-int maxDepth = 8;
+int maxTreeDepth = 3;
 
 Operation[] enabledOperations;
 String[] fragTemplateShaderLines;
-int shaderChangeLineStart = 157; //3 lines need changing (r,g,b), first line is this (as shown in vscode)
+int shaderChangeLineStart; //3 lines need changing (r,g,b), first line is this (as shown in vscode)
 
 VariablesManager variablesManager;
 
 float[] scales = new float[nMonitors];
-float minScale = 0.9;
+float minScale = 0.95;
 float maxScale = 1;
 float easing = 0.05;
 
@@ -55,7 +67,13 @@ void setup() {
 
   cam = new Capture(this, 1280, 720);
 
+  qrCode = loadImage("qr_code_white.png");
+  light = createFont("light.ttf", 128);
+  medium = createFont("medium.ttf", 128);
+
   fragTemplateShaderLines = loadStrings("fragShaderTemplate.glsl");
+
+  shaderChangeLineStart = findLineToChangeInShader(fragTemplateShaderLines)+1;
 
   columns = setupColumns(nMonitors);
   enabledOperations = setupOperations();
@@ -63,9 +81,9 @@ void setup() {
 
   population = new Population();
   population.initialize();
-  
-  for(int i = 0; i < scales.length; i++){
-    scales[i] = minScale; 
+
+  for (int i = 0; i < scales.length; i++) {
+    scales[i] = minScale;
   }
 }
 
@@ -82,24 +100,31 @@ void draw() {
   inputImage = cam;
 
   int currentMinutes = minute();
+  int currentSeconds = second();
 
-  float timeLeftRatio;
+  if (currentMinutes % 10 == 0 && lastChangeMinutes != currentMinutes) {
+    isSelecting =! isSelecting;
+    lastChangeMinutes = currentMinutes;
+  }
 
-  if (currentMinutes < selectionMinutes || millis() < 300000) { //or if program running for less than 30 seconds
+  int totalSecondsPassed = (currentMinutes % 10) * 60 + currentSeconds;
+  int totalIntervalSeconds = 10 * 60;
+  int secondsLeft = totalIntervalSeconds - totalSecondsPassed;
+
+  float timeLeftRatio = secondsLeft / (float)totalIntervalSeconds;
+
+  if (isSelecting) { //or if program running for less than 30 seconds
     isSelecting = true;
     doSelection();
-    int timeLeft = selectionMinutes - currentMinutes;
-    timeLeftRatio = timeLeft * 1.0 / selectionMinutes * 1.0;
     openCV.loadImage(inputImage);
   } else {
-    if (isSelecting) {
+    if (wasSelecting) {
       population.evolve();
-      //exportImage(population.getIndividual(0));
-      isSelecting = false;
+      exportShader(population.getIndividual(0));
+      exportImage(population.getIndividual(0));
+      wasSelecting = false;
     }
     doBest();
-    int timeLeft = 60 - currentMinutes;
-    timeLeftRatio = timeLeft / (60.0 - selectionMinutes);
   }
 
   drawTimeLine(timeLeftRatio);
@@ -107,27 +132,41 @@ void draw() {
 
 void doSelection() {
   int[] votes = reverse(getVotes()); //flipping because image is mirrored
-  
+
   int imageH = - border * 2 + height;
-  
+
   int highestVotes = 0;
-  
-  for(int i = 0; i < votes.length; i++){
-    if(votes[i] > highestVotes) highestVotes = votes[i]; 
+
+  for (int i = 0; i < votes.length; i++) {
+    if (votes[i] > highestVotes) highestVotes = votes[i];
   }
-  
+
+  float qrCodeSize = columns[0].z/5;
+
+  textFont(light);
+  textSize(10);
+
+  fill(255);
+  textAlign(LEFT, CENTER);
+  text(infoText, columns[0].x + columns[0].z/2, height/2 - qrCodeSize, columns[0].z*0.9, (height - border * 2) * 0.8);
+
+
+  image(qrCode, columns[0].x + columns[0].z/2 - qrCodeSize, (height - border * 2) * minScale / 2 + height/2 - qrCodeSize, qrCodeSize, qrCodeSize);
+
   rectMode(CENTER);
-  
+
   for (int i = 0; i < populationSize; i ++) {
     float targetScale = minScale;
-    
-    if (votes[i] > 0) { 
-      for (int j = 0; j < votes[i]; j++) {
-        population.getIndividual(i).giveFitness();
+
+    if (votes[i] > 0) {
+      if (scales[i] > minScale + (maxScale - minScale) * 0.9) {
+        for (int j = 0; j < votes[i]; j++) {
+          population.getIndividual(i).giveFitness();
+        }
       }
-      targetScale = map(votes[i], 0, highestVotes, minScale, maxScale);
+      targetScale = maxScale;
     }
-    
+
     float scaleDiff = targetScale - scales[i];
     scales[i] += scaleDiff * easing;
 
@@ -135,18 +174,18 @@ void doSelection() {
     currentShader.set("nVariables", variablesManager.nVariables);
     currentShader.set("variables", variablesManager.getShaderReadyVariables());
     currentShader.set("image", inputImage);
-    
+
     noStroke();
     shader(currentShader);
     fill(255);
     //rect(columns[i].x , border, columns[i].z * scales[i], imageH * scales[i]);
-    rect(columns[i].x + columns[i].z * 0.5, border + imageH * 0.5, columns[i].z * scales[i], imageH * scales[i]);
+    rect(columns[i+1].x + columns[i+1].z * 0.5, border + imageH * 0.5, columns[i].z * scales[i], imageH * scales[i]);
     resetShader();
-    
-    if(debugging) text(nf(population.getIndividual(i).fitness, 0, 3), columns[i].x, border/2);
+
+    if (debugging) text(nf(population.getIndividual(i).fitness, 0, 3), columns[i].x, border/2);
   }
-  
-  if(!debugging) return;
+
+  if (!debugging) return;
   openCV.loadImage(inputImage);
   Rectangle[] detections = openCV.detect();
   image(inputImage, 0, 0);
@@ -162,7 +201,7 @@ void doSelection() {
 
 void doBest() {
   rectMode(CORNER);
-  
+
   fill(255);
   noStroke();
   PShader currentShader = population.getIndividual(0).getShader();
@@ -204,7 +243,7 @@ int[] getVotes() {
 
 void drawTimeLine(float ratio) {
   rectMode(CENTER);
-  
+
   strokeWeight(2);
   stroke(0);
   fill(255);

@@ -45,25 +45,36 @@ class Operation{
 Operation[] setupOperations(){
   ArrayList<Operation> operationsToReturn = new ArrayList<Operation>();
   
+  /* DEPRECATED
   operationsToReturn.add(new Operation(0, "+", true));
   operationsToReturn.add(new Operation(0, "-", true));
   operationsToReturn.add(new Operation(0, "*", true));
   operationsToReturn.add(new Operation(0, "/", true));
+  */
   
-  operationsToReturn.add(new Operation(1, "sin", true));
-  operationsToReturn.add(new Operation(1, "cos", true));
-  operationsToReturn.add(new Operation(1, "tan", true));
-  //operationsToReturn.add(new Operation(1, "var", true, "variables"));
+  operationsToReturn.add(new Operation(2, "add", true, "Addition"));
+  operationsToReturn.add(new Operation(2, "sub", true, "Subtraction"));
+  operationsToReturn.add(new Operation(2, "mul", true, "Multiplication"));
+  operationsToReturn.add(new Operation(2, "div", true, "Division"));
   
-  //operationsToReturn.add(new Operation(2, "aud", true, "sound"));
-  //operationsToReturn.add(new Operation(2, "aul", true, "sound - lows"));
-  //operationsToReturn.add(new Operation(2, "auh", true, "sound - highs"));
-  operationsToReturn.add(new Operation(2, "bri", false, "camera"));
-  operationsToReturn.add(new Operation(2, "max", true));
-  operationsToReturn.add(new Operation(2, "min", true));
-  //operationsToReturn.add(new Operation(2, "noi", false, "perlin noise"));
-  operationsToReturn.add(new Operation(2, "mod", false));
-  operationsToReturn.add(new Operation(2, "pow", true));  
+  operationsToReturn.add(new Operation(1, "sin", true, "Sine"));
+  operationsToReturn.add(new Operation(1, "cos", true, "Cosine"));
+  operationsToReturn.add(new Operation(1, "tan", true, "Tangent"));
+  operationsToReturn.add(new Operation(1, "var", true, "Variables"));
+  operationsToReturn.add(new Operation(1, "var", true, "Variables"));
+  operationsToReturn.add(new Operation(1, "var", true, "Variables"));
+
+  //operationsToReturn.add(new Operation(2, "aud", true, "Sound"));
+  //operationsToReturn.add(new Operation(2, "aul", false, "Sound - lows"));
+  //operationsToReturn.add(new Operation(2, "auh", false, "Sound - highs"));
+  operationsToReturn.add(new Operation(2, "bri", false, "Camera"));
+  operationsToReturn.add(new Operation(2, "max", true, "Maximum"));
+  operationsToReturn.add(new Operation(2, "min", true, "Minimum"));
+  //operationsToReturn.add(new Operation(2, "noi", true, "Perlin noise"));
+  //operationsToReturn.add(new Operation(2, "mod", true, "Modulo"));
+  operationsToReturn.add(new Operation(2, "pow", true, "Power"));  
+  
+  
   
   Operation[] operationsToReturnList = new Operation[operationsToReturn.size()];
   

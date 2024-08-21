@@ -1,3 +1,12 @@
+/* ############################
+Evolved using software @ https://github.com/cdvetal/EvolvingInteractiveImages
+
+
+
+
+
+############################ */
+
 in vec4 gl_FragCoord;
 
 in vec2 uv;
@@ -134,23 +143,29 @@ float bri(float x, float y){ //brightness https://stackoverflow.com/questions/59
 }
 
 float var(float x){
-    int varIndexFloor = int(floor(x * nVariables));
-    int varIndexCeil = int(ceil(x * nVariables));
+    int varIndex = int(round(x * nVariables));
 
-    if(varIndexFloor >= nVariables){
-        varIndexFloor = nVariables - 1;
-    }
-    if(varIndexCeil >= nVariables){
-        varIndexCeil = nVariables - 1;
+    if(varIndex >= nVariables){
+        varIndex = nVariables - 1;
     }
 
-    float ratioValue = x - varIndexFloor;
+    return variables[varIndex];
+}
 
-    float valueFloor = (1 - ratioValue) * variables[varIndexFloor];
-    float valueCeil = (ratioValue) * variables[varIndexCeil];
-    float value = valueFloor + valueCeil;
+float add(float a, float b){
+    return a + b;
+}
 
-    return value;
+float sub(float a, float b){
+    return a - b;
+}
+
+float mul(float a, float b){
+    return a * b;
+}
+
+float div(float a, float b){
+    return a / b;
 }
 
 vec3 generateRGB(float x, float y){

@@ -1,3 +1,12 @@
+/*
+
+ Handles the nodes that make up a Genetic Programming Tree.
+ Nodes can be of a function or terminal.
+ Nodes can have children.
+ 
+ */
+
+
 class Node {
 
   float mathType; //0-1
@@ -45,7 +54,7 @@ class Node {
     mathType = random(1);
 
     //decide if node will have children or not
-    if (random(1) > 0.2 && depth < maxDepth - 1 && _tocreateChildren) {
+    if (random(1) > .3 && depth < maxTreeDepth - 1 && _tocreateChildren) {
       mathType = random(1);
     } else {
       mathType = -1;
@@ -90,15 +99,18 @@ class Node {
 
   void mutate() {
     float toAdd = random(-.1, .1);
-    mathType = constrain(mathType + toAdd, 0, 1);
 
-    for (int i = 0; i < scalar.length; i++) {
-      if (random(1) > mutationRate) continue;
-      toAdd = random(-.1, .1);
-      scalar[i] = constrain(scalar[i] + toAdd, 0, 1);
+    if (isTerminal()) {
+      for (int i = 0; i < scalar.length; i++) {
+        if (random(1) > mutationRate) continue;
+        toAdd = random(-.1, .1);
+        scalar[i] = constrain(scalar[i] + toAdd, 0, 1);
+      }
+    } else {
+      mathType = constrain(mathType + toAdd, 0, 1);
+
+      checkNecessaryChildrenNodes();
     }
-
-    checkNecessaryChildrenNodes();
   }
 
   Node getCopy() {
@@ -122,7 +134,8 @@ class Node {
     return null;
   }
 
-  Node getNodeVis(PVector _visLocation) { //gets node based on depth and visX
+  //gets node based on depth and visX
+  Node getNodeVis(PVector _visLocation) {
     if (depth > _visLocation.y || visX > _visLocation.x) return null;
 
     if (depth == int(_visLocation.y) && visX == int(_visLocation.x)) return this;
@@ -136,7 +149,6 @@ class Node {
   }
 
   boolean replaceNode(int _index, Node _newNode) {
-
     for (int i = 0; i < childrenNodes.length; i ++) {
       if (childrenNodes[i].nodeIndex == _index) {
         childrenNodes[i] = _newNode;
@@ -151,10 +163,10 @@ class Node {
     return false;
   }
 
+  //function strings for R,G,B
   //scalar index is related to selected expression string (0-R, 1-G, 2-B);
   String getFunctionString(int _scalarIndex) {
     String finalString = "";
-
 
     if (childrenNodes.length < 1) {
       finalString += getScalarValueString(_scalarIndex, false);
@@ -174,9 +186,48 @@ class Node {
       finalString += childrenNodes[i].getFunctionString(_scalarIndex);
 
       if (i < childrenNodes.length - 1) {
-        //if operation of type x + y
-        if (operation.type == 0) finalString += operation.operator;
-        else finalString += ",";
+        finalString += ",";
+      }
+    }
+
+    finalString += ")";
+    return finalString;
+  }
+
+  //function string for saving runs
+  //scalar is sca()
+  String getFunctionString() {
+    String finalString = "";
+
+    //adds scalar as sca(#,#,#)
+    if (childrenNodes.length < 1) {
+      finalString += "sca(";
+      for (int i = 0; i < scalar.length; i++) {
+        finalString += getScalarValueString(i, false);
+
+        if (i < scalar.length -1) {
+          finalString += ",";
+        }
+      }
+      finalString += ")";
+
+      return finalString;
+    }
+
+    Operation operation = getOperation();
+
+    //if operation if of type opt(xxxxxx)
+    if (operation.type != 0) {
+      finalString += enabledOperations[getMathType(mathType)].operator;
+    }
+
+    finalString += "(";
+
+    for (int i = 0; i < childrenNodes.length; i ++) {
+      finalString += childrenNodes[i].getFunctionString();
+
+      if (i < childrenNodes.length - 1) {
+        finalString += ",";
       }
     }
 
@@ -185,7 +236,8 @@ class Node {
   }
 
 
-  String[] getExpressions() {//get 3 expressions (R, G and B)
+  //get 3 expressions (R, G and B)
+  String[] getExpressions() {
     String[] expressions = new String[3];
 
     for (int i = 0; i < expressions.length; i++) {
@@ -195,9 +247,9 @@ class Node {
     return expressions;
   }
 
-  String getNodeText() {//for tree visualization
+  //for tree visualization
+  String getNodeText() {
     String toReturn = "";
-
 
     if (childrenNodes.length < 1) {
       toReturn += "(";
@@ -212,140 +264,7 @@ class Node {
     return toReturn;
   }
 
-  /*
-  void setupNodeFromExpression(String _expression) {
-   
-   if (_expression.length() <= 0) println("invalid expression: too short");
-   _expression = removeStartAndEndParenthesis(_expression);
-   println("\n" + _expression + "_NEW EXPRESSION");
-   
-   mathType = -1;
-   aValType = -1;
-   bValType = -1;
-   Operation operation = null;
-   
-   for(int i = 0; i < valTypes.length; i++){
-   if(_expression.equals(valTypes[i])){
-   aValType = map(i, 0, valTypes.length, 0, 1);
-   mathType = random(1);
-   bValType = random(1);
-   return;
-   }
-   }
-   
-   int mainOperatorIndex = getMainSimpleOperatorIndex(_expression);
-   //operation is of type 0_ x $ x
-   if(mainOperatorIndex >= 0){
-   String operatorString = String.valueOf(_expression.charAt(mainOperatorIndex));
-   
-   for (int i = 0; i < operations.length; i ++) {
-   if (operations[i].operator.equals(operatorString)) {
-   operation = operations[i];
-   mathType = mathTypeFromOperatorIndex(i);
-   }
-   }
-   
-   String[] expressionHalves = splitStringAtIndex(_expression, mainOperatorIndex);
-   
-   setupNodeFromExpressionHalves(expressionHalves);
-   return;
-   }
-   
-   //check for type 1 or 2 - expression must start with "operator("
-   for (int i = 0; i < operations.length; i ++) {
-   
-   //operation of type 1 or 2 must end in ')'
-   if (_expression.charAt(_expression.length()-1) != ')') break;
-   if (operations[i].type > 0) {
-   
-   String operator = operations[i].operator;
-   int operatorLength = operator.length();
-   
-   //if start of expression is operator
-   if (_expression.length() < operatorLength) continue;
-   if (_expression.substring(0, operatorLength).equals(operations[i].operator)) {
-   operation = operations[i];
-   mathType = mathTypeFromOperatorIndex(i);
-   
-   //remove operator and parenthesis(start and end)
-   println("operator is: " + operator);
-   _expression = _expression.substring(operatorLength + 1, _expression.length() - 1);
-   println(_expression + "_ cut expression");
-   break;
-   }
-   }
-   }
-   
-   if (operation.type == 1) { //operation is of type 1_ $(x)
-   println("\nExpression is of type 1");
-   
-   for (int i = 0; i < valTypes.length; i++) {
-   if (valTypes[i].equals(_expression))
-   {
-   aValType = map(i, 0, valTypes.length, 0, 1);
-   bValType = random(1);
-   return;
-   }
-   }
-   
-   aNode = new Node(_expression);
-   aValType = random(1);
-   bValType = random(1);
-   return;
-   }
-   
-   if (operation.type == 2) { //operation is of type 2_ $(x, x)
-   println("\nExpression is of type 2");
-   
-   int mainCommaIndex = getMainCommaIndex(_expression);
-   
-   String[] expressionHalves = splitStringAtIndex(_expression, mainCommaIndex);
-   println(_expression);
-   println(expressionHalves);
-   
-   setupNodeFromExpressionHalves(expressionHalves);
-   return;
-   }
-   
-   println("ERROR: no operation found");
-   }
-   
-   void setupNodeFromExpressionHalves(String[] _expressionHalves) {
-   _expressionHalves[0] = removeStartAndEndParenthesis(_expressionHalves[0]);
-   _expressionHalves[1] = removeStartAndEndParenthesis(_expressionHalves[1]);
-   
-   for (int i = 0; i < valTypes.length; i++) { //left side of expression is a single value
-   if (valTypes[i].equals(_expressionHalves[0]))
-   {
-   aNode = null;
-   aValType = map(i, 0, valTypes.length, 0, 1);
-   break;
-   }
-   }
-   
-   if (aValType < 0)
-   {
-   aValType = random(1);
-   aNode = new Node(_expressionHalves[0]);
-   }
-   
-   for (int i = 0; i < valTypes.length; i++) { //right side of expression is a single value
-   if (valTypes[i].equals(_expressionHalves[1]))
-   {
-   bNode = null;
-   bValType = map(i, 0, valTypes.length, 0, 1);
-   break;
-   }
-   }
-   
-   if (bValType < 0)
-   {
-   bValType = random(1);
-   bNode = new Node(_expressionHalves[1]);
-   }
-   
-   }*/
-
+  //number of necessary children depends on function
   void checkNecessaryChildrenNodes() {
     int requiredArguments =  enabledOperations[getMathType(mathType)].getNumberArgumentsNeeded();
 
@@ -375,7 +294,7 @@ class Node {
   }
 
   void removeTooDeep() {
-    if (depth == maxDepth) {
+    if (depth == maxTreeDepth) {
       childrenNodes = new Node[0];
       mathType = -1;
     } else {
@@ -385,23 +304,44 @@ class Node {
     }
   }
 
-  String getScalarValueString(int _scalarIndex, boolean _cropped) { //retrieves string from normalized scalar values, from terminal set or value 0-1
+  //retrieves string from normalized scalar values, from terminal set or value 0-1
+  String getScalarValueString(int _scalarIndex, boolean _cropped) {
     float scalarValue = scalar[_scalarIndex];
 
     int nOptions = terminalSet.length + 1;
 
     float converter = scalarValue * nOptions;
 
-    if (converter > 1) { //if > 1 then we choose from terminal set
-      int terminalSetIndex = constrain(floor(converter - 1), 0, terminalSet.length -1);
+    //0 - l | is from terminal set
+    if (converter <= terminalSet.length) {
+      int terminalSetIndex =  constrain(floor(converter), 0, terminalSet.length -1);
       return terminalSet[terminalSetIndex];
-    } else { //else scalar is a value (0-1)
-      if (_cropped) {
-        return nf(converter, 0, 2);
-      } else {
-        return String.valueOf(converter);
+    }
+
+    //l - l+1 | is float
+    float val = converter - terminalSet.length;
+    if (_cropped) {
+      return nf(val, 0, 2);
+    } else {
+      return String.valueOf(val);
+    }
+  }
+
+  float getScalarValueFromString(String _value) {
+    _value = _value.trim();
+
+    int nOptions = terminalSet.length + 1;
+
+    for (int i = 0; i < terminalSet.length; i++) {
+      if (terminalSet[i].equals(_value)) {
+        float value = ((float)i/nOptions);
+        return value;
       }
     }
+
+    float parsedValue = Float.parseFloat(_value);
+
+    return (parsedValue + terminalSet.length) / nOptions * 1.0;
   }
 
   int getMathType(float _type) {
@@ -423,8 +363,8 @@ class Node {
   }
 
   float[] getRandomScalar() {
-    float[] toReturn = new float[3];
-    for (int i = 0; i < 3; i++) {
+    float[] toReturn = new float[scalar.length];
+    for (int i = 0; i < scalar.length; i++) {
       toReturn[i] = random(1);
     }
     return toReturn;

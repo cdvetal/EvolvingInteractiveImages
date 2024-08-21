@@ -100,12 +100,21 @@ SoundFile[] loadSongs() {
 
 
 Individual[] loadIndividuals() {
-  String directory = "/shaders";
+  String directory = "shaders";
 
   File f = dataFile(directory);
+  
+  // Check if the directory exists
+  if (f == null || !f.exists()) {
+    println("Directory not found: " + directory);
+    println("Ensure the shaders folder exists inside the 'data' directory.");
+    exit();
+  }
+  
   String[] names = f.list();
-
-  if (names.length < 1) {
+  
+  // Check if the names array is not null and has elements
+  if (names == null || names.length < 1) {
     println("No evolved shaders found");
     println("Place the evolved shaders inside data/shaders folder");
     exit();
