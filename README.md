@@ -58,10 +58,10 @@ May happen when using latest Processing Version (4.3 at the time of writing). Fo
 To fix this error you must change the dedicated graphics card when running Processing programs.  
 To do so on Windows follow [this guide](https://pureinfotech.com/set-gpu-app-windows-10/). Apply the highest performance setting on the file *java.exe* found at *processing\processing-4.2-windows-x64\processing-4.2\java\bin\java.exe* in your machine.
 
-**Mac - Could not run the sketch (Target VM failed to initialize)**  
-Unknown fix. Disabling camera as input may fix the issue.
+**MacOS - Could not run the sketch (Target VM failed to initialize)**  
+Unknown fix. Disabling camera as input may fix the issue (in *Evolver* by disabling bri in the function set).
 
-**Mac - Could not compile shaders**
+**MacOS - Could not compile shaders**  
 Mac operating system can only handle older versions of OpenGL. However, mewly created shaders using this system should work.
 
 ## Examples of static outputs
