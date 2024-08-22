@@ -1,7 +1,10 @@
 in vec4 gl_FragCoord;
 
 uniform vec2 resolution;
+uniform sampler2D image;
 uniform float externalVal;
+uniform int nVariables;
+uniform float variables[10];
 uniform float audioSpectrum[512];
 
 const float EPSILON = 1e-10;
@@ -42,14 +45,14 @@ float hash(float p) { p = fract(p * 0.011); p *= p + 7.5; p *= p + p; return fra
 float hash(vec2 p) {vec3 p3 = fract(vec3(p.xyx) * 0.13); p3 += dot(p3, p3.yzx + 3.333); return fract((p3.x + p3.y) * p3.z); }
 
 //noise from https://www.shadertoy.com/view/4dS3Wd
-float noise(float x) {
+float noi(float x) {
     float i = floor(x);
     float f = fract(x);
     float u = f * f * (3.0 - 2.0 * f);
     return mix(hash(i), hash(i + 1.0), u);
 }
 
-float noise(float x, float y) {
+float noi(float x, float y) {
     vec2 inVec = vec2(x,y);
     vec2 i = floor(inVec);
     vec2 f = fract(inVec);
@@ -63,7 +66,8 @@ float noise(float x, float y) {
 	return mix(a, b, u.x) + (c - a) * u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
 }
 
-float audio(float x, float y){
+//audio
+float aud(float x, float y){
     float center = x * audioSpectrum.length;
     float radius = (y * audioSpectrum.length) / 2;
     int minIndex = int(max(center - radius, 0));
@@ -78,10 +82,37 @@ float audio(float x, float y){
     return sum/(radius * 2);
 }
 
+float bri(float x, float y){ //brightness https://stackoverflow.com/questions/596216/formula-to-determine-perceived-brightness-of-rgb-color
+    float xFloor = floor(x);
+    float yFloor = floor(y);
+
+    float xRemainder = x - xFloor;
+    float yRemainder = y - yFloor;
+
+    if (int(xFloor) % 2 != 0) x = 1 - xRemainder; 
+    if (int(yFloor) % 2 != 0) y = 1 - yRemainder; 
+    
+    vec2 uv = vec2(x,y);
+    vec3 rgb = texture(image, uv).rgb;
+
+    float brightness = (0.2126*rgb.r + 0.7152*rgb.g + 0.0722*rgb.b);
+    return brightness;
+}
+
+float var(float x){
+    int varIndex = int(floor(x * nVariables));
+
+    if(varIndex >= nVariables){
+        varIndex = nVariables - 1;
+    }
+
+    return variables[varIndex];
+}
+
 vec3 generateRGB(float x, float y){
-    float r = x/y;
-    float g = r;
-    float b = r;
+    float r = tan((sin(max(sin(tan(var(x))),(cos(tan(((sin(min(y,y))-var(var(min(sin(min(y,0.46100467)),x))))*y)))-var((sin(min(x,x))-0.076333165)))))-y));
+    float g = tan((sin(max(sin(tan(var(y))),(cos(tan(((sin(min(0.56267005,x))-var(var(min(sin(min(0.4662044,x)),0.98497117))))*0.3638422)))-var((sin(min(y,x))-0.35750502)))))-x));
+    float b = tan((sin(max(sin(tan(var(y))),(cos(tan(((sin(min(y,y))-var(var(min(sin(min(0.6143342,x)),y))))*0.099137306)))-var((sin(min(x,x))-x)))))-x));
     return vec3(r,g,b);
 }
 

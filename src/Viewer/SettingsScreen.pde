@@ -3,7 +3,7 @@ class SettingsScreen {
   Slider nVariablesSlider;
   int previousNVariables;
 
-  String[] sourceJackLabels = {"mouseX", "mouseY", "sine", "perlin"};
+  String[] sourceJackLabels = {"mouseX", "mouseY", "sine", "perlin", "slider", "slider", "slider"};
   Jack[] sourceJacks = new Jack[sourceJackLabels .length];
   ArrayList<Jack> destinationJacks = new ArrayList<Jack>();
 
@@ -20,7 +20,8 @@ class SettingsScreen {
 
     for (int i = 0; i < sourceJacks.length; i++) {
       sourceJacks[i] = new Jack(sourceJackX, getJackY(i), true, i);
-      sourceJacks[i].setLabel(sourceJackLabels[i]);
+      if(sourceJackLabels[i].equals("slider")) sourceJacks[i].setSlider();
+      else sourceJacks[i].setLabel(sourceJackLabels[i]);
     }
 
     for (int i = 0; i < previousNVariables; i++) {
@@ -58,9 +59,15 @@ class SettingsScreen {
         }
       }
     }
+    
+    for (int i = 0; i < connections.size(); i ++) {
+      Connection currentConnection = connections.get(i);
+      currentConnection.show();
+      int destinationIndex = currentConnection.destination.index;
+      destinationJacks.get(destinationIndex).setLabel(nf(variablesManager.getVariable(destinationIndex), 0, 3));
+    }
 
     for (int i = 0; i < destinationJacks.size(); i++) {
-      destinationJacks.get(i).setLabel(nf(variablesManager.getVariable(i), 0, 3));
       destinationJacks.get(i).show();
       if (destinationJacks.get(i).detectHover()) {
         if (!connecting && mousePressed) {
@@ -77,10 +84,6 @@ class SettingsScreen {
 
     if (connecting) {
       ongoingConnection.show();
-    }
-
-    for (int i = 0; i < connections.size(); i ++) {
-      connections.get(i).show();
     }
   }
 
@@ -148,6 +151,10 @@ class SettingsScreen {
       if(!connections.get(i).checkConnected()) continue;
         variablesManager.switchType(connections.get(i).destination.index, connections.get(i).source.index);
     }
+  }
+  
+  float getSliderJackValue(int _index){
+    return sourceJacks[_index].getSliderValue();
   }
 
   float getJackY (int _index) {

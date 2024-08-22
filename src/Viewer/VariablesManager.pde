@@ -45,7 +45,7 @@ class VariablesManager { //Manages all the external info
 
   float getVariable (int _variableIndex) {
     float toReturn = 0;
-
+    
     switch(variableTypes[_variableIndex]) {
       case(0):
       toReturn = mouseX/float(width);
@@ -61,6 +61,12 @@ class VariablesManager { //Manages all the external info
       
       case(3):
       toReturn = noise(millis() * 0.0001 + 10000 * _variableIndex);
+      break;
+      
+    }
+    
+    if(variableTypes[_variableIndex] > 3){
+      toReturn = settingsScreen.getSliderJackValue(variableTypes[_variableIndex]);
     }
 
     return toReturn;

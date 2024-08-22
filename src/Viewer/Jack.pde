@@ -1,5 +1,7 @@
 class Jack { //point that gets connected (female)
 
+  Slider slider = null;
+ 
   float x, y, w = 16;
   int strokeWeight = 4;
 
@@ -16,6 +18,14 @@ class Jack { //point that gets connected (female)
   }
 
   void show() {
+    if(slider != null){
+     
+      pushMatrix();
+      translate(x - slider.w - gap, y + w/2);
+      slider.show();
+      popMatrix();
+      
+    }
     if (label != null) {
       fill(255);
       textSize(12);
@@ -36,6 +46,10 @@ class Jack { //point that gets connected (female)
     strokeWeight(strokeWeight);
     rect(x, y, w, w);
   }
+  
+  void setSlider(){
+    slider = new Slider(72);
+  }
 
   void setLabel(String _label) {
     label = _label;
@@ -46,12 +60,17 @@ class Jack { //point that gets connected (female)
   }
 
   boolean detectHover() {
-    if (mouseX < screenX(x - strokeWeight, 0))return false; //screenX and screenY because of matrix transformations
-    if (mouseX > screenX(x + w + strokeWeight, 0))return false;
+    if (mouseX < screenX(x - strokeWeight, 0)) return false; //screenX and screenY because of matrix transformations
+    if (mouseX > screenX(x + w + strokeWeight, 0)) return false;
     if (mouseY < screenY(0, y + strokeWeight)) return false;
     if (mouseY > screenY(0, y + w + strokeWeight)) return false;
 
     return true;
+  }
+  
+  float getSliderValue(){
+    if(slider == null) return 0;   
+    return slider.value;
   }
 }
 

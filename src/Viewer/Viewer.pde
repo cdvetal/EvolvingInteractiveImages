@@ -37,9 +37,10 @@ void setup() {
   exportCanvas.beginDraw(); //needed because bug - first export is empty
   exportCanvas.endDraw();
   
-  variablesManager = new VariablesManager(5);
+  variablesManager = new VariablesManager(7);
   individualScreen = new IndividualScreen();
   settingsScreen = new SettingsScreen();
+
 }
 
 void draw() {
