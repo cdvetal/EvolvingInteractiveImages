@@ -5,22 +5,17 @@
 //Left most person
 
 import java.util.*;
-import gab.opencv.*;
 import processing.video.*;
-import java.awt.Rectangle;
 
-boolean debugging = false;
+FnpDataReader reader;
+ArrayList<Body> bodies = new ArrayList<Body>();
+PImage frame = null;
 
-Capture cam;
-OpenCV openCV;
-PImage inputImage;
+PGraphics showCanvas;
 
 PImage qrCode;
 PFont light, medium;
 String infoText = "The installation shifts every 10 minutes between voting and displaying the top-voted result.\n\nTo vote, stand in front of the outputs you prefer.\n\nYou can also interact with certain outputs by moving around.";
-
-//boundaries to avoid detection on either side of camera feed, fine tune
-int detectionBoundary = 100;
 
 int nMonitors = 9;
 int lastChangeMinutes;
@@ -54,10 +49,10 @@ float maxScale = 1;
 float easing = 0.05;
 
 void settings() {
-  fnpSize(1749, 346, P2D);
+  fnpSize(1749, 346, JAVA2D);
   //fnpSize(1749, 900, P2D);
 
-  //fnpFullScreen(P2D);
+  //fnpFullScreen(JAVA2D);
 }
 
 void setup() {
@@ -65,7 +60,9 @@ void setup() {
   background(0);
   strokeCap(SQUARE);
 
-  cam = new Capture(this, 1280, 720);
+  reader = new FnpDataReader("camtop_image_roi_grayscale_full", "camtop_presences");
+  
+  showCanvas = createGraphics(1,1,P2D);
 
   qrCode = loadImage("qr_code_white.png");
   light = createFont("light.ttf", 128);
@@ -88,16 +85,8 @@ void setup() {
 }
 
 void draw() {
-  if (frameCount == 1) {
-    openCV = new OpenCV(this, 1280, 720);
-    //haar cascade from https://github.com/opencv/opencv/tree/master/data/haarcascades
-    openCV.loadCascade("haarcascade_profileface.xml");
-    cam.start();
-  }
 
   background(0);
-  cam.read();
-  inputImage = cam;
 
   int currentMinutes = minute();
   int currentSeconds = second();
@@ -116,7 +105,6 @@ void draw() {
   if (isSelecting) { //or if program running for less than 30 seconds
     isSelecting = true;
     doSelection();
-    openCV.loadImage(inputImage);
   } else {
     if (wasSelecting) {
       population.evolve();
@@ -159,6 +147,7 @@ void doSelection() {
     float targetScale = minScale;
 
     if (votes[i] > 0) {
+      println(i + "has " + votes[i] + " votes");
       if (scales[i] > minScale + (maxScale - minScale) * 0.9) {
         for (int j = 0; j < votes[i]; j++) {
           population.getIndividual(i).giveFitness();
@@ -169,11 +158,13 @@ void doSelection() {
 
     float scaleDiff = targetScale - scales[i];
     scales[i] += scaleDiff * easing;
+    
+    PImage currentIndividual = getPhenotype(floor(columns[i].z), floor(imageH/2), population.getIndividual(i).getShader());
+    image(currentIndividual, columns[i+1].x + columns[i+1].z * 0.5, border + imageH * 0.5, columns[i].z * scales[i], imageH * scales[i]);
 
-    PShader currentShader = population.getIndividual(i).getShader();
+    /*PShader currentShader = population.getIndividual(i).getShader();
     currentShader.set("nVariables", variablesManager.nVariables);
     currentShader.set("variables", variablesManager.getShaderReadyVariables());
-    currentShader.set("image", inputImage);
 
     noStroke();
     shader(currentShader);
@@ -183,20 +174,8 @@ void doSelection() {
     resetShader();
 
     if (debugging) text(nf(population.getIndividual(i).fitness, 0, 3), columns[i].x, border/2);
+    */
   }
-
-  if (!debugging) return;
-  openCV.loadImage(inputImage);
-  Rectangle[] detections = openCV.detect();
-  image(inputImage, 0, 0);
-  for (int i = 0; i < detections.length; i++) {
-    noFill();
-    stroke(255);
-    strokeWeight(10);
-    rect(detections[i].x, detections[i].y, detections[i].width, detections[i].height);
-  }
-  line(detectionBoundary, 0, detectionBoundary, inputImage.height);
-  line(inputImage.width - detectionBoundary, 0, inputImage.width - detectionBoundary, inputImage.height);
 }
 
 void doBest() {
@@ -215,26 +194,68 @@ void doBest() {
 }
 
 int[] getVotes() {
-  openCV.loadImage(inputImage);
-  Rectangle[] detections = openCV.detect();
-  PVector[] bodyCenters = rectangleToCenters(detections);
+  
+  PImage newFrame = reader.getValueAsPImage("camtop_image_roi_grayscale_full");
+  JSONObject presencesData = reader.getValueAsJSON("camtop_presences");
+
+  if (newFrame != null) {
+    frame = newFrame;
+  }
+  if (frame != null) {
+    if (presencesData != null) {
+      for (Body b : bodies) {
+        b.alive = false;
+      }
+      JSONArray presences = presencesData.getJSONArray("presences");
+      for (int i = 0; i < presences.size(); i++) {
+        JSONObject p = presences.getJSONObject(i);
+        String pId = p.getString("id");
+        JSONObject centroid = p.getJSONObject("centroid");
+        float cX = centroid.getFloat("x") * frame.width;
+        float cY = centroid.getFloat("y") * frame.height;
+        JSONObject bounds = p.getJSONObject("bounds");
+        float bX = bounds.getFloat("x") * frame.width;
+        float bY = bounds.getFloat("y") * frame.height;
+        float bW = bounds.getFloat("w") * frame.width;
+        float bH = bounds.getFloat("h") * frame.height;
+        boolean existingId = false;
+        for (Body b : bodies) {
+          if (b.id.equals(pId)) {
+            existingId = true;
+            b.alive = true;
+            b.update(cX, cY, bX, bY, bW, bH);
+            break;
+          }
+        }
+        if (!existingId) {
+          Body newBody = new Body(pId);
+          newBody.update(cX, cY, bX, bY, bW, bH);
+          bodies.add(newBody);
+        }
+      }
+      for (int i = bodies.size() - 1; i >= 0; i--) {
+        if (!bodies.get(i).alive) {
+          bodies.remove(i);
+        }
+      }
+    }
+  }
+  
+  
 
   int[] toReturn = new int[populationSize];
 
-  float w = (inputImage.width - detectionBoundary*2) / populationSize;
+  float w = (inputImage.width) / populationSize;
 
-  for (int i = 0; i < populationSize; i ++) {
-    for (int j = 0; j < bodyCenters.length; j++) {
-      if (bodyCenters[j].x < detectionBoundary || bodyCenters[j].x > inputImage.width - detectionBoundary) {
+  //i=1 because first panel has no individual
+  for (int i = 1; i < populationSize + 1; i ++) {
+    for (int j = 0; j < bodies.size(); j++) {
+      if (bodies.get(j).centroidX > w) {
         continue;
       }
-      if (bodyCenters[j].x > w * i && bodyCenters[j].x < w * (i + 1)) {
-        toReturn[i]++;
+      if (bodies.get(j).centroidX > w * i && bodies.get(j).centroidX < w * (i + 1)) {
+        toReturn[i-1]++;
       }
-    }
-
-    if (mouseX > w * i && mouseX < w * (i + 1)) {
-      toReturn[i]++;
     }
   }
 
