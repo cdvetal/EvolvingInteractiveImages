@@ -34,6 +34,7 @@ class SettingsScreen {
 
   void show() {
     background(10);
+    resetShader();
     
     fill(230);
     textAlign(LEFT, CENTER);
@@ -84,6 +85,14 @@ class SettingsScreen {
 
     if (connecting) {
       ongoingConnection.show();
+    }
+    
+    int maxLineHeight = 200;
+    float[] audioSpectrum = getAudioSpectrum();
+    stroke(255);
+    strokeWeight(1);
+    for(int i = 0; i < audioSpectrum. length; i++){
+       line(i, height, i, height - maxLineHeight * audioSpectrum[i]);
     }
   }
 

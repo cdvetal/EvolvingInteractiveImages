@@ -26,7 +26,14 @@ PImage getPhenotype(float _w, float _h, PShader _shader) {
 
 void exportImage(Individual _individualToExport) {
 
-  String outputPath = sketchPath("outputs/" + _individualToExport.file + "/");
+  String individualFileName = _individualToExport.file;
+
+  int lastSlashIndex = max(individualFileName.lastIndexOf('/'), individualFileName.lastIndexOf('\\'));
+
+  String afterLastSlash = individualFileName.substring(lastSlashIndex + 1);
+  
+
+  String outputPath = sketchPath("outputs/" + afterLastSlash + "/");
 
   PShader exportShader = _individualToExport.getShader();
 
@@ -101,32 +108,48 @@ SoundFile[] loadSongs() {
 
 Individual[] loadIndividuals() {
   String directory = "shaders";
-
   File f = dataFile(directory);
-  
+
   // Check if the directory exists
   if (f == null || !f.exists()) {
     println("Directory not found: " + directory);
     println("Ensure the shaders folder exists inside the 'data' directory.");
     exit();
   }
-  
-  String[] names = f.list();
-  
-  // Check if the names array is not null and has elements
-  if (names == null || names.length < 1) {
+
+  // Get all shader file paths from the main directory and its subdirectories
+  ArrayList<String> shaderPaths = new ArrayList<String>();
+  gatherShaderFiles(f, shaderPaths);
+
+  // Check if the shaderPaths list is not empty
+  if (shaderPaths.isEmpty()) {
     println("No evolved shaders found");
-    println("Place the evolved shaders inside data/shaders folder");
+    println("Place the evolved shaders inside data/shaders folder or its subdirectories");
     exit();
   }
-  //Collections.shuffle(Arrays.asList(names));
 
-  Individual[] individualsToReturn = new Individual[names.length];
+  Individual[] individualsToReturn = new Individual[shaderPaths.size()];
 
-  for (int i = 0; i < names.length; i++) {
-    PShader shader = loadShader(directory + "/" + names[i]);
-    individualsToReturn[i] = new Individual(shader, names[i]);
+  for (int i = 0; i < shaderPaths.size(); i++) {
+    PShader shader = loadShader(shaderPaths.get(i), "vertShaderTemplate.glsl");
+    String shaderName = shaderPaths.get(i).replace(directory + "/", "");
+    individualsToReturn[i] = new Individual(shader, shaderName);
   }
 
   return individualsToReturn;
+}
+
+// Helper function to recursively gather shader files
+void gatherShaderFiles(File dir, ArrayList<String> shaderPaths) {
+  File[] files = dir.listFiles();
+
+  for (File file : files) {
+    if (file.isDirectory()) {
+      // Recursively gather shaders from subdirectories
+      gatherShaderFiles(file, shaderPaths);
+    } else if (file.getName().endsWith(".glsl")) {
+      // Add shader file path if it has the .glsl extension
+      shaderPaths.add(file.getAbsolutePath());
+    }
+  }
 }

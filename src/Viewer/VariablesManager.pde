@@ -15,7 +15,7 @@ class VariablesManager { //Manages all the external info
 
     variableTypes = new int[nVariables];
     for(int i = 0; i < variableTypes.length; i++){
-      variableTypes[i] = 10;
+      variableTypes[i] = 2;
     }
   }
 
@@ -46,7 +46,7 @@ class VariablesManager { //Manages all the external info
   float getVariable (int _variableIndex) {
     float toReturn = 0;
     
-    switch(variableTypes[_variableIndex]) {
+    switch(variableTypes[_variableIndex]) {      
       case(0):
       toReturn = mouseX/float(width);
       break;
