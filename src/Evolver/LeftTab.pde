@@ -76,7 +76,7 @@ class LeftTab {
     textFont(fonts.get("medium"));
     textSize(14);
 
-    if (screen.equals("population")) {
+    if (false) {
       text("Aspect Ratio: " + nf(aspectRatio, 0, 2), 0, 0);
       translate(0, gap);
       aspectRatioController.show();

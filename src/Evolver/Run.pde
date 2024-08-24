@@ -144,8 +144,10 @@ class Run {
 
   void loadNext() {
     //find latest with ascendant = currentPopulationID
-    for (int i = 0; i < populationsJSON.size(); i++) {
+    for (int i = populationsJSON.size() - 1; i >= 0; i--) {
       JSONObject population = populationsJSON.getJSONObject(i);
+      
+      if(population == null) continue;
 
       if (population.getString("ascendantID") == currentPopulationID) {
         loadPopulation(population, false);

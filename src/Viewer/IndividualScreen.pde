@@ -4,7 +4,7 @@ class IndividualScreen {
 
   int individualIndex = 0;
 
-  float transitionTime = 1;
+  float transitionTime = 100;
   float transitionTimeLeft = 0;
   boolean transitionDirection;
   int lastFrameMillis;
@@ -13,7 +13,7 @@ class IndividualScreen {
     individuals = loadIndividuals();
   }
 
-  void show() {
+  void show(float _resolutionRatio) { //1 is best
     background(255, 0, 0);
 
     if (transitionTimeLeft <= 0) { //transitionTimeLeft <= 0
@@ -30,25 +30,25 @@ class IndividualScreen {
       
       //resetShader();
       
-      PImage shaderImage = getPhenotype(width/2, height/2, individuals[individualIndex].getShader());
+      PImage shaderImage = getPhenotype(width * _resolutionRatio, height * _resolutionRatio, individuals[individualIndex].getShader());
       image(shaderImage, 0, 0, width, height);
     } else {
       int timePassed = millis() - lastFrameMillis;
       transitionTimeLeft -= timePassed;
       lastFrameMillis = millis();
 
-      /*
+      
       float transitionRatio = transitionTimeLeft / transitionTime;
       float transparencyRatio = transitionRatio * 255;
 
       tint(255, 255 - transparencyRatio);
-      PImage shaderImageNext = getPhenotype(width, height, individuals[getNextIndex(transitionDirection)].getShader());
-      image(shaderImageNext, 0, 0);
+      PImage shaderImageNext = getPhenotype(width * _resolutionRatio, height * _resolutionRatio, individuals[getNextIndex(transitionDirection)].getShader());
+      image(shaderImageNext, 0, 0, width, height);
 
       tint(255, transparencyRatio);
-      PImage shaderImageCurrent = getPhenotype(width, height, individuals[individualIndex].getShader());
-      image(shaderImageCurrent, 0, 0);
-      */
+      PImage shaderImageCurrent = getPhenotype(width * _resolutionRatio, height * _resolutionRatio, individuals[individualIndex].getShader());
+      image(shaderImageCurrent, 0, 0, width, height);
+      
 
       if (transitionTimeLeft <= 0) {
         individualIndex = getNextIndex(transitionDirection);

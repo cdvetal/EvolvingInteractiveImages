@@ -154,6 +154,6 @@ void setInputImage() {
 
 void mouseReleased() {
   if (pressedButton == null) return;
-  pressedButton.selected();
+  if (pressedButton.detectHover() || pressedButton.hovered) pressedButton.selected();
   pressedButton = null;
 }

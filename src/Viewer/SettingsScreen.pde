@@ -33,7 +33,9 @@ class SettingsScreen {
   }
 
   void show() {
-    background(10);
+    noStroke();
+    fill(30, 200);
+    rect(0,0,width,height);
     resetShader();
     
     fill(230);
@@ -87,12 +89,14 @@ class SettingsScreen {
       ongoingConnection.show();
     }
     
+
     int maxLineHeight = 200;
     float[] audioSpectrum = getAudioSpectrum();
+    float gap = (float)width / audioSpectrum.length;
     stroke(255);
     strokeWeight(1);
     for(int i = 0; i < audioSpectrum. length; i++){
-       line(i, height, i, height - maxLineHeight * audioSpectrum[i]);
+       line(i*gap, height, i*gap, height - maxLineHeight * audioSpectrum[i]);
     }
   }
 

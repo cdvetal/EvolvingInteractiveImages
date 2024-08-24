@@ -70,25 +70,24 @@ void draw() {
     println(cameras);
     if (cameras.length == 0) { //camera is crashing - quick "fix" to use example image
       inputImage = loadImage("exampleImage.jpg");
-    } else if (cameras.length == 1) {
+    } else{
       cam = new Capture(this, 1280, 720);
       cam.start();
-      setInputImage();
-    } else if (cameras.length == 10) {
-      cam = new Capture(this, cameras[1]);
-      cam.start();
-      setInputImage();
     }
+
+    setInputImage();
 
     return;
   }
 
   setInputImage();
 
+
   if (!showingSettings) {
-    individualScreen.show();
+    individualScreen.show(0.5);
     noCursor();
   } else {
+    individualScreen.show(0.2);
     settingsScreen.show();
     cursor(ARROW);
   }

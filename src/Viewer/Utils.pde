@@ -64,7 +64,7 @@ float[] getAudioSpectrum() {
   float[] spectrum = new float[nBands];
   fft.analyze(spectrum);
   for(int i = 0; i < spectrum.length; i++){
-   spectrum[i] = pow(spectrum[i], 0.5); 
+   spectrum[i] = pow(spectrum[i], 0.7); 
   }
   return spectrum;
 }

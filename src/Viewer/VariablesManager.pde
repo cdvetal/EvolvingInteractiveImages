@@ -22,7 +22,7 @@ class VariablesManager { //Manages all the external info
   void switchType (int _variableIndex, int _newType) {
     variableTypes[_variableIndex] = _newType;
   }
-  
+   
   float[] getAllVariables () {
     float[] toReturn = new float[nVariables];
 
@@ -64,11 +64,11 @@ class VariablesManager { //Manages all the external info
       break;
       
       case(4):
-      toReturn = pow(soundAmplitude.analyze(), 0.25);
+      toReturn = soundAmplitude.analyze();
       break;
       
       case(5):
-      toReturn = 1.0 - pow(soundAmplitude.analyze(), 0.5);
+      toReturn = 1.0 - pow(soundAmplitude.analyze(), 0.6);
       break;
     }
     
