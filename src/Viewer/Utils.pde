@@ -63,6 +63,9 @@ void setInputImage() {
 float[] getAudioSpectrum() {
   float[] spectrum = new float[nBands];
   fft.analyze(spectrum);
+  for(int i = 0; i < spectrum.length; i++){
+   spectrum[i] = pow(spectrum[i], 0.5); 
+  }
   return spectrum;
 }
 

@@ -50,7 +50,7 @@ float easing = 0.05;
 
 void settings() {
   fnpSize(1749, 346, JAVA2D);
-  //fnpSize(1749, 900, P2D);
+
 
   //fnpFullScreen(JAVA2D);
 }
@@ -186,7 +186,6 @@ void doBest() {
   PShader currentShader = population.getIndividual(0).getShader();
   currentShader.set("nVariables", variablesManager.nVariables);
   currentShader.set("variables", variablesManager.getShaderReadyVariables());
-  currentShader.set("image", inputImage);
 
   shader(currentShader);
   rect(0, 0, width, height);

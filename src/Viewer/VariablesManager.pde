@@ -15,7 +15,7 @@ class VariablesManager { //Manages all the external info
 
     variableTypes = new int[nVariables];
     for(int i = 0; i < variableTypes.length; i++){
-      variableTypes[i] = 2;
+      variableTypes[i] = random(1)>0.5 ? 2 : 4;
     }
   }
 
@@ -63,9 +63,16 @@ class VariablesManager { //Manages all the external info
       toReturn = noise(millis() * 0.0001 + 10000 * _variableIndex);
       break;
       
+      case(4):
+      toReturn = pow(soundAmplitude.analyze(), 0.25);
+      break;
+      
+      case(5):
+      toReturn = 1.0 - pow(soundAmplitude.analyze(), 0.5);
+      break;
     }
     
-    if(variableTypes[_variableIndex] > 3){
+    if(variableTypes[_variableIndex] > 5){
       toReturn = settingsScreen.getSliderJackValue(variableTypes[_variableIndex]);
     }
 

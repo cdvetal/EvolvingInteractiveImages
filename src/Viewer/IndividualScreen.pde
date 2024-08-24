@@ -18,7 +18,7 @@ class IndividualScreen {
 
     if (transitionTimeLeft <= 0) { //transitionTimeLeft <= 0
       noTint();
-      PShader currentShader = individuals[individualIndex].getShader();
+      /*PShader currentShader = individuals[individualIndex].getShader();
       
       currentShader.set("nVariables", variablesManager.nVariables);
       currentShader.set("variables", variablesManager.getShaderReadyVariables());
@@ -26,12 +26,12 @@ class IndividualScreen {
       currentShader.set("image", inputImage);
       shader(currentShader);
       fill(255);
-      rect(0,0,width,height);
+      rect(0,0,width,height);*/
       
       //resetShader();
       
-      //PImage shaderImage = getPhenotype(width, height, individuals[individualIndex].getShader());
-      //image(shaderImage, 0, 0);
+      PImage shaderImage = getPhenotype(width/2, height/2, individuals[individualIndex].getShader());
+      image(shaderImage, 0, 0, width, height);
     } else {
       int timePassed = millis() - lastFrameMillis;
       transitionTimeLeft -= timePassed;

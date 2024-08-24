@@ -3,7 +3,7 @@ class SettingsScreen {
   Slider nVariablesSlider;
   int previousNVariables;
 
-  String[] sourceJackLabels = {"mouseX", "mouseY", "sine", "perlin", "slider", "slider", "slider"};
+  String[] sourceJackLabels = {"mouseX", "mouseY", "sine", "perlin", "amp", "1 - amp", "slider", "slider", "slider"};
   Jack[] sourceJacks = new Jack[sourceJackLabels .length];
   ArrayList<Jack> destinationJacks = new ArrayList<Jack>();
 
