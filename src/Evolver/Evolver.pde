@@ -67,7 +67,7 @@ int shaderChangeLineStart; //3 lines need changing (r,g,b)
 VariablesManager variablesManager;
 
 void setup() {
-  //size(1920, 1080, P2D);
+  //size(2560, 1440, P2D);
   fullScreen(P2D);
   colorMode(RGB, 1);
   
@@ -78,7 +78,7 @@ void setup() {
 
   String[] cameras = Capture.list();
   if (cameras.length == 0) {
-    inputImage = loadImage("placeholder.jpg");
+    inputImage = loadImage("placeholder.png");
   } else {
     cam = new Capture(this, 1280, 720);
     cam.start();

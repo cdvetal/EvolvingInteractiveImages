@@ -1,5 +1,5 @@
 /*
-Using Voice Meeter Banana and VB-Cables to route pc audio to Processing
+Using Voice Meeter Banana to route pc audio to Processing
  */
 
 import java.util.*;

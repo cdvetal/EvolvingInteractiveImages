@@ -36,7 +36,9 @@ void exportImage(Individual _individualToExport) {
   //PImage image = getPhenotype(imageExportResolution, imageExportResolution, _individualToExport.getShader(), variablesManager.getShaderReadyVariables(), getAudioSpectrum());
   //image.save(outputPath + "img.png");
 
-  exportImage.save(outputPath + "img.png");
+  int randomNumber = floor(random( 10000, 99999));
+
+  exportImage.save(outputPath + randomNumber +".png");
 
   popup.setPopup("Exported");
 }
@@ -87,7 +89,7 @@ PImage getPhenotype(float _w, float _h, PShader _shader, float[] _variables, flo
   _shader.set("nVariables", _variables.length);
   _shader.set("variables", _variables);
   _shader.set("audioSpectrum", _audioSpectrum);
-  _shader.set("image", inputImage);
+  if(inputImage != null) _shader.set("image", inputImage);
 
   showCanvas.beginDraw();
 
@@ -200,7 +202,8 @@ void togglePauseSong() {
   if (soundFiles[soundIndex].isPlaying()) {
     soundFiles[soundIndex].pause();
   } else {
-    soundFiles[soundIndex].play();
+    soundFiles[soundIndex].loop();
+    fft.input(soundFiles[soundIndex]);
   }
 }
 

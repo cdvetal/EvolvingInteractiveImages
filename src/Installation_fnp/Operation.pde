@@ -62,7 +62,6 @@ Operation[] setupOperations(){
   operationsToReturn.add(new Operation(1, "tan", true, "Tangent"));
   operationsToReturn.add(new Operation(1, "var", true, "Variables"));
   operationsToReturn.add(new Operation(1, "var", true, "Variables"));
-  operationsToReturn.add(new Operation(1, "var", true, "Variables"));
 
   //operationsToReturn.add(new Operation(2, "aud", true, "Sound"));
   //operationsToReturn.add(new Operation(2, "aul", false, "Sound - lows"));
@@ -71,7 +70,7 @@ Operation[] setupOperations(){
   operationsToReturn.add(new Operation(2, "max", true, "Maximum"));
   operationsToReturn.add(new Operation(2, "min", true, "Minimum"));
   //operationsToReturn.add(new Operation(2, "noi", true, "Perlin noise"));
-  //operationsToReturn.add(new Operation(2, "mod", true, "Modulo"));
+  operationsToReturn.add(new Operation(2, "mod", true, "Modulo"));
   operationsToReturn.add(new Operation(2, "pow", true, "Power"));  
   
   

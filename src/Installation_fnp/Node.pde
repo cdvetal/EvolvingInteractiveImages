@@ -54,7 +54,7 @@ class Node {
     mathType = random(1);
 
     //decide if node will have children or not
-    if (random(1) > .3 && depth < maxTreeDepth - 1 && _tocreateChildren) {
+    if ((random(1) > .3 || depth < maxTreeDepth/2) && depth < maxTreeDepth - 1 && _tocreateChildren) {
       mathType = random(1);
     } else {
       mathType = -1;

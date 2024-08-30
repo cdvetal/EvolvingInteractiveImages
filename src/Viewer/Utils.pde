@@ -49,7 +49,9 @@ void exportImage(Individual _individualToExport) {
 
   PImage exportImage = exportCanvas.copy();
 
-  exportImage.save(outputPath + "img.png");
+  int randomNumber = floor(random(10000, 99999));
+
+  exportImage.save(outputPath + randomNumber +".png");
 }
 
 void setInputImage() {

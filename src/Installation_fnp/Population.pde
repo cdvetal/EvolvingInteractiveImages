@@ -93,13 +93,16 @@ class Population {
     );
   }
 
-  void previousPopulation() {
-  }
+  Individual getBestIndividual() {
+    Individual bestIndividual = individuals[0];
 
-  void nextPopulation() {
-  }
+    for (int i = 1; i < individuals.length; i++) {
+      if (individuals[i].getFitness() > bestIndividual.getFitness()) {
+        bestIndividual = individuals[i];
+      }
+    }
 
-  void loadPopulation() {
+    return bestIndividual;
   }
 
   Individual getIndividual(int i) {

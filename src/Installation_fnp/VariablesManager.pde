@@ -2,7 +2,7 @@ class VariablesManager { //Manages all the external info
 
   int shaderVariablesArraySize = 10;
   int nVariables;
-  int variableTypes[]; //controls the type of each variable. //-1  manual; 0  mouseX; 1  mouseY; 2  sine wave; 3 perlin
+  int variableTypes[]; //controls the type of each variable.
 
   VariablesManager(int _nVariables) {
     if(_nVariables > shaderVariablesArraySize) _nVariables = shaderVariablesArraySize;
@@ -40,19 +40,21 @@ class VariablesManager { //Manages all the external info
 
     switch(variableTypes[_variableIndex]) {
       case(0):
-      toReturn = mouseX/float(width);
+      toReturn = getBodyXAverageNormalised();
       break;
 
       case(1):
-      toReturn = mouseY/float(height);
-      break;
-
-      case(2):
-      toReturn = map(sin((float)millis()/1000), -1, 1, 0, 1);
+      toReturn = bodies.size() / (float)maxBodies;
       break;
       
-      case(3):
+      case(2):
       toReturn = noise(millis() * 0.0001 + 10000 * _variableIndex);
+      
+      case(3):
+      toReturn = map(sin((float)millis()/1000), -1, 1, 0, 1);
+      
+      case(4):
+      toReturn = getBodyYAverageNormalised();
     }
 
     return toReturn;

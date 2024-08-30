@@ -2,7 +2,7 @@ void exportImage(Individual _individualToExport) {
 
   String outputPath = sketchPath("outputs/" + _individualToExport.getID() + "/");
 
-  PImage image = getPhenotype(imageExportResolution, imageExportResolution, _individualToExport.getShader());
+  PImage image = getPhenotype(floor(width/4), floor(height/4), _individualToExport.getShader());
   PImage toExport = image.copy();
   
   toExport.save(outputPath + "img.png");
@@ -15,7 +15,7 @@ void exportShader(Individual _individualToExport) {
 }
 
 void exportShader(Node _node, String _name) {
-  String outputPath = sketchPath("outputs/" + _name + "_" + month() + "_" + day() + "/");
+  String outputPath = sketchPath("outputs/" + _name + "/");
 
   String[] shaderStrings = getShaderTextLines(_node);
 
@@ -55,6 +55,8 @@ PImage getPhenotype(float _w, float _h, PShader _shader) {
   int h = floor(_h);
   if(showCanvas.width != w || showCanvas.height != h){
     showCanvas = createGraphics(w,h,P2D); 
+    showCanvas.beginDraw();
+    showCanvas.endDraw();
   }
 
   _shader.set("nVariables", variablesManager.nVariables);
@@ -220,18 +222,6 @@ int floatCompare(float a, float b) {
   return 0;
 }
 
-PVector[] rectangleToCenters(Rectangle[] _rectangles){
-  PVector[] toReturn = new PVector[_rectangles.length];
-  
-  for(int i = 0; i < _rectangles.length; i ++){
-    float centerX = _rectangles[i].x + _rectangles[i].width / 2;
-    float centerY = _rectangles[i].y + _rectangles[i].height / 2;
-    
-    toReturn[i] = new PVector(centerX, centerY);
-  }
-  
-  return toReturn;
-}
 
 int findLineToChangeInShader(String[] _shaderTemplateStrings) {
   String lineStartString = "float r = ";
