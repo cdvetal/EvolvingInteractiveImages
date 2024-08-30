@@ -61,7 +61,6 @@ Evolver is the core of the system. It is where you create your imagery.
   │   ├── Evolver
   │   │   ├── Evolver.pde
 
-
 #### GUI
 
 <img src="GitMedia/evolver_setup_screen.png" width="100%">
