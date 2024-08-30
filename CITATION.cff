@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 authors:
-  - family-names: Santos
+  - family-names: Cristóvão
     given-names: João
     orcid: https://orcid.org/0000-0001-8013-8226
   - family-names: Martins
@@ -12,4 +12,4 @@ authors:
 title: "Evolving Interactive Images"
 version: 1.0
 date-released: 2023-09-17
-url: "https://github.com/JoaoMariaSantos/EvolvingInteractiveImages"
+url: "https://github.com/cdvetal/EvolvingInteractiveImages"
