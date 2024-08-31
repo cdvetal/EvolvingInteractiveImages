@@ -70,7 +70,7 @@ Evolver is the core of the system. It is where you create your imagery.
 ### Viewer
 
 - **Description**: Viewer is the program where you can visualize evolved imagery.
-- **Instructions**: Drag the files of type  `.glsl` from folder `src > Evolver > outputs` into folder `src > viewer > shaders`.
+- **Instructions**: Drag the files of type  `.glsl` from folder `src > Evolver > outputs` into folder `src > viewer > data > shaders`. If the folder *shaders* does not exist, create it.
 - **Location**:
   ```plaintext
   ├── src
