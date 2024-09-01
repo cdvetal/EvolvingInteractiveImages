@@ -13,7 +13,7 @@ Or learn more about the system by following the provided *Modules*.
 
 ## Watch the videos
 
-[<img src="GitMedia/demo_cover.png" width="50%">]()  
+[<img src="GitMedia/demo_cover.png" width="50%">](https://youtu.be/qUOXpJysBAg)  
 
 
 [<img src="GitMedia/visual_performance_cover.png" width="50%">](https://www.youtube.com/watch?v=_cYH_BOW8f8)  
