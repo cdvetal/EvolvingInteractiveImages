@@ -169,9 +169,9 @@ float div(float a, float b){
 }
 
 vec3 generateRGB(float x, float y){
-    float r = add(aud(x,x),0.5464945);
-    float g = add(aud(x,y),y);
-    float b = add(aud(y,0.64415216),y);
+    float r = pow(max(y,x),add(add(pow(y,add(max(sin(x),0.44934845),min(max(sin(add(sub(pow(x,y),pow(0.059648514,0.6648965)),pow(y,aud(y,0.713866)))),add(pow(0.18540525,bri(bri(0.63119125,div(x,bri(y,div(x,y)))),sin(x))),y)),min(0.45264912,tan(bri(cos(bri(aud(y,sin(tan(y))),mul(bri(sub(y,x),max(y,y)),cos(sub(y,y))))),y)))))),y),sin(pow(add(bri(sub(mul(sub(0.24454689,x),add(0.25155258,0.4822743)),aud(0.6538689,mul(tan(sub(div(mul(bri(0.7980819,x),aud(0.7895479,x)),min(bri(x,y),bri(y,x))),div(max(min(x,x),0.30416727),bri(min(x,y),max(x,0.7487385))))),min(x,x)))),0.8930106),y),y))));
+    float g = pow(max(y,0.8223839),add(add(pow(x,add(max(sin(0.977942),x),min(max(sin(add(sub(pow(x,x),pow(0.14169264,0.4931891)),pow(0.6315551,aud(0.6828072,x)))),add(pow(x,bri(bri(0.14748454,div(x,bri(x,div(y,0.7493782)))),sin(0.606967))),y)),min(0.65063214,tan(bri(cos(bri(aud(y,sin(tan(y))),mul(bri(sub(0.7090137,x),max(0.8296094,y)),cos(sub(0.9710493,x))))),0.9101906)))))),y),sin(pow(add(bri(sub(mul(sub(x,0.9557524),add(y,x)),aud(x,mul(tan(sub(div(mul(bri(x,y),aud(y,x)),min(bri(0.266721,x),bri(y,x))),div(max(min(x,y),0.3782401),bri(min(0.7606182,x),max(y,x))))),min(x,y)))),y),0.53210163),y))));
+    float b = pow(max(y,y),add(add(pow(y,add(max(sin(y),y),min(max(sin(add(sub(pow(x,x),pow(x,0.59289074)),pow(x,aud(0.8768079,0.15438914)))),add(pow(y,bri(bri(x,div(0.70164967,bri(0.49199033,div(0.60856295,0.74793196)))),sin(x))),0.5582807)),min(x,tan(bri(cos(bri(aud(x,sin(tan(0.23317862))),mul(bri(sub(0.48097348,0.9591179),max(0.53911567,x)),cos(sub(x,y))))),y)))))),y),sin(pow(add(bri(sub(mul(sub(x,y),add(x,0.48897028)),aud(0.93266773,mul(tan(sub(div(mul(bri(x,x),aud(y,y)),min(bri(x,x),bri(x,y))),div(max(min(x,0.38498926),x),bri(min(0.954257,0.40080786),max(0.49922395,y))))),min(0.95080566,x)))),x),0.8280399),y))));
     return vec3(r,g,b);
 }
 

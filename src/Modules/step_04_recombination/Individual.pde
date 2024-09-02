@@ -57,7 +57,6 @@ class Individual {
   void identifyNodes() {
     nChildNodes = 0;
     tree.identify(this, 0);
-    println(nChildNodes);
   }
 
 

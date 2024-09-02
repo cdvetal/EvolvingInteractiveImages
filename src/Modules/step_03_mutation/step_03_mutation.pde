@@ -4,6 +4,7 @@ STEP 03 - MUTATION
 Produces a random output and then mutates it.
 
 Press mouse to mutate Individual.
+Press a key to create a nnew random individual.
 
 If machine has no camera, it is replaced by a placeholder image.
 
@@ -86,4 +87,8 @@ void mouseReleased() {
   //mutate individual
   individual.mutate();
   println("Mutated Individual");
+}
+
+void keyPressed(){
+  individual = new Individual();
 }
