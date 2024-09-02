@@ -6,45 +6,38 @@ Operations (or Functions) that make up the function set.
 
 class Operation{
   
-    /*
-    types:
-    0_ x $ x
-    1_ $(x)
-    2_ $(x, x)
-    */
   
-    int type;
+    int nArguments;
     String operator;
     String explanation;
     boolean defaultToggle = true;
     
-    Operation(int _type, String _operator){
-      type = _type;
+    Operation(int _nArguments, String _operator){
+      nArguments = _nArguments;
       operator = _operator;
     }
     
-    Operation(int _type, String _operator, String _explanation){
-      type = _type;
+    Operation(int _nArguments, String _operator, String _explanation){
+      nArguments = _nArguments;
       operator = _operator;
       explanation = _explanation;
     }
     
-    Operation(int _type, String _operator, boolean _toggle){
-      type = _type;
+    Operation(int _nArguments, String _operator, boolean _toggle){
+      nArguments = _nArguments;
       operator = _operator;
       defaultToggle = _toggle;
     }
     
-    Operation(int _type, String _operator, boolean _toggle, String _explanation){
-      type = _type;
+    Operation(int _nArguments, String _operator, boolean _toggle, String _explanation){
+      nArguments = _nArguments;
       operator = _operator;
       defaultToggle = _toggle;
       explanation = _explanation;
     }
     
     int getNumberArgumentsNeeded(){
-      if(type == 0 || type == 2) return 2;
-      else return 1;
+      return nArguments;
     }
 }
 
@@ -68,6 +61,11 @@ Operation[] setupOperations(){
   operationsToReturn.add(new Operation(1, "tan", true, "Tangent"));
   operationsToReturn.add(new Operation(1, "var", true, "Variables"));
 
+  
+  operationsToReturn.add(new Operation(2, "xor", true, "XOR"));
+  operationsToReturn.add(new Operation(3, "iff", true, "If"));
+  operationsToReturn.add(new Operation(1, "sqr", true, "Square root"));
+  
   operationsToReturn.add(new Operation(2, "aud", true, "Sound"));
   operationsToReturn.add(new Operation(2, "aul", false, "Sound - lows"));
   operationsToReturn.add(new Operation(2, "auh", false, "Sound - highs"));

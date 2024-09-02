@@ -180,7 +180,7 @@ class Node {
     Operation operation = getOperation();
 
     //if operation if of type opt(xxxxxx)
-    if (operation.type != 0) {
+    if (operation.nArguments != 0) {
       finalString += enabledOperations[getMathType(mathType)].operator;
     }
 
@@ -221,7 +221,7 @@ class Node {
     Operation operation = getOperation();
 
     //if operation if of type opt(xxxxxx)
-    if (operation.type != 0) {
+    if (operation.nArguments != 0) {
       finalString += enabledOperations[getMathType(mathType)].operator;
     }
 

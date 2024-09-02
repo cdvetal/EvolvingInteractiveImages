@@ -121,8 +121,8 @@ float bri(float x, float y) {
     return brightness;
 }
 
-float var(float x) {
-    int varIndex = int(round(x * float(nVariables)));
+float var(float a) {
+    int varIndex = int(round(a * float(nVariables)));
 
     if (varIndex >= nVariables) {
         varIndex = nVariables - 1;
@@ -130,6 +130,18 @@ float var(float x) {
 
     return variables[varIndex];
 }
+
+float xor(float a, float b){
+    if(a != b) return 1;
+    return 0;
+}
+
+float iff(float a, float b, float c){
+    if(a > 0.5) return b;
+    return c;
+}
+
+float sqr(float a){ return sqrt(a); }
 
 float add(float a, float b) { return a + b; }
 
