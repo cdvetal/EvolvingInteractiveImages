@@ -13,7 +13,7 @@ Or learn more about the system by following the provided *Modules*.
 
 ## Watch the videos
 
-[<img src="GitMedia/demo_cover.png" width="50%">]()  
+[<img src="GitMedia/demo_cover.png" width="50%">](https://youtu.be/qUOXpJysBAg)  
 
 
 [<img src="GitMedia/visual_performance_cover.png" width="50%">](https://www.youtube.com/watch?v=_cYH_BOW8f8)  
@@ -70,7 +70,7 @@ Evolver is the core of the system. It is where you create your imagery.
 ### Viewer
 
 - **Description**: Viewer is the program where you can visualize evolved imagery.
-- **Instructions**: Drag the files of type  `.glsl` from folder `src > Evolver > outputs` into folder `src > viewer > shaders`.
+- **Instructions**: Drag the files of type  `.glsl` from folder `src > Evolver > outputs` into folder `src > viewer > data > shaders`. If the folder *shaders* does not exist, create it.
 - **Location**:
   ```plaintext
   ├── src
