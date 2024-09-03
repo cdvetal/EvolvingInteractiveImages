@@ -59,22 +59,27 @@ Operation[] setupOperations(){
   operationsToReturn.add(new Operation(1, "sin", true, "Sine"));
   operationsToReturn.add(new Operation(1, "cos", true, "Cosine"));
   operationsToReturn.add(new Operation(1, "tan", true, "Tangent"));
-  operationsToReturn.add(new Operation(1, "var", true, "Variables"));
 
   
   operationsToReturn.add(new Operation(2, "xor", true, "XOR"));
-  operationsToReturn.add(new Operation(3, "iff", true, "If"));
+  operationsToReturn.add(new Operation(3, "ife", true, "If, else"));
+  operationsToReturn.add(new Operation(2, "iff", true, "If"));
   operationsToReturn.add(new Operation(1, "sqr", true, "Square root"));
   
+  operationsToReturn.add(new Operation(2, "max", true, "Maximum"));
+  operationsToReturn.add(new Operation(2, "min", true, "Minimum"));
+  
+  operationsToReturn.add(new Operation(1, "abs", true, "Absolute"));
+  
+  operationsToReturn.add(new Operation(2, "noi", true, "Perlin noise"));
+  operationsToReturn.add(new Operation(2, "mod", false, "Modulo"));
+  operationsToReturn.add(new Operation(2, "pow", true, "Power"));  
+  
+  operationsToReturn.add(new Operation(1, "var", true, "Variables"));
   operationsToReturn.add(new Operation(2, "aud", true, "Sound"));
   operationsToReturn.add(new Operation(2, "aul", false, "Sound - lows"));
   operationsToReturn.add(new Operation(2, "auh", false, "Sound - highs"));
-  operationsToReturn.add(new Operation(2, "bri", false, "Camera"));
-  operationsToReturn.add(new Operation(2, "max", true, "Maximum"));
-  operationsToReturn.add(new Operation(2, "min", true, "Minimum"));
-  operationsToReturn.add(new Operation(2, "noi", true, "Perlin noise"));
-  operationsToReturn.add(new Operation(2, "mod", true, "Modulo"));
-  operationsToReturn.add(new Operation(2, "pow", true, "Power"));  
+  operationsToReturn.add(new Operation(2, "bri", true, "Camera"));
   
   Operation[] operationsToReturnList = new Operation[operationsToReturn.size()];
   

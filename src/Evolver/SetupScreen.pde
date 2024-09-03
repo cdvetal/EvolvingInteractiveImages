@@ -118,11 +118,11 @@ class SetupScreen {
     //Function Set
     pushMatrix();
 
-    translate(columns[7].x, border);
+    translate(columns[5].x, border);
 
     noStroke();
     fill(colors.get("surface"));
-    rect(0, 0, columns[0].z*2 + gap, height - border - border);
+    rect(0, 0, columns[0].z*4 + gap*3, height - border - border);
 
     translate(gap, gap);
 
@@ -249,8 +249,16 @@ class OperationController {
   OperationController() {
     operationToggles = new ToggleButton[operations.length];
 
+    int indexChangeColumns = 16;
+
     for (int i = 0; i < operationToggles.length; i++) {
-      operationToggles[i] = new ToggleButton(0, i * gap * 2);
+      if(i <= indexChangeColumns){
+        float currentY = i * gap * 2;
+        operationToggles[i] = new ToggleButton(0, currentY);
+      } else {
+        float currentY = (i-indexChangeColumns - 1) * gap * 2;
+        operationToggles[i] = new ToggleButton((columns[0].z + gap) * 2, currentY);
+      }
       operationToggles[i].toggled = operations[i].defaultToggle;
     }
   }
