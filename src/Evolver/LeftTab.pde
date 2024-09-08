@@ -91,7 +91,6 @@ class LeftTab {
     text("Output Dimensions", 0, 0);
     translate(0, gap);
     dimensionsController.show();
-    //println(1.0* dimensionsController.getWidth()/dimensionsController.getHeight());
     aspectRatio = 1.0* dimensionsController.getWidth()/dimensionsController.getHeight();
     imageExportWidth = dimensionsController.getWidth();
     imageExportHeight = dimensionsController.getHeight();
@@ -324,7 +323,6 @@ class DimensionsController {
     heightSlider = new Slider(columns[1].z - gap);
     heightSlider.value = sliderValue;
     
-    println(sliderValue);
   }
   
   void show(){

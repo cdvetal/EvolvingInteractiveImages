@@ -137,6 +137,7 @@ class Run {
 
       if (population.getString("id").equals(ascendantID)) {
         loadPopulation(population, false);
+        popup.setPopup("Loaded Previous Generation");
         return;
       }
     }
@@ -151,13 +152,13 @@ class Run {
 
       if (population.getString("ascendantID") == currentPopulationID) {
         loadPopulation(population, false);
+        popup.setPopup("Loaded Next Generation");
         return;
       }
     }
     
     //not found
     popup.setPopup("Next Generation not found");
-    
   }
 
   JSONObject getParameters() {

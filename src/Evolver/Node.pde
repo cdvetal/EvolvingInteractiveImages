@@ -381,7 +381,7 @@ class Node {
 
     int requiredArguments =  enabledOperations[getMathType(mathType)].getNumberArgumentsNeeded();
 
-    String[] nodeExpressions = splitExpressionAtMainComma(inParenthesis);
+    String[] nodeExpressions = splitExpressionAtMainCommas(inParenthesis);
 
     childrenNodes = new Node[requiredArguments];
 
@@ -397,31 +397,31 @@ class Node {
 
   //split expression at main comma
   //Example: sin(0.5),aud(x,y) becomes ["sin(0.5)", "aud(x,y)"]
-  String[] splitExpressionAtMainComma(String _string) {
+  String[] splitExpressionAtMainCommas(String _string) {
     int parenthesisValue = 0;
-    int mainCommaIndex = -1;
+    List<String> parts = new ArrayList<>();
+    int lastSplitIndex = 0;
 
     for (int i = 0; i < _string.length(); i++) {
-
       char currentCharacter = _string.charAt(i);
 
       if (currentCharacter == '(') {
-        parenthesisValue ++;
+        parenthesisValue++;
       } else if (currentCharacter == ')') {
-        parenthesisValue --;
+        parenthesisValue--;
       } else if (currentCharacter == ',' && parenthesisValue == 0) {
-        mainCommaIndex = i;
+        // When at top-level comma, split the expression.
+        parts.add(_string.substring(lastSplitIndex, i).trim());
+        lastSplitIndex = i + 1;
       }
     }
 
-    if (mainCommaIndex != -1) {
-      String leftPart = _string.substring(0, mainCommaIndex);
-      String rightPart = _string.substring(mainCommaIndex + 1);
-      return new String[] { leftPart.trim(), rightPart.trim() };
-    } else {
-      // If no main comma is found, return the original expression as a single part.
-      return new String[] { _string };
+    // Add the last part (or entire string if no top-level commas)
+    if (lastSplitIndex < _string.length()) {
+      parts.add(_string.substring(lastSplitIndex).trim());
     }
+
+    return parts.toArray(new String[0]);
   }
 
   float getMathTypeValueFromString(String _functionString, boolean _allOperations) {

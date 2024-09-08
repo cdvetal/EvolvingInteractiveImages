@@ -22,11 +22,9 @@ class Population {
     }
     nGenerations = _nGenerations;
     //sortIndividualsByFitness();
-    println("LOADED POPULATION AT GENERATION: " + nGenerations);
   }
 
   void initialize() {
-    println(maxTreeDepth);
     
     for (int i = 0; i < individuals.length; i++) {
       individuals[i] = new Individual();
