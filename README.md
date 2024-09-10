@@ -13,13 +13,13 @@ Or learn more about the system by following the provided *Modules*.
 
 ## Watch the videos
 
-[<img src="GitMedia/demo_cover.png" width="50%">](https://youtu.be/qUOXpJysBAg)  
+[<img src="GitMedia/demo_cover.png" width="50%">](https://youtu.be/_Pn5RjSqc-I)  
 
 
-[<img src="GitMedia/visual_performance_cover.png" width="50%">](https://www.youtube.com/watch?v=_cYH_BOW8f8)  
+[<img src="GitMedia/visual_performance_cover.png" width="50%">](https://youtu.be/pQXD_Mx674Y)  
 
 
-[<img src="GitMedia/evaluation_compilation_cover.png" width="50%">](https://youtu.be/OE8MPBrM1KE?si=NDAiZZutvx5NqRxL)  
+[<img src="GitMedia/evaluation_compilation_cover.png" width="50%">](https://youtu.be/MB5WnB--1-w)  
 
 
 ## Prerequisites
