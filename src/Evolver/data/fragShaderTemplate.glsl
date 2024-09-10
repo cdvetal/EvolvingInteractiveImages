@@ -136,9 +136,14 @@ float xor(float a, float b){
     return 0;
 }
 
-float iff(float a, float b, float c){
+float ife(float a, float b, float c){
     if(a > 0.5) return b;
     return c;
+}
+
+float iff(float a, float b){
+    if(a > b) return 1;
+    return 0;
 }
 
 float sqr(float a){ return sqrt(a); }
