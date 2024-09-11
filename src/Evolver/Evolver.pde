@@ -78,7 +78,7 @@ void setup() {
 
   String[] cameras = Capture.list();
   if (cameras.length == 0) {
-    inputImage = loadImage("placeholder.png");
+    inputImage = loadImage("placeholder.jpg");
   } else {
     cam = new Capture(this, 1280, 720);
     cam.start();
@@ -150,6 +150,12 @@ void setInputImage() {
 
   cam.read();
   inputImage = cam;
+}
+
+void keyPressed() {
+  if (key == ESC) {
+    key = 0; //ignore esc to exit program
+  }
 }
 
 void mouseReleased() {
